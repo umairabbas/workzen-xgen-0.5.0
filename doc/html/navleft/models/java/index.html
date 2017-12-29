@@ -1,0 +1,88 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="file:///D:\Project\workzen.xgen/doc/html/navleft/css/website.css">
+<title>XGen</title>
+</head>
+<body>
+<h1 class="title">XGen</h1>
+<table class="menu">
+<tr class="menu">
+<td class="menu" valign="top">
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/index.html">home</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/index.html">technical</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/index.html">models</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/database/index.html">database</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/index.html">java</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/textfile/index.html">textfile</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/website/index.html">website</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/xml/index.html">xml</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/index.html">input</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/output/index.html">output</a></div>
+        </div> 
+  <div class="space"> </div>
+</td>
+<td class="body" valign="top">
+<div class="content">
+<html>
+<h2>Java Package Model</h2>
+<p>The workzen.xgen.model.Package class models a standard Java object oriented model. It provides accessors to 
+all OO elements: classes, attributes, contained objects and references.</p>
+
+<p><img border="0" src="images/uml.gif" width="735" height="349"></p>
+<h3>Input</h3>
+<p>A java model could be created from a number of sources; manually, using 
+introspection, using an rdbms schema, or an xml file.</p>
+<table border="1" width="0%" id="table1">
+	<tr>
+		<th width="50%">input</th>
+		<th>loader</th>
+	</tr>
+	<tr>
+		<td width="50%"><a href="input/xml_schema.html">xml schema</a></td>
+		<td>workzen.xgen.loader.JavaModelXmlLoader</td>
+	</tr>
+</table>
+<h3>Output</h3>
+<p><i>workzen.xgen.engine.VelocityProcessor</i></p>
+<table border="1" width="0%" id="table2">
+	<tr>
+		<th width="50%" nowrap>output</th>
+		<th>template</th>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/jdbc_table.html">JDBC table 
+		classes</a></td>
+		<td>templates/persistence/manager/control_table.vm</td>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/jdbc_mgr.html">JDBC mgr classes</a></td>
+		<td>templates/persistence/manager/control_manager.vm</td>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/xml.html">XML schema</a></td>
+		<td>templates/schema/package2xgen.vm</td>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/pojo.html">POJO classes</a></td>
+		<td>templates/pojo/control.vm</td>
+	</tr>
+	</table>
+
+
+</html>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

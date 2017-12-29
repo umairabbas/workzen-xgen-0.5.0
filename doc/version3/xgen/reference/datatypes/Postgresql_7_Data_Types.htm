@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0069)http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype.html -->
+<HTML><HEAD><TITLE>Data Types</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR><LINK rev=MADE 
+href="mailto:pgsql-docs@postgresql.org"><LINK 
+title="PostgreSQL 7.1 User's Guide" href="user.html" rel=HOME><LINK 
+title="LIMIT and OFFSET" href="queries-limit.html" rel=PREVIOUS><LINK 
+title="Monetary Type" href="datatype-money.html" rel=NEXT>
+<META content=2001-04-16T15:29:06 name=creation></HEAD>
+<BODY class=CHAPTER text=#000000 vLink=#840084 aLink=#0000ff link=#0000ff 
+bgColor=#ffffff>
+<DIV class=NAVHEADER>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TH align=middle colSpan=3>PostgreSQL 7.1 User's Guide</TH></TR>
+  <TR>
+    <TD vAlign=bottom align=left width="10%"><A 
+      href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/queries-limit.html">Prev</A></TD>
+    <TD vAlign=bottom align=middle width="80%"></TD>
+    <TD vAlign=bottom align=right width="10%"><A 
+      href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-money.html">Next</A></TD></TR></TBODY></TABLE>
+<HR align=left width="100%">
+</DIV>
+<DIV class=CHAPTER>
+<H1><A name=DATATYPE>Chapter 3. Data Types</A></H1>
+<DIV class=TOC>
+<DL>
+  <DT><B>Table of Contents</B>
+  <DT>3.1. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype.html#DATATYPE-NUMERIC">Numeric 
+  Types</A>
+  <DT>3.2. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-money.html">Monetary 
+  Type</A>
+  <DT>3.3. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-character.html">Character 
+  Types</A>
+  <DT>3.4. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-datetime.html">Date/Time 
+  Types</A>
+  <DD>
+  <DL>
+    <DT>3.4.1. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-datetime.html#DATATYPE-DATETIME-INPUT">Date/Time 
+    Input</A>
+    <DT>3.4.2. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-datetime.html#DATATYPE-DATETIME-OUTPUT">Date/Time 
+    Output</A>
+    <DT>3.4.3. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-datetime.html#DATATYPE-TIMEZONES">Time 
+    Zones</A>
+    <DT>3.4.4. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-datetime.html#DATATYPE-DATETIME-INTERNALS">Internals</A></DT></DL>
+  <DT>3.5. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-boolean.html">Boolean 
+  Type</A>
+  <DT>3.6. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-geometric.html">Geometric 
+  Types</A>
+  <DD>
+  <DL>
+    <DT>3.6.1. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-geometric.html#AEN2252">Point</A>
+    <DT>3.6.2. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-geometric.html#AEN2273">Line 
+    Segment</A>
+    <DT>3.6.3. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-geometric.html#AEN2302">Box</A>
+    <DT>3.6.4. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-geometric.html#AEN2331">Path</A>
+    <DT>3.6.5. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-geometric.html#AEN2369">Polygon</A>
+    <DT>3.6.6. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-geometric.html#AEN2399">Circle</A></DT></DL>
+  <DT>3.7. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-net-types.html">Network 
+  Address Data Types</A>
+  <DD>
+  <DL>
+    <DT>3.7.1. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-net-types.html#DATATYPE-INET"><TT 
+    class=TYPE>inet</TT></A>
+    <DT>3.7.2. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-net-types.html#DATATYPE-CIDR"><TT 
+    class=TYPE>cidr</TT></A>
+    <DT>3.7.3. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-net-types.html#DATATYPE-INET-VS-CIDR"><TT 
+    class=TYPE>inet</TT> vs <TT class=TYPE>cidr</TT></A>
+    <DT>3.7.4. <A 
+    href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-net-types.html#DATATYPE-MACADDR"><TT 
+    class=TYPE>macaddr</TT></A></DT></DL>
+  <DT>3.8. <A 
+  href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-bit.html">Bit 
+  String Types</A></DT></DL></DIV>
+<P><SPAN class=PRODUCTNAME>Postgres</SPAN> has a rich set of native data types 
+available to users. Users may add new types to <SPAN 
+class=PRODUCTNAME>Postgres</SPAN> using the <B class=COMMAND>CREATE TYPE</B> 
+command. </P>
+<P><A 
+href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype.html#DATATYPE-TABLE">Table 
+3-1</A> shows all general-purpose data types available to users. Most of the 
+alternative names listed in the <SPAN class=QUOTE>"Aliases"</SPAN> column are 
+the names used internally by <SPAN class=PRODUCTNAME>Postgres</SPAN> for 
+historical reasons. In addition, some internally used or deprecated types are 
+available, but they are not documented here. Many of the built-in types have 
+obvious external formats. However, several types are either unique to <SPAN 
+class=PRODUCTNAME>Postgres</SPAN>, such as open and closed paths, or have 
+several possibilities for formats, such as the date and time types. </P>
+<P>
+<DIV class=TABLE><A name=DATATYPE-TABLE></A>
+<P><B>Table 3-1. Data Types</B></P>
+<TABLE class=CALSTABLE border=1>
+  <THEAD>
+  <TR>
+    <TH vAlign=top align=left>Type Name</TH>
+    <TH vAlign=top align=left>Aliases</TH>
+    <TH vAlign=top align=left>Description</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>bigint</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>int8</TT></TD>
+    <TD vAlign=top align=left>signed eight-byte integer</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>bit</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>fixed-length bit string</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>bit varying(<TT 
+      class=REPLACEABLE><I>n</I></TT>)</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>varbit(<TT 
+      class=REPLACEABLE><I>n</I></TT>)</TT></TD>
+    <TD vAlign=top align=left>variable-length bit string</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>boolean</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>bool</TT></TD>
+    <TD vAlign=top align=left>logical Boolean (true/false)</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>box</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>rectangular box in 2D plane</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>character(<TT 
+      class=REPLACEABLE><I>n</I></TT>)</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>char(<TT 
+      class=REPLACEABLE><I>n</I></TT>)</TT></TD>
+    <TD vAlign=top align=left>fixed-length character string</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>character varying(<TT 
+      class=REPLACEABLE><I>n</I></TT>)</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>varchar(<TT 
+      class=REPLACEABLE><I>n</I></TT>)</TT></TD>
+    <TD vAlign=top align=left>variable-length character string</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>cidr</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>IP network address</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>circle</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>circle in 2D plane</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>date</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>calendar date (year, month, day)</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>double precision</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>float8</TT></TD>
+    <TD vAlign=top align=left>double precision floating-point number</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>inet</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>IP host address</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>integer</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>int</TT>, <TT 
+    class=TYPE>int4</TT></TD>
+    <TD vAlign=top align=left>signed four-byte integer</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>interval</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>general-use time span</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>line</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>infinite line in 2D plane</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>lseg</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>line segment in 2D plane</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>macaddr</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>MAC address</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>money</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>US-style currency</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>numeric(<TT 
+      class=REPLACEABLE><I>p</I></TT>, <TT 
+    class=REPLACEABLE><I>s</I></TT>)</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>decimal(<TT 
+      class=REPLACEABLE><I>p</I></TT>, <TT 
+    class=REPLACEABLE><I>s</I></TT>)</TT></TD>
+    <TD vAlign=top align=left>exact numeric with selectable precision</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>oid</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>object identifier</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>path</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>open and closed geometric path in 2D plane</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>point</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>geometric point in 2D plane</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>polygon</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>closed geometric path in 2D plane</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>real</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>float4</TT></TD>
+    <TD vAlign=top align=left>single precision floating-point number</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>smallint</TT></TD>
+    <TD vAlign=top align=left><TT class=TYPE>int2</TT></TD>
+    <TD vAlign=top align=left>signed two-byte integer</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>serial</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>autoincrementing four-byte integer</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>text</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>variable-length character string</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>time [ without time zone 
+]</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>time of day</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>time with time zone</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>time of day, including time zone</TD></TR>
+  <TR>
+    <TD vAlign=top align=left><TT class=TYPE>timestamp [ with time zone 
+    ]</TT></TD>
+    <TD vAlign=top align=left>&nbsp;</TD>
+    <TD vAlign=top align=left>date and time</TD></TR></TBODY></TABLE></DIV>
+<P></P>
+<DIV class=NOTE>
+<BLOCKQUOTE class=NOTE>
+  <P><B>Compatibility: </B>The following types (or spellings thereof) are 
+  specified by SQL: <TT class=TYPE>bit</TT>, <TT class=TYPE>bit varying</TT>, 
+  <TT class=TYPE>boolean</TT>, <TT class=TYPE>char</TT>, <TT 
+  class=TYPE>character</TT>, <TT class=TYPE>character varying</TT>, <TT 
+  class=TYPE>varchar</TT>, <TT class=TYPE>date</TT>, <TT class=TYPE>double 
+  precision</TT>, <TT class=TYPE>integer</TT>, <TT class=TYPE>interval</TT>, <TT 
+  class=TYPE>numeric</TT>, <TT class=TYPE>decimal</TT>, <TT 
+  class=TYPE>real</TT>, <TT class=TYPE>smallint</TT>, <TT class=TYPE>time</TT>, 
+  <TT class=TYPE>timestamp</TT> (both with or without time zone). 
+</P></BLOCKQUOTE></DIV>
+<P>Most of the input and output functions corresponding to the base types (e.g., 
+integers and floating point numbers) do some error-checking. Some of the 
+operators and functions (e.g., addition and multiplication) do not perform 
+run-time error-checking in the interests of improving execution speed. On some 
+systems, for example, the numeric operators for some data types may silently 
+underflow or overflow. </P>
+<P>Some of the input and output functions are not invertible. That is, the 
+result of an output function may lose precision when compared to the original 
+input. </P>
+<DIV class=SECT1>
+<H1 class=SECT1><A name=DATATYPE-NUMERIC>3.1. Numeric Types</A></H1>
+<P>Numeric types consist of two-, four-, and eight-byte integers, four- and 
+eight-byte floating point numbers and fixed-precision decimals. </P>
+<P>
+<DIV class=TABLE><A name=AEN1431></A>
+<P><B>Table 3-2. Numeric Types</B></P>
+<TABLE class=CALSTABLE border=1>
+  <THEAD>
+  <TR>
+    <TH vAlign=top align=left>Type Name</TH>
+    <TH vAlign=top align=left>Storage</TH>
+    <TH vAlign=top align=left>Description</TH>
+    <TH vAlign=top align=left>Range</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left>smallint</TD>
+    <TD vAlign=top align=left>2 bytes</TD>
+    <TD vAlign=top align=left>Fixed-precision</TD>
+    <TD vAlign=top align=left>-32768 to +32767</TD></TR>
+  <TR>
+    <TD vAlign=top align=left>integer</TD>
+    <TD vAlign=top align=left>4 bytes</TD>
+    <TD vAlign=top align=left>Usual choice for fixed-precision</TD>
+    <TD vAlign=top align=left>-2147483648 to +2147483647</TD></TR>
+  <TR>
+    <TD vAlign=top align=left>bigint</TD>
+    <TD vAlign=top align=left>8 bytes</TD>
+    <TD vAlign=top align=left>Very large range fixed-precision</TD>
+    <TD vAlign=top align=left>about 18 decimal places</TD></TR>
+  <TR>
+    <TD vAlign=top align=left>decimal</TD>
+    <TD vAlign=top align=left>variable</TD>
+    <TD vAlign=top align=left>User-specified precision</TD>
+    <TD vAlign=top align=left>no limit</TD></TR>
+  <TR>
+    <TD vAlign=top align=left>numeric</TD>
+    <TD vAlign=top align=left>variable</TD>
+    <TD vAlign=top align=left>User-specified precision</TD>
+    <TD vAlign=top align=left>no limit</TD></TR>
+  <TR>
+    <TD vAlign=top align=left>real</TD>
+    <TD vAlign=top align=left>4 bytes</TD>
+    <TD vAlign=top align=left>Variable-precision</TD>
+    <TD vAlign=top align=left>6 decimal places</TD></TR>
+  <TR>
+    <TD vAlign=top align=left>double precision</TD>
+    <TD vAlign=top align=left>8 bytes</TD>
+    <TD vAlign=top align=left>Variable-precision</TD>
+    <TD vAlign=top align=left>15 decimal places</TD></TR>
+  <TR>
+    <TD vAlign=top align=left>serial</TD>
+    <TD vAlign=top align=left>4 bytes</TD>
+    <TD vAlign=top align=left>Identifier or cross-reference</TD>
+    <TD vAlign=top align=left>0 to +2147483647</TD></TR></TBODY></TABLE></DIV>
+<P></P>
+<P>The syntax of constants for the numeric types is described in <A 
+href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/sql-syntax.html#SQL-SYNTAX-CONSTANTS">Section 
+1.1.2</A>. The numeric types have a full set of corresponding arithmetic 
+operators and functions. Refer to <A 
+href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/functions.html">Chapter 
+4</A> for more information. </P>
+<P>The <TT class=TYPE>bigint</TT> type may not be available on all platforms 
+since it relies on compiler support for eight-byte integers. </P>
+<DIV class=SECT2>
+<H2 class=SECT2><A name=DATATYPE-SERIAL>3.1.1. The Serial Type</A></H2>
+<P>The <TT class=TYPE>serial</TT> type is a special-case type constructed by 
+<SPAN class=PRODUCTNAME>Postgres</SPAN> from other existing components. It is 
+typically used to create unique identifiers for table entries. In the current 
+implementation, specifying <PRE class=PROGRAMLISTING>CREATE TABLE <TT class=REPLACEABLE><I>tablename</I></TT> (<TT class=REPLACEABLE><I>colname</I></TT> SERIAL);
+     </PRE>is equivalent to specifying: <PRE class=PROGRAMLISTING>CREATE SEQUENCE <TT class=REPLACEABLE><I>tablename</I></TT>_<TT class=REPLACEABLE><I>colname</I></TT>_seq;
+CREATE TABLE <TT class=REPLACEABLE><I>tablename</I></TT>
+    (<TT class=REPLACEABLE><I>colname</I></TT> integer DEFAULT nextval('<TT class=REPLACEABLE><I>tablename</I></TT>_<TT class=REPLACEABLE><I>colname</I></TT>_seq');
+CREATE UNIQUE INDEX <TT class=REPLACEABLE><I>tablename</I></TT>_<TT class=REPLACEABLE><I>colname</I></TT>_key on <TT class=REPLACEABLE><I>tablename</I></TT> (<TT class=REPLACEABLE><I>colname</I></TT>);
+     </PRE>
+<DIV class=CAUTION>
+<P></P>
+<TABLE class=CAUTION width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD align=middle><B>Caution</B></TD></TR>
+  <TR>
+    <TD align=left>
+      <P>The implicit sequence created for the <TT class=TYPE>serial</TT> type 
+      will <I class=EMPHASIS>not</I> be automatically removed when the table is 
+      dropped. </P></TD></TR></TBODY></TABLE></DIV>Implicit sequences supporting the 
+<TT class=TYPE>serial</TT> are not automatically dropped when a table containing 
+a serial type is dropped. So, the following commands executed in order will 
+likely fail: <PRE class=PROGRAMLISTING>CREATE TABLE <TT class=REPLACEABLE><I>tablename</I></TT> (<TT class=REPLACEABLE><I>colname</I></TT> SERIAL);
+DROP TABLE <TT class=REPLACEABLE><I>tablename</I></TT>;
+CREATE TABLE <TT class=REPLACEABLE><I>tablename</I></TT> (<TT class=REPLACEABLE><I>colname</I></TT> SERIAL);
+     </PRE>The sequence will remain in the database until explicitly dropped 
+using <B class=COMMAND>DROP SEQUENCE</B>. 
+<P></P></DIV></DIV></DIV>
+<DIV class=NAVFOOTER>
+<HR align=left width="100%">
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left width="33%"><A 
+      href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/queries-limit.html">Prev</A></TD>
+    <TD vAlign=top align=middle width="34%"><A 
+      href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/user.html">Home</A></TD>
+    <TD vAlign=top align=right width="33%"><A 
+      href="http://www.us.postgresql.org/users-lounge/docs/7.1/user/datatype-money.html">Next</A></TD></TR>
+  <TR>
+    <TD vAlign=top align=left width="33%">LIMIT and OFFSET</TD>
+    <TD vAlign=top align=middle width="34%">&nbsp;</TD>
+    <TD vAlign=top align=right width="33%">Monetary 
+Type</TD></TR></TBODY></TABLE></DIV></BODY></HTML>

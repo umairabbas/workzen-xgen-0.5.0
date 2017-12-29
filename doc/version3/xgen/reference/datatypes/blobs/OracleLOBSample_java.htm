@@ -1,0 +1,421 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0098)http://technet.us.oracle.com/sample_code/tech/java/sqlj_jdbc/files/jdbc20/LOBSample/LOBSample.java -->
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY><PRE>/**
+ * @author  srangan.in
+ * @version 1.0
+ *
+ * Development Environment        :  JDeveloper 3.0
+ * Name of the Application        :  LOBSample.java
+ * Creation/Modification History  :
+ *
+ *    srangan.in       10-JAN-1998      Created
+ *    fkhan.in         12-DEC-1999      Modified
+ *
+ * Overview of Application        :
+ *
+ * This sample illustrates access and manipulation of Clob and Blob columns
+ * using JDBC2.0. Oracle's JDBC2.0 driver, provides API to perform selects,
+ * updates, inserts and deletes from LOB columns. Here the methods specified
+ * by the JDBC 2.0 API specifications are used for database operations.
+ *
+ * The sample illustrates the above operations on Clob and Blob columns in the
+ * AIRPORT_LOB_DETAILS table. It inserts sample .gif and .txt file contents,
+ * into the LOB columns for the chosen airport. If LOB data already exists for
+ * the chosen airport, it retrieves and displays them. It also
+ * illustrates manipulation of LOB columns, by allowing users to enter text to
+ * be appended to the Clob column.
+ *
+ *
+ */
+
+import java.io.*;
+import java.sql.*; // Package for JDBC classes
+
+public class LOBSample {
+
+  Connection m_connection;     // Database Connection Object
+  LOBFrame m_GUI;  // The GUI handler for the sample
+
+  // Sample file names
+  static final String s_MapFileName = "map.gif";
+  static final String s_SugBookFileName = "suggestionbook.txt";
+
+  /**
+  *  Constructor. Initializes GUI
+  **/
+  public LOBSample() {
+    try {
+      m_GUI = new LOBFrame(this);
+    } catch (Exception ex) {
+      m_GUI.putStatus("Error in GUI initialization\n"+ex.toString());
+    }
+  }
+
+  /**
+  *  Main entry point for the class. Instantiates the root frame,
+  *  sets up the database connection and populates the JTable with AIRPORTS rows
+  **/
+  public static void main(String[] args) {
+    LOBSample l_lobs = new LOBSample(); // Instantiate root frame
+    l_lobs.m_GUI.setVisible(true);
+    l_lobs.dbConnection();          // Setup db connection
+    if (l_lobs.m_connection != null)
+      l_lobs.populateAirports();        // Populate the JTable with all airports rows
+  }
+
+  /**
+  *  Dispatches the GUI events to the appropriate method, which performs
+  *  the required JDBC operations. This method is invoked when event occurs
+  *  in the GUI (like table Selection, Button clicks etc.).
+  **/
+  public void dispatchEvent (String p_eventName) {
+
+    // Dispatch Event
+    if (p_eventName.equals("Load Sample Files"))
+       loadSamples(m_GUI.getSelectedCode());
+    else if (p_eventName.equals("Add Suggestions")) {
+       String l_suggestions = m_GUI.getSuggestionText();
+       if (!l_suggestions.equals("CANCEL")) {
+           addSuggestions(m_GUI.getSelectedCode(),l_suggestions.toCharArray());
+           m_GUI.m_sugArea.append(new String(l_suggestions));
+       } else
+           m_GUI.m_statusField.setText("");
+    } else if (p_eventName.equals("Airport Selected in Table"))
+       airportSelected(m_GUI.getSelectedCode());
+    else if (p_eventName.equals("EXIT"))
+       exitApplication();
+  }
+
+
+  /**
+  *  Creates a database connection object using JDBC2.0. Please substitute the
+  *  database connection parameters with appropriate values in
+  *  ConnectionParams.java
+  **/
+  public void dbConnection() {
+    try {
+      m_GUI.putStatus("Connecting to the Database. Please wait..");
+
+      // Load the Oracle JDBC2.0 Driver and register it.
+      DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+
+      // Form the database connect string(TNSNAMES entry) as a name-value pair
+      // using the connection parameters as specified in ConnectionParams.java
+      String l_dbConnectString =
+         "(DESCRIPTION=(ADDRESS=(HOST="+ConnectionParams.s_hostName+")"+
+         "(PROTOCOL=tcp)(PORT="+ConnectionParams.s_portNumber+"))"+
+         "(CONNECT_DATA=(SID="+ConnectionParams.s_databaseSID+")))";
+
+      // The following statement creates a database connection object
+      // using the DriverManager.getConnection method. The first parameter is
+      // the database URL which is constructed based on the connection
+      // parameters specified in ConnectionParams.java.
+      // The URL syntax is as follows:
+      // "jdbc:oracle:&lt;driver&gt;:@&lt;db connection string&gt;"
+      // &lt;driver&gt;, can be 'thin' or 'oci8'
+      // &lt;db connect string&gt;, is a Net8 name-value, denoting the TNSNAMES entry
+      m_connection = DriverManager.getConnection(
+                    "jdbc:oracle:thin:@"+l_dbConnectString,
+                    ConnectionParams.s_userName, ConnectionParams.s_password);
+
+      // Sets the auto-commit property for the connection to be false.
+      // By default it is true.
+      m_connection.setAutoCommit(false);
+
+      m_GUI.putStatus("Connected to "+ConnectionParams.s_databaseSID+
+                           " Database as "+ConnectionParams.s_userName);
+    } catch(Exception ex){ // Trap SQL errors
+      m_GUI.putStatus("Error in Connecting to the Database "+ex.toString());
+    }
+  }
+
+  /**
+  * Queries all rows from the AIRPORTS table and populates the JTable with
+  * the returned rows
+  **/
+  public void populateAirports() {
+    try {
+      m_GUI.appendStatus("\nPopulating Airports. Please wait...");
+
+      // Statement object for issuing SQL statements
+      Statement l_stmt = m_connection.createStatement();
+
+      // Execute the query that returns all airport rows
+      ResultSet l_resultSet = l_stmt.executeQuery(
+                         "SELECT AIRPORT_CODE, DESCRIPTION, NAME"+
+                         " FROM AIRPORTS, CITIES WHERE CTY_ID = ID");
+
+      // Loop through the result set and populate JTable with all airports
+      while (l_resultSet.next()) {
+          // Retrieve column values for this row
+          String l_code = l_resultSet.getString(1);
+          String l_desc = l_resultSet.getString(2);
+          String l_city = l_resultSet.getString(3);
+
+          m_GUI.addToJTable(l_code, l_desc, l_city); // Insert into Jtable
+      }
+      l_stmt.close(); // Close the statement, which also closes the ResultSet
+      m_GUI.putStatus("Connected to database and retrieved all airport rows");
+      m_GUI.appendStatus("\nPlease Choose an airport ");
+
+    } catch  (SQLException ex) {  // Trap SQL errors
+      m_GUI.putStatus("Error Querying Airports table: \n"+ex.toString());
+    }
+  }
+
+  /**
+  * Creates a new row for the selected airport in AIRPORT_LOB_DETAILS.
+  * It then loads the sample files into the LOB columns, using JDBC2.0.
+  **/
+  void loadSamples(String p_airportCode) {
+
+    try {
+      m_GUI.putStatus("Creating row for airport in AIRPORT_LOB_DETAILS.. ");
+
+      // Form a SQL statement for inserting a row into AIRPORT_LOB_DETAILS
+      // The LOB column values are initialized to empty in this step, and
+      // will be loaded in the steps below.
+      PreparedStatement l_pstmt=m_connection.prepareStatement(
+            "insert into AIRPORT_LOB_DETAILS (AIRPORT_CODE,AIRPORT_MAP,"+
+            "AIRPORT_SUG_BOOK) values(? , empty_blob() , empty_clob())");
+
+      l_pstmt.setString(1,p_airportCode); // Bind AIRPORT code
+      l_pstmt.execute();               // Execute SQL statement
+
+      l_pstmt.close();    // Close statement
+
+      m_GUI.appendStatus("Created.\nLoading &lt;map.gif&gt; into Blob column for airport...");
+
+      // Retrieve the row just inserted, and lock it for insertion of the
+      // LOB columns.
+      Statement l_stmt = m_connection.createStatement();
+      ResultSet l_lobDetails = l_stmt.executeQuery(
+          "SELECT AIRPORT_MAP,AIRPORT_SUG_BOOK FROM AIRPORT_LOB_DETAILS "+
+          "WHERE AIRPORT_CODE = '"+p_airportCode+"' FOR UPDATE");
+
+      // Retrieve Blob and Clob streams for AIRPORT_MAP and AIRPORT_SUG_BOOK
+      // columns, and load the sample files
+      if (l_lobDetails.next()) {
+        // Get the Blob locator and open output stream for the Blob
+        Blob l_mapBlob = l_lobDetails.getBlob(1);
+        OutputStream l_blobOutputStream = ((oracle.sql.BLOB)l_mapBlob).getBinaryOutputStream();
+
+        // Open the sample file as a stream for insertion into the Blob column
+        File l_mapFile = new File(s_MapFileName);
+        InputStream l_sampleFileStream=new FileInputStream(l_mapFile);
+
+        // Buffer to hold chunks of data to being written to the Blob.
+        // In Oracle8.1.5 JDBC2.0 drivers a method getBufferSize() is available
+        // in the Blob class, that returns the optimal buffer size
+        byte[] l_buffer = new byte[10* 1024];
+
+        // Read a chunk of data from the sample file input stream, and write the
+        // chunk to the Blob column output stream. Repeat till file has been
+        // fully read.
+        int l_nread = 0;   // Number of bytes read
+        while ((l_nread= l_sampleFileStream.read(l_buffer)) != -1) // Read from file
+          l_blobOutputStream.write(l_buffer,0,l_nread); // Write to Blob
+
+        // Close both streams
+        l_sampleFileStream.close();
+        l_blobOutputStream.close();
+
+        // Load the suggestion book sample file into the Clob column
+        m_GUI.appendStatus("Done\nLoading &lt;suggestionbook.txt&gt; into Clob column ..");
+
+        // Get the Clob locator and open an output stream for the Clob
+        Clob l_sugBookClob = l_lobDetails.getClob(2);
+        Writer l_clobWriter = ((oracle.sql.CLOB)l_sugBookClob).getCharacterOutputStream();
+
+        // Open the sample file as a stream for insertion into the Clob column
+        File l_sugbookFile = new File(s_SugBookFileName);
+        FileReader l_sugFileReader = new FileReader(l_sugbookFile);
+
+        // Buffer to hold chunks of data to being written to the Clob.
+        // In Oracle8.1.5 JDBC2.0 drivers a method getBufferSize() is available
+        // in the Clob class that returns the optimal buffer size
+        char[] l_cbuffer = new char[10* 1024];
+
+        // Read a chunk of data from the sample file input stream, and write the
+        // chunk into the Clob column output stream. Repeat till file has been
+        // fully read.
+        l_nread = 0;
+        while ((l_nread= l_sugFileReader.read(l_cbuffer)) != -1) // Read from File
+           l_clobWriter.write(l_cbuffer,0,l_nread); // Write to Clob
+
+        // Close both streams
+        l_sugFileReader.close();
+        l_clobWriter.close();
+
+        m_GUI.putStatus("Done Loading sample files");
+
+        m_GUI.appendStatus("\nRetrieving and displaying sample files..");
+        // Retrieve and display the LOB data just inserted
+        drawBlob(l_mapBlob,p_airportCode);
+        writeClob(l_sugBookClob,p_airportCode);
+        m_GUI.putStatus("Done loading and displaying LOB data");
+      }
+      // Close Result Set and statement
+      l_lobDetails.close();
+
+      l_stmt.close();  // close the Statement object
+    } catch (Exception ex) { // Trap SQL errors
+      m_GUI.putStatus("Error loading sample files for the selected airport");
+      m_GUI.appendStatus("\n"+ex.toString());
+    }
+  }
+
+  /**
+  * Accepts suggestions from an JOptionPane and  appends the entered
+  * suggestions to the Clob column
+  **/
+  void addSuggestions(String p_airportCode, char[] p_suggestions) {
+    try {
+      m_GUI.putStatus("Appending entered suggestions to Clob column. Please wait...");
+      Statement l_stmt = m_connection.createStatement(); // Prepare a statement
+
+      // Retrieve the Clob locator and also lock the row, for the selected
+      // Airport
+      ResultSet l_lobDetails = l_stmt.executeQuery(
+                          "SELECT AIRPORT_SUG_BOOK "+
+                          "FROM AIRPORT_LOB_DETAILS "+
+                          "WHERE AIRPORT_CODE='"+p_airportCode+"' FOR UPDATE");
+
+      // Obtain the Clob locator and append suggestions
+      if (l_lobDetails.next()) {
+        // Get the Clob locator
+        Clob l_clob = l_lobDetails.getClob(1);
+
+        // Append the entered suggestions to the end of the Clob data.
+        // The first parameter to plsql_write, is the offset from which to start
+        // writing, and the second parameter is the data to be written.
+        // plsql_length(), returns the length of the data in the Clob column
+        ((oracle.sql.CLOB)l_clob).plsql_write(((oracle.sql.CLOB)l_clob).plsql_length()+1,p_suggestions);
+
+        m_GUI.appendStatus("Done");
+      }
+      l_stmt.close(); // Close statement which also closes open result sets
+    } catch(SQLException ex) {
+    	m_GUI.putStatus("Error appending suggestions to the Clob column");
+      m_GUI.appendStatus("\n"+ex.toString());
+    }
+  }
+
+  /**
+  * This method is called when a row is selected from the airport JTable.
+  * It checks if there exists data in AIRPORT_LOB_DETAILS for the selected
+  * airport. If there exists data, it calls drawBlob and writeClob to
+  * display the data
+  **/
+  void airportSelected(String p_airportCode) {
+
+    try {
+      m_GUI.putStatus("Retrieving LOB details for selected airport..");
+      // Create a SQL statement
+      Statement l_stmt = m_connection.createStatement();
+
+      // Query AIRPORT_LOB_DETAILS for the selected AIRPORT
+      ResultSet l_lobDetails = l_stmt.executeQuery(
+               "SELECT AIRPORT_MAP,AIRPORT_SUG_BOOK FROM AIRPORT_LOB_DETAILS "+
+               "WHERE AIRPORT_CODE='"+p_airportCode+"'");
+
+      // Check if LOB columns exist
+      if (l_lobDetails.next()) {
+        // LOB details exist
+
+        // Display airport map and suggestion book (LOB details)
+        drawBlob(l_lobDetails.getBlob(1),p_airportCode);
+        writeClob(l_lobDetails.getClob(2), p_airportCode);
+        m_GUI.putStatus("Done retrieving and displaying LOB details");
+      } else {
+        // No LOB details
+        m_GUI.m_loadButton.setEnabled(true);
+        m_GUI.putStatus("No airport map and suggestion book exist for selected airport");
+        m_GUI.appendStatus("\nPress &lt;Load Sample Files&gt; to load LOB details");
+      }
+
+      l_stmt.close(); // Close the Statement object
+    }  catch (Exception ex) { // Trap SQL errors
+      m_GUI.putStatus("Error retrieving LOB Details for the selected airport");
+      m_GUI.appendStatus(ex.toString());
+    }
+  }
+
+  /**
+  * Retrieve the Blob data from input Blob column into a local file,
+  * and draws the image
+  **/
+  void drawBlob(Blob p_blob, String p_airPCode) {
+
+    try {
+      // Open a stream to read the Blob data
+      InputStream l_blobStream = p_blob.getBinaryStream();
+
+      // Open a file stream to save the Blob data
+      FileOutputStream l_fileOutStream = new FileOutputStream(p_airPCode+".gif");
+
+      // Read from the Blob data input stream, and write to the file output
+      // stream
+      byte[] l_buffer = new byte[10]; // buffer holding bytes to be transferred
+      int l_nbytes = 0;  // Number of bytes read
+      while ((l_nbytes = l_blobStream.read(l_buffer)) != -1) // Read from Blob stream
+        l_fileOutStream.write(l_buffer,0,l_nbytes); // Write to file stream
+
+      // Flush and close the streams
+      l_fileOutStream.flush();
+      l_fileOutStream.close();
+      l_blobStream.close();
+
+      m_GUI.drawMap(p_airPCode); // Draw retrieved image to GUI
+    } catch (Exception ex) { // Trap SQL and IO errors
+      m_GUI.putStatus("Error in retrieving and drawing map for selected airport");
+      m_GUI.appendStatus("\n"+ex.toString());
+    }
+  }
+
+  /**
+  * Retrieve the character data from the input Clob, save in a
+  * StringBuffer and display the StringBuffer contents in GUI
+  **/
+  void writeClob(Clob p_clob, String p_airPCode) {
+    try {
+      // Open a stream to read Clob data
+      Reader l_clobStream = p_clob.getCharacterStream();
+
+      // Holds the Clob data when the Clob stream is being read
+      StringBuffer l_suggestions = new StringBuffer();
+
+      // Read from the Clob stream and write to the stringbuffer
+      int l_nchars = 0; // Number of characters read
+      char[] l_buffer = new char[10];  //  Buffer holding characters being transferred
+
+      while ((l_nchars = l_clobStream.read(l_buffer)) != -1) // Read from Clob
+        l_suggestions.append(l_buffer,0,l_nchars); // Write to StringBuffer
+
+      l_clobStream.close();  // Close the Clob input stream
+      m_GUI.m_sugArea.append(new String(l_suggestions)); // Display in GUI
+    } catch (Exception ex) { // Trap SQL and IO errors
+      m_GUI.putStatus("Error in getting and drawing Clob for the airport, "+p_airPCode+":");
+      m_GUI.appendStatus(ex.toString());
+    }
+  }
+
+  /**
+  *  Close the database Connection and exit the application
+  **/
+  public void exitApplication() {
+    try {
+      m_GUI.putStatus("Closing the connection....please wait.....");
+      if (m_connection != null)
+        m_connection.close(); // Close the m_connection object.
+    } catch(SQLException ex){ // Trap SQL Errors
+      m_GUI.putStatus(ex.toString());
+    }
+    System.exit(0); // Exit the application
+  }
+}
+
+</PRE></BODY></HTML>

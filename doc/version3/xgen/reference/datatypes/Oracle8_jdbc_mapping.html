@@ -1,0 +1,1211 @@
+<HTML>
+<HEAD>
+
+<META NAME="Generator" CONTENT="Quadralay WebWorks Publisher 3.5.0">
+<META NAME="NewFiles" CONTENT="DefaultIntermediate">
+<META NAME="Title" CONTENT=" Type Support ">
+
+<TITLE> Type Support </TITLE>
+
+<LINK REL="home" HREF="../../products.htm" TITLE="Library"
+<LINK REL="toc" HREF="toc.htm" TITLE="Contents">
+<LINK REL="index" HREF="index.htm" TITLE="Index">
+<LINK REL="copyright" HREF="../../dcommon/html/cpyr.htm" TITLE="Copyright">
+<LINK REL="up" HREF="typesupp.htm" TITLE="Up">
+<LINK REL="next" HREF="typesup2.htm" TITLE="Next">
+<LINK REL="previous" HREF="typesupp.htm" TITLE="Previous">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<A NAME="top"></A>
+
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+<TR>
+<TD ALIGN="LEFT" VALIGN="TOP"><FONT FACE="Helvetica,Arial,sans-serif" COLOR="#00008B"><B>Oracle8<i>i</i> SQLJ Developer's Guide and Reference<BR>Release 8.1.5</B><BR>A64684-01</FONT></TD>
+ 
+
+<TD VALIGN="BOTTOM" ALIGN="RIGHT">
+<TABLE CELLSPACING="0" CELLPADDING="0">
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="../../products.htm"><IMG SRC="../../dcommon/gifs/prodicon.gif" ALT="" BORDER="0" HEIGHT="30" WIDTH="30"><BR>
+<FONT SIZE="-2">Library</FONT></A></TD>
+
+
+
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="../index.htm"><IMG SRC="../../dcommon/gifs/bookicon.gif" ALT="" BORDER="0" HEIGHT="30" WIDTH="30"><BR>
+<FONT SIZE="-2">Product</FONT></A></TD>
+
+
+
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="toc.htm"><IMG SRC="../../dcommon/gifs/conticon.gif" ALT="" BORDER="0" HEIGHT="30"
+WIDTH="30"><BR>
+<FONT SIZE="-2">Contents</FONT></A></TD>
+
+
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="index.htm"><IMG SRC="../../dcommon/gifs/indxicon.gif" ALT="" BORDER="0" HEIGHT="30"
+WIDTH="30"><BR>
+<FONT SIZE="-2">Index</FONT></A></TD>
+
+</TR>
+</TABLE>
+</TD>
+</TR>
+
+</TABLE>
+
+
+<HR>
+
+<P>
+<A HREF="typesupp.htm"><IMG SRC="../../dcommon/gifs/larrow.gif" ALT="Prev" BORDER="0" HEIGHT="30" WIDTH="30"></A>
+<A HREF="typesupp.htm"><IMG SRC="../../dcommon/gifs/uarrow.gif" ALT=" Chap Top" BORDER="0" HEIGHT="30" WIDTH="30"></A>
+<A HREF="typesup2.htm"><IMG SRC="../../dcommon/gifs/rarrow.gif" ALT="Next" BORDER="0" HEIGHT="30" WIDTH="30"></A>
+
+
+
+
+
+
+<DIV CLASS="IND">
+
+<!-- End Header -->
+
+
+<A NAME="1004085"></A>
+<!--TOC=h1-"1004085"-->
+<H2 CLASS="H1"><FONT FACE="Arial, Helvetica, sans-serif" COLOR="#330099"> Supported Types for Host Expressions</FONT></H2>
+<!--/TOC=h1-->
+
+<A NAME="1006688"></A>
+<P CLASS="BP">
+This section summarizes the types that are supported by Oracle SQLJ, including information about backwards compatibility for the 8.0.5 and 7.3.4 Oracle JDBC drivers.
+</P>
+
+<A NAME="1004086"></A>
+<!--TOC=h2-"1004086"-->
+<H3 CLASS="H2"><FONT FACE="Arial, Helvetica, sans-serif" COLOR="#330099"> Supported Types for Oracle8<EM CLASS="Italic">i</EM></FONT></H3>
+<!--/TOC=h2-->
+
+<A NAME="1005889"></A>
+<P CLASS="BP">
+Table 5-1 lists the Java types that you can use in host expressions when employing the 8.1.5 Oracle JDBC drivers. This table also documents the correlation between Java types, SQL types whose <EM CLASS="Italic">typecodes</EM> are defined in the <CODE>oracle.jdbc.driver.OracleTypes</CODE> class, and datatypes in the Oracle database. (The <CODE>OracleTypes</CODE> class simply defines a typecode, which is an integer constant, for each Oracle datatype. For standard SQL types, the <CODE>OracleTypes</CODE> entry is the same as the entry in the standard <CODE>java.sql.Types</CODE> type definitions class.)
+</P>
+
+<A NAME="1004087"></A>
+<P CLASS="BP">
+SQL data that is output to a Java variable is converted to the corresponding Java type. A Java variable that is input to SQL is converted to the corresponding Oracle datatype.
+</P>
+
+<A NAME="1008642"></A>
+<P CLASS="BP">
+Where objects, object references, and arrays are referred to as "JPub-generated", this refers to the Oracle JPublisher utility that can be used in defining Java classes to correspond to Oracle8<EM CLASS="Italic">i</EM> objects, object references, and arrays. The JPublisher utility is discussed in <a href="objcoll5.htm#1004417">"JPublisher and the Creation of Custom Java Classes"</A><a href="objcoll5.htm#1004417"></A>, and documented in further detail in the<EM CLASS="Italic"> <A HREF="../../dcommon/html/noexist.htm">Oracle8i JPublisher User's Guide</A>.</EM>
+</P>
+
+<A NAME="1008970"></A>
+<P CLASS="BP">
+
+
+<H5 CLASS="Formal"><FONT FACE="Helvetica,Arial,sans-serif"><EM>
+<A NAME="1008659"></A>
+<STRONG><FONT FACE="Arial, Helvetica, sans-serif"><EM>Table 5-1 &#32;Type Mappings for Supported Host Expression Types  &#32;</EM></FONT></STRONG>
+ </EM></FONT></H5>
+
+<TABLE CLASS="Formal" BORDER="1" FRAME="HSIDES" RULES="GROUPS" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+<THEAD>
+<TR CLASS="Formal"><TH CLASS="Formal" align="left" valign="bottom">
+<A NAME="1008665"></A>
+<FONT FACE="Arial, Helvetica, sans-serif"><STRONG>Java Type</STRONG></FONT>&nbsp;</TH>
+<TH CLASS="Formal" align="left" valign="bottom">
+<A NAME="1008667"></A>
+<FONT FACE="Arial, Helvetica, sans-serif"><STRONG>OracleTypes Definition</STRONG></FONT>&nbsp;</TH>
+<TH CLASS="Formal" align="left" valign="bottom">
+<A NAME="1008669"></A>
+<FONT FACE="Arial, Helvetica, sans-serif"><STRONG>Oracle Datatype</STRONG></FONT>&nbsp;</TH>
+</TR>
+<TBODY>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008671"></A>
+<P CLASS="TB">
+<STRONG CLASS="Bold">STANDARD JDBC TYPES</STRONG> &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008673"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008675"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008677"></A>
+<P CLASS="TB">
+boolean &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008679"></A>
+<P CLASS="TB">
+BIT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008681"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008683"></A>
+<P CLASS="TB">
+byte &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008685"></A>
+<P CLASS="TB">
+TINYINT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008687"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008689"></A>
+<P CLASS="TB">
+short &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008691"></A>
+<P CLASS="TB">
+SMALLINT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008693"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008695"></A>
+<P CLASS="TB">
+int &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008697"></A>
+<P CLASS="TB">
+INTEGER &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008699"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008701"></A>
+<P CLASS="TB">
+long &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008703"></A>
+<P CLASS="TB">
+BIGINT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008705"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008707"></A>
+<P CLASS="TB">
+float &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008709"></A>
+<P CLASS="TB">
+REAL &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008711"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008713"></A>
+<P CLASS="TB">
+double &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008715"></A>
+<P CLASS="TB">
+FLOAT, DOUBLE &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008717"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008719"></A>
+<P CLASS="TB">
+java.lang.String &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008721"></A>
+<P CLASS="TB">
+CHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008723"></A>
+<P CLASS="TB">
+CHAR &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008725"></A>
+<P CLASS="TB">
+java.lang.String &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008727"></A>
+<P CLASS="TB">
+VARCHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008729"></A>
+<P CLASS="TB">
+VARCHAR2 &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008731"></A>
+<P CLASS="TB">
+java.lang.String &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008733"></A>
+<P CLASS="TB">
+LONGVARCHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008735"></A>
+<P CLASS="TB">
+LONG &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008737"></A>
+<P CLASS="TB">
+byte[] &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008739"></A>
+<P CLASS="TB">
+BINARY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008741"></A>
+<P CLASS="TB">
+RAW &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008743"></A>
+<P CLASS="TB">
+byte[] &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008745"></A>
+<P CLASS="TB">
+VARBINARY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008747"></A>
+<P CLASS="TB">
+RAW &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008749"></A>
+<P CLASS="TB">
+byte[] &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008751"></A>
+<P CLASS="TB">
+LONGVARBINARY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008753"></A>
+<P CLASS="TB">
+LONGRAW &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008755"></A>
+<P CLASS="TB">
+java.sql.Date &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008757"></A>
+<P CLASS="TB">
+DATE &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008759"></A>
+<P CLASS="TB">
+DATE &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008761"></A>
+<P CLASS="TB">
+java.sql.Time &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008763"></A>
+<P CLASS="TB">
+TIME &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008765"></A>
+<P CLASS="TB">
+DATE &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008767"></A>
+<P CLASS="TB">
+java.sql.Timestamp &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008769"></A>
+<P CLASS="TB">
+TIMESTAMP &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008771"></A>
+<P CLASS="TB">
+DATE &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008773"></A>
+<P CLASS="TB">
+java.math.BigDecimal &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008775"></A>
+<P CLASS="TB">
+NUMERIC &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008777"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008779"></A>
+<P CLASS="TB">
+java.math.BigDecimal &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008781"></A>
+<P CLASS="TB">
+DECIMAL &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008783"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008785"></A>
+<P CLASS="TB">
+<STRONG CLASS="Bold">JAVA WRAPPER CLASSES</STRONG> &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008787"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008789"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008791"></A>
+<P CLASS="TB">
+java.lang.Boolean &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008793"></A>
+<P CLASS="TB">
+BIT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008795"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008797"></A>
+<P CLASS="TB">
+java.lang.Byte &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008799"></A>
+<P CLASS="TB">
+TINYINT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008801"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008803"></A>
+<P CLASS="TB">
+java.lang.Short &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008805"></A>
+<P CLASS="TB">
+SMALLINT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008807"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008809"></A>
+<P CLASS="TB">
+java.lang.Integer &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008811"></A>
+<P CLASS="TB">
+INTEGER &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008813"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008815"></A>
+<P CLASS="TB">
+java.lang.Long &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008817"></A>
+<P CLASS="TB">
+BIGINT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008819"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008821"></A>
+<P CLASS="TB">
+java.lang.Float &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008823"></A>
+<P CLASS="TB">
+REAL &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008825"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008827"></A>
+<P CLASS="TB">
+java.lang.Double &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008829"></A>
+<P CLASS="TB">
+FLOAT, DOUBLE  &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008831"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008833"></A>
+<P CLASS="TB">
+<STRONG CLASS="Bold">SQLJ STREAM CLASSES</STRONG> &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008835"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008837"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008839"></A>
+<P CLASS="TB">
+sqlj.runtime.BinaryStream &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008841"></A>
+<P CLASS="TB">
+LONGVARBINARY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008843"></A>
+<P CLASS="TB">
+LONG RAW &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008845"></A>
+<P CLASS="TB">
+sqlj.runtime.AsciiStream &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008847"></A>
+<P CLASS="TB">
+LONGVARCHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008849"></A>
+<P CLASS="TB">
+LONG &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008851"></A>
+<P CLASS="TB">
+sqlj.runtime.UnicodeStream &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008853"></A>
+<P CLASS="TB">
+LONGVARCHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008855"></A>
+<P CLASS="TB">
+LONG &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008857"></A>
+<P CLASS="TB">
+<STRONG CLASS="Bold">ORACLE EXTENSIONS</STRONG> &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008859"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008861"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008863"></A>
+<P CLASS="TB">
+oracle.sql.NUMBER &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008865"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008867"></A>
+<P CLASS="TB">
+NUMBER &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008869"></A>
+<P CLASS="TB">
+oracle.sql.CHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008871"></A>
+<P CLASS="TB">
+CHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008873"></A>
+<P CLASS="TB">
+CHAR &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008875"></A>
+<P CLASS="TB">
+oracle.sql.RAW &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008877"></A>
+<P CLASS="TB">
+RAW &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008879"></A>
+<P CLASS="TB">
+RAW &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008881"></A>
+<P CLASS="TB">
+oracle.sql.DATE &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008883"></A>
+<P CLASS="TB">
+DATE &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008885"></A>
+<P CLASS="TB">
+DATE &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008887"></A>
+<P CLASS="TB">
+oracle.sql.ROWID &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008889"></A>
+<P CLASS="TB">
+ROWID &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008891"></A>
+<P CLASS="TB">
+ROWID &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008893"></A>
+<P CLASS="TB">
+oracle.sql.BLOB &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008895"></A>
+<P CLASS="TB">
+BLOB &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008897"></A>
+<P CLASS="TB">
+BLOB &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008899"></A>
+<P CLASS="TB">
+oracle.sql.CLOB &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008901"></A>
+<P CLASS="TB">
+CLOB &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008903"></A>
+<P CLASS="TB">
+CLOB &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008905"></A>
+<P CLASS="TB">
+oracle.sql.BFILE &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008907"></A>
+<P CLASS="TB">
+BFILE &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008909"></A>
+<P CLASS="TB">
+BFILE &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008911"></A>
+<P CLASS="TB">
+oracle.sql.STRUCT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008913"></A>
+<P CLASS="TB">
+STRUCT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008915"></A>
+<P CLASS="TB">
+STRUCT &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008917"></A>
+<P CLASS="TB">
+oracle.sql.REF &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008919"></A>
+<P CLASS="TB">
+REF &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008921"></A>
+<P CLASS="TB">
+REF &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008923"></A>
+<P CLASS="TB">
+oracle.sql.ARRAY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008925"></A>
+<P CLASS="TB">
+ARRAY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008927"></A>
+<P CLASS="TB">
+ARRAY &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008929"></A>
+<P CLASS="TB">
+JPub-generated objects &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008931"></A>
+<P CLASS="TB">
+STRUCT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008933"></A>
+<P CLASS="TB">
+STRUCT &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008935"></A>
+<P CLASS="TB">
+JPub-generated object references &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008937"></A>
+<P CLASS="TB">
+REF &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008939"></A>
+<P CLASS="TB">
+REF &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008941"></A>
+<P CLASS="TB">
+JPub-generated arrays &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008943"></A>
+<P CLASS="TB">
+ARRAY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008945"></A>
+<P CLASS="TB">
+ARRAY &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008947"></A>
+<P CLASS="TB">
+client-customized types (customization of any <CODE>oracle.sql</CODE> types, including objects, references, and collections) &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008949"></A>
+<P CLASS="TB">
+depends on what is being customized &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008951"></A>
+<P CLASS="TB">
+depends on what is being customized &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008953"></A>
+<P CLASS="TB">
+<STRONG CLASS="Bold">QUERY RESULT OBJECTS</STRONG> &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008955"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008957"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008959"></A>
+<P CLASS="TB">
+java.sql.ResultSet &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008961"></A>
+<P CLASS="TB">
+CURSOR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008963"></A>
+<P CLASS="TB">
+CURSOR &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1008965"></A>
+<P CLASS="TB">
+SQLJ iterator objects &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008967"></A>
+<P CLASS="TB">
+CURSOR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1008969"></A>
+<P CLASS="TB">
+CURSOR &nbsp;</TD>
+</TR>
+
+</TABLE>
+
+<TABLE CLASS="TableNote" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+<TR CLASS="TableNote" ALIGN=LEFT VALIGN=TOP><TD CLASS="TableNote">
+
+</TD></TR>
+</TABLE>
+
+</P>
+
+<A NAME="1004411"></A>
+<P CLASS="BP">
+The following points relate to type support for basic SQLJ features:
+</P>
+
+<UL CLASS="LB1">
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1005934"></A>Remember that all numeric types in an Oracle database are stored as <CODE>NUMBER</CODE>. While you can specify additional precision when you declare a <CODE>NUMBER</CODE> during table creation (you can declare the total number of places and the number of places to the right of the decimal point), this precision may be lost when retrieving the data through the Oracle JDBC drivers, depending on the Java type that you use to receive the data. (An <CODE>oracle.sql.NUMBER</CODE> would preserve full information.)
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1005958"></A>The Java wrapper classes (such as <CODE>Integer</CODE> and <CODE>Float</CODE>) are useful in cases where null values may be returned by the SQL statement. Primitive types (such as <CODE>int</CODE> and <CODE>float</CODE>) cannot contain null values. See <a href="keyprog4.htm#1004342">"Null-Handling"</A><a href="keyprog4.htm#1004342"></A> for more information.
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1005959"></A>For information about SQLJ support for result set and iterator host variables, see <a href="blangfe5.htm#1007704">"Using Iterators and Result Sets as Host Variables"</A><a href="blangfe5.htm#1007704"></A>.
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1005960"></A>The SQLJ stream classes are required in using streams as host variables. For information, see <a href="typesup2.htm#1004419">"Support for Streams"</A><a href="typesup2.htm#1004419"></A>.
+<P>
+</UL>
+
+<A NAME="1006000"></A>
+<P CLASS="BP">
+And the following points relate to Oracle extensions, which are covered in <a href="typesup3.htm#1004804">"Oracle Type Extensions"</A><a href="typesup3.htm#1004804"></A> and in Chapter 6, <a href="objcoll.htm#1000888">"Objects and Collections"</A>:
+</P>
+
+<UL CLASS="LB1">
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1008042"></A>The <CODE>oracle.sql</CODE> classes are wrappers for SQL data for each of the Oracle datatypes. The <CODE>ARRAY</CODE>, <CODE>STRUCT</CODE>, <CODE>REF</CODE>, <CODE>BLOB</CODE>, and <CODE>CLOB</CODE> classes correspond to standard JDBC 2.0 interfaces. For background information about these classes and Oracle extensions, see the <EM CLASS="Italic"><A HREF="../../java.815/a64685/toc.htm">Oracle8i JDBC Developer's Guide and Reference</A></EM>.
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1007661"></A>Custom objects and references refer to Oracle8<EM CLASS="Italic">i</EM> object support, which allows strongly typed custom objects in the database. The Oracle JPublisher utility creates Java classes to correspond to your custom objects and can also create Java classes corresponding to custom collections (variable arrays or nested tables).
+<P>
+</UL>
+
+<A NAME="1007148"></A>
+<!--TOC=h2-"1007148"-->
+<H3 CLASS="H2"><FONT FACE="Arial, Helvetica, sans-serif" COLOR="#330099"> Wrapping PL/SQL BOOLEAN, RECORD, and TABLE Types</FONT></H3>
+<!--/TOC=h2-->
+
+<A NAME="1008211"></A>
+<P CLASS="BP">
+Oracle JDBC drivers do not support calling arguments or return values of the PL/SQL types<STRONG CLASS="Bold"> </STRONG><CODE>TABLE</CODE> (now known as <EM CLASS="Italic">indexed-by tables</EM>), <CODE>RECORD</CODE>, or <CODE>BOOLEAN</CODE>. 
+</P>
+
+<A NAME="1008212"></A>
+<P CLASS="BP">
+As a workaround, you can create wrapper procedures that handle the data as types supported by JDBC. For example, to wrap a stored procedure that uses PL/SQL booleans, you can create a stored procedure that takes a character or number from JDBC and passes it to the original procedure as <CODE>BOOLEAN</CODE>, or, for an output parameter, accepts a <CODE>BOOLEAN</CODE> argument from the original procedure and passes it as a <CODE>CHAR</CODE> or <CODE>NUMBER</CODE> to JDBC. Similarly, to wrap a stored procedure that uses PL/SQL records, you can create a stored procedure that handles a record in its individual components (such as <CODE>CHAR</CODE> and <CODE>NUMBER</CODE>). To wrap a stored procedure that uses PL/SQL tables, you can break the data into components or perhaps use Oracle collection types.
+</P>
+
+<A NAME="1008213"></A>
+<P CLASS="BP">
+Here is an example of a PL/SQL wrapper procedure <CODE>MY_PROC</CODE> for a stored procedure <CODE>PROC</CODE> that takes a <CODE>BOOLEAN</CODE> as input:
+</P>
+    
+<PRE CLASS="CE">
+<A NAME="1008241"></A>PROCEDURE MY_PROC (n NUMBER) IS
+<A NAME="1008245"></A>BEGIN
+<A NAME="1008246"></A>   IF n=0
+<A NAME="1008247"></A>      THEN proc(false);
+<A NAME="1008248"></A>      ELSE proc(true);
+<A NAME="1008249"></A>   END IF;
+<A NAME="1008250"></A>END;
+<A NAME="1008251"></A>
+<A NAME="1008252"></A>PROCEDURE PROC (b BOOLEAN) IS
+<A NAME="1008253"></A>BEGIN
+<A NAME="1008254"></A>...
+<A NAME="1008255"></A>END;
+<A NAME="1008270"></A>
+</PRE>    
+<A NAME="1008207"></A>
+<!--TOC=h2-"1008207"-->
+<H3 CLASS="H2"><FONT FACE="Arial, Helvetica, sans-serif" COLOR="#330099"> Backwards Compatibility for Oracle 8.0.5 and 7.3.4</FONT></H3>
+<!--/TOC=h2-->
+
+<A NAME="1007267"></A>
+<P CLASS="BP">
+Some of the Oracle type extensions supported by the Oracle8<EM CLASS="Italic">i</EM> JDBC drivers are either not supported or supported differently by the Oracle 8.0.5 and 7.3.4 JDBC drivers. Following are the key points:
+</P>
+
+<UL CLASS="LB1">
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1007268"></A>The 8.0.5 and 7.3.4 drivers have no <CODE>oracle.sql</CODE> package, meaning there are no wrapper types such as <CODE>oracle.sql.NUMBER</CODE> and <CODE>oracle.sql.CHAR</CODE> that you can use to wrap raw SQL data.
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1007279"></A>The 8.0.5 and 7.3.4 drivers do not support Oracle object and collection types.
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1007289"></A>The 8.0.5 and 7.3.4 drivers support the Oracle <CODE>ROWID</CODE> datatype with the <CODE>OracleRowid</CODE> class in the <CODE>oracle.jdbc.driver</CODE> package. 
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1007340"></A>The 8.0.5 drivers support the Oracle <CODE>BLOB</CODE>, <CODE>CLOB</CODE>, and <CODE>BFILE</CODE> datatypes with the <CODE>OracleBlob</CODE>, <CODE>OracleClob</CODE>, and <CODE>OracleBfile</CODE> classes in the <CODE>oracle.jdbc.driver</CODE> package. These classes do not include LOB and BFILE manipulation methods such as those discussed in <a href="typesup3.htm#1004823">"Support for BLOB, CLOB, and BFILE"</A><a href="typesup3.htm#1004823"></A>. You must instead use the PL/SQL <CODE>DBMS_LOB</CODE> package, which is discussed in the same section.
+<P>
+
+<LI CLASS="LB1" TYPE="DISC"><A NAME="1007430"></A>The 7.3.4 drivers do not support <CODE>BLOB</CODE>, <CODE>CLOB</CODE>, and <CODE>BFILE</CODE>.
+<P>
+</UL>
+
+<A NAME="1007322"></A>
+<P CLASS="BP">
+Table 5-2 summarizes these differences.
+</P>
+
+<A NAME="1007262"></A>
+<P CLASS="BP">
+
+
+<H5 CLASS="Formal"><FONT FACE="Helvetica,Arial,sans-serif"><EM>
+<A NAME="1007155"></A>
+<STRONG><FONT FACE="Arial, Helvetica, sans-serif"><EM>Table 5-2 &#32;Type Support Differences for 8.0.5 and 7.3.4 JDBC Drivers  &#32;</EM></FONT></STRONG>
+ </EM></FONT></H5>
+
+<TABLE CLASS="Formal" BORDER="1" FRAME="HSIDES" RULES="GROUPS" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+<THEAD>
+<TR CLASS="Formal"><TH CLASS="Formal" align="left" valign="bottom">
+<A NAME="1007161"></A>
+<FONT FACE="Arial, Helvetica, sans-serif"><STRONG>Java Type</STRONG></FONT>&nbsp;</TH>
+<TH CLASS="Formal" align="left" valign="bottom">
+<A NAME="1007163"></A>
+<FONT FACE="Arial, Helvetica, sans-serif"><STRONG>OracleTypes Definition</STRONG></FONT>&nbsp;</TH>
+<TH CLASS="Formal" align="left" valign="bottom">
+<A NAME="1007165"></A>
+<FONT FACE="Arial, Helvetica, sans-serif"><STRONG>Oracle Datatype</STRONG></FONT>&nbsp;</TH>
+</TR>
+<TBODY>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007167"></A>
+<P CLASS="TB">
+<STRONG CLASS="Bold">ORACLE EXTENSIONS</STRONG> &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007169"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007171"></A>
+<P CLASS="TB">
+ &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007173"></A>
+<P CLASS="TB">
+oracle.sql.NUMBER &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007175"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007177"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007179"></A>
+<P CLASS="TB">
+oracle.sql.CHAR &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007181"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007183"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007185"></A>
+<P CLASS="TB">
+oracle.sql.RAW &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007187"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007189"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007191"></A>
+<P CLASS="TB">
+oracle.sql.DATE &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007193"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007195"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007197"></A>
+<P CLASS="TB">
+oracle.jdbc.driver.OracleRowid &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007199"></A>
+<P CLASS="TB">
+ROWID &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007201"></A>
+<P CLASS="TB">
+ROWID &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007203"></A>
+<P CLASS="TB">
+oracle.jdbc.driver.OracleBlob &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007205"></A>
+<P CLASS="TB">
+BLOB in 8.0.5 <br>not supported in 7.3.4 &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007207"></A>
+<P CLASS="TB">
+BLOB in 8.0.5
+<A NAME="1007468"></A>
+<P CLASS="TB">
+n/a in 7.3.4 &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007209"></A>
+<P CLASS="TB">
+oracle.jdbc.driver.OracleClob &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007211"></A>
+<P CLASS="TB">
+CLOB in 8.0.5 <br>not supported in 7.3.4 &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007470"></A>
+<P CLASS="TB">
+CLOB in 8.0.5
+<A NAME="1007213"></A>
+<P CLASS="TB">
+n/a in 7.3.4 &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007215"></A>
+<P CLASS="TB">
+oracle.jdbc.driver.OracleBfile &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007217"></A>
+<P CLASS="TB">
+BFILE in 8.0.5 <br>not supported in 7.3.4 &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007475"></A>
+<P CLASS="TB">
+BFILE in 8.0.5
+<A NAME="1007219"></A>
+<P CLASS="TB">
+n/a in 7.3.4 &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007221"></A>
+<P CLASS="TB">
+oracle.sql.STRUCT &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007223"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007225"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007227"></A>
+<P CLASS="TB">
+oracle.sql.REF &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007229"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007231"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007233"></A>
+<P CLASS="TB">
+oracle.sql.ARRAY &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007235"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007237"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007239"></A>
+<P CLASS="TB">
+JPub-generated objects &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007241"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007243"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007245"></A>
+<P CLASS="TB">
+JPub-generated object references &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007247"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007249"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007251"></A>
+<P CLASS="TB">
+JPub-generated arrays &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007253"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007255"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+<TR CLASS="Formal" ALIGN="LEFT" VALIGN="TOP"><TD CLASS="Formal">
+<A NAME="1007257"></A>
+<P CLASS="TB">
+client-customized types (customization of any <CODE>oracle.sql</CODE> types, including objects, references, and collections) &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007259"></A>
+<P CLASS="TB">
+not supported &nbsp;</TD>
+<TD CLASS="Formal">
+<A NAME="1007261"></A>
+<P CLASS="TB">
+n/a &nbsp;</TD>
+</TR>
+
+</TABLE>
+
+<TABLE CLASS="TableNote" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+<TR CLASS="TableNote" ALIGN=LEFT VALIGN=TOP><TD CLASS="TableNote">
+
+</TD></TR>
+</TABLE>
+
+</P>
+
+<A NAME="1006701"></A>
+<P CLASS="BP">
+
+</P>
+
+
+
+<HR NOSHADE SIZE="1">
+<P CLASS="BP">
+
+
+
+<!-- Start Footer -->
+
+</DIV>
+
+<DIV CLASS="OUTD">
+
+
+<HR>
+
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+<TR>
+
+<TD VALIGN="BOTTOM" WIDTH="33%">
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+<TR>
+<TD ALIGN="CENTER"><A HREF="typesupp.htm"><IMG SRC="../../dcommon/gifs/larrow.gif" ALT="" BORDER="0" HEIGHT="30" WIDTH="30"><BR><FONT SIZE="-2">Prev</FONT></A></TD>
+<TD ALIGN="CENTER"><A HREF="typesupp.htm"><IMG SRC="../../dcommon/gifs/uarrow.gif" ALT="" BORDER="0" HEIGHT="30" WIDTH="30"><BR><FONT SIZE="-2">Top</FONT></A></TD>
+<TD ALIGN="CENTER"><A HREF="typesup2.htm"><IMG SRC="../../dcommon/gifs/rarrow.gif" ALT="" BORDER="0" HEIGHT="30" WIDTH="30"><BR><FONT SIZE="-2">Next</FONT></A></TD>
+</TR>
+</TABLE>
+
+</TD>
+
+
+<TD ALIGN="CENTER" WIDTH="34%">
+<A HREF="../../dcommon/html/cpyr.htm"><IMG SRC="../../dcommon/gifs/oracle.gif" ALT="Oracle" BORDER="0" HEIGHT="15" WIDTH="75"><BR>
+<FONT SIZE="-2">Copyright &copy; 1999 Oracle Corporation.</FONT></A>
+<BR>
+<FONT SIZE="-2">All Rights Reserved.</FONT>
+</TD>
+
+<TD VALIGN="BOTTOM" ALIGN="RIGHT" WIDTH="33%"> 
+
+<TABLE CELLSPACING="0" CELLPADDING="0">
+<TR>
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="../../products.htm"><IMG SRC="../../dcommon/gifs/prodicon.gif" ALT="" BORDER="0" HEIGHT="30" WIDTH="30"><BR>
+<FONT SIZE="-2">Library</FONT></A></TD>
+
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="../index.htm"><IMG SRC="../../dcommon/gifs/bookicon.gif" ALT="" BORDER="0" HEIGHT="30" WIDTH="30"><BR>
+<FONT SIZE=-2>Product</FONT></A></TD>
+
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="toc.htm"><IMG SRC="../../dcommon/gifs/conticon.gif" ALT="" BORDER="0" HEIGHT="30"
+WIDTH="30"><BR>
+<FONT SIZE="-2">Contents</FONT></A></TD>
+
+<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="25%"><A HREF="index.htm"><IMG SRC="../../dcommon/gifs/indxicon.gif" ALT="" BORDER="0" HEIGHT="30"
+WIDTH="30"><BR>
+<FONT SIZE="-2">Index</FONT></A></TD>
+</TR>
+</TABLE>
+
+</TD>
+
+</TR>
+</TABLE>
+
+</DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,97 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="file:///D:\Project\workzen.xgen/doc/html/navleft/css/website.css">
+<title>XGen</title>
+</head>
+<body>
+<h1 class="title">XGen</h1>
+<table class="menu">
+<tr class="menu">
+<td class="menu" valign="top">
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/index.html">home</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/index.html">technical</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/index.html">models</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/ant.html">ant</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/loaders.html">loaders</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/processors.html">processors</a></div>
+        </div> 
+  <div class="space"> </div>
+</td>
+<td class="body" valign="top">
+<div class="content">
+<h2>XGen Ant Task</h2>
+<p>Ant is a Java build tool, used to manage software projects. It has been 
+adapted here to configure the runtime components, and execute the process. You 
+can read more about Ant from the Apache <a href="http://ant.apache.org/">website</a>.</p>
+<p>The XGenTask has been &quot;decoupled&quot; from the transformation process. Earlier 
+versions used the Velocity TexenTask, which is dependent on Velocity. We now 
+only use Ant to configure the Loader and Processor, and invoke the execution.</p>
+<h3>Configuration</h3>
+<p>Ant is used by XGen as &quot;property configurator&quot;. All properties defined in the 
+task are passed to the Loader and the Processor as a standard Property class. 
+XGen processors can be embedded in other programs without having a dependency on 
+Ant.</p>
+<h3>Example</h3>
+<blockquote>
+	<pre>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;project name=&quot;xgen&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+
+&lt;!-- ====================================================================== --&gt;
+&lt;!-- Example build --&gt;
+&lt;!-- ====================================================================== --&gt;
+
+&lt;property file=&quot;build.properties&quot;/&gt;
+&lt;property name=&quot;input.file&quot; value=&quot;${basedir}/etc/input/blog.xml&quot;/&gt;
+&lt;property name=&quot;output.dir&quot; value=&quot;${basedir}/work/blog&quot;/&gt;
+
+&lt;path id=&quot;classpath&quot;&gt;
+  &lt;pathelement path=&quot;.&quot;/&gt;
+    &lt;fileset dir=&quot;${basedir}&quot;&gt;
+    &lt;include name=&quot;**/*.jar&quot;/&gt;
+  &lt;/fileset&gt; 
+&lt;/path&gt;
+
+&lt;target name=&quot;build&quot;&gt;
+
+&lt;echo message=&quot;+-----------------------------------------------------+&quot;/&gt;
+&lt;echo message=&quot;| Generating project source! |&quot;/&gt;
+&lt;echo message=&quot;+-----------------------------------------------------+&quot;/&gt;
+
+&lt;taskdef name=&quot;xgen&quot; classname=&quot;workzen.xgen.ant.XGenTask&quot;&gt;
+&lt;classpath refid=&quot;classpath&quot;/&gt;
+&lt;/taskdef&gt;
+
+&lt;!-- pojo --&gt; 
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.JavaModelLoader&quot;
+  xmlFilePath=&quot;${input.file}&quot;
+  processor=&quot;workzen.xgen.engine.VelocityProcessor&quot;
+  templateBasePath=&quot;${basedir}/src/workzen/xgen&quot;
+  templatePath=&quot;templates/pojo&quot;
+  template=&quot;control.vm&quot;
+  outputPath=&quot;${output.dir}&quot;
+  outputFile=&quot;pojo.out&quot;
+&gt;
+&lt;/xgen&gt; 
+
+&lt;/target&gt;
+
+&lt;/project&gt;
+</pre>
+</blockquote>
+This example loads the Java Package model from an xml input file, and uses the 
+Velocity template engine to process it.
+</p>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ASCII"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" size="3139,3618" id="matlackblaptopmatlackbworkzenxgen0" metadata="nsuml-1.4" initialized="true" showWireOptions="7" zoom="0.75" scrolledX="168">
+  <children xsi:type="editmodel:ClassEditModel" location="974,326" size="196,240" targetConnections="//@children.5/@sourceConnections.0 //@children.5/@sourceConnections.2" id="matlackblaptopmatlackbworkzenxgen1" runTimeClassModel="matlackblaptopmatlackbworkzenxgen16;matlackblaptopmatlackbworkzenxgen48;matlackblaptopmatlackbworkzenxgen8;matlackblaptopmatlackbworkzenxgen42;matlackblaptopmatlackbworkzenxgen95;matlackblaptopmatlackbworkzenxgen22;matlackblaptopmatlackbworkzenxgen31;matlackblaptopmatlackbworkzenxgen28;matlackblaptopmatlackbworkzenxgen73;matlackblaptopmatlackbworkzenxgen64;matlackblaptopmatlackbworkzenxgen76;matlackblaptopmatlackbworkzenxgen97;matlackblaptopmatlackbworkzenxgen54;matlackblaptopmatlackbworkzenxgen70;matlackblaptopmatlackbworkzenxgen6;matlackblaptopmatlackbworkzenxgen92;matlackblaptopmatlackbworkzenxgen79;matlackblaptopmatlackbworkzenxgen24;matlackblaptopmatlackbworkzenxgen67;matlackblaptopmatlackbworkzenxgen56;matlackblaptopmatlackbworkzenxgen45;matlackblaptopmatlackbworkzenxgen18;matlackblaptopmatlackbworkzenxgen10;matlackblaptopmatlackbworkzenxgen90;matlackblaptopmatlackbworkzenxgen87;matlackblaptopmatlackbworkzenxgen58;matlackblaptopmatlackbworkzenxgen36;matlackblaptopmatlackbworkzenxgen50;matlackblaptopmatlackbworkzenxgen12;matlackblaptopmatlackbworkzenxgen33;matlackblaptopmatlackbworkzenxgen2;matlackblaptopmatlackbworkzenxgen20;matlackblaptopmatlackbworkzenxgen39;matlackblaptopmatlackbworkzenxgen85;matlackblaptopmatlackbworkzenxgen62;matlackblaptopmatlackbworkzenxgen82;matlackblaptopmatlackbworkzenxgen60;matlackblaptopmatlackbworkzenxgen14;matlackblaptopmatlackbworkzenxgen52">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen2"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen6"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen8"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen10"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen12"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen14"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen16"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen18"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen20"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen22"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen24"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="150,504"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="1239,412" size="164,32" targetConnections="//@children.4/@sourceConnections.1" id="matlackblaptopmatlackbworkzenxgen342" shortShow="true" runTimeClassModel="matlackblaptopmatlackbworkzenxgen445;matlackblaptopmatlackbworkzenxgen441;matlackblaptopmatlackbworkzenxgen429;matlackblaptopmatlackbworkzenxgen426;matlackblaptopmatlackbworkzenxgen434;matlackblaptopmatlackbworkzenxgen443;matlackblaptopmatlackbworkzenxgen449;matlackblaptopmatlackbworkzenxgen438;matlackblaptopmatlackbworkzenxgen431">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="123,144">
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen431"/>
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen429"/>
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen438"/>
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen434"/>
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen441"/>
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen443"/>
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen449"/>
+      <children xsi:type="editmodel:MethodEditModel" id="matlackblaptopmatlackbworkzenxgen445"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="460,465" size="149,114" targetConnections="//@children.6/@sourceConnections.3" id="matlackblaptopmatlackbworkzenxgen226" runTimeClassModel="matlackblaptopmatlackbworkzenxgen300;matlackblaptopmatlackbworkzenxgen281;matlackblaptopmatlackbworkzenxgen308;matlackblaptopmatlackbworkzenxgen287;matlackblaptopmatlackbworkzenxgen315;matlackblaptopmatlackbworkzenxgen312;matlackblaptopmatlackbworkzenxgen283;matlackblaptopmatlackbworkzenxgen293;matlackblaptopmatlackbworkzenxgen289;matlackblaptopmatlackbworkzenxgen297;matlackblaptopmatlackbworkzenxgen295;matlackblaptopmatlackbworkzenxgen285;matlackblaptopmatlackbworkzenxgen317;matlackblaptopmatlackbworkzenxgen306;matlackblaptopmatlackbworkzenxgen310;matlackblaptopmatlackbworkzenxgen303;matlackblaptopmatlackbworkzenxgen291">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen281"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen283"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen285"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen287"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="135,234"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="463,609" size="148,96" targetConnections="//@children.6/@sourceConnections.2" id="matlackblaptopmatlackbworkzenxgen222" runTimeClassModel="matlackblaptopmatlackbworkzenxgen521;matlackblaptopmatlackbworkzenxgen513;matlackblaptopmatlackbworkzenxgen515;matlackblaptopmatlackbworkzenxgen519;matlackblaptopmatlackbworkzenxgen526;matlackblaptopmatlackbworkzenxgen529;matlackblaptopmatlackbworkzenxgen509;matlackblaptopmatlackbworkzenxgen523;matlackblaptopmatlackbworkzenxgen534;matlackblaptopmatlackbworkzenxgen532;matlackblaptopmatlackbworkzenxgen517;matlackblaptopmatlackbworkzenxgen511">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen509"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen511"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen513"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="135,162"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="1238,495" size="159,60" id="matlackblaptopmatlackbworkzenxgen326" runTimeClassModel="matlackblaptopmatlackbworkzenxgen332;matlackblaptopmatlackbworkzenxgen330;matlackblaptopmatlackbworkzenxgen327">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen327"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="78,36"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen337" connectionRouterKind="Manhattan" source="//@children.4" target="//@children.8" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen344" connectionRouterKind="Manhattan" source="//@children.4" target="//@children.1" targetEnd="//@children.4/@sourceConnections.1/@children.1" sourceEnd="//@children.4/@sourceConnections.1/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="994,606" size="164,132" targetConnections="//@children.6/@sourceConnections.0 //@children.6/@sourceConnections.1 //@children.6/@sourceConnections.4" id="matlackblaptopmatlackbworkzenxgen162" runTimeClassModel="matlackblaptopmatlackbworkzenxgen403;matlackblaptopmatlackbworkzenxgen359;matlackblaptopmatlackbworkzenxgen377;matlackblaptopmatlackbworkzenxgen355;matlackblaptopmatlackbworkzenxgen395;matlackblaptopmatlackbworkzenxgen356;matlackblaptopmatlackbworkzenxgen367;matlackblaptopmatlackbworkzenxgen387;matlackblaptopmatlackbworkzenxgen364;matlackblaptopmatlackbworkzenxgen397;matlackblaptopmatlackbworkzenxgen375;matlackblaptopmatlackbworkzenxgen353;matlackblaptopmatlackbworkzenxgen373;matlackblaptopmatlackbworkzenxgen389;matlackblaptopmatlackbworkzenxgen399;matlackblaptopmatlackbworkzenxgen382;matlackblaptopmatlackbworkzenxgen410;matlackblaptopmatlackbworkzenxgen371;matlackblaptopmatlackbworkzenxgen393;matlackblaptopmatlackbworkzenxgen407;matlackblaptopmatlackbworkzenxgen401;matlackblaptopmatlackbworkzenxgen391;matlackblaptopmatlackbworkzenxgen357;matlackblaptopmatlackbworkzenxgen379;matlackblaptopmatlackbworkzenxgen405;matlackblaptopmatlackbworkzenxgen361;matlackblaptopmatlackbworkzenxgen369;matlackblaptopmatlackbworkzenxgen385;matlackblaptopmatlackbworkzenxgen354">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen353"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen354"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen355"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen356"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen357"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="149,432"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen420" connectionRouterKind="Manhattan" source="//@children.5" target="//@children.0" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen414" connectionRouterKind="Manhattan" source="//@children.5" target="//@children.6" targetEnd="//@children.5/@sourceConnections.1/@children.1" sourceEnd="//@children.5/@sourceConnections.1/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="matlackblaptopmatlackbworkzenxgen356" connectionRouterKind="Manhattan" source="//@children.5" target="//@children.0" targetEnd="//@children.5/@sourceConnections.2/@children.0" sourceEnd="//@children.5/@sourceConnections.2/@children.1">
+      <children xsi:type="editmodel:AssociationEndEditModel" id="matlackblaptopmatlackbworkzenxgen356" navigable="true" flags="2" multiplicityLabel="//@children.5/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.5/@sourceConnections.2/@children.0/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="55,16" fontInfo="Arial-8-0"/>
+        <children xsi:type="editmodel:LabelEditModel" size="23,16" fontInfo="Arial-8-0"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="matlackblaptopmatlackbworkzenxgen354" connectionRouterKind="Manhattan" source="//@children.5" target="//@children.6" targetEnd="//@children.5/@sourceConnections.3/@children.0" sourceEnd="//@children.5/@sourceConnections.3/@children.1">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,146" id="matlackblaptopmatlackbworkzenxgen354" navigable="true" flags="2" multiplicityLabel="//@children.5/@sourceConnections.3/@children.0/@children.1" roleLabel="//@children.5/@sourceConnections.3/@children.0/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="68,16" fontInfo="Arial-8-0"/>
+        <children xsi:type="editmodel:LabelEditModel" size="23,16" fontInfo="Arial-8-0"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="matlackblaptopmatlackbworkzenxgen355" connectionRouterKind="Manhattan" source="//@children.5" target="//@children.8" targetEnd="//@children.5/@sourceConnections.4/@children.0" sourceEnd="//@children.5/@sourceConnections.4/@children.1">
+      <children xsi:type="editmodel:AssociationEndEditModel" id="matlackblaptopmatlackbworkzenxgen355" navigable="true" flags="2" multiplicityLabel="//@children.5/@sourceConnections.4/@children.0/@children.1" roleLabel="//@children.5/@sourceConnections.4/@children.0/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="38,16" fontInfo="Arial-8-0"/>
+        <children xsi:type="editmodel:LabelEditModel" size="23,16" fontInfo="Arial-8-0"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen416" connectionRouterKind="Manhattan" source="//@children.5" target="//@children.8" targetEnd="//@children.5/@sourceConnections.5/@children.1" sourceEnd="//@children.5/@sourceConnections.5/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="667,448" size="218,294" targetConnections="//@children.5/@sourceConnections.1 //@children.7/@sourceConnections.0 //@children.5/@sourceConnections.3" id="matlackblaptopmatlackbworkzenxgen138" runTimeClassModel="matlackblaptopmatlackbworkzenxgen229;matlackblaptopmatlackbworkzenxgen199;matlackblaptopmatlackbworkzenxgen254;matlackblaptopmatlackbworkzenxgen164;matlackblaptopmatlackbworkzenxgen179;matlackblaptopmatlackbworkzenxgen239;matlackblaptopmatlackbworkzenxgen157;matlackblaptopmatlackbworkzenxgen184;matlackblaptopmatlackbworkzenxgen209;matlackblaptopmatlackbworkzenxgen206;matlackblaptopmatlackbworkzenxgen241;matlackblaptopmatlackbworkzenxgen250;matlackblaptopmatlackbworkzenxgen159;matlackblaptopmatlackbworkzenxgen173;matlackblaptopmatlackbworkzenxgen204;matlackblaptopmatlackbworkzenxgen188;matlackblaptopmatlackbworkzenxgen215;matlackblaptopmatlackbworkzenxgen237;matlackblaptopmatlackbworkzenxgen248;matlackblaptopmatlackbworkzenxgen182;matlackblaptopmatlackbworkzenxgen221;matlackblaptopmatlackbworkzenxgen243;matlackblaptopmatlackbworkzenxgen150;matlackblaptopmatlackbworkzenxgen218;matlackblaptopmatlackbworkzenxgen155;matlackblaptopmatlackbworkzenxgen144;matlackblaptopmatlackbworkzenxgen246;matlackblaptopmatlackbworkzenxgen202;matlackblaptopmatlackbworkzenxgen156;matlackblaptopmatlackbworkzenxgen190;matlackblaptopmatlackbworkzenxgen196;matlackblaptopmatlackbworkzenxgen176;matlackblaptopmatlackbworkzenxgen192;matlackblaptopmatlackbworkzenxgen154;matlackblaptopmatlackbworkzenxgen233;matlackblaptopmatlackbworkzenxgen152;matlackblaptopmatlackbworkzenxgen194;matlackblaptopmatlackbworkzenxgen252;matlackblaptopmatlackbworkzenxgen148;matlackblaptopmatlackbworkzenxgen235;matlackblaptopmatlackbworkzenxgen258;matlackblaptopmatlackbworkzenxgen167;matlackblaptopmatlackbworkzenxgen225;matlackblaptopmatlackbworkzenxgen161;matlackblaptopmatlackbworkzenxgen139;matlackblaptopmatlackbworkzenxgen146;matlackblaptopmatlackbworkzenxgen163;matlackblaptopmatlackbworkzenxgen186;matlackblaptopmatlackbworkzenxgen256;matlackblaptopmatlackbworkzenxgen141;matlackblaptopmatlackbworkzenxgen212;matlackblaptopmatlackbworkzenxgen170">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen139"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen141"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen144"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen146"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen148"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen150"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen152"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen154"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen155"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen156"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen157"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen159"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen161"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen163"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="189,684"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="matlackblaptopmatlackbworkzenxgen161" connectionRouterKind="Manhattan" source="//@children.6" target="//@children.5" targetEnd="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1">
+      <children xsi:type="editmodel:AssociationEndEditModel" id="matlackblaptopmatlackbworkzenxgen161" navigable="true" flags="2" multiplicityLabel="//@children.6/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.0/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="79,16" fontInfo="Arial-8-0"/>
+        <children xsi:type="editmodel:LabelEditModel" size="23,16" fontInfo="Arial-8-0"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="matlackblaptopmatlackbworkzenxgen163" connectionRouterKind="Manhattan" source="//@children.6" target="//@children.5" targetEnd="//@children.6/@sourceConnections.1/@children.0" sourceEnd="//@children.6/@sourceConnections.1/@children.1">
+      <children xsi:type="editmodel:AssociationEndEditModel" id="matlackblaptopmatlackbworkzenxgen163" navigable="true" flags="2" multiplicityLabel="//@children.6/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.6/@sourceConnections.1/@children.0/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" size="100,16" fontInfo="Arial-8-0"/>
+        <children xsi:type="editmodel:LabelEditModel" size="23,16" fontInfo="Arial-8-0"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen261" connectionRouterKind="Manhattan" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.2/@children.1" sourceEnd="//@children.6/@sourceConnections.2/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen263" connectionRouterKind="Manhattan" source="//@children.6" target="//@children.2" targetEnd="//@children.6/@sourceConnections.3/@children.1" sourceEnd="//@children.6/@sourceConnections.3/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen273" connectionRouterKind="Manhattan" source="//@children.6" target="//@children.5" targetEnd="//@children.6/@sourceConnections.4/@children.1" sourceEnd="//@children.6/@sourceConnections.4/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="695,314" size="159,96" id="matlackblaptopmatlackbworkzenxgen464" runTimeClassModel="matlackblaptopmatlackbworkzenxgen465;matlackblaptopmatlackbworkzenxgen467;matlackblaptopmatlackbworkzenxgen482;matlackblaptopmatlackbworkzenxgen480;matlackblaptopmatlackbworkzenxgen477;matlackblaptopmatlackbworkzenxgen471;matlackblaptopmatlackbworkzenxgen474;matlackblaptopmatlackbworkzenxgen488;matlackblaptopmatlackbworkzenxgen484;matlackblaptopmatlackbworkzenxgen469;matlackblaptopmatlackbworkzenxgen490">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen465"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen467"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen469"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,144"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" id="matlackblaptopmatlackbworkzenxgen494" connectionRouterKind="Manhattan" source="//@children.7" target="//@children.6" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0">
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" location="1231,618" size="182,114" targetConnections="//@children.4/@sourceConnections.0 //@children.5/@sourceConnections.4 //@children.5/@sourceConnections.5" id="matlackblaptopmatlackbworkzenxgen334" runTimeClassModel="matlackblaptopmatlackbworkzenxgen563;matlackblaptopmatlackbworkzenxgen542;matlackblaptopmatlackbworkzenxgen575;matlackblaptopmatlackbworkzenxgen560;matlackblaptopmatlackbworkzenxgen571;matlackblaptopmatlackbworkzenxgen543;matlackblaptopmatlackbworkzenxgen554;matlackblaptopmatlackbworkzenxgen565;matlackblaptopmatlackbworkzenxgen569;matlackblaptopmatlackbworkzenxgen541;matlackblaptopmatlackbworkzenxgen544;matlackblaptopmatlackbworkzenxgen573;matlackblaptopmatlackbworkzenxgen557;matlackblaptopmatlackbworkzenxgen551;matlackblaptopmatlackbworkzenxgen545;matlackblaptopmatlackbworkzenxgen567">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen541"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen542"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen543"/>
+      <children xsi:type="editmodel:AttributeEditModel" id="matlackblaptopmatlackbworkzenxgen544"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="149,216"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true"/>
+  </children>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showInterfaceStereotype="true" showClassStereotype="true" showPackageStereotype="true"/>
+</editmodel:ClassDiagramEditModel>

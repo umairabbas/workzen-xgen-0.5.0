@@ -1,0 +1,25 @@
+#############################################################
+## control.vm
+## Brad Matlack 12-5-2001
+#############################################################
+## log the model parameters to the report file
+$model
+
+#set( $smd = $model ) ## schema metadata
+#set( $tmdList = $smd.getTableMetaData() )
+
+## log
+resourcepath: $resourcePath
+output directory: $outputDirectory/$path
+
+$files.mkdir("$outputDirectory/$path")
+
+## loop through each bean in the package
+#foreach( $tmd in $tmdList )
+  ##================= jar path ==============================##
+  #set( $template = "${resourcePath}rdbms2xgen.vm" )
+  ##set ($outputFile = "${path}/${classname}.java")
+  ##=========================================================##
+  $generator.parse($template, $outputFile, "", "")
+#end
+  

@@ -1,0 +1,45 @@
+## navtop.vm
+## Brad Matlack 1-2006
+## XGen website navigation template
+###################################################
+#set( $body = $page.getBody() )
+
+## UNIQUE MACRO NAME!
+#macro( displayTopMenu $menu ) 
+#set($menuitems = $menu.getMenuItems())
+#if( $menuitems.size() > 0 )
+  <div class="menu">
+  #foreach( $menuitem in $menuitems ) 
+    #if($site.isSelected($page,$menuitem))
+    <span class="selecteditem">$site.getHref(${menuitem})</span>
+    #else
+    <span class="menuitem">$site.getHref($menuitem)</span>
+    #end
+  #end
+  </div> 
+  <div class="space"> </div>
+#end
+#end
+###################################################
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="${webroot}/css/website.css">
+<title>${webTitle}</title>
+</head>
+<body>
+<h1 class="title">${webTitle}</h1>
+## display each parent menus
+#set( $parentMenus = $page.getParentMenus() )
+#foreach( $parentMenu in $parentMenus )
+#displayTopMenu($parentMenu)
+#end
+## display the page menu
+#displayTopMenu($page.getMenuItem())
+<div class="body">
+##$body
+$generator.evaluate($body)
+</div>
+</body>
+</html>
+

@@ -1,0 +1,217 @@
+query = "INSERT INTO atom (id, type, data) VALUES (?, ?, ?)"; 
+ps = db.prepareStatement(query); 
+ps.setInt(1, objid); 
+ps.setString(2, doctype); 
+ByteArrayInputStream bi = new ByteArrayInputStream(hwdoc.getContent()); 
+ps.setBinaryStream(3, bi, size); 
+ps.executeUpdate(query); 
+java.sql.SQLException: ERROR: parser: parse error at or near "," 
+
+at org.postgresql.Connection.ExecSQL(Connection.java:533) 
+at org.postgresql.jdbc2.Statement.execute(Statement.java:294) 
+at org.postgresql.jdbc2.Statement.executeUpdate(Statement.java:78) 
+
+
+byte[] byteArray = rs.getBytes();
+ps.setBytes(byteArray);
+
+InputStream is = rs.getBinaryStream(1); 
+ByteArrayOutputStream byteStream = new ByteArrayOutputStream(); 
+
+int data; 
+while ((data = is.read()) != -1){ 
+byteStream.write((byte)data); 
+System.out.print(" "+data+" "); 
+} 
+
+byte[] buf = byteStream.toByteArray(); 
+
+SQL3 defines LOCATOR types that are logical pointers to the disk-resident data for 
+extended types such as arrays, structured types, Blobs, and Clobs (discussed later). 
+JDBC programs don't work directly with LOCATOR types to materialize objects. 
+Instead, JDBC programs use getXXX, getXXX, and updateXXX methods to operate on SQL3 types. 
+The Blob, Clob, and Array objects materialize the data of the objects. 
+Blob and Clob materialize the data as streams. 
+Some DBMS products support an ARRAY type, while JDBC 2.0 maps Array instances to ARRAY values. 
+JDBC programs can retrieve arrays as Java arrays (Array.getArray) or result sets (ResultSet.getArray). 
+
+
+
+Question  I have the choice of manipulating database data using a byte[] or a java.sql.Blob. Which has best performance?  
+Topics  Java:API:JDBC:2.0  
+Author  Lennart Jorelid  
+Created  Nov 29, 1999  
+
+Answer 
+
+java.sql.Blob, since it does not extract any data from the database until you explicitly ask it to. The Java platform 2 type Blob wraps a database locator (which is essentially a pointer to byte). That pointer is a rather large number (between 32 and 256 bits in size) - but the effort to extract it from the database is insignificant next to extracting the full blob content. For insertion into the database, you should use a byte[] since data has not been uploaded to the database yet. Thus, use the Blob class only for extraction.
+
+Conclusion: use the java.sql.Blob class for extraction whenever you can. 
+
+
+byte[] b = blob.getBytes(0, (int)blob.length());
+The fix would be to subtract one, ie:
+    public byte[] getBytes(long pos,int length) throws SQLException {
+        lo.seek((int)pos-1,LargeObject.SEEK_SET);
+        return lo.read(length);
+    }
+
+Table 20. SQL Data Types Mapped to Java Declarations
+SQL Column Type  Java Data Type  SQL Column Type Description  
+
+SMALLINT (500 or 501)  short  16-bit, signed integer  
+
+INTEGER (496 or 497)  int  32-bit, signed integer  
+
+BIGINT (492 or 493)  long  64-bit, signed integer  
+
+REAL (480 or 481)  float  Single precision floating point  
+
+DOUBLE (480 or 481)  double  Double precision floating point  
+
+DECIMAL(p,s) (484 or 485) java.math.BigDecimal  Packed decimal  
+
+CHAR(n) (452 or 453)  String  Fixed-length character string of length n where n is from 1 to 254  
+
+VARCHAR(n) (448 or 449)  String  Variable-length character string  
+
+LONG VARCHAR (456 or 457)  String  Long variable-length character string  
+
+CHAR(n) FOR BIT DATA  byte[]  Fixed-length character string of length n where n is from 1 to 254  
+
+VARCHAR(n) FOR BIT DATA  byte[]  Variable-length character string  
+
+LONG VARCHAR FOR BIT DATA  byte[]  Long variable-length character string  
+
+BLOB(n) (404 or 405) JDBC 1.22: byte[] JDBC 2.0: java.sql.Blob Large object variable-length binary string  
+
+CLOB(n)(408 or 409) JDBC 1.22: String JDBC 2.0: java.sql.Clob Large object variable-length character string  
+
+DBCLOB(n)(412 or 413) JDBC 1.22: String JDBC 2.0: java.sql.Clob Large object variable-length double-byte character string  
+
+DATE (384 or 385)  java.sql.Date  10-byte character string  
+
+TIME (388 or 389)  java.sql.Time  8-byte character string  
+
+TIMESTAMP (392 or 393)  java.sql.Timestamp  26-byte character string  
+
+
+BLOBs and CLOBs: Storing large fields in a table with the other data is not necessarily the optimum place especially if the data has a variable size. One way to handle large, variable sized objects is with the Large Objects (LOBs) type. LOBs use a locator, essentially a pointer, in the database record that points to the real database field. 
+
+There are two types of LOBs: Binary Large Objects (BLOBs) and Character Large Objects (CLOBs). When you access a BLOB or CLOB, the data is not copied to the client. To retrieve the actual data from a result set, you have to retrieve the pointer with a call to BLOB blob=getBlob(1) or CLOB clob=getClob(1), and then retrieve the data with a call to blob.getBinaryStream() or clob.getBinaryStream(). 
+
+
+public void doRetrieve()
+  {
+    try
+    { 
+      pstmt.setString( 1, 
+        (String)(jcb.getSelectedItem()) );
+      rs = pstmt.executeQuery();
+      if( rs.next() )
+      {
+        blob = rs.getBlob( 1 );
+
+        iLength = (int)(blob.length());
+        ii = new ImageIcon(
+           blob.getBytes( 1, iLength )
+                          );
+
+        jlImage.setIcon( ii );
+
+        pack();
+
+      }
+
+    } // end try
+    catch ( SQLException SQLe)
+
+
+To insert an image, you would use: 
+
+File file = new File("myimage.gif");
+FileInputStream fis = new FileInputStream(file);
+PreparedStatement ps = conn.prepareStatement("insert into images values (?,?)");
+ps.setString(1,file.getName());
+ps.setBinaryStream(2,fis,file.length());
+ps.executeUpdate();
+ps.close();
+fis.close();
+    
+
+Now in this example, setBinaryStream transfers a set number of bytes from a stream into a large object, and stores the OID into the field holding a reference to it. 
+
+Retrieving an image is even easier (I'm using PreparedStatement here, but Statement can equally be used): 
+
+PreparedStatement ps = con.prepareStatement("select oid from images where name=?");
+ps.setString(1,"myimage.gif");
+ResultSet rs = ps.executeQuery();
+if(rs!=null) {
+    while(rs.next()) {
+        InputStream is = rs.getBinaryInputStream(1);
+        // use the stream in some way here
+        is.close();
+    }
+    rs.close();
+}
+ps.close();
+
+
+public class BlobFile implements Blob {
+  byte[] data;
+
+  public BlobFile( String name ) {
+    FileInputStream fs =  new FileInputStream( name );
+    data = new byte[ fs.available() ];
+    int n = fs.read( data );
+    fs.close();
+    }
+
+/** set from file */
+public void setBlobType ( java.io.File file ) throws java.io.IOException {
+	java.io.FileInputStream fis = new java.io.FileInputStream(file);
+	int bytes_read = 0;
+	int size = (int)file.length();
+	blobType = new byte[size];
+
+    while (bytes_read < size) 
+       bytes_read += fis.read(blobType, bytes_read, size - bytes_read);
+}
+
+============================================
+
+public class BlobFile implements Blob {
+
+  byte[] data;
+
+  public InputStream getInputStream() {
+    return new ByteArrayInputStream( data );
+    }
+
+  public byte[] getBytes( long pos, int length ) { … }
+
+  public long length() { return data.length; }
+
+  public long position( Blob pattern, long start ) { … }
+
+  }
+
+ 
+BlobFile bf = new BlobFile( "x.gif" );
+ps = new PreparedStatement( 
+         "insert into T values " + 
+         "( \"?\", \"?\" )" );
+
+ps.setString( 1, "x" );
+ps.setBlob( 2, bf );
+ps.execute(); 
+ 
+
+Very large data blocks 
+You can also transfer binary data directly from an input stream to a LONGVARBINARY column 
+
+void setBinaryStream( int index, InputStream x, int length ); 
+
+
+
+

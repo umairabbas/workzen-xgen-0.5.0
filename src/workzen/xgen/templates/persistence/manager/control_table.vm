@@ -1,0 +1,30 @@
+#############################################################
+## standalone table control.vm
+## Brad Matlack 12-5-2001
+#############################################################
+## log the model parameters to the report file
+$model
+#set( $pkg = $model )
+#set( $beans = $model.getBeans() )
+#set( $path = $strings.getPackageAsPath($pkg.getName()))
+
+## log
+resourcepath: $resourcePath
+output directory: $outputPath/$path
+
+$files.mkdir("$outputPath/$path/table")
+
+## loop through each bean in the package
+#foreach( $bean in $beans )
+  ##================= jar path ==============================##
+  #set( $template = "${templatePath}/table.vm" )
+  #set( $classname = $bean.getName() )
+  #set( $packageName = $strings.concat([$pkg.getName(), ".table"]) )
+  ##set( $outputFile = $strings.concat([$classname, "Table.java"]) )
+  #set ($outputFile = "${outputPath}/${path}/table/${classname}Table.java")
+  ##=========================================================##
+  $generator.parse($template, $outputFile, "", "")
+#end
+  
+
+  

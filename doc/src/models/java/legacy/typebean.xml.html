@@ -1,0 +1,107 @@
+<html>
+
+<head>
+<link REL="stylesheet" TYPE="text/css" HREF="xxxstylesheet.css" TITLE="Style">
+<title>Xml Map File</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+</head>
+
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<p><small><font face="Courier New">&lt;?xml version=&quot;1.0&quot;
+encoding=&quot;ISO-8859-1&quot; standalone=&quot;yes&quot;?&gt;<br>
+<br>
+&lt;!-- ========================================================================== --&gt;<br>
+&lt;!-- @author: &lt;a href=&quot;mailto:bmatlack@workzen.userworld.com&quot;&gt;Brad
+Matlack&lt;/a&gt; --&gt;<br>
+&lt;!-- ========================================================================== --&gt;<br>
+<br>
+&lt;package name=&quot;com.workzen.xgen.test&quot; &gt;<br>
+<br>
+&lt;bean name=&quot;TypeBean&quot; <br>
+&nbsp;&nbsp;&nbsp; tablename=&quot;xgen_types&quot;<br>
+&nbsp;&nbsp;&nbsp; handleConcurrency=&quot;true&quot;<br>
+&nbsp;&nbsp;&nbsp; handleAutoIncrement=&quot;true&quot;<br>
+&nbsp;&nbsp;&nbsp; author=&quot;bmatlack@workzen.userworld.com&quot;<br>
+&nbsp;&nbsp;&nbsp; description=&quot;Demonstration class of all types except blob and
+clob&quot; &gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;pKey&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; col=&quot;pkey&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Long&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; &nbsp;&nbsp;
+pkey=&quot;true&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;booleanType&quot; &nbsp;&nbsp;
+col=&quot;boolean_type&quot;&nbsp;&nbsp;&nbsp; type=&quot;Boolean&quot; &nbsp;&nbsp;
+default=&quot;false&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;byteType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;byte_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Byte&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;charType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;char_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;String&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;Y&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;shortType&quot; &nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;short_type&quot; &nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Short&quot;
+&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;intType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;int_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Integer&quot;
+&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;longType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;long_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Long&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;floatType&quot; &nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;float_type&quot; &nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Float&quot;
+&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;doubleType&quot; &nbsp;&nbsp;&nbsp;
+col=&quot;double_type&quot;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Double&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;0&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;decimalType&quot; &nbsp;&nbsp;
+col=&quot;decimal_type&quot;&nbsp;&nbsp;&nbsp; type=&quot;Decimal&quot; &nbsp;&nbsp;
+default=&quot;0&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;stringType&quot; &nbsp;&nbsp;&nbsp;
+col=&quot;string_type&quot;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;String&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;xxx&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;textType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;text_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;String&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;longer text&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;dateType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;date_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Date&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;2000-12-31&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;timeType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;time_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Time&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;01:01:01&quot; /&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;timestampType&quot; &nbsp;
+col=&quot;timestamp_type&quot;&nbsp; type=&quot;Timestamp&quot; &nbsp;
+default=&quot;2001-01-01 00:00:01&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;tcn&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; col=&quot;tcn&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+type=&quot;Integer&quot; &nbsp;&nbsp; default=&quot;0&quot;&nbsp;&nbsp;
+tkey=&quot;true&quot;/&gt;<br>
+&lt;/bean&gt;<br>
+<br>
+&lt;bean name=&quot;LobTypeBean&quot; <br>
+&nbsp;&nbsp;&nbsp; tablename=&quot;xgen_lob_types&quot;<br>
+&nbsp;&nbsp;&nbsp; handleConcurrency=&quot;true&quot;<br>
+&nbsp;&nbsp;&nbsp; handleAutoIncrement=&quot;true&quot;<br>
+&nbsp;&nbsp;&nbsp;
+author=mailto:bmatlack@workzen.userworld.com&quot;&gt;&quot;bmatlack@workzen.userworld.com&quot;<br>
+&nbsp;&nbsp;&nbsp; description=&quot;Demonstration for blob and clob types. <br>
+Blobs and Clobs are not implemented by all vendors.&quot; &gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;pKey&quot; &nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;pkey&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Long&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;0&quot; pkey=&quot;true&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;blobType&quot;&nbsp; col=&quot;blob_type&quot;
+&nbsp; type=&quot;Blob&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;clobType&quot;&nbsp; col=&quot;clob_type&quot;
+&nbsp; type=&quot;Clob&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;tcn&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;tcn&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Integer&quot;
+default=&quot;0&quot; tkey=&quot;true&quot;/&gt;<br>
+&lt;/bean&gt;<br>
+<br>
+&lt;/package&gt;<br>
+</font></small></p>
+
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+
+</html>

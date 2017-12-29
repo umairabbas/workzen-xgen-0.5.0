@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<title></title>
+</head>
+
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<h1>Sql Type Matrix</h1>
+
+<p>Recommended sql types for conversion to java types.</p>
+
+<table border="1">
+  <tr>
+    <th colspan="3" nowrap>Java Types</th>
+    <th>&nbsp;</th>
+    <th colspan="5" nowrap>Sql Types</th>
+  </tr>
+  <tr>
+    <th align="left" nowrap>type</th>
+    <th align="left" nowrap>size</th>
+    <th align="left" nowrap>max</th>
+    <th align="left" nowrap>&nbsp;</th>
+    <th align="left" nowrap>MySql</th>
+    <th align="left" nowrap>Oracle</th>
+    <th align="left" nowrap>Sql Server</th>
+    <th align="left" nowrap>Postgres</th>
+    <th align="left" nowrap>&nbsp;</th>
+  </tr>
+  <tr>
+    <td nowrap>Boolean</td>
+    <td nowrap>1 bit</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>BIT</td>
+    <td nowrap>NUMBER(1)</td>
+    <td nowrap>BIT</td>
+    <td nowrap>BOOL</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>String</td>
+    <td nowrap>16 bits</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>CHAR(M)</td>
+    <td nowrap>CHAR(M)</td>
+    <td nowrap>CHAR(M)</td>
+    <td nowrap>CHAR(N)</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Byte</td>
+    <td nowrap>8 bits</td>
+    <td nowrap>127</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>TINYINT</td>
+    <td nowrap>NUMBER(3)</td>
+    <td nowrap>TINYINT</td>
+    <td nowrap>INT1</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Short</td>
+    <td nowrap>16 bits</td>
+    <td nowrap>32767</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>SMALLINT</td>
+    <td nowrap>NUMBER(5)</td>
+    <td nowrap>SMALLINT</td>
+    <td nowrap>INT2</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Integer</td>
+    <td nowrap>32 bits</td>
+    <td nowrap>2,147,483,647</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>INT</td>
+    <td nowrap>NUMBER(10)</td>
+    <td nowrap>INT</td>
+    <td nowrap>INT4</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Long</td>
+    <td nowrap>64 bits</td>
+    <td nowrap>9,223,372,036,854,775,807</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>BIGINT</td>
+    <td nowrap>NUMBER(19)</td>
+    <td nowrap>BIGINT</td>
+    <td nowrap>INT8</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Float</td>
+    <td nowrap>32 bits</td>
+    <td nowrap>3.40282347 E+38</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>FLOAT</td>
+    <td nowrap>NUMBER(38,8)</td>
+    <td nowrap>FLOAT</td>
+    <td nowrap>FLOAT8</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Double</td>
+    <td nowrap>64 bits</td>
+    <td nowrap>1.79769313486231570 E+308</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>DOUBLE</td>
+    <td nowrap>NUMBER(38,8)</td>
+    <td nowrap>NUMERIC(P,S)</td>
+    <td nowrap>NUMERIC(P,S)</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>String</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>VARCHAR(M)</td>
+    <td nowrap>VARCHAR2(M)</td>
+    <td nowrap>VARCHAR(M)</td>
+    <td nowrap>VARCHAR(M)</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>String</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>TEXT</td>
+    <td nowrap>VARCHAR2(4000)</td>
+    <td nowrap>TEXT</td>
+    <td nowrap>TEXT</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Date</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>DATE</td>
+    <td nowrap>DATE</td>
+    <td nowrap>DATETIME</td>
+    <td nowrap>DATE</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td nowrap>Time</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>&nbsp;</td>
+    <td nowrap>TIME</td>
+    <td nowrap>DATE</td>
+    <td nowrap>DATETIME</td>
+    <td nowrap>TIME</td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Timestamp</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>DATETIME</td>
+    <td>DATE</td>
+    <td>DATETIME</td>
+    <td>TIMESTAMP</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

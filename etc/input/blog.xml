@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<!-- ====================================================================== -->
+<!-- XGen Blog example schema                                               -->
+<!-- ====================================================================== -->
+<xgen>
+<package name="workzen.blog.model" > 
+  <class name="Blog"
+         tablename="e_blog" 
+         handle-concurrency="false"
+         handle-autoincrement="true"
+         author="java developer"
+         description="Blog class">
+    <field name="id" type="long" col="blog_id" primitive="true">
+       <column null="false" primary-key="true" autoincrement="false"/>
+    </field>
+    <field name="parentId" type="long" col="blog_parent_id" primitive="true">
+       <column null="false" foreign-key="true" foreign-table="e_blog"/>
+    </field>
+    <field name="categoryId" type="long" col="blog_category_id" primitive="true">
+    	<column null="false" foreign-key="true" foreign-table="e_blog_category"/>
+    </field>
+    <field name="author" type="String" col="blog_author">
+    	<column null="false" size="30"/>
+    </field>
+    <field name="publishDate" type="Timestamp" col="blog_publish_date">
+    	<column null="false"/>
+    </field>
+    <field name="title" type="String" col="blog_title">
+    	<column null="false" size="30"/>
+    </field>
+    <field name="text" type="String" col="blog_text">
+    	<column null="false" size="30"/>
+    </field>
+    <reference name="blogCategory" class="BlogCategory" key="categoryId"/>
+    <reference name="parent" class="Blog" key="parentId"/>
+    <collection name="children" class="Blog" type="Vector" reverse-key="parentId"/>
+  </class>
+
+  <class name="BlogCategory" 
+         tablename="e_blog_category"
+         handle-concurrency="false"
+         handle-autoincrement="true"
+         author="java developer"
+         description="Blog category class">                                     
+    <field name="id" type="long" col="blog_category_id" primitive="true">
+    	<column null="false" primary-key="true" autoincrement="false"/>
+    </field>
+    <field name="name" type="String" col="blog_category_name">
+    	<column null="false" size="30"/>
+    </field>
+  </class>  
+</package>
+</xgen>

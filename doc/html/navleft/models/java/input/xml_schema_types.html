@@ -1,0 +1,155 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="file:///D:\Project\workzen.xgen/doc/html/navleft/css/website.css">
+<title>XGen</title>
+</head>
+<body>
+<h1 class="title">XGen</h1>
+<table class="menu">
+<tr class="menu">
+<td class="menu" valign="top">
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/index.html">home</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/index.html">technical</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/index.html">models</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/database/index.html">database</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/index.html">java</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/textfile/index.html">textfile</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/website/index.html">website</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/xml/index.html">xml</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/index.html">input</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/output/index.html">output</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/xml_schema.html">xml schema</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/examples/index.html">schema examples</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/xml_schema_types.html">schema field types</a></div>
+        </div> 
+  <div class="space"> </div>
+</td>
+<td class="body" valign="top">
+<div class="content">
+<html>
+<script language="javascript" type="text/javascript" src="../java/header.js"></script>
+
+<h3>JavaModel XML Schema Field Types</h3>
+
+<p>This table shows how XGen field types map to java attribute types. The W3C schema 
+		types, and some common SQL types are included for comparison.</p>
+
+		<table cellPadding="4" border="1">
+			<tr>
+				<td><small><b>Xgen Type</b></small></td>
+				<td><small><b>Xgen Java Type</b></small></td>
+				<td><small>
+				<a href="http://www.w3.org/TR/2000/CR-xmlschema-2-20001024/"><b>
+				W3C XML Schema Types</b></a></small></td>
+				<td><small><strong>Common Sql Types</strong></small></td>
+			</tr>
+			<tr>
+				<td><small>boolean</small></td>
+				<td><small>java.lang.Boolean</small></td>
+				<td><small>boolean</small></td>
+				<td><small>BIT, BOOLEAN</small></td>
+			</tr>
+			<tr>
+				<td><small>byte</small></td>
+				<td><small>java.lang.Byte</small></td>
+				<td><small>byte</small></td>
+				<td><small>TINYINT</small></td>
+			</tr>
+			<tr>
+				<td><small>short</small></td>
+				<td><small>java.lang.Short</small></td>
+				<td><small>short</small></td>
+				<td><small>SMALLINT</small></td>
+			</tr>
+			<tr>
+				<td><small>integer</small></td>
+				<td><small>java.lang.Integer</small></td>
+				<td><small>integer</small></td>
+				<td><small>INT, INTEGER</small></td>
+			</tr>
+			<tr>
+				<td><small>long</small></td>
+				<td><small>java.lang.Long</small></td>
+				<td><small>long</small></td>
+				<td><small>BIGINT,LONGINT</small></td>
+			</tr>
+			<tr>
+				<td><small>float</small></td>
+				<td><small>java.lang.Float</small></td>
+				<td><small>float</small></td>
+				<td><small>REAL</small></td>
+			</tr>
+			<tr>
+				<td><small>double</small></td>
+				<td><small>java.lang.Double</small></td>
+				<td><small>double</small></td>
+				<td><small>FLOAT, DOUBLE</small></td>
+			</tr>
+			<tr>
+				<td><small>decimal</small></td>
+				<td><small>java.math.BigDecimal</small></td>
+				<td><small>decimal</small></td>
+				<td><small>DECIMAL, NUMERIC</small></td>
+			</tr>
+			<tr>
+				<td><small>string</small></td>
+				<td><small>java.lang.String</small></td>
+				<td><small>string</small></td>
+				<td><small>VARCHAR, LONGVARCHAR, TEXT, CHAR</small></td>
+			</tr>
+			<tr>
+				<td><small>date</small></td>
+				<td><small>java.util.Date</small></td>
+				<td><small>date</small></td>
+				<td><small>DATE</small></td>
+			</tr>
+			<tr>
+				<td><small>time</small></td>
+				<td><small>java.util.Date</small></td>
+				<td><small>time</small></td>
+				<td><small>TIME</small></td>
+			</tr>
+			<tr>
+				<td><small>timestamp</small></td>
+				<td><small>java.util.Date</small></td>
+				<td><small>timeInstant</small></td>
+				<td><small>TIMESTAMP</small></td>
+			</tr>
+			<tr>
+				<td><small>clob</small></td>
+				<td><small>char[]</small></td>
+				<td><small>&nbsp;</small></td>
+				<td><small>CLOB, LONGVARCHAR</small></td>
+			</tr>
+			<tr>
+				<td><small>blob</small></td>
+				<td><small>byte[]</small></td>
+				<td><small>&nbsp;</small></td>
+				<td><small>BLOB, BINARY, VARBINARY, LONGBINARY, (IMAGE)</small></td>
+			</tr>
+		</table>
+	
+<script language="javascript" type="text/javascript" src="../java/footer.js"></script>	
+</html>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

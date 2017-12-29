@@ -1,0 +1,55 @@
+<html>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+<h2>Configuration</h2>
+<h3>Ant Configuration</h3>
+<p>Below are the parameters for the XGen task. See the individual
+<a href="../loaders/index.html">loaders</a> for more detailed information.</p>
+<table border="1" width="0%">
+	<tr>
+		<th>Property</th>
+		<th>Value</th>
+	</tr>
+	<tr>
+		<td>loader</td>
+		<td>ILoader package name</td>
+	</tr>
+	<tr>
+		<td>inputFile</td>
+		<td>absolute path to input file</td>
+	</tr>
+	<tr>
+		<td>resourceTemplate</td>
+		<td>relative path to velocity template</td>
+	</tr>
+	<tr>
+		<td>templatePath</td>
+		<td>(optional) non null value searches &quot;file&quot; before &quot;classpath&quot;</td>
+	</tr>
+	<tr>
+		<td>outputDirectory</td>
+		<td>directory for all output files</td>
+	</tr>
+	<tr>
+		<td>outputFile</td>
+		<td>(optional) output file if not using a &quot;control&quot; template</td>
+	</tr>
+</table>
+
+<p>Example <a href="xml/ant_blog_build.html">Ant Schema</a></p>
+<pre>&lt;!-- convert xml to html using htmlEscape.vm and the TextFileLoader --&gt;
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.TextFileLoader&quot;
+  inputFile=&quot;${basedir}/etc/input/blog.xml&quot;
+  resourceTemplate=&quot;templates/text/htmlEscape.vm&quot;
+  templatePath=&quot;${basedir}&quot;
+  outputDirectory=&quot;${basedir}/work/xml2html/&quot;
+  outputFile=&quot;blog_schema_1.html&quot;
+  &gt;
+&lt;/xgen&gt; </pre>
+
+<h3>Java Embedded Configuration</h3>
+<p>XGen can be run from within your application by manually initializing the 
+Velocity engine. See the test suite for examples.</p>
+
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

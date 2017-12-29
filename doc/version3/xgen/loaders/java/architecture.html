@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+ 
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<body>
+
+<h2>Java Model Architecture</h2>
+<p>The JavaModelLoader returns a workzen.xgen.model.Package class that 
+encapsulates a standard &quot;Java&quot; object oriented model. It provides accessors to 
+all OO elements: classes, attributes, contained objects and references.</p>
+
+<h3>Xml Input File</h3>
+<p>The xml input file contains information about Java classes and the associated 
+SQL column information. The format of the file is very close to the JDO file 
+format, using a package=&gt;class=&gt;field format. See
+<a href="blog_schema.html">xml schema example</a>.</p>
+<pre>&lt;package name=&quot;test&quot;&gt;
+  &lt;class name=&quot;Person&quot;&gt;
+    &lt;field name=&quot;firstName&quot;&gt;
+</pre>
+<h3>Code Generation</h3>
+<p>The Package model can then be used to generate JDBC persistence code. This 
+package can also be used to generate it original XML schemas. This makes it 
+possible to define classes in XGen and transform them into xml definition files 
+for other persistence engines!</p>
+<p><img border="0" src="../../images/uml.gif" width="735" height="349"></p>
+
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</body>

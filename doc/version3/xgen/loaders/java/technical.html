@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<h2>Java Model Loader Technical</h2>
+<span class="bodyGrey">
+
+<h3></span>Types<span class="bodyGrey"></h3>
+
+<p>This table shows how Xgen types map to java types. The W3C schema types, and some
+common SQL types are included for comparison.</p>
+
+<table cellPadding="4" border="1">
+<TBODY>
+  <tr>
+    <td><small><b>Xgen Type</b></small></td>
+    <td><small><b>Xgen Java Type</b></small></td>
+    <td><small><a href="http://www.w3.org/TR/2000/CR-xmlschema-2-20001024/"><b>W3C XML Schema
+    Types</b></a></small></td>
+    <td><small><strong>Common Sql Types</strong></small></td>
+  </tr>
+  <tr>
+    <td><small>boolean</small></td>
+    <td><small>java.lang.Boolean</small></td>
+    <td><small>boolean</small></td>
+    <td><small>BIT, BOOLEAN</small></td>
+  </tr>
+  <tr>
+    <td><small>byte</small></td>
+    <td><small>java.lang.Byte</small></td>
+    <td><small>byte</small></td>
+    <td><small>TINYINT</small></td>
+  </tr>
+  <tr>
+    <td><small>short</small></td>
+    <td><small>java.lang.Short</small></td>
+    <td><small>short</small></td>
+    <td><small>SMALLINT</small></td>
+  </tr>
+  <tr>
+    <td><small>integer</small></td>
+    <td><small>java.lang.Integer</small></td>
+    <td><small>integer</small></td>
+    <td><small>INT, INTEGER</small></td>
+  </tr>
+  <tr>
+    <td><small>long</small></td>
+    <td><small>java.lang.Long</small></td>
+    <td><small>long</small></td>
+    <td><small>BIGINT,LONGINT</small></td>
+  </tr>
+  <tr>
+    <td><small>float</small></td>
+    <td><small>java.lang.Float</small></td>
+    <td><small>float</small></td>
+    <td><small>REAL</small></td>
+  </tr>
+  <tr>
+    <td><small>double</small></td>
+    <td><small>java.lang.Double</small></td>
+    <td><small>double</small></td>
+    <td><small>FLOAT, DOUBLE</small></td>
+  </tr>
+  <tr>
+    <td><small>decimal</small></td>
+    <td><small>java.math.BigDecimal</small></td>
+    <td><small>decimal</small></td>
+    <td><small>DECIMAL, NUMERIC</small></td>
+  </tr>
+  <tr>
+    <td><small>string</small></td>
+    <td><small>java.lang.String</small></td>
+    <td><small>string</small></td>
+    <td><small>VARCHAR, LONGVARCHAR, TEXT, CHAR</small></td>
+  </tr>
+  <tr>
+    <td><small>date</small></td>
+    <td><small>java.util.Date</small></td>
+    <td><small>date</small></td>
+    <td><small>DATE</small></td>
+  </tr>
+  <tr>
+    <td><small>time</small></td>
+    <td><small>java.util.Date</small></td>
+    <td><small>time</small></td>
+    <td><small>TIME</small></td>
+  </tr>
+  <tr>
+    <td><small>timestamp</small></td>
+    <td><small>java.util.Date</small></td>
+    <td><small>timeInstant</small></td>
+    <td><small>TIMESTAMP</small></td>
+  </tr>
+  <tr>
+    <td><small>clob</small></td>
+    <td><small>char[]</small></td>
+    <td><small>&nbsp;</small></td>
+    <td><small>CLOB, LONGVARCHAR</small></td>
+  </tr>
+  <tr>
+    <td><small>blob</small></td>
+    <td><small>byte[]</small></td>
+    <td><small>&nbsp;</small></td>
+    <td><small>BLOB, BINARY, VARBINARY, LONGBINARY, (IMAGE)</small></td>
+  </tr>
+</table>
+</span>
+
+<h3><small>XML Map File </small></h3>
+
+<p><font face="Courier New"><small>&lt;package name=&quot;com.workzen.xgen.test&quot; &gt;<br>
+&lt;bean name=&quot;TypeBean&quot; <br>
+&nbsp;&nbsp;&nbsp; tablename=&quot;xgen_types&quot;<br>
+&nbsp;&nbsp;&nbsp; handleConcurrency=&quot;true&quot;<br>
+&nbsp;&nbsp;&nbsp; handleAutoIncrement=&quot;true&quot;<br>
+&nbsp;&nbsp;&nbsp; author=&quot;bmatlack@workzen.userworld.com&quot;<br>
+&nbsp;&nbsp;&nbsp; description=&quot;Demonstration class of all types except blob and
+clob&quot; &gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;pKey&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; col=&quot;pkey&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Long&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; &nbsp;&nbsp;
+pkey=&quot;true&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;booleanType&quot; &nbsp;&nbsp;
+col=&quot;boolean_type&quot;&nbsp;&nbsp;&nbsp; type=&quot;Boolean&quot; &nbsp;&nbsp;
+default=&quot;false&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;byteType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;byte_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Byte&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;charType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;char_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;String&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;Y&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;shortType&quot; &nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;short_type&quot; &nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Short&quot;
+&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;intType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;int_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Integer&quot;
+&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;longType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;long_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Long&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;floatType&quot; &nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;float_type&quot; &nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Float&quot;
+&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;0&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;doubleType&quot; &nbsp;&nbsp;&nbsp;
+col=&quot;double_type&quot;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Double&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;0&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;decimalType&quot; &nbsp;&nbsp;
+col=&quot;decimal_type&quot;&nbsp;&nbsp;&nbsp; type=&quot;Decimal&quot; &nbsp;&nbsp;
+default=&quot;0&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;stringType&quot; &nbsp;&nbsp;&nbsp;
+col=&quot;string_type&quot;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;String&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;xxx&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;textType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;text_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;String&quot;
+&nbsp;&nbsp;&nbsp; default=&quot;longer text&quot;/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;dateType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;date_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Date&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;2000-12-31&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;timeType&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+col=&quot;time_type&quot; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type=&quot;Time&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default=&quot;01:01:01&quot; /&gt; <br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;timestampType&quot;
+&nbsp;col=&quot;timestamp_type&quot;&nbsp; type=&quot;Timestamp&quot;
+&nbsp;default=&quot;2001-01-01 00:00:01&quot; /&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;field name=&quot;tcn&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; col=&quot;tcn&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+type=&quot;Integer&quot; &nbsp;&nbsp; default=&quot;0&quot;&nbsp;&nbsp;
+tkey=&quot;true&quot;/&gt;<br>
+&lt;/bean&gt;</small><br>
+<small>&lt;/package&gt;</small></font></p>
+
+<blockquote>
+  <p><strong>bean tablename</strong></p>
+  <p>The name of the corresponding sql table</p>
+  <p><strong>bean handleAutoIncrement=true</strong></p>
+  <p>The bean will automatically incrementing the primary key using &quot;select max from
+  primary_key&quot; when the the primary key is a numeric field. </p>
+  <p><strong>bean handleConcurrency=true</strong></p>
+  <p>The bean will handle concurrency for a record by comparing the &quot;transcation
+  control number&quot; in the table with the <strong>tcn</strong> in the bean. If they are
+  not the same, than the record has changed since the bean was loaded. Obviously there is
+  some latency between the <strong>tcn</strong> check and the final update of the record, so
+  this method will not provide true concurrency. The solution is to move the check into the
+  database in the form of a stored procedure, and a trigger. For a full discussion of this
+  method, please read the paper &quot;<a href="http://www.orafaq.com/papers/locking.pdf">Optimistic
+  Locking with Concurrency in Oracle</a>&quot; by Graham Thornton.</p>
+  <p><strong>field name</strong></p>
+  <p>The name of the attribute</p>
+  <p><strong>field col</strong></p>
+  <p>The name of the corresponding table column</p>
+  <p><strong>field type</strong></p>
+  <p>The types are <em>case-insensitive</em> and follow the xgen type listed above.</p>
+  <p><strong>field default</strong></p>
+  <p>You can specify defaults for strings and dates. Currently, all numeric fields are
+  initialized to 0. The code generator uses string constructors for object types, which in
+  turn require a value to initialize.</p>
+  <p><strong>field pkey=true</strong></p>
+  <p>Identifies the field as a primary key</p>
+  <p><strong>field tkey=true</strong></p>
+  <p>Identifies the field as a transaction control field </p>
+</blockquote>
+
+<h3>Performance</h3>
+
+<p>There is a junit test class provided that does CRUD create, insert, update and delete
+tests on your database. To run the test, create the table in the database, ( there are sql
+scripts in the sql directory ), supply the correct driver path and connection strings in <em>db.properties</em>
+in the ant directory, and run <em>ant run-program</em>. All of the tests use
+autoIncrement=true, which means the bean makes an extra call to the database to
+&quot;select max from primary_key&quot;.</p>
+
+<p>One of the unit tests is a performance test where 1000 records are loaded, modified and
+persisted back to the database. Below are the results of the tests.&nbsp; </p>
+
+<table border="1" cellspacing="1" width="100%">
+  <tr>
+    <th width="0%" bgcolor="#C0C0C0"><small>RDBMS</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Version</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>OS</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Processor</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Memory</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Performance without concurrency</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Performance with concurrency</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Driver</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Transactions </small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Blobs</small></th>
+    <th width="0%" bgcolor="#C0C0C0"><small>Clobs</small></th>
+  </tr>
+  <tr>
+    <td width="0%"><small>MySql</small></td>
+    <td width="0%"><small>3.23.28</small></td>
+    <td width="0%"><small>Linux</small></td>
+    <td width="0%"><small>200 MHZ P2Pro</small></td>
+    <td width="0%"><small>128 MB</small></td>
+    <td width="0%"><small>10-12 sec</small></td>
+    <td width="0%"><small>16-17 sec</small></td>
+    <td><small>mm.mysql-2.0.4-bin.jar</small></td>
+    <td width="0%" bgcolor="#FFE0DF"><small>ISAM table types dont support rollbacks </small></td>
+    <td width="0%" bgcolor="#FFE0DF"><small>Driver Bug</small></td>
+    <td width="0%" bgcolor="#FFE0DF"><small>Not supported</small></td>
+  </tr>
+  <tr>
+    <td width="0%"><small>MySql</small></td>
+    <td width="0%"><small>4.0</small></td>
+    <td width="0%"><small>Win2000</small></td>
+    <td width="0%"><small>800 MHZ AMD</small></td>
+    <td width="0%"><small>500 MB</small></td>
+    <td width="0%"><small>4-5 sec</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td><small>mm.mysql-2.0.8-bin.jar</small></td>
+    <td width="0%"><small>No problems</small></td>
+    <td width="0%"><small>No problems</small></td>
+    <td width="0%" bgcolor="#FFE0DF"><small>Not supported</small></td>
+  </tr>
+  <tr>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+  </tr>
+  <tr>
+    <td width="0%"><small>Oracle</small></td>
+    <td width="0%"><small>8.16</small></td>
+    <td width="0%"><small>Linux</small></td>
+    <td width="0%"><small>200 MHZ P2Pro</small></td>
+    <td width="0%"><small>128 MB</small></td>
+    <td width="0%"><small>25-30 sec</small></td>
+    <td width="0%"><small>38 -40 sec</small></td>
+    <td><small>classes12.jar</small></td>
+    <td width="0%"><small>No problems *</small></td>
+    <td width="0%"><small>No problems</small></td>
+    <td width="0%"><small>No problems</small></td>
+  </tr>
+  <tr>
+    <td><small>Oracle</small></td>
+    <td><small>8.16</small></td>
+    <td><small>Win2000</small></td>
+    <td><small>800 MHZ AMD</small></td>
+    <td><small>500 MB</small></td>
+    <td><small>9-10 sec</small></td>
+    <td><small>&nbsp;</small></td>
+    <td><small>classes12.jar</small></td>
+    <td><small>No problems *</small></td>
+    <td><small>No problems</small></td>
+    <td><small>No problems</small></td>
+  </tr>
+  <tr>
+    <td width="0%"><small>Postgres</small></td>
+    <td width="0%"><small>7.0.2</small></td>
+    <td width="0%"><small>Linux</small></td>
+    <td width="0%"><small>220 MHZ P2Pro</small></td>
+    <td width="0%"><small>128 MB</small></td>
+    <td width="0%"><small>50-60 sec</small></td>
+    <td width="0%"><small>&nbsp;</small></td>
+    <td><small>jdbc7.1-1.2.jar</small></td>
+    <td width="0%" bgcolor="#FFE0DF"><small>Transaction isolation level 1 not supported.&nbsp;
+    Delete problem...</small></td>
+    <td width="0%" bgcolor="#FFE0DF"><small>Not supported</small></td>
+    <td width="0%" bgcolor="#FFE0DF"><small>Not Supported</small></td>
+  </tr>
+  <tr>
+    <td width="0%"><small>MS SqlServer</small></td>
+    <td width="0%"><small>6.5</small></td>
+    <td width="0%"><small>Windows NT 4.0 SP6</small></td>
+    <td width="0%"><small>220 MHZ P2Pro</small></td>
+    <td width="0%"><small>128 MB</small></td>
+    <td width="0%"><small>15-20 sec</small></td>
+    <td width="0%"><small>58 -68 sec</small></td>
+    <td><small>sprinta2000.jar</small></td>
+    <td width="0%"><small>No problems</small></td>
+    <td width="0%"><small>No problems</small></td>
+    <td width="0%"><small>No problems</small></td>
+  </tr>
+  <tr>
+    <td><small>Cloudscape </small></td>
+    <td><small>4.0</small></td>
+    <td><small>Win2000</small></td>
+    <td><small>800 MHZ AMD</small></td>
+    <td><small>500 MB</small></td>
+    <td><small>30-35 sec</small></td>
+    <td><small>&nbsp;</small></td>
+    <td><small>cloudscape.jar</small></td>
+    <td><small>No problems</small></td>
+    <td><small>No problems</small></td>
+    <td><small>No problems</small></td>
+  </tr>
+  <tr>
+    <td><small>DB2</small></td>
+    <td><small>6.0</small></td>
+    <td><small>Win2000</small></td>
+    <td><small>800 MHZ AMD</small></td>
+    <td><small>500 MB</small></td>
+    <td><small>7-8 sec</small></td>
+    <td><small>&nbsp;</small></td>
+    <td><small>db2java.jar</small></td>
+    <td><small>No problems</small></td>
+    <td><small>&nbsp;</small></td>
+    <td><small>&nbsp;</small></td>
+  </tr>
+</table>
+
+<p>* Oracle does not allow empty string inserts through the JDBC driver. Make sure all
+values are initialized with default values before an insert or update.</p>
+
+<h3>UML object map</h3>
+
+<p>
+<img src="../xgen/images/uml.gif" width="745" height="321" alt="uml.gif (8744 bytes)"></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

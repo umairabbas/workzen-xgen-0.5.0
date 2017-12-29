@@ -1,0 +1,1242 @@
+<?xml version="1.0" standalone="yes"?>
+
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML/1.4">
+  <XMI.header>
+    <XMI.documentation>
+      <XMI.exporter>ru.novosoft.uml.impl.UMLRepositoryImplXMIWriter</XMI.exporter>
+    </XMI.documentation>
+  </XMI.header>
+  <XMI.content>
+    <UML:Primitive xmi.id="boolean" isRoot="false" isLeaf="true" isAbstract="false" name="boolean" isSpecification="false"></UML:Primitive>
+    <UML:Primitive xmi.id="byte" isRoot="false" isLeaf="true" isAbstract="false" name="byte" isSpecification="false"></UML:Primitive>
+    <UML:Primitive xmi.id="char" isRoot="false" isLeaf="true" isAbstract="false" name="char" isSpecification="false"></UML:Primitive>
+    <UML:Primitive xmi.id="float" isRoot="false" isLeaf="true" isAbstract="false" name="float" isSpecification="false"></UML:Primitive>
+    <UML:Primitive xmi.id="int" isRoot="false" isLeaf="true" isAbstract="false" name="int" isSpecification="false"></UML:Primitive>
+    <UML:Primitive xmi.id="long" isRoot="false" isLeaf="true" isAbstract="false" name="long" isSpecification="false"></UML:Primitive>
+    <UML:Package xmi.id="matlackblaptopmatlackbworkzenxgen0" isRoot="false" isLeaf="false" isAbstract="false" name="workzen.xgen.model.java" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen134 matlackblaptopmatlackbworkzenxgen136 matlackblaptopmatlackbworkzenxgen462">
+      <UML:Namespace.ownedElement>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen1" isRoot="false" isLeaf="false" isAbstract="false" name="Column" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen114 matlackblaptopmatlackbworkzenxgen119 matlackblaptopmatlackbworkzenxgen121 matlackblaptopmatlackbworkzenxgen130 matlackblaptopmatlackbworkzenxgen132" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen2" ownerScope="instance" name="name" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen5" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen6" ownerScope="instance" name="isNull" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen7" language="java" body=" false"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen8" ownerScope="instance" name="isPrimaryKey" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen9" language="java" body=" false"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen10" ownerScope="instance" name="isForeignKey" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen11" language="java" body=" false"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen12" ownerScope="instance" name="isTransactionKey" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen13" language="java" body=" false"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen14" ownerScope="instance" name="isAutoincrement" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen15" language="java" body=" false"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen16" ownerScope="instance" name="foreignTable" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen17" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen18" ownerScope="instance" name="size" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen19" language="java" body=" &quot;0&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen20" ownerScope="instance" name="precision" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen21" language="java" body=" &quot;0&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen22" ownerScope="instance" name="scale" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen23" language="java" body=" &quot;0&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen24" ownerScope="instance" name="logger" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen26">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen27" language="java" body=" Logger.getLogger(Column.class)"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen28" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen29" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="name" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen30" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen31" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen32" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen33" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsNull" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen34" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen35" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen36" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsPrimaryKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen37" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen38" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen39" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsForeignKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen40" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen41" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen42" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsAutoincrement" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen43" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen44" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen45" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsTransactionKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen46" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen47" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen48" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isAutoincrement" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen49" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen50" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isForeignKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen51" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen52" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isNull" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen53" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen54" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isPrimaryKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen55" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen56" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isVarchar" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen57" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen58" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getPrecision" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen59" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen60" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getScale" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen61" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen62" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getSize" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen63" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen64" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsAutoincrement" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen65" kind="in" type="boolean" name="b" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen66" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen67" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsForeignKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen68" kind="in" type="boolean" name="b" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen69" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen70" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsNull" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen71" kind="in" type="boolean" name="b" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen72" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen73" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsPrimaryKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen74" kind="in" type="boolean" name="b" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen75" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen76" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setPrecision" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen77" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen78" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen79" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setScale" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen80" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen81" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen82" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setSize" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen83" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen84" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen85" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getForeignTable" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen86" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen87" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setForeignTable" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen88" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen89" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen90" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isTransactionKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen91" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen92" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsTransactionKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen93" kind="in" type="boolean" name="b" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen94" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen95" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getDebugInfo" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen96" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen97" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="toString" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen98" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen99" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen138" isRoot="false" isLeaf="false" isAbstract="false" name="JavaClass" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen261 matlackblaptopmatlackbworkzenxgen263 matlackblaptopmatlackbworkzenxgen265 matlackblaptopmatlackbworkzenxgen267 matlackblaptopmatlackbworkzenxgen270 matlackblaptopmatlackbworkzenxgen273 matlackblaptopmatlackbworkzenxgen276 matlackblaptopmatlackbworkzenxgen278" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen139" ownerScope="instance" name="name" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen140" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen141" ownerScope="instance" name="fields" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen142">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen143" language="java" body=" new Vector()"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen144" ownerScope="instance" name="references" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen142">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen145" language="java" body=" new Vector()"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen146" ownerScope="instance" name="collections" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen142">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen147" language="java" body=" new Vector()"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen148" ownerScope="instance" name="fieldMap" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen109">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen149" language="java" body=" new HashMap()"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen150" ownerScope="instance" name="imports" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen151" language="java" body=" &quot;&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen152" ownerScope="instance" name="superclass" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen153" language="java" body=" &quot;&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen154" ownerScope="instance" name="author" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen155" ownerScope="instance" name="description" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen156" ownerScope="instance" name="tablename" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen157" ownerScope="instance" name="handleAutoIncrement" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen158" language="java" body=" true"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen159" ownerScope="instance" name="handleConcurrency" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen160" language="java" body=" false"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen161" ownerScope="instance" name="primaryKey" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen162"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen163" ownerScope="instance" name="transactionKey" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen162"></UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen164" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen165" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="name" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen166" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen167" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setTableName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen168" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="name" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen169" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen170" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setPrimaryKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen171" kind="in" type="matlackblaptopmatlackbworkzenxgen162" name="field" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen172" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen173" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setTransactionKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen174" kind="in" type="matlackblaptopmatlackbworkzenxgen162" name="field" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen175" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen176" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setAuthor" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen177" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="author" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen178" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen179" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setDescription" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen180" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="desc" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen181" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen182" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen183" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen184" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getTableName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen185" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen186" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getPrimaryKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen187" kind="return" type="matlackblaptopmatlackbworkzenxgen162" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen188" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getTransactionKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen189" kind="return" type="matlackblaptopmatlackbworkzenxgen162" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen190" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getAuthor" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen191" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen192" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getDescription" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen193" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen194" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getFields" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen195" kind="return" type="matlackblaptopmatlackbworkzenxgen142" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen196" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setHandleConcurrency" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen197" kind="in" type="boolean" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen198" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen199" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setHandleAutoIncrement" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen200" kind="in" type="boolean" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen201" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen202" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="handleConcurrency" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen203" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen204" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="handleAutoIncrement" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen205" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen206" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setHandleConcurrency" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen207" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen208" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen209" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setHandleAutoIncrement" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen210" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen211" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen212" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setImports" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen213" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen214" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen215" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setSuperclass" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen216" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen217" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen218" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="addField" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen219" kind="in" type="matlackblaptopmatlackbworkzenxgen162" name="field" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen220" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen221" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="addReference" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen223" kind="in" type="matlackblaptopmatlackbworkzenxgen222" name="ref" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen224" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen225" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="addCollection" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen227" kind="in" type="matlackblaptopmatlackbworkzenxgen226" name="col" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen228" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen229" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getReferences" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen232" kind="return" type="matlackblaptopmatlackbworkzenxgen230" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen233" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getCollections" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen234" kind="return" type="matlackblaptopmatlackbworkzenxgen230" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen235" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="hasCollections" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen236" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen237" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="hasReferences" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen238" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen239" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="hasImports" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen240" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen241" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="hasSuperclass" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen242" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen243" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getFieldByName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen244" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="name" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen245" kind="return" type="matlackblaptopmatlackbworkzenxgen162" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen246" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getImports" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen247" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen248" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getSuperclass" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen249" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen250" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getSqlColumnsAsCSV" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen251" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen252" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getQuotedSqlColumns" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen253" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen254" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getSqlPlaceHoldersAsCSV" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen255" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen256" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="toString" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen257" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen258" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getDebugInfo" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen259" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen260" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen162" isRoot="false" isLeaf="false" isAbstract="false" name="Field" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen414 matlackblaptopmatlackbworkzenxgen416 matlackblaptopmatlackbworkzenxgen418 matlackblaptopmatlackbworkzenxgen420 matlackblaptopmatlackbworkzenxgen422 matlackblaptopmatlackbworkzenxgen424" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen353" ownerScope="instance" name="name" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen354" ownerScope="instance" name="javaClass" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen138"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen355" ownerScope="instance" name="type" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen334"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen356" ownerScope="instance" name="column" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen1"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen357" ownerScope="instance" name="isPrimitive" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="boolean">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen358" language="java" body=" false"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen359" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="Field" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen360" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen361" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen362" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="name" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen363" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen364" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setType" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen365" kind="in" type="matlackblaptopmatlackbworkzenxgen334" name="type" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen366" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen367" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isPrimaryKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen368" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen369" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isTransactionKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen370" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen371" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen372" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen373" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getCapName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen374" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen375" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getType" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen376" kind="return" type="matlackblaptopmatlackbworkzenxgen334" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen377" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getTypeName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen378" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen379" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsPrimitive" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen380" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="str" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen381" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen382" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setIsPrimitive" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen383" kind="in" type="boolean" name="bool" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen384" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen385" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="isPrimitive" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen386" kind="return" type="boolean" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen387" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getPrimitiveType" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen388" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen389" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getPrimitiveFunction" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen390" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen391" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getAttributeSetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen392" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen393" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getAttributeGetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen394" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen395" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getResultSetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen396" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen397" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getResultGetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen398" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen399" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="toString" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen400" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen401" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getDebugInfo" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen402" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen403" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getColumn" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen404" kind="return" type="matlackblaptopmatlackbworkzenxgen1" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen405" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getJavaClass" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen406" kind="return" type="matlackblaptopmatlackbworkzenxgen138" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen407" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setColumn" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen408" kind="in" type="matlackblaptopmatlackbworkzenxgen1" name="column" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen409" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen410" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setJavaClass" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen411" kind="in" type="matlackblaptopmatlackbworkzenxgen138" name="class1" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen412" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen413" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen222" isRoot="false" isLeaf="false" isAbstract="false" name="Reference" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen537 matlackblaptopmatlackbworkzenxgen539" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen509" ownerScope="instance" name="name" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen510" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen511" ownerScope="instance" name="classname" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen512" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen513" ownerScope="instance" name="key" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen514" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen515" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getClassname" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen516" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen517" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen518" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen519" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen520" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen521" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getCapName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen522" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen523" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setClassname" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen524" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen525" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen526" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen527" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen528" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen529" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen530" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen531" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen532" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getAttributeSetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen533" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen534" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getAttributeGetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen535" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen536" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen226" isRoot="false" isLeaf="false" isAbstract="false" name="Collection" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen320 matlackblaptopmatlackbworkzenxgen322 matlackblaptopmatlackbworkzenxgen324" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen281" ownerScope="instance" name="name" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen282" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen283" ownerScope="instance" name="classname" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen284" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen285" ownerScope="instance" name="typename" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen286" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen287" ownerScope="instance" name="reverseKey" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen288" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen289" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getClassname" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen290" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen291" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen292" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen293" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getCapName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen294" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen295" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getTypename" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen296" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen297" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setClassname" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen298" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen299" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen300" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen301" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen302" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen303" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setTypename" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen304" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen305" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen306" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getDebugInfo" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen307" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen308" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="toString" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen309" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen310" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getReverseKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen311" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen312" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setReverseKey" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen313" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="string" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen314" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen315" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getAttributeSetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen316" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen317" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getAttributeGetter" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen318" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen319" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen326" isRoot="false" isLeaf="false" isAbstract="false" name="TypeMap" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen337 matlackblaptopmatlackbworkzenxgen344 matlackblaptopmatlackbworkzenxgen346 matlackblaptopmatlackbworkzenxgen349 matlackblaptopmatlackbworkzenxgen351" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen327" ownerScope="classifier" name="typeMap" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen328">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen329" language="java" body=" null"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen330" ownerScope="classifier" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="init" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen331" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen332" ownerScope="classifier" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getType" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen333" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="key" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen335" kind="return" type="matlackblaptopmatlackbworkzenxgen334" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen336" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen334" isRoot="false" isLeaf="false" isAbstract="false" name="Type" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen578 matlackblaptopmatlackbworkzenxgen580" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen541" ownerScope="instance" name="name" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen542" ownerScope="instance" name="qualifiedName" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen543" ownerScope="instance" name="primitiveName" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen544" ownerScope="instance" name="primitiveFunction" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4"></UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen545" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="Type" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen546" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="name" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen547" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="primitiveName" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen548" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="qualifiedName" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen549" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="primitiveFunction" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen550" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen551" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen552" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen553" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen554" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setClassName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen555" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen556" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen557" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setPrimitiveName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen558" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen559" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen560" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setPrimitiveFunction" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen561" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="val" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen562" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen563" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen564" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen565" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getClassName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen566" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen567" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getQualifiedName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen568" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen569" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getPrimitiveName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen570" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen571" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getPrimitiveFunction" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen572" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen573" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getDebugInfo" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen574" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen575" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="toString" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen576" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen577" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen342" isRoot="false" isLeaf="false" isAbstract="false" generalization="matlackblaptopmatlackbworkzenxgen343" name="XGenException" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen454 matlackblaptopmatlackbworkzenxgen456 matlackblaptopmatlackbworkzenxgen458 matlackblaptopmatlackbworkzenxgen460" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen426" ownerScope="instance" name="cause" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen427">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen428" language="java" body=" null"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen429" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="XGenException" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen430" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen431" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="XGenException" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen432" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="message" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen433" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen434" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="XGenException" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen435" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="message" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen436" kind="in" type="matlackblaptopmatlackbworkzenxgen427" name="cause" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen437" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen438" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="XGenException" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen439" kind="in" type="matlackblaptopmatlackbworkzenxgen427" name="cause" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen440" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen441" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getCause" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen442" kind="return" type="matlackblaptopmatlackbworkzenxgen427" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen443" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="printStackTrace" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen444" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen445" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="printStackTrace" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen447" kind="in" type="matlackblaptopmatlackbworkzenxgen446" name="ps" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen448" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen449" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="printStackTrace" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen451" kind="in" type="matlackblaptopmatlackbworkzenxgen450" name="pw" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen452" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen453" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen464" isRoot="false" isLeaf="false" isAbstract="false" name="Package" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen494 matlackblaptopmatlackbworkzenxgen497 matlackblaptopmatlackbworkzenxgen499 matlackblaptopmatlackbworkzenxgen502 matlackblaptopmatlackbworkzenxgen505 matlackblaptopmatlackbworkzenxgen507" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen465" ownerScope="instance" name="name" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen4">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen466" language="java" body=" &quot;undefined&quot;"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen467" ownerScope="instance" name="beans" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen142">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen468" language="java" body=" new Vector()"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen469" ownerScope="instance" name="beanMap" visibility="private" isSpecification="false" changeability="changeable" ordering="unordered" type="matlackblaptopmatlackbworkzenxgen109">
+              <UML:Attribute.initialValue>
+                <UML:Expression xmi.id="matlackblaptopmatlackbworkzenxgen470" language="java" body=" new HashMap()"></UML:Expression>
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen471" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="add" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen472" kind="in" type="matlackblaptopmatlackbworkzenxgen138" name="bean" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen473" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen474" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getClassByName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen475" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="name" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen476" kind="return" type="matlackblaptopmatlackbworkzenxgen138" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen477" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="setName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen478" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="value" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen479" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen480" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getName" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen481" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen482" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getBeans" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen483" kind="return" type="matlackblaptopmatlackbworkzenxgen142" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen484" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="getJavaClasses" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen487" kind="return" type="matlackblaptopmatlackbworkzenxgen485" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen488" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="toString" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen489" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen490" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="toString" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen491" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="nl" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen492" kind="return" type="matlackblaptopmatlackbworkzenxgen4" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen493" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <UML:Package xmi.id="matlackblaptopmatlackbworkzenxgen100" isRoot="false" isLeaf="false" isAbstract="false" name="java.util" isSpecification="false">
+      <UML:Namespace.ownedElement>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen101" isRoot="false" isLeaf="false" isAbstract="true" name="AbstractMap" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Interface xmi.id="matlackblaptopmatlackbworkzenxgen102" isRoot="false" isLeaf="false" isAbstract="true" name="Map" visibility="public" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen103"></UML:Interface>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen109" isRoot="false" isLeaf="false" isAbstract="false" generalization="matlackblaptopmatlackbworkzenxgen110 matlackblaptopmatlackbworkzenxgen111 matlackblaptopmatlackbworkzenxgen112 matlackblaptopmatlackbworkzenxgen113" name="HashMap" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen142" isRoot="false" isLeaf="false" isAbstract="false" name="Vector" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Interface xmi.id="matlackblaptopmatlackbworkzenxgen230" isRoot="false" isLeaf="false" isAbstract="true" name="Collection" visibility="public" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen231"></UML:Interface>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen328" isRoot="false" isLeaf="false" isAbstract="false" name="Hashtable" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Interface xmi.id="matlackblaptopmatlackbworkzenxgen485" isRoot="false" isLeaf="false" isAbstract="true" name="List" visibility="public" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen486"></UML:Interface>
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen103" isRoot="false" isLeaf="false" isAbstract="false" name="interface" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen105" isRoot="false" isLeaf="false" isAbstract="false" name="interface" isSpecification="false"></UML:Stereotype>
+    <UML:Package xmi.id="matlackblaptopmatlackbworkzenxgen106" isRoot="false" isLeaf="false" isAbstract="false" name="java.io" isSpecification="false">
+      <UML:Namespace.ownedElement>
+        <UML:Interface xmi.id="matlackblaptopmatlackbworkzenxgen107" isRoot="false" isLeaf="false" isAbstract="true" name="Serializable" visibility="public" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen108"></UML:Interface>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen446" isRoot="false" isLeaf="false" isAbstract="false" name="PrintStream" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen450" isRoot="false" isLeaf="false" isAbstract="false" name="PrintWriter" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen108" isRoot="false" isLeaf="false" isAbstract="false" name="interface" isSpecification="false"></UML:Stereotype>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen110" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen109" parent="matlackblaptopmatlackbworkzenxgen101"></UML:Generalization>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen111" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen109" parent="matlackblaptopmatlackbworkzenxgen102"></UML:Generalization>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen112" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen109" parent="matlackblaptopmatlackbworkzenxgen104"></UML:Generalization>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen113" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen109" parent="matlackblaptopmatlackbworkzenxgen107"></UML:Generalization>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen114" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen115" client="matlackblaptopmatlackbworkzenxgen1" supplier="matlackblaptopmatlackbworkzenxgen109"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen115" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen118" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen117" parent="matlackblaptopmatlackbworkzenxgen116"></UML:Generalization>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen119" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen120" client="matlackblaptopmatlackbworkzenxgen1" supplier="matlackblaptopmatlackbworkzenxgen117"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen120" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen121" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen122" client="matlackblaptopmatlackbworkzenxgen1" supplier="matlackblaptopmatlackbworkzenxgen26"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen122" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen125" isRoot="false" isLeaf="false" isAbstract="false" name="interface" isSpecification="false"></UML:Stereotype>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen127" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen126" parent="matlackblaptopmatlackbworkzenxgen123"></UML:Generalization>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen128" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen126" parent="matlackblaptopmatlackbworkzenxgen107"></UML:Generalization>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen129" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen126" parent="matlackblaptopmatlackbworkzenxgen124"></UML:Generalization>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen130" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen131" client="matlackblaptopmatlackbworkzenxgen1" supplier="matlackblaptopmatlackbworkzenxgen126"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen131" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen132" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen133" client="matlackblaptopmatlackbworkzenxgen1" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen133" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen134" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen135 matlackblaptopmatlackbworkzenxgen280" client="matlackblaptopmatlackbworkzenxgen0" supplier="matlackblaptopmatlackbworkzenxgen100"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen135" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen136" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen137" client="matlackblaptopmatlackbworkzenxgen0" supplier="matlackblaptopmatlackbworkzenxgen25"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen137" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen231" isRoot="false" isLeaf="false" isAbstract="false" name="interface" isSpecification="false"></UML:Stereotype>
+    <UML:Package xmi.id="matlackblaptopmatlackbworkzenxgen25" isRoot="false" isLeaf="false" isAbstract="false" name="org.apache.log4j" isSpecification="false">
+      <UML:Namespace.ownedElement>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen26" isRoot="false" isLeaf="false" isAbstract="false" name="Logger" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen261" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen262" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen222"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen262" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen263" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen264" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen226"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen264" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen265" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen266" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen230"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen266" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen267" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen268 matlackblaptopmatlackbworkzenxgen269" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen109"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen268" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen269" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen270" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen271 matlackblaptopmatlackbworkzenxgen272" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen142"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen271" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen272" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen273" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen274 matlackblaptopmatlackbworkzenxgen275" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen162"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen274" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen275" isRoot="false" isLeaf="false" isAbstract="false" name="use" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen276" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen277" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen126"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen277" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen278" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen279" client="matlackblaptopmatlackbworkzenxgen138" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen279" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen280" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Package xmi.id="matlackblaptopmatlackbworkzenxgen3" isRoot="false" isLeaf="false" isAbstract="false" name="java.lang" isSpecification="false">
+      <UML:Namespace.ownedElement>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen4" isRoot="false" isLeaf="true" isAbstract="false" name="String" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Interface xmi.id="matlackblaptopmatlackbworkzenxgen104" isRoot="false" isLeaf="false" isAbstract="true" name="Cloneable" visibility="public" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen105"></UML:Interface>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen116" isRoot="false" isLeaf="false" isAbstract="false" name="LinkageError" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen117" isRoot="false" isLeaf="false" isAbstract="false" generalization="matlackblaptopmatlackbworkzenxgen118" name="NoClassDefFoundError" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen123" isRoot="false" isLeaf="false" isAbstract="false" name="Object" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Interface xmi.id="matlackblaptopmatlackbworkzenxgen124" isRoot="false" isLeaf="false" isAbstract="true" name="CharSequence" visibility="public" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen125"></UML:Interface>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen126" isRoot="false" isLeaf="true" isAbstract="false" generalization="matlackblaptopmatlackbworkzenxgen127 matlackblaptopmatlackbworkzenxgen128 matlackblaptopmatlackbworkzenxgen129" name="StringBuffer" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen341" isRoot="false" isLeaf="false" isAbstract="false" name="Exception" visibility="public" isSpecification="false" clientDependency="matlackblaptopmatlackbworkzenxgen596 matlackblaptopmatlackbworkzenxgen598" isActive="false">
+          <UML:Namespace.ownedElement>
+            <UML:Attribute xmi.id="matlackblaptopmatlackbworkzenxgen582" ownerScope="classifier" name="serialVersionUID" visibility="package" isSpecification="false" changeability="frozen" ordering="unordered" type="long"></UML:Attribute>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen583" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="Exception" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen584" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen585" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="Exception" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen586" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="message" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen587" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen588" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="Exception" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen589" kind="in" type="matlackblaptopmatlackbworkzenxgen427" name="cause" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen590" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id="matlackblaptopmatlackbworkzenxgen591" ownerScope="instance" concurrency="concurrent" isRoot="false" isLeaf="false" isAbstract="false" isQuery="false" name="Exception" visibility="public" isSpecification="false">
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen592" kind="in" type="matlackblaptopmatlackbworkzenxgen4" name="message" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen593" kind="in" type="matlackblaptopmatlackbworkzenxgen427" name="cause" isSpecification="false"></UML:Parameter>
+                <UML:Parameter xmi.id="matlackblaptopmatlackbworkzenxgen594" kind="return" type="void" isSpecification="false"></UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Namespace.ownedElement>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id="matlackblaptopmatlackbworkzenxgen595" name="isDefined" isSpecification="false">
+              <UML:TaggedValue.dataValue>true</UML:TaggedValue.dataValue>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+        </UML:Class>
+        <UML:Class xmi.id="matlackblaptopmatlackbworkzenxgen427" isRoot="false" isLeaf="false" isAbstract="false" name="Throwable" visibility="public" isSpecification="false" isActive="false"></UML:Class>
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen320" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen321" client="matlackblaptopmatlackbworkzenxgen226" supplier="matlackblaptopmatlackbworkzenxgen109"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen321" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen322" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen323" client="matlackblaptopmatlackbworkzenxgen226" supplier="matlackblaptopmatlackbworkzenxgen126"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen323" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen324" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen325" client="matlackblaptopmatlackbworkzenxgen226" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen325" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen337" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen338 matlackblaptopmatlackbworkzenxgen339 matlackblaptopmatlackbworkzenxgen340" client="matlackblaptopmatlackbworkzenxgen326" supplier="matlackblaptopmatlackbworkzenxgen334"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen338" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen339" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen340" isRoot="false" isLeaf="false" isAbstract="false" name="use" isSpecification="false"></UML:Stereotype>
+    <UML:Generalization xmi.id="matlackblaptopmatlackbworkzenxgen343" isSpecification="false" child="matlackblaptopmatlackbworkzenxgen342" parent="matlackblaptopmatlackbworkzenxgen341"></UML:Generalization>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen344" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen345" client="matlackblaptopmatlackbworkzenxgen326" supplier="matlackblaptopmatlackbworkzenxgen342"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen345" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen346" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen347 matlackblaptopmatlackbworkzenxgen348" client="matlackblaptopmatlackbworkzenxgen326" supplier="matlackblaptopmatlackbworkzenxgen328"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen347" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen348" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen349" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen350" client="matlackblaptopmatlackbworkzenxgen326" supplier="matlackblaptopmatlackbworkzenxgen126"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen350" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen351" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen352" client="matlackblaptopmatlackbworkzenxgen326" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen352" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen414" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen415" client="matlackblaptopmatlackbworkzenxgen162" supplier="matlackblaptopmatlackbworkzenxgen138"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen415" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen416" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen417" client="matlackblaptopmatlackbworkzenxgen162" supplier="matlackblaptopmatlackbworkzenxgen334"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen417" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen418" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen419" client="matlackblaptopmatlackbworkzenxgen162" supplier="matlackblaptopmatlackbworkzenxgen109"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen419" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen420" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen421" client="matlackblaptopmatlackbworkzenxgen162" supplier="matlackblaptopmatlackbworkzenxgen1"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen421" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen422" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen423" client="matlackblaptopmatlackbworkzenxgen162" supplier="matlackblaptopmatlackbworkzenxgen126"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen423" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen424" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen425" client="matlackblaptopmatlackbworkzenxgen162" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen425" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen454" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen455" client="matlackblaptopmatlackbworkzenxgen342" supplier="matlackblaptopmatlackbworkzenxgen450"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen455" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen456" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen457" client="matlackblaptopmatlackbworkzenxgen342" supplier="matlackblaptopmatlackbworkzenxgen446"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen457" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen458" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen459" client="matlackblaptopmatlackbworkzenxgen342" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen459" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen460" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen461" client="matlackblaptopmatlackbworkzenxgen342" supplier="matlackblaptopmatlackbworkzenxgen427"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen461" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen462" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen463" client="matlackblaptopmatlackbworkzenxgen0" supplier="matlackblaptopmatlackbworkzenxgen106"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen463" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen486" isRoot="false" isLeaf="false" isAbstract="false" name="interface" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen494" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen495 matlackblaptopmatlackbworkzenxgen496" client="matlackblaptopmatlackbworkzenxgen464" supplier="matlackblaptopmatlackbworkzenxgen138"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen495" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen496" isRoot="false" isLeaf="false" isAbstract="false" name="use" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen497" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen498" client="matlackblaptopmatlackbworkzenxgen464" supplier="matlackblaptopmatlackbworkzenxgen485"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen498" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen499" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen500 matlackblaptopmatlackbworkzenxgen501" client="matlackblaptopmatlackbworkzenxgen464" supplier="matlackblaptopmatlackbworkzenxgen109"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen500" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen501" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen502" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen503 matlackblaptopmatlackbworkzenxgen504" client="matlackblaptopmatlackbworkzenxgen464" supplier="matlackblaptopmatlackbworkzenxgen142"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen503" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen504" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen505" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen506" client="matlackblaptopmatlackbworkzenxgen464" supplier="matlackblaptopmatlackbworkzenxgen126"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen506" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen507" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen508" client="matlackblaptopmatlackbworkzenxgen464" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen508" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen537" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen538" client="matlackblaptopmatlackbworkzenxgen222" supplier="matlackblaptopmatlackbworkzenxgen126"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen538" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen539" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen540" client="matlackblaptopmatlackbworkzenxgen222" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen540" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen578" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen579" client="matlackblaptopmatlackbworkzenxgen334" supplier="matlackblaptopmatlackbworkzenxgen109"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen579" isRoot="false" isLeaf="false" isAbstract="false" name="create" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen580" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen581" client="matlackblaptopmatlackbworkzenxgen334" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen581" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen596" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen597" client="matlackblaptopmatlackbworkzenxgen341" supplier="matlackblaptopmatlackbworkzenxgen427"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen597" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Dependency xmi.id="matlackblaptopmatlackbworkzenxgen598" isSpecification="false" stereotype="matlackblaptopmatlackbworkzenxgen599" client="matlackblaptopmatlackbworkzenxgen341" supplier="matlackblaptopmatlackbworkzenxgen4"></UML:Dependency>
+    <UML:Stereotype xmi.id="matlackblaptopmatlackbworkzenxgen599" isRoot="false" isLeaf="false" isAbstract="false" name="access" isSpecification="false"></UML:Stereotype>
+    <UML:Primitive xmi.id="short" isRoot="false" isLeaf="true" isAbstract="false" name="short" isSpecification="false"></UML:Primitive>
+    <UML:Primitive xmi.id="void" isRoot="false" isLeaf="true" isAbstract="false" name="void" isSpecification="false"></UML:Primitive>
+  </XMI.content>
+</XMI>
+

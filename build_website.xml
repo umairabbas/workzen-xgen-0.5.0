@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<project name="xgen" default="build" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- XGen website example build                                             -->
+  <!-- ====================================================================== -->
+
+  <property file="build.properties"/>
+  <!-- website properties -->
+  <property name="input.file" value="${basedir}/etc/input/website.xml"/>
+  <property name="source.dir" value="${basedir}/etc/website"/>
+  <property name="output.dir" value="${basedir}/work/website"/>
+  
+  <!-- copy properties (optional) -->
+  <property name="css.src"  value="${source.dir}/css"/>
+   
+  <property name="web.src"  value="${output.dir}"/>
+  <property name="web.dest" value="/server/jakarta-tomcat-5.0.12/webapps/website"/>
+
+ 
+   
+  <path id="classpath">                           
+    <!-- local directory -->
+    <pathelement path="."/>
+    
+    <!-- lib dir (includes subdirectories) -->
+    <fileset dir="${basedir}">
+      <include name="**/*.jar"/>
+    </fileset>   
+    
+  </path>
+  
+  
+  
+  <target name="build">
+     
+    <taskdef name="xgen" classname="workzen.xgen.ant.XGenTask">
+      <classpath refid="classpath"/>
+    </taskdef> 
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating website from xml mapfile                 |"/>
+    <echo message="+-----------------------------------------------------+"/>
+    
+    <!-- generate website from xml -->
+
+    <xgen
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _webRoot="/top"
+      webRoot="${output.dir}/top"
+       
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="control.vm"
+      childTemplate="tabsOnTop.vm"      
+      outputPath="${output.dir}/top"
+      outputFile="website.out"
+      >
+    </xgen> 
+
+    <xgen
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _webRoot="/left"
+      webRoot="${output.dir}/left"
+       
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="control.vm"
+      childTemplate="navLeft.vm"      
+      outputPath="${output.dir}/left"
+      outputFile="website.out"
+      >
+    </xgen>     
+    
+    <xgen
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _webRoot="/tree"
+      webRoot="${output.dir}/tree"
+       
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="control.vm"
+      childTemplate="treeExpanded.vm"      
+      outputPath="${output.dir}/tree"
+      outputFile="website.out"
+      >
+    </xgen> 
+    <xgen
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _webRoot="/tree2"
+      webRoot="${output.dir}/tree2"
+       
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="control.vm"
+      childTemplate="treeCollapsed.vm"      
+      outputPath="${output.dir}/tree2"
+      outputFile="website.out"
+      >
+    </xgen> 
+   
+  
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating website from filesystem                  |"/>
+    <echo message="+-----------------------------------------------------+"/>
+    
+    <!-- generate and test from filesystem -->
+    <xgen
+      loader="workzen.xgen.loader.WebsiteFilesystemLoader"
+      srcBasePath="${source.dir}"
+      csvIncludeList="*.html,*.htm"
+      csvExcludeList="*css"
+      _webRoot="/fsSite"
+      webRoot="${output.dir}/fsSite"
+      
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="control.vm"
+      childTemplate="tabsOnTop.vm"
+      outputPath="${output.dir}/fsSite"
+      outputFile="website.out"
+      >
+    </xgen>     
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating xml source from filesystem               |"/>
+    <echo message="+-----------------------------------------------------+"/>
+    
+    <!-- generate and test from filesystem -->
+    <xgen
+      loader="workzen.xgen.loader.WebsiteFilesystemLoader"
+      srcBasePath="${source.dir}"
+      csvIncludeList="*.html,*.htm"
+      csvExcludeList="*css"
+      _webRoot="/fsSite"
+      webRoot="${output.dir}/fsSite"
+      
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="generateXml.vm"
+      _childTemplate="tabsOnTop.vm"
+      outputPath="${output.dir}/xml"
+      outputFile="website.xml"
+      >
+    </xgen>     
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Merging website into a single page                  |"/>
+    <echo message="+-----------------------------------------------------+"/>
+    
+    <!-- generate and test from filesystem -->
+    <xgen
+      loader="workzen.xgen.loader.WebsiteFilesystemLoader"
+      srcBasePath="${source.dir}"
+      csvIncludeList="*.html,*.htm"
+      csvExcludeList="*css"
+      _webRoot="/merged"
+      webRoot="${output.dir}/merged"
+      
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="merge.vm"
+      childTemplate="treeExpanded.vm"
+      outputPath="${output.dir}/merged"
+      outputFile="merged.html"
+      >
+    </xgen>     
+ 
+    <!-- copy css -->
+    <copy todir="${output.dir}/fsSite/css" verbose="true">
+    	<fileset dir="${css.src}"/>
+  	</copy>
+    <copy todir="${output.dir}/left/css" verbose="true">
+    	<fileset dir="${css.src}"/>
+  	</copy>
+  	    <copy todir="${output.dir}/top/css" verbose="true">
+    	<fileset dir="${css.src}"/>
+  	</copy>
+  	<copy todir="${output.dir}/tree/css" verbose="true">
+    	<fileset dir="${css.src}"/>
+  	</copy>
+  	<copy todir="${output.dir}/tree2/css" verbose="true">
+    	<fileset dir="${css.src}"/>
+  	</copy>
+  	
+  
+   <!-- copy to tomcat
+  	<copy todir="${web.dest}" verbose="true">
+    	<fileset dir="${web.src}"/>
+  	</copy>
+  	-->
+  
+  </target>
+  
+  
+</project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<!-- ============================================================================ -->
+<!-- XGen Java model schema - Reverse Engineered                                                      -->
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->
+<!-- If you set handleConcurrency="true", you must have a transaction-key field!  -->
+<!-- ============================================================================ -->
+<xgen>
+
+	<package name="workzen.xgen.types.re">
+		<database driver="org.postgresql.Driver"
+			url="jdbc:postgresql://localhost:5432/test" username="pagila"
+			password="pagila" />
+			
+		<class name="JavaTypes" tablename="xgen_types"
+			handleConcurrency="true" handleAutoIncrement="true">
+		</class>
+
+		<class name="JavaLargeObjects" tablename="xgen_lob_types"
+			handleConcurrency="true" handleAutoIncrement="true">
+		</class>
+	</package>
+
+</xgen>

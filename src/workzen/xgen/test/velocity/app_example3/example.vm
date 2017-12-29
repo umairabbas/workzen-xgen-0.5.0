@@ -1,0 +1,7 @@
+## This is an example velocity template
+
+#set( $this = "Velocity")
+
+$this is great!
+
+Model test: $model.getName()

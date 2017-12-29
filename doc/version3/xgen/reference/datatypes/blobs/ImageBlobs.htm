@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0041)http://home.jeo.ru/slog/ZIP/JavaBlob.html -->
+<!-- saved from url=(0058)http://www.cs.ualberta.ca/~yonghe/ta/391/tutorial/lob.html --><HTML><HEAD><TITLE>Computing Science 391 : Tutorial 2 - Dear with Multimedia Data</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY><FONT size=4>
+<H1><A name=SEC2></A>2. How to Deal With Images? </H1></FONT><A><FONT size=4>
+<UL>
+  <H3>2.1 How to Put Image Data into Database?</H3>
+  <P>In Oracle database, image data is saved as datatype <I>long raw</I> or 
+  <I>LOB</I>( we recommend to use BLOB datatype).Suppose there is an image file 
+  whose URL is <I>imgFileURL</I>, and there is a SQL statement <I>sql</I> which 
+  is used to insert an image into the database. </P><BR>Example to Insert a 
+  TEST.jpg file into Oracle database <BR><BR>
+  <UL>
+    <UL><CODE>//convert a image file into a binary inputstream <BR>URL url = 
+      new URL("http://gwynne.cs.ualberta.ca/~yonghe/TEST.jpg"); <BR>InputStream 
+      in = url.openStream(); <BR><BR>// Create the table <BR>stmt.execute 
+      ("create table ImageTable (count varchar2(20), image BLOB)"); 
+      <BR>System.out.println("Table created ..."); <BR><BR>// create a blob 
+      entry in the table <BR>stmt.execute("insert into ImageTable values ('one', 
+      empty_blob())"); <BR>stmt.execute("commit"); <BR>String cmd = "select * 
+      from ImageTable for update"; <BR>ResultSet rset = stmt.executeQuery(cmd); 
+      <BR>while (rset.next()) <BR>//get the Blob locator <BR>blob = 
+      ((OracleResultSet)rset).getBLOB(2); <BR><BR>//get ready to accept binary 
+      file <BR>OutputStream out = blob.getBinaryOutputStream(); <BR>int chunk = 
+      blob.getChunkSize(); <BR>System.out.print("The chunk size is " + chunk); 
+      <BR>byte buffer[]= new byte[chunk]; <BR>int length; <BR>while ((length = 
+      in.read(buffer)) != -1) <BR>out.write(buffer, 0, length); //image file 
+      saved. 
+      <BR>in.close();<BR>out.close();<BR>stmt.close();<BR>rset.close();<BR></CODE></UL></UL><BR>
+  <H3>2.2 How to get Image Data from Database?</H3>
+  <UL>
+    <P>Basically, we treat BLOB or CLOB file as a binaryfile, so the way we 
+    retrieve BLOB file from Oracle is just like we get a binary file from 
+    database. <BR>&nbsp; </P>Example to get the TEST.jpg file from Oracle 
+    database <BR>&nbsp; 
+    <UL><CODE><BR>//get blob size. <BR>int chunk = blob.getChunkSize(); 
+      <BR>//create a buffer according to the size of blob <BR>byte buffer[] = 
+      new byte[chunk]; <BR>int length; <BR>//write the blob datatype to a image 
+      file named 'out.jpg' <BR>FileOutputStream outFile = null; <BR>outFile = 
+      new FileOutputStream("out.jpg"); <BR>InputStream instream = 
+      blob.getBinaryStream(); <BR><BR>// Fetch data <BR>while ((length = 
+      instream.read(buffer)) != -1) { <BR>outFile.write(buffer, 0, length); 
+      </CODE></UL></UL>
+  <H2><A name=SEC3></A>3. Assignment </H2><A>
+  <UL>
+    <P>Create an address book described as following: <BR>&nbsp; 
+    <UL>
+      <LI>The personal information includes: <BR>&nbsp; 
+      <UL>
+        <TABLE border=1>
+          <TBODY>
+          <TR>
+            <TD><I>name</I> </TD>
+            <TD>varchar(32)</TD></TR>
+          <TR>
+            <TD><I>age</I> </TD>
+            <TD>int</TD></TR>
+          <TR>
+            <TD><I>address</I> </TD>
+            <TD>varchar(64)</TD></TR>
+          <TR>
+            <TD><I>phone</I> </TD>
+            <TD>varchar(24)</TD></TR>
+          <TR>
+            <TD><I>email</I> </TD>
+            <TD>varchar(32)</TD></TR>
+          <TR>
+            <TD><I>birthday</I></TD>
+            <TD>date</TD></TR>
+          <TR>
+            <TD><I>photo</I></TD>
+            <TD>BLOB</TD></TR></TBODY></TABLE><BR></UL>
+      <LI>The interface design is up to you. Basic functions such as <I>add a 
+      person</I>, <I>remove a person</I>, <I>update a person's information</I>, 
+      and <I>view all persons</I> should be implemented by using Servlet. 
+      <LI>The Assignment due at the 6th week lab time </LI></UL></UL>
+  <HR>
+  </A></UL></FONT></A></BODY></HTML>

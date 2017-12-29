@@ -1,0 +1,47 @@
+<html>
+<h2>Java Package Model</h2>
+<p>The workzen.xgen.model.Package class models a standard Java object oriented model. It provides accessors to 
+all OO elements: classes, attributes, contained objects and references.</p>
+
+<p><img border="0" src="images/uml.gif" width="735" height="349"></p>
+<h3>Input</h3>
+<p>A java model could be created from a number of sources; manually, using 
+introspection, using an rdbms schema, or an xml file.</p>
+<table border="1" width="0%" id="table1">
+	<tr>
+		<th width="50%">input</th>
+		<th>loader</th>
+	</tr>
+	<tr>
+		<td width="50%"><a href="input/xml_schema.html">xml schema</a></td>
+		<td>workzen.xgen.loader.JavaModelXmlLoader</td>
+	</tr>
+</table>
+<h3>Output</h3>
+<p><i>workzen.xgen.engine.VelocityProcessor</i></p>
+<table border="1" width="0%" id="table2">
+	<tr>
+		<th width="50%" nowrap>output</th>
+		<th>template</th>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/jdbc_table.html">JDBC table 
+		classes</a></td>
+		<td>templates/persistence/manager/control_table.vm</td>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/jdbc_mgr.html">JDBC mgr classes</a></td>
+		<td>templates/persistence/manager/control_manager.vm</td>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/xml.html">XML schema</a></td>
+		<td>templates/schema/package2xgen.vm</td>
+	</tr>
+	<tr>
+		<td width="50%" nowrap><a href="output/pojo.html">POJO classes</a></td>
+		<td>templates/pojo/control.vm</td>
+	</tr>
+	</table>
+
+
+</html>

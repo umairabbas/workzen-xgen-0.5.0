@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<project name="xgen" default="build" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- Example build                                                          -->
+  <!-- ====================================================================== -->
+
+  <property file="build.properties"/>
+  <property name="input.file" value="${basedir}/etc/input/blog.xml"/>
+  <property name="output.dir" value="${basedir}/work/blog"/>
+  
+  <path id="classpath">
+    <pathelement path="."/>
+    <fileset dir="${basedir}">
+      <include name="**/*.jar"/>
+    </fileset>  
+  </path>
+  
+  <target name="build">
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating project source!                          |"/>
+    <echo message="+-----------------------------------------------------+"/>
+     
+    <taskdef name="xgen" classname="workzen.xgen.ant.XGenTask">
+      <classpath refid="classpath"/>
+    </taskdef>
+     
+    <!-- persistence manager -->
+    <xgen
+      loader="workzen.xgen.loader.JavaModelXmlLoader"
+      xmlFilePath="${input.file}"    
+      processor="workzen.xgen.engine.VelocityProcessor"
+      resourceLoader="file,class"
+      _optional_templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/persistence/manager"
+      template="control_manager.vm"
+      outputPath="${basedir}/work/blog"
+      outputFile="manager.out"
+      logLevel="info"
+      >
+    </xgen>    
+
+	<!-- persistence table -->
+    <xgen
+	  loader="workzen.xgen.loader.JavaModelXmlLoader"
+      xmlFilePath="${input.file}"
+      processor="workzen.xgen.engine.VelocityProcessor"
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/persistence/manager"
+	  template="control_table.vm"
+      outputPath="${output.dir}"
+      outputFile="table.out"
+      >
+    </xgen>    
+    
+    
+    <!-- pojo  -->  
+    <xgen
+      loader="workzen.xgen.loader.JavaModelXmlLoader"
+      xmlFilePath="${input.file}"
+      processor="workzen.xgen.engine.VelocityProcessor"
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/pojo"
+      template="control.vm"
+      outputPath="${output.dir}"
+      outputFile="pojo.out"
+      >
+    </xgen>   
+
+  
+  </target>
+  
+</project>

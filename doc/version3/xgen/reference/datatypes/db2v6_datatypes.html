@@ -1,0 +1,633 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta http-equiv="updated" content="Thu, 29 Apr 1999 16:09:14">
+<meta http-equiv="review" content="Sat, 29 Apr 2000 16:09:14">
+<meta http-equiv="expires" content="Sun, 29 Apr 2001 16:09:14">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>SQL Reference</title>
+<!-- Begin Header Records  ========================================== -->
+<!-- c:\idwbwin\TEMP\idwt1571\db2s0.scr converted by idb2h R4.2 (359) -->
+<!-- ID Workbench Version (WINNT-WIN95) on 29 Apr 1999 at 16:09:16    -->
+<!-- (C) Copyright IBM Corporation, 1999                              -->
+<!-- All rights reserved. Licensed Materials Property of IBM          -->
+<!-- Note to US Government users                                      -->
+<!-- Documentation related to restricted rights                       -->
+<!-- Use, duplication or disclosure is subject to restrictions        -->
+<!-- set forth in GSA ADP Schedule with IBM Corp.                     -->
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1>DB2 6 DATATYPES...</h1>
+
+<pre>data-type
+ 
+|--+-SMALLINT-----------------------------------------------------------------------+-&gt;
+   +-+-INTEGER-+--------------------------------------------------------------------+
+   | '-INT-----'                                                                    |
+   +-BIGINT-------------------------------------------------------------------------+
+   +-+-FLOAT--+----------------+-+--------------------------------------------------+
+   | |        '-(--<i>integer</i>--)--' |                                                  |
+   | +-REAL----------------------+                                                  |
+   | |        .-PRECISION-.      |                                                  |
+   | '-DOUBLE-+-----------+------'                                                  |
+   +--+-DECIMAL-+---+--------------------------------+------------------------------+
+   |  +-DEC-----+   '-(--<i>integer</i>--+-----------+---)--'                              |
+   |  +-NUMERIC-+                 '-<i>,integer</i>--'                                     |
+   |  '-NUM-----'                                                                   |
+   +--+--+-CHARACTER-+---+------------+----------------+---+----------------------+-+
+   |  |  '-CHAR------'   '-<i>(integer)</i>--'                |   |  (1)                 | |
+   |  +--+-VARCHAR-------------------+--(--<i>integer</i>--)--+   '--------FOR BIT DATA--' |
+   |  |  '--+-CHARACTER-+---VARYING--'                 |                            |
+   |  |     '-CHAR------'                              |                            |
+   |  '-LONG VARCHAR-----------------------------------'                            |
+   |                                                                                |
+   +--+-BLOB---+--(--<i>integer</i>--+---+---)---------------------------------------------+
+   |  +-CLOB---+              +-K-+                                                 |
+   |  '-DBCLOB-'              +-M-+                                                 |
+   |                          '-G-'                                                 |
+   +-GRAPHIC--+------------+--------------------------------------------------------+
+   |          '-<i>(integer)</i>--'                                                        |
+   +-VARGRAPHIC--<i>(integer)</i>----------------------------------------------------------+
+   +-LONG VARGRAPHIC----------------------------------------------------------------+
+   +-DATE---------------------------------------------------------------------------+
+   +-TIME---------------------------------------------------------------------------+
+   +-TIMESTAMP----------------------------------------------------------------------+
+   +-DATALINK--+----------------+---------------------------------------------------+
+   |           '-(--<i>integer</i>--)--'                                                   |
+   +-<i>distinct-type-name</i>-------------------------------------------------------------+
+   '-REF--<i>(type-name2)</i>--------------------------------------------------------------'
+ 
+&gt;---------------------------------------------------------------|
+ 
+</pre>
+
+<dl>
+    <dd><dl>
+            <dt><var>data-type</var> </dt>
+            <dd>Is one of the types in the following list. Use: <dl>
+                    <dd>&nbsp;</dd>
+                    <dt>SMALLINT <a name="IDX7831"></a> </dt>
+                    <dd>For a small integer. </dd>
+                    <dt>INTEGER &nbsp;or&nbsp; INT <a
+                        name="IDX7832"></a> </dt>
+                    <dd>For a large integer. </dd>
+                    <dt>BIGINT <a name="IDX7833"></a> </dt>
+                    <dd>For a big integer. </dd>
+                    <dt>FLOAT(<var>integer</var>) <a
+                        name="IDX7834"></a> <a name="IDX7835"></a>
+                        <a name="IDX7836"></a> </dt>
+                    <dd>For a single or double precision
+                        floating-point number, depending on the
+                        value of the <var>integer</var>. The
+                        value of the integer must be in the range
+                        1 through 53. The values 1 through 24
+                        indicate single precision and the values
+                        25 through 53 indicate double precision. <p>You
+                        can also specify: </p>
+                        <dl compact>
+                            <dt><b>REAL </b><a name="IDX7837"><b></b></a><b>
+                                </b></dt>
+                            <dd>For single precision
+                                floating-point. </dd>
+                            <dt><b>DOUBLE </b><a name="IDX7838"><b></b></a><b>
+                                </b></dt>
+                            <dd>For double precision
+                                floating-point. </dd>
+                            <dt><b>DOUBLE PRECISION </b><a
+                                name="IDX7839"><b></b></a><b> </b></dt>
+                            <dd>For double precision
+                                floating-point. </dd>
+                            <dt><b>FLOAT </b></dt>
+                            <dd>For double precision
+                                floating-point. </dd>
+                        </dl>
+                    </dd>
+                    <dt>DECIMAL<var>(precision-integer,
+                        scale-integer)</var> &nbsp;or&nbsp; DEC<var>(precision-integer,
+                        scale-integer)</var> </dt>
+                    <dd>For a decimal number. The first integer
+                        is the precision of the number; that is,
+                        the total number of digits; it may range
+                        from 1 to 31. The second integer is the
+                        scale of the number; that is, the number
+                        of digits to the right of the decimal
+                        point; it may range from 0 to the
+                        precision of the number. <p>If precision
+                        and scale are not specified, the default
+                        values of 5,0 are used. The words <b>NUMERIC</b>
+                        and <b>NUM</b> can be used as synonyms
+                        for <b>DECIMAL</b> and <b>DEC</b>. </p>
+                    </dd>
+                    <dt>CHARACTER<var>(integer)</var>
+                        &nbsp;or&nbsp; CHAR<var>(integer)</var>
+                        &nbsp;or&nbsp; CHARACTER &nbsp;or&nbsp;
+                        CHAR <a name="IDX7840"></a> </dt>
+                    <dd>For a fixed-length character string of
+                        length <var>integer</var>, which may
+                        range from 1 to 254. If the length
+                        specification is omitted, a length of 1
+                        character is assumed. </dd>
+                    <dt>VARCHAR<var>(integer)</var>,
+                        &nbsp;or&nbsp; CHARACTER VARYING<var>(integer)</var>,
+                        &nbsp;or&nbsp; CHAR VARYING<var>(integer)</var>
+                        <a name="IDX7841"></a> <a name="IDX7842"></a>
+                        <a name="IDX7843"></a> </dt>
+                    <dd>For a varying-length character string of
+                        maximum length <i>integer</i>, which may
+                        range from 1 to 32&nbsp;672. </dd>
+                    <dt>LONG VARCHAR <a name="IDX7844"></a> </dt>
+                    <dd>For a varying-length character string
+                        with a maximum length of 32700. </dd>
+                    <dt>FOR BIT DATA <a name="IDX7845"></a> </dt>
+                    <dd>Specifies that the contents of the column
+                        are to be treated as bit (binary) data.
+                        During data exchange with other systems,
+                        code page conversions are not performed.
+                        Comparisons are done in binary,
+                        irrespective of the database collating
+                        sequence. </dd>
+                    <dt>BLOB<var>(integer [K | M | G])</var> <a
+                        name="IDX7846"></a> </dt>
+                    <dd>For a binary large object string of the
+                        specified maximum length in bytes. <p>The
+                        length may be in the range of 1 byte to 2
+                        147 483 647 bytes. </p>
+                        <p>If <var>integer</var> by itself is
+                        specified, that is the maximum length. </p>
+                        <p>If <var>integer K</var> (in either
+                        upper or lower case) is specified, the
+                        maximum length is 1&nbsp;024 times <var>integer</var>.
+                        The maximum value for <var>integer</var>
+                        is 2 097 152. </p>
+                        <p>If <var>integer M</var> is specified,
+                        the maximum length is 1 048 576 times <var>integer</var>.
+                        The maximum value for <var>integer</var>
+                        is 2 048. </p>
+                        <p>If <var>integer G</var> is specified,
+                        the maximum length is 1 073 741 824 times
+                        <var>integer</var>. The maximum value for
+                        <var>integer</var> is 2. </p>
+                        <p>To create BLOB strings greater than 1
+                        gigabyte, you must specify the NOT LOGGED
+                        option. </p>
+                        <p>Any number of spaces is allowed
+                        between the integer and K, M, or G. Also,
+                        no space is required. For example, all
+                        the following are valid. </p>
+                        <pre>   BLOB(50K)    BLOB(50 K)    BLOB (50   K)
+</pre>
+                    </dd>
+                    <dt>CLOB<var>(integer [K | M | G])</var> <a
+                        name="IDX7847"></a> <a
+                        href="#Footnote_70"
+                        name="Footnote_Used_70"><sup>70</sup></a>
+                    </dt>
+                    <dd>For a character large object string of
+                        the specified maximum length in bytes. <p>The
+                        meaning of the <var>integer K | M | G</var>
+                        is the same as for BLOB. </p>
+                        <p>To create CLOB strings greater than 1
+                        gigabyte, you must specify the NOT LOGGED
+                        option. </p>
+                    </dd>
+                    <dt>DBCLOB<var>(integer [K | M | G])</var> <a
+                        name="IDX7848"></a> </dt>
+                    <dd>For a double-byte character large object
+                        string of the specified maximum length in
+                        double-byte characters. <p>The meaning of
+                        the <var>integer K | M | G</var> is
+                        similar to that for BLOB. The differences
+                        are that the number specified is the
+                        number of double-byte characters and that
+                        the maximum size is 1 073 741 823
+                        double-byte characters. </p>
+                        <p>To create DBCLOB strings greater than
+                        1 gigabyte, you must specify the NOT
+                        LOGGED option. </p>
+                    </dd>
+                    <dt>GRAPHIC<var>(integer)</var> <a
+                        name="IDX7849"></a> </dt>
+                    <dd>For a fixed-length graphic string of
+                        length <var>integer</var> which may range
+                        from 1 to 127. If the length
+                        specification is omitted, a length of 1
+                        is assumed. </dd>
+                    <dt>VARGRAPHIC<var>(integer)</var> </dt>
+                    <dd>For a varying-length graphic string of
+                        maximum length <i>integer</i>, which may
+                        range from 1 to 16&nbsp;336. </dd>
+                    <dt>LONG VARGRAPHIC </dt>
+                    <dd>For a varying-length graphic string with
+                        a maximum length of 16&nbsp;350. </dd>
+                    <dt>DATE <a name="IDX7850"></a> </dt>
+                    <dd>For a date. </dd>
+                    <dt>TIME <a name="IDX7851"></a> </dt>
+                    <dd>For a time. </dd>
+                    <dt>TIMESTAMP <a name="IDX7852"></a> </dt>
+                    <dd>For a timestamp. </dd>
+                    <dt>DATALINK &nbsp;or&nbsp; DATALINK<var>(integer)</var>
+                    </dt>
+                    <dd>For a link to data stored outside the
+                        database. <p>The column in the table
+                        consists of &quot;anchor values&quot;
+                        that contain the reference information
+                        that is required to establish and
+                        maintain the link to the external data as
+                        well as an optional comment. </p>
+                        <p>The length of a DATALINK column is 200
+                        bytes. If <var>integer</var> is
+                        specified, it must be 200. If the length
+                        specification is omitted, a length of 200
+                        bytes is assumed. </p>
+                        <p>A DATALINK value is an encapsulated
+                        value with a set of built-in scalar
+                        functions. There is a function called
+                        DLVALUE to create a DATALINK value. The
+                        following functions can be used to
+                        extract attributes from a DATALINK value.
+                        </p>
+                        <ul compact>
+                            <li>DLCOMMENT </li>
+                            <li>DLLINKTYPE </li>
+                            <li>DLURLCOMPLETE </li>
+                            <li>DLURLPATH </li>
+                            <li>DLURLPATHONLY </li>
+                            <li>DLURLSCHEME </li>
+                            <li>DLURLSERVER </li>
+                        </ul>
+                        <p>A DATALINK column has the following
+                        restrictions: </p>
+                        <ul>
+                            <li>&nbsp;</li>
+                            <li>The column cannot be part of any
+                                index. Therefore, it cannot be
+                                included as a column of a primary
+                                key or unique constraint
+                                (SQLSTATE 42962). </li>
+                            <li>The column cannot be a foreign
+                                key of a referential constraint
+                                (SQLSTATE 42830). </li>
+                            <li>A default value (WITH DEFAULT)
+                                cannot be specified for the
+                                column. If the column is
+                                nullable, the default for the
+                                column is NULL (SQLSTATE 42894). </li>
+                        </ul>
+                    </dd>
+                    <dt><var>distinct-type-name</var> <a
+                        name="IDX7853"></a> </dt>
+                    <dd>For a user-defined type that is a
+                        distinct type. If a distinct type name is
+                        specified without a schema name, the
+                        distinct type name is resolved by
+                        searching the schemas on the SQL path
+                        (defined by the FUNCPATH preprocessing
+                        option for static SQL and by the CURRENT
+                        PATH register for dynamic SQL). <p>If a
+                        column is defined using a distinct type,
+                        then the data type of the column is the
+                        distinct type. The length and the scale
+                        of the column are respectively the length
+                        and the scale of the source type of the
+                        distinct type. </p>
+                        <p>If a column defined using a distinct
+                        type is a foreign key of a referential
+                        constraint, then the data type of the
+                        corresponding column of the primary key
+                        must have the same distinct type. </p>
+                    </dd>
+                    <dt>REF (<var>type-name2</var>) </dt>
+                    <dd>For a reference to a typed table. If <var>type-name2</var>
+                        is specified without a schema name, the
+                        type name is resolved by searching the
+                        schemas on the SQL path (defined by the
+                        FUNCPATH preprocessing option for static
+                        SQL and by the CURRENT PATH register for
+                        dynamic SQL). The underlying data type of
+                        the column is based on the data type
+                        VARCHAR(16) FOR BIT DATA. </dd>
+                </dl>
+            </dd>
+        </dl>
+    </dd>
+</dl>
+
+<p><a name="SPTBYTECNT"><b><i></i></b></a><b><i>Byte Counts:</i></b>&nbsp;
+The following list contains the byte counts of columns by data
+type for columns that do not allow null values. For a column that
+allows null values the byte count is one more than shown in the
+list. </p>
+
+<p>If the table is created based on a structured type, an
+additional 4 bytes of overhead is reserved to identify rows of
+subtables regardless of whether or not subtables are defined.
+Also, additional subtable columns must be considered nullable for
+byte count purposes, even when defined as not nullable. </p>
+
+<dl>
+    <dd>&nbsp;</dd>
+    <dt><b>Data type</b> </dt>
+    <dd><b>Byte count</b> </dd>
+    <dt>INTEGER </dt>
+    <dd>4 </dd>
+    <dt>SMALLINT </dt>
+    <dd>2 </dd>
+    <dt>BIGINT </dt>
+    <dd>8 </dd>
+    <dt>REAL </dt>
+    <dd>4 </dd>
+    <dt>DOUBLE </dt>
+    <dd>8 </dd>
+    <dt>DECIMAL </dt>
+    <dd>The integral part of (<var>p</var>/2)+1, where <var>p</var>
+        is the precision. </dd>
+    <dt>CHAR(<var>n</var>) </dt>
+    <dd><var>n</var> </dd>
+    <dt>VARCHAR(<var>n</var>) </dt>
+    <dd><var>n</var>+4 </dd>
+    <dt>LONG VARCHAR </dt>
+    <dd>24 </dd>
+    <dt>GRAPHIC(<var>n</var>) </dt>
+    <dd><var>n</var>*2 </dd>
+    <dt>VARGRAPHIC(<var>n</var>) </dt>
+    <dd>(<var>n</var>*2)+4 </dd>
+    <dt>LONG VARGRAPHIC </dt>
+    <dd>24 </dd>
+    <dt>DATE </dt>
+    <dd>4 </dd>
+    <dt>TIME </dt>
+    <dd>3 </dd>
+    <dt>TIMESTAMP </dt>
+    <dd>10 </dd>
+    <dt>DATALINK(<var>n</var>) </dt>
+    <dd><var>n</var>+54 </dd>
+    <dt>LOB types </dt>
+    <dd>Each LOB value has a <var>LOB descriptor</var> in the
+        base record that points to the location of the actual
+        value. The size of the descriptor varies according to the
+        maximum length defined for the column. The following
+        table shows typical sizes: <pre>  <b>Maximum LOB Length    LOB Descriptor Size</b>
+               1 024                     72
+               8 192                     96
+              65 536                    120
+             524 000                    144
+           4 190 000                    168
+         134 000 000                    200
+         536 000 000                    224
+       1 070 000 000                    256
+       1 470 000 000                    280
+       2 147 483 647                    316
+</pre>
+    </dd>
+    <dt>Distinct type </dt>
+    <dd>Length of the source type of the distinct type. </dd>
+    <dt>Reference type </dt>
+    <dd>Length of the built-in data type on which the reference
+        type is based. </dd>
+</dl>
+
+<p><strong>Examples</strong> </p>
+
+<p><i>Example 1:</i>&nbsp; Create table TDEPT in the DEPARTX
+table space. DEPTNO, DEPTNAME, MGRNO, and ADMRDEPT are column
+names. CHAR means the column will contain character data. NOT
+NULL means that the column cannot contain a null value. VARCHAR
+means the column will contain varying-length character data. The
+primary key consists of the column DEPTNO. <a name="SPTREFCTB"></a>
+</p>
+
+<pre>   <b>CREATE TABLE</b> TDEPT
+     (DEPTNO   <b>CHAR</b>(3)     <b>NOT NULL</b>,
+      DEPTNAME <b>VARCHAR</b>(36) <b>NOT NULL</b>,
+      MGRNO    <b>CHAR</b>(6),
+      ADMRDEPT <b>CHAR</b>(3)     <b>NOT NULL</b>,
+      <b>PRIMARY KEY</b>(DEPTNO))
+   <b>IN</b> DEPARTX
+</pre>
+
+<p><i>Example 2:</i>&nbsp; Create table PROJ in the SCHED table
+space. PROJNO, PROJNAME, DEPTNO, RESPEMP, PRSTAFF, PRSTDATE,
+PRENDATE, and MAJPROJ are column names. CHAR means the column
+will contain character data. DECIMAL means the column will
+contain packed decimal data. 5,2 means the following: 5 indicates
+the number of decimal digits, and 2 indicates the number of
+digits to the right of the decimal point. NOT NULL means that the
+column cannot contain a null value. VARCHAR means the column will
+contain varying-length character data. DATE means the column will
+contain date information in a three-part format (year, month, and
+day). <a name="SPTR3FCTB2"></a> </p>
+
+<pre>   <b>CREATE TABLE</b> PROJ
+     (PROJNO   <b>CHAR</b>(6)      <b>NOT NULL</b>,
+      PROJNAME <b>VARCHAR</b>(24)  <b>NOT NULL</b>,
+      DEPTNO   <b>CHAR</b>(3)      <b>NOT NULL</b>,
+      RESPEMP  <b>CHAR</b>(6)      <b>NOT NULL</b>,
+      PRSTAFF  <b>DECIMAL</b>(5,2)         ,
+      PRSTDATE <b>DATE</b>                 ,
+      PRENDATE <b>DATE</b>                 ,
+      MAJPROJ  <b>CHAR</b>(6)      <b>NOT NULL</b>)
+   <b>IN</b> SCHED
+</pre>
+
+<p><i>Example 3:</i>&nbsp; Create a table called EMPLOYEE_SALARY
+where any unknown salary is considered 0. No table space is
+specified, so that the table will be created in a table space
+selected by the system based on the rules descirbed for the <var>IN
+tablespace-name1</var> clause. <a name="SPTREFCTN"></a> </p>
+
+<pre>   <b>CREATE TABLE</b> EMPLOYEE_SALARY
+     (DEPTNO   <b>CHAR</b>(3)      <b>NOT NULL</b>,
+      DEPTNAME <b>VARCHAR</b>(36)  <b>NOT NULL</b>,
+      EMPNO    <b>CHAR</b>(6)      <b>NOT NULL</b>,
+      SALARY   <b>DECIMAL</b>(9,2) <b>NOT NULL WITH DEFAULT</b>)
+</pre>
+
+<p><i>Example 4:</i>&nbsp; Create distinct types for total salary
+and miles and use them for columns of a table created in the
+default table space. In a dynamic SQL statement assume the
+CURRENT SCHEMA special register is JOHNDOE and the CURRENT PATH
+is the default
+(&quot;SYSIBM&quot;,&quot;SYSFUN&quot;,&quot;JOHNDOE&quot;). </p>
+
+<p>If a value for SALARY is not specified it must be set to 0 and
+if a value for LIVING_DIST is not specified it must to set to 1
+mile. </p>
+
+<pre>  <b>CREATE DISTINCT TYPE</b> JOHNDOE.T_SALARY <b>AS INTEGER WITH COMPARISONS</b>
+ 
+  <b>CREATE DISTINCT TYPE</b> JOHNDOE.MILES <b>AS FLOAT WITH COMPARISONS</b>
+ 
+  <b>CREATE TABLE</b> EMPLOYEE
+     (ID          <b>INTEGER NOT NULL</b>,
+      NAME        <b>CHAR</b> (30),
+      SALARY      T_SALARY <b>NOT NULL WITH DEFAULT</b>,
+      LIVING_DIST MILES    <b>DEFAULT</b> MILES(1) <b>)</b>
+</pre>
+
+<p><i>Example 5:</i>&nbsp; Create distinct types for image and
+audio and use them for columns of a table. No table space is
+specified, so that the table will be created in a table space
+selected by the system based on the rules descirbed for the <var>IN
+tablespace-name1</var> clause. Assume the CURRENT PATH is the
+default. </p>
+
+<pre>  <b>CREATE DISTINCT TYPE</b> IMAGE <b>AS BLOB</b> (10M)
+ 
+  <b>CREATE DISTINCT TYPE</b> AUDIO <b>AS BLOB</b> (1G)
+ 
+  <b>CREATE TABLE</b> PERSON
+     (SSN    <b>INTEGER NOT NULL</b>,
+      NAME   <b>CHAR</b> (30),
+      VOICE  AUDIO,
+      PHOTO  IMAGE)
+</pre>
+
+<p><i>Example 6:</i>&nbsp; Create table EMPLOYEE in the HUMRES
+table space. The constraints defined on the table are the
+following: </p>
+
+<ul compact>
+    <li>The values of department number must lie in the range 10
+        to 100. </li>
+    <li>The job of an employee can only be either 'Sales', 'Mgr'
+        or 'Clerk'. </li>
+    <li>Every employee that has been with the company since 1986
+        must make more than $40,500. </li>
+</ul>
+
+<table border="0">
+    <tr>
+        <td valign="top"><b>Note:</b></td>
+        <td valign="top">If the columns included in the check
+        constraints are nullable they could also be NULL. <pre>   <b>CREATE TABLE</b> EMPLOYEE
+   (ID          <b>SMALLINT NOT NULL</b>,
+    NAME        <b>VARCHAR</b>(9),
+    DEPT        <b>SMALLINT CHECK</b> (DEPT <b>BETWEEN</b> 10 <b>AND</b> 100),
+    JOB         <b>CHAR</b>(5) <b>CHECK</b> (JOB <b>IN</b> ('Sales','Mgr','Clerk')),
+    HIREDATE    <b>DATE</b>,
+    SALARY      <b>DECIMAL</b>(7,2),
+    COMM        <b>DECIMAL</b>(7,2),
+    <b>PRIMARY KEY</b> (ID),
+    <b>CONSTRAINT</b>  YEARSAL <b>CHECK</b> (YEAR(HIREDATE) &gt; 1986 <b>OR</b> SALARY &gt; 40500)
+   )
+   <b>IN</b> HUMRES
+</pre>
+        </td>
+    </tr>
+</table>
+
+<p><i>Example 7:</i>&nbsp; Create a table that is wholly
+contained in the PAYROLL table space. </p>
+
+<pre>   <b>CREATE TABLE</b> EMPLOYEE .....
+      <b>IN</b> PAYROLL
+</pre>
+
+<p><i>Example 8:</i>&nbsp; Create a table with its data part in
+ACCOUNTING and its index part in ACCOUNT_IDX. </p>
+
+<pre>   <b>CREATE TABLE</b> SALARY.....
+      <b>IN</b> ACCOUNTING <b>INDEX IN</b> ACCOUNT_IDX
+</pre>
+
+<p><i>Example 9:</i>&nbsp; Create a table and log SQL changes in
+the default format. </p>
+
+<pre>   <b>CREATE TABLE</b> SALARY1 .....
+</pre>
+
+<p>or </p>
+
+<pre>   <b>CREATE TABLE</b> SALARY1 .....
+      <b>DATA CAPTURE NONE</b>
+</pre>
+
+<p><i>Example 10:</i>&nbsp; Create a table and log SQL changes in
+an expanded format. </p>
+
+<pre>   <b>CREATE TABLE</b> SALARY2 .....
+      <b>DATA CAPTURE CHANGES</b>
+</pre>
+
+<p><i>Example 11:</i>&nbsp; Create a table EMP_ACT in the SCHED
+table space. EMPNO, PROJNO, ACTNO, EMPTIME, EMSTDATE, and
+EMENDATE are column names. Constraints defined on the table are: </p>
+
+<ul compact>
+    <li>The value for the set of columns, EMPNO, PROJNO, and
+        ACTNO, in any row must be unique. </li>
+    <li>The value of PROJNO must match an existing value for the
+        PROJNO column in the PROJECT table and if the project is
+        deleted all rows referring to the project in EMP_ACT
+        should also be deleted. </li>
+</ul>
+
+<pre>   <b>CREATE TABLE</b> EMP_ACT
+   (EMPNO       <b>CHAR</b>(6) <b>NOT NULL</b>,
+    PROJNO      <b>CHAR</b>(6) <b>NOT NULL</b>,
+    ACTNO       <b>SMALLINT NOT NULL</b>,
+    EMPTIME     <b>DECIMAL</b>(5,2),
+    EMSTDATE    <b>DATE</b>,
+    EMENDATE    <b>DATE</b>,
+    <b>CONSTRAINT</b> EMP_ACT_UNIQ <b>UNIQUE (</b>EMPNO,PROJNO,ACTNO<b>)</b>,
+    <b>CONSTRAINT</b> FK_ACT_PROJ <b>FOREIGN KEY (</b>PROJNO)
+                           REFERENCES PROJECT <b>(</b>PROJNO<b>) ON DELETE CASCADE</b>
+   )
+   <b>IN</b> SCHED
+</pre>
+
+<p>A unique index called EMP_ACT_UNIQ is automatically created in
+the same schema to enforce the unique constraint. </p>
+
+<p><i>Example 12:</i>&nbsp; Create a table that is to hold
+information about famous goals for the ice hockey hall of fame.
+The table will list information about the player who scored the
+goal, the goaltender against who it was scored, the date and
+place, and a description. When available, it will also point to
+places where newspaper articles about the game are stored and
+where still and moving pictures of the goal are stored. The
+newspaper articles are to be linked so they cannot be deleted or
+renamed but all existing display and update applications must
+continue to operate. The still pictures and movies are to be
+linked with access under complete control of DB2. The still
+pictures are to have recovery and are to be returned to their
+original owner if unlinked. The movie pictures are not to have
+recovery and are to be deleted if unlinked. The description
+column and the three DATALINK columns are nullable. </p>
+
+<pre>  <b>CREATE TABLE</b> HOCKEY_GOALS
+    <b>( </b>BY_PLAYER      <b>VARCHAR(</b>30<b>)   NOT NULL,</b>
+      BY_TEAM        <b>VARCHAR(</b>30<b>)   NOT NULL,</b>
+      AGAINST_PLAYER <b>VARCHAR(</b>30<b>)   NOT NULL,</b>
+      AGAINST_TEAM   <b>VARCHAR(</b>30<b>)   NOT NULL,</b>
+      DATE_OF_GOAL   <b>DATE          NOT NULL,</b>
+      DESCRIPTION    <b>CLOB(</b>5000<b>),</b>
+      ARTICLES       <b>DATALINK  LINKTYPE URL FILE LINK CONTROL MODE DB2OPTIONS,</b>
+      SNAPSHOT       <b>DATALINK  LINKTYPE URL FILE LINK CONTROL</b>
+                               <b>INTEGRITY ALL</b>
+                               <b>READ PERMISSION DB WRITE PERMISSION BLOCKED</b>
+                               <b>RECOVERY YES ON UNLINK RESTORE,</b>
+      MOVIE          <b>DATALINK  LINKTYPE URL FILE LINK CONTROL</b>
+                               <b>INTEGRITY ALL</b>
+                               <b>READ PERMISSION DB WRITE PERMISSION BLOCKED</b>
+                               <b>RECOVERY NO ON UNLINK DELETE )</b>
+</pre>
+
+<p><i>Example 13:</i>&nbsp; Suppose an exception table is needed
+for the EMPLOYEE table. One can be created using the following
+statement. </p>
+
+<pre>  <b>CREATE TABLE</b> EXCEPTION_EMPLOYEE <b>AS</b>
+    (<b>SELECT</b> EMPLOYEE.*, 
+       CURRENT TIMESTAMP AS TIMESTAMP,
+       <b>CAST</b> ('' <b>AS</b> CLOB(32K)) <b>AS</b> MSG
+     <b>FROM</b> EMPLOYEE
+     ) <b>DEFINITION ONLY</b>
+				     </pre>
+</body>
+</html>

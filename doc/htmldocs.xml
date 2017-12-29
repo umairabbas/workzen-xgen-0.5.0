@@ -1,0 +1,52 @@
+<html>
+	<h1>Html Docs</h1>
+	<!-- all menu items are relative to a webroot -->
+	<website href="index.html">
+		<menu href="index.html">home
+			<a href="quickstart.html">quickstart</a>
+			<a href="GPL_license.html">license</a>
+			<a href="download.html">download</a>
+			<a href="about.html">about</a>
+		</menu>
+		<menu href="technical/index.html">technical
+			<a href="technical/ant.html">ant</a>
+			<a href="technical/loaders.html">loaders</a>
+			<a href="technical/processors.html">processors</a>
+		</menu>
+		<menu href="models/index.html">models
+			<menu href="models/database/index.html">database</menu>
+			<menu href="models/java/index.html">java
+				<menu href="models/java/input/index.html">input
+					<menu href="models/java/input/xml_schema.html">xml schema
+						<a href="models/java/input/xml_schema_types.html">schema field types</a>
+					</menu>
+					<menu href="models/java/input/examples/index.html">schema examples
+						<a href="models/java/input/examples/blog_schema.html">blog schema</a>
+						<a href="models/java/input/examples/student_schema.html">student schema</a>
+					</menu>
+				</menu>
+				<menu href="models/java/output/index.html">output
+					<a href="models/java/output/jdbc_table.html">jdbc table</a>
+					<a href="models/java/output/jdbc_mgr.html">jdbc mgr</a>
+					<a href="models/java/output/pojo.html">pojo</a>
+					<a href="models/java/output/xml.html">xml schema</a>
+					<menu href="models/java/output/code/index.html">code examples
+				   		<menu href="models/java/output/code/blog/index.html">blog example
+					   		<a href="models/java/output/code/blog/Blog.java.html">blog</a>
+					   		<a href="models/java/output/code/blog/BlogCategory.java.html">blog category</a>
+					   		<a href="models/java/output/code/blog/BlogCategoryManager.java.html">blog category mgr</a>
+					   		<a href="models/java/output/code/blog/BlogCategoryTable.java.html">blog category table</a>
+					   		<a href="models/java/output/code/blog/BlogManager.java.html">blog mgr</a>
+					   		<a href="models/java/output/code/blog/BlogTable.java.html">blog table</a>
+						</menu>
+					</menu>	
+				</menu>
+			</menu>	
+			<menu href="models/textfile/index.html">textfile</menu>
+			<menu href="models/website/index.html">website</menu>
+			<menu href="models/xml/index.html">xml</menu>
+		</menu>
+	</website>
+	<!-- end of website map -->
+</html>
+ 

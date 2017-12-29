@@ -1,0 +1,42 @@
+<html>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+<h2>TextFile Loader</h2>
+<p>The TextFileLoader loads text into the TextFile model. The TextFile model 
+performs findAndReplace() on specified tokens. This model can be used to perform 
+Xml2Html type transformations.</p>
+<h3>Xml2Html Transformation</h3>
+<table border="1">
+	<tr>
+		<th>Loader</th>
+		<td>workzen.xgen.loader.TextFileLoader</td>
+	</tr>
+	<tr>
+		<th>Model</th>
+		<td>workzen.xgen.model.file.TextFile</td>
+	</tr>
+	<tr>
+		<th>Template</th>
+		<td>templates/text/htmlEscape.vm</td>
+	</tr>
+	<tr>
+		<th>Function</th>
+		<td>replace tokens in the original file</td>
+	</tr>
+</table>
+<h4>Configuration</h4>
+<pre>
+&lt;xgen
+   loader=&quot;workzen.xgen.loader.TextFileLoader&quot;
+   inputFile=&quot;${basedir}/etc/input/blog.xml&quot;
+   resourceTemplate=&quot;templates/text/htmlEscape.vm&quot;
+   templatePath=&quot;${basedir}&quot;
+   outputDirectory=&quot;${basedir}/work/xml2html/&quot;
+   outputFile=&quot;blog_schema_1.html&quot;
+   &gt;
+&lt;/xgen&gt;&nbsp;
+</pre>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

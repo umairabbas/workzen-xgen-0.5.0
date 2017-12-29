@@ -1,0 +1,68 @@
+## treeCollapsed.vm
+## Brad Matlack 1-2006
+## XGen website navigation template
+###################################################
+#set( $body = $page.getBody() )
+
+#macro( displayRootMenuxxx $menuitem ) 
+  <div class="menu">
+    <div class="menuitem" id="selected">$site.getHref(${menuitem})</div>
+  </div> 
+  <div class="space"> </div>
+#end
+
+## UNIQUE MACRO NAME!
+#macro( displayTreeMenu $menuitem ) 
+  <div class="menu">
+    #set($level = $menuitem.getLevel())
+    #if($page.isSelected($menuitem))
+    <div class="selecteditem" id="level${level}">$site.getHref(${menuitem})</div>
+    #else
+    <div class="menuitem" id="level${level}">$site.getHref(${menuitem})</div>
+    #end
+  </div> 
+  ##<div class="space"> </div>
+#end
+
+
+###################################################
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="${webroot}/css/website-tree.css">
+<title>${webTitle}</title>
+</head>
+<body>
+<h1 class="title">&lt;${webTitle}&gt;</h1>
+<table class="">
+<tr class="">
+<td class="nav" valign="top">
+## display root
+##displayRoot($site.getRootMenu())
+
+#set( $parents = $page.getParentMenus() )
+#foreach( $parent in $parents )
+  #displayTreeMenu($parent)
+#end
+#if($page.isLeaf()) 
+  #set($children = $page.getParentMenu().getChildren())
+#else
+  #displayTreeMenu($page.getMenuItem())
+  #set($children = $page.getMenuItem().getChildren())
+#end	
+#foreach( $child in $children )
+  #displayTreeMenu($child)
+#end
+<div class="space"/>
+</td>
+<td class="body" valign="top">
+<div class="content">
+##$body
+$generator.evaluate($body)
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

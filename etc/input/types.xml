@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+
+<!-- ============================================================================ -->
+<!-- XGen Java model schema                                                       -->
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->
+<!-- There is a decimal type, but not all databases can handle BigDecimal         -->
+<!-- <field name="decimalType" col="decimal_type" type="Decimal" default="0"/>    -->
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->
+<!-- If you set handleConcurrency="true", you must have a transaction-key field!  -->
+<!-- All types are Java types, are NOT case sensitive                             -->
+<!-- Use the primitive tag to define the type as primitive                        -->
+<!-- ============================================================================ -->
+<xgen>
+<package name="workzen.xgen.types" >
+  <class name="JavaTypes" 
+        tablename="xgen_types"
+        handleConcurrency="true"
+        handleAutoIncrement="true"
+        author="bmatlack@workzen.us"
+        description="Demonstration class of all types except blob and clob" >
+    <field name="pKey"          col="pkey"           type="Long"      primary-key="true"/>
+    <field name="booleanType"   col="boolean_type"   type="Boolean"   />
+    <field name="byteType"      col="byte_type"      type="Byte"      />
+    <field name="charType"      col="char_type"      type="String"    />
+    <field name="shortType"     col="short_type"     type="Short"     />
+    <field name="intType"       col="int_type"       type="Integer"   />
+    <field name="longType"      col="long_type"      type="Long"      />
+    <field name="floatType"     col="float_type"     type="Float"     />
+    <field name="doubleType"    col="double_type"    type="Double"    />
+    <field name="stringType"    col="string_type"    type="String"    />
+    <field name="textType"      col="text_type"      type="String"    />
+    <field name="dateType"      col="date_type"      type="Date"      />
+    <field name="timeType"      col="time_type"      type="Time"      />     
+    <field name="timestampType" col="timestamp_type" type="Timestamp" />
+    <field name="tcn"           col="tcn"            type="Long"   transaction-key="true"/>
+  </class>
+  
+  <class name="JavaPrimitives" 
+        tablename="xgen_primitives"
+        handleConcurrency="false"
+        handleAutoIncrement="true"
+        author="bmatlack@workzen.us"
+        description="Demonstration class of all types except blob and clob" >
+    <field name="pKey"          col="pkey"           type="long"     primitive="true"  primary-key="true"/>
+    <field name="booleanPrim"   col="boolean_type"   type="boolean"  primitive="true" />
+    <field name="bytePrim"      col="byte_type"      type="byte"     primitive="true" />
+    <field name="shortPrim"     col="short_type"     type="short"    primitive="true" />
+    <field name="intPrim"       col="int_type"       type="integer"  primitive="true" />
+    <field name="longPrim"      col="long_type"      type="long"     primitive="true" />
+    <field name="floatPrim"     col="float_type"     type="float"    primitive="true" />
+    <field name="doublePrim"    col="double_type"    type="double"   primitive="true" />
+  </class>
+ 
+ 
+  <class name="JavaLargeObjects" 
+        tablename="xgen_large_objects"
+        handleConcurrency="true"
+        handleAutoIncrement="true"
+        author="bmatlack@workzen.us"
+        description="Demonstration for blob and clob types.">
+    <field name="pKey"      col="pkey"         type="long" primitive="true" primary-key="true"/>
+    <field name="blobType"  col="blob_type"    type="Blob"    />
+    <field name="clobType"  col="clob_type"    type="Clob"    />
+    <field name="tcn"       col="tcn"          type="long" primitive="true" transaction-key="true"/>
+  </class>
+  
+  
+</package>
+</xgen>

@@ -1,0 +1,126 @@
+<html>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+<h2>JavaModel Loader</h2>
+<p>The JavaModel Loader loads an xml schema into a Package model. The model 
+provides access to all classes and attributes specified in the schema.</p>
+<h3>Java Code Generation: POJO</h3>
+<p>Generate plain old java beans.</p>
+<table border="1">
+	<tr>
+		<th>Loader</th>
+		<td>workzen.xgen.loader.JavaModelLoader</td>
+	</tr>
+	<tr>
+		<th>Model</th>
+		<td>workzen.xgen.model.java.Package</td>
+	</tr>
+	<tr>
+		<th>Template</th>
+		<td>templates/pojo/control.vm</td>
+	</tr>
+	<tr>
+		<th>Function</th>
+		<td>generate Plain Old Java beans</td>
+	</tr>
+</table>
+<h4>Configuration</h4>
+<pre>
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.JavaModelLoader&quot;
+  inputFile=&quot;${input.file}&quot;
+  resourceTemplate=&quot;templates/pojo/control.vm&quot;
+  templatePath=&quot;${basedir}&quot;
+  outputDirectory=&quot;${basedir}/work/&quot;
+  outputFile=&quot;&quot;
+  &gt;
+&lt;/xgen&gt; &nbsp;
+</pre>
+
+<h3>JDBC Code Generation: JDBC Persistence</h3>
+<p>The persistence classes combine POJO / table level classes with POJO manager 
+classes. See technical for more information.</p>
+<table border="1">
+	<tr>
+		<th>Loader</th>
+		<td>workzen.xgen.loader.JavaModelLoader</td>
+	</tr>
+	<tr>
+		<th>Model</th>
+		<td>workzen.xgen.model.java.Package</td>
+	</tr>
+	<tr>
+		<th>Template</th>
+		<td>templates/persistence/manager/control_manager.vm</td>
+	</tr>
+	<tr>
+		<th>Template</th>
+		<td>templates/persistence/manager/control_table.vm</td>
+	</tr>
+	<tr>
+		<th>Function</th>
+		<td>generate persistence classes for Plain Old Java beans</td>
+	</tr>
+</table>
+<h4>Configuration</h4>
+<pre>
+&lt;!-- persistence manager --&gt;
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.JavaModelLoader&quot;
+  inputFile=&quot;${input.file}&quot;
+  resourceTemplate=&quot;templates/persistence/manager/control_manager.vm&quot;
+  templatePath=&quot;${basedir}&quot;
+  outputDirectory=&quot;${basedir}/work/&quot;
+  outputFile=&quot;&quot;
+  &gt;
+&lt;/xgen&gt; 
+
+&lt;!-- persistence table --&gt;
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.JavaModelLoader&quot;
+  inputFile=&quot;${input.file}&quot;
+  resourceTemplate=&quot;templates/persistence/manager/control_table.vm&quot;
+  templatePath=&quot;${basedir}&quot;
+  outputDirectory=&quot;${basedir}/work/&quot;
+  outputFile=&quot;&quot;
+  &gt;
+&lt;/xgen&gt;  </pre>
+<h3>Xml Code Generation</h3>
+<p>Generate xml schema from a Package model.</p>
+<table border="1">
+	<tr>
+		<th>Loader</th>
+		<td>workzen.xgen.loader.JavaModelLoader</td>
+	</tr>
+	<tr>
+		<th>Model</th>
+		<td>workzen.xgen.model.java.Package</td>
+	</tr>
+	<tr>
+		<th>Template</th>
+		<td>templates/schema/xgen.vm</td>
+	</tr>
+	<tr>
+		<th>Function</th>
+		<td>generate xml schema from package model</td>
+	</tr>
+</table>
+<h4>Configuration</h4>
+<pre>
+&lt;!-- generate transitive schema --&gt;
+&lt;xgen
+   loader=&quot;&quot;
+   inputFile=&quot;${basedir}/etc/input/blog.xml&quot;
+   resourceTemplate=&quot;templates/schema/xgen.vm&quot;
+   templatePath=&quot;${basedir}&quot;
+   outputDirectory=&quot;${basedir}/work/schema/blog&quot;
+   outputFile=&quot;blog.xml&quot;
+   &gt;
+&lt;/xgen&gt;  &nbsp;</pre>
+
+<h3>SQL Code Generation</h3>
+<p>The new JavaModel schema has attributes for most sql column parameters, thus 
+allowing for the generation of SQL DML scripts. [looking for volunteers to 
+create templates].</p>
+<p>&nbsp;</p>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

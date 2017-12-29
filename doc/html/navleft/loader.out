@@ -1,0 +1,427 @@
+workzen.xgen.model.website.Site@1c208b0
+
+file:///D:\Project\workzen.xgen/doc/html/navleft
+[site, home, quickstart, license, download, about, technical, ant, loaders, processors, models, database, java, input, xml schema, schema field types, schema examples, blog schema, student schema, output, jdbc table, jdbc mgr, pojo, xml schema, code examples, blog example, blog, blog category, blog category mgr, blog category table, blog mgr, blog table, textfile, website, xml] 
+  
+  
+    site
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING site
+    
+    home
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING home
+    
+    quickstart
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/quickstart.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING quickstart
+    
+    license
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/GPL_license.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING license
+    
+    download
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/download.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING download
+    
+    about
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/about.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING about
+    
+    technical
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\technical
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\technical
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/technical/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING technical
+    
+    ant
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\technical
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\technical
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/technical/ant.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING ant
+    
+    loaders
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\technical
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\technical
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/technical/loaders.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING loaders
+    
+    processors
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\technical
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\technical
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/technical/processors.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING processors
+    
+    models
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING models
+    
+    database
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\database
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\database
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/database/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING database
+    
+    java
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING java
+    
+    input
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\input
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\input
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/input/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING input
+    
+    xml schema
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\input
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\input
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/input/xml_schema.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING xml schema
+    
+    schema field types
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\input
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\input
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/input/xml_schema_types.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING schema field types
+    
+    schema examples
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\input\examples
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\input\examples
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/input/examples/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING schema examples
+    
+    blog schema
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\input\examples
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\input\examples
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/input/examples/blog_schema.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog schema
+    
+    student schema
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\input\examples
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\input\examples
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/input/examples/student_schema.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING student schema
+    
+    output
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING output
+    
+    jdbc table
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/jdbc_table.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING jdbc table
+    
+    jdbc mgr
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/jdbc_mgr.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING jdbc mgr
+    
+    pojo
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/pojo.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING pojo
+    
+    xml schema
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/xml.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING xml schema
+    
+    code examples
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING code examples
+    
+    blog example
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/blog/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog example
+    
+    blog
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/blog/Blog.java.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog
+    
+    blog category
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/blog/BlogCategory.java.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog category
+    
+    blog category mgr
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/blog/BlogCategoryManager.java.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog category mgr
+    
+    blog category table
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/blog/BlogCategoryTable.java.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog category table
+    
+    blog mgr
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/blog/BlogManager.java.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog mgr
+    
+    blog table
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\java\output\code\blog
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/java/output/code/blog/BlogTable.java.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING blog table
+    
+    textfile
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\textfile
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\textfile
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/textfile/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING textfile
+    
+    website
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\website
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\website
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/website/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING website
+    
+    xml
+  
+         
+    making directories: D:\Project\workzen.xgen\doc\html\navleft\models\xml
+  Failed to create dir or dir already exists: D:\Project\workzen.xgen\doc\html\navleft\models\xml
+    
+      output: D:\Project\workzen.xgen/doc/html/navleft/models/xml/index.html
+    template: templates/website/navLeft.vm
+    
+      
+    GENERATING xml
+    
+  

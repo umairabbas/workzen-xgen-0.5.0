@@ -1,0 +1,31 @@
+> Oleg Rekutin wrote: 
+>>  
+>> I am currently using MySQL with transactions and I just use $db->query 
+>> ("BEGIN WORK"); or "COMMIT" or "ROLLBACK". Works fine for me :) 
+>  
+> That means mysql transactions can be implemented in pretty much the same 
+> way as for pgsql? 
+
+Yes. Note, however, that MySQL has only two table types that support 
+transactions: BDB and InnoDB. The rest are non-transaction-safe tables. 
+While I see no big problem with imlpementing somethign like DB_mysql::commit
+() as $this->query("COMMIT"), I wonder what should the proper action be in 
+case of non-transaction-safe tables, which are probably the kinds of tables 
+in use in 90% of MySQL installations today (blind guess, but you get the 
+idea).
+
+Now, AFAIK, MySQL allows all the transaction statements to be issued without 
+error. However, if one of the tables affected is a non-transaction-safe 
+table, such as MyISAM, then upon rollback a warning is returned: "1196 - 
+Warning: Some non-transactional changed tables couldn't be rolled back."
+
+So I suppose a returned DB_warning upon rollback is sufficient. But what 
+about the transaction support MySQL option? Whether transactions are 
+supported varies with each table and although it is true that MySQL supports 
+transactions (albeit with certain table types), the actual support does not 
+"work" most of the time (when dealing with non-transaction-safet tables).
+
+Just some things to pondera about...
+
+
+- Oleg

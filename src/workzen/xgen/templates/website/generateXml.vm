@@ -1,0 +1,40 @@
+#############################################################
+## generate.vm
+## generate a source website xml file from a "site"
+## Brad Matlack 1-2006
+#############################################################
+#set( $site = $model )
+#set( $pages = $site.getPages() )
+#set( $webroot = $site.getWebRoot() )
+#set( $rootMenu = $site.getRootMenu() )
+  
+## UNIQUE MACRO NAME!
+## This works but its a bit messy, 
+## The formatting of the xml is funky
+#macro( displayMenuLinks $menu ) 
+#set($menuitems = $menu.getMenuItems())
+#if( $menu.isRoot() )
+<website href="$menu.getPath()">
+#else
+<menu href="$menu.getPath()">
+#end
+#foreach( $menuitem in $menuitems )    
+ #if( $menuitem.isLeaf() )
+ <a href="$menuitem.getPath()">
+ #else
+ #displayMenuLinks($menuitem)
+ #end
+#end
+#if( $menu.isRoot() )
+</website>
+#else
+</menu>
+#end
+#end
+
+###################################################  
+##webroot: $site.getWebRoot()
+## recursively loop through each menu in the site
+#displayMenuLinks($rootMenu) 
+
+  

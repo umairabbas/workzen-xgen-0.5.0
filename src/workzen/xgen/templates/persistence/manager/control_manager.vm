@@ -1,0 +1,27 @@
+#############################################################
+## standalone manager control.vm
+## Brad Matlack 12-5-2001
+#############################################################
+## log the model parameters to the report file
+$model
+
+#set( $pkg = $model )
+#set( $beans = $model.getBeans() )
+#set( $path = $strings.getPackageAsPath($pkg.getName()))
+
+## log
+output directory: $outputPath/$path
+
+$files.mkdir("${outputPath}/${path}/manager")
+
+## loop through each bean in the package
+#foreach( $bean in $beans ) 
+  ##================= jar path ==============================##
+  #set( $template = "${templatePath}/manager.vm" )
+  #set( $classname = $bean.getName() ) 
+  #set( $packageName = $strings.concat([$pkg.getName(), ".manager"]) )
+  ##set( $outputFile = $strings.concat([$classname, "Manager.java"]) )
+  #set ($outputFile = "${outputPath}/${path}/manager/${classname}Manager.java")
+  ##=========================================================##
+  $generator.parse($template, $outputFile, "","")
+#end

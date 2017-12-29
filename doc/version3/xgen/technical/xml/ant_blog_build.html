@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<title>New Page 2</title>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+</head>
+
+<body>
+<pre>
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;project name=&quot;xgen&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+
+&lt;!-- ====================================================================== --&gt;
+&lt;!-- XGen Blog ant build                                                    --&gt;
+&lt;!-- ====================================================================== --&gt;
+
+&lt;property name=&quot;input.file&quot; value=&quot;${basedir}/etc/input/blog.xml&quot;/&gt;
+
+&lt;path id=&quot;classpath&quot;&gt;
+  &lt;pathelement path=&quot;.&quot;/&gt;
+  &lt;fileset dir=&quot;${basedir}&quot;&gt;
+    &lt;include name=&quot;**/*.jar&quot;/&gt;
+  &lt;/fileset&gt; 
+&lt;/path&gt;
+
+&lt;target name=&quot;build&quot;&gt;
+
+&lt;echo message=&quot;+-----------------------------------------------------+&quot;/&gt;
+&lt;echo message=&quot;| Generating project source! |&quot;/&gt;
+&lt;echo message=&quot;+-----------------------------------------------------+&quot;/&gt;
+
+&lt;taskdef name=&quot;xgen&quot; classname=&quot;workzen.xgen.ant.XGenTask&quot;&gt;
+  &lt;classpath refid=&quot;classpath&quot;/&gt;
+&lt;/taskdef&gt;
+
+&lt;!-- persistence manager --&gt;
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.XGenLoader&quot;
+  inputFile=&quot;${input.file}&quot;
+  resourceTemplate=&quot;templates/persistence/manager/control_manager.vm&quot;
+  templatePath=&quot;${basedir}&quot;
+  outputDirectory=&quot;${basedir}/work/&quot;
+  outputFile=&quot;&quot;&gt;
+&lt;/xgen&gt; 
+
+
+&lt;!-- persistence table --&gt;
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.XGenLoader&quot;
+  inputFile=&quot;${input.file}&quot;
+  resourceTemplate=&quot;templates/persistence/manager/control_table.vm&quot;
+  templatePath=&quot;${basedir}&quot;
+  outputDirectory=&quot;${basedir}/work/&quot;
+  outputFile=&quot;&quot;&gt;
+&lt;/xgen&gt; 
+
+
+&lt;!-- pojo --&gt;
+&lt;xgen
+  loader=&quot;workzen.xgen.loader.XGenLoader&quot;
+  inputFile=&quot;${input.file}&quot;
+  resourceTemplate=&quot;templates/pojo/control.vm&quot;
+  templatePath=&quot;${basedir}&quot;
+  outputDirectory=&quot;${basedir}/work/&quot;
+  outputFile=&quot;&quot;&gt;
+&lt;/xgen&gt; 
+
+&lt;/target&gt;
+
+&lt;/project&gt;
+</pre>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</body>
+
+</html>

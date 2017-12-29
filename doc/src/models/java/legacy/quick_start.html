@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<title>Quick Start</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+</head>
+
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<h1>Quick Start</h1>
+
+<ol>
+  <li>Install the supporting libraries: </li>
+</ol>
+
+<ul>
+  <li><a href="http://jakarta.apache.org/velocity">Velocity</a> </li>
+  <li><a href="http://jakarta.apache.org/ant">Ant</a> </li>
+  <li><a href="http://www.dom4j.org">dom4j</a> </li>
+  <li><a href="http://www.junit.org">JUnit</a> </li>
+  <li><a href="http://industry.java.sun.com/products/jdbc/drivers">JDBC driver</a> </li>
+</ul>
+
+<ol>
+  <li>Unzip Xgen onto your system.</li>
+  <li>Create an xml map file and place it into the xml directory: <em>.../xgen/project/xgen/xml</em>
+  </li>
+  <li>Create (or copy from <em>.../xgen/project/gen/conf</em> ) an ant property file and place
+    it in: <em>.../xgen/ant</em></li>
+  <li>Specify the property file to run in <em>.../xgen/ant/build.properties</em> </li>
+  <li>Run &quot;ant make-source&quot; from <em>.../xgen/ant </em></li>
+</ol>
+
+<h3>Overview</h3>
+
+<p>Xgen is a <a href="http://jakarta.apache.org/velocity/texen.html">Velocity Texen Task</a>.
+It reads a xml file into a data structure which gets merged with a Velocity template,
+producing source code. The map file&nbsp; defines the elements of your classes: the
+package, beans (classes) within the package, and fields (attributes) within the bean. </p>
+
+<p>Ant has four tasks which control the project:</p>
+
+<p><strong>ant make-project</strong></p>
+
+<p>This ant task builds the Xgen source code, generates the javadocs, jars the class
+files, and copies the jar into the lib directory. The lib directory is in the classpath
+and will be accessed when making the source.</p>
+
+<p><strong>ant make-source</strong></p>
+
+<p>Ant make-source runs the Velocity texen task. Texen reads a template file (<em>control.vm
+and template.vm</em>),&nbsp; and merges it with the &quot;context&quot;. Inside the
+context are some simple java datastructures that contain the elements &quot;package, beans
+and fields&quot; specified in xml map file.</p>
+
+<p><strong>ant make-test</strong></p>
+
+<p>This task builds the test program, generates the javadocs, jars the class files, and
+copies the jar into the lib directory. The lib directory is in the classpath and will be
+accessed when running the test program.</p>
+
+<p><strong>ant run-program</strong></p>
+
+<p>This task runs the test program. The test program uses the TypeBean.class to run CRUD
+operations on the database. The database parameters must be set up in the <em>.../xgen/ant/db.properties
+</em>file.</p>
+
+<h3>About</h3>
+
+<p>Xgen was designed on a Windows workstation. There will be CR/LFs when transferred to a
+unix system. All binaries can be rebuilt with the ant project, allowing an ftp in ascii
+mode to clean up the extra CR.</p>
+
+<p>&nbsp;</p>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

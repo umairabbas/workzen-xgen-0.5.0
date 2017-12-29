@@ -1,0 +1,40 @@
+<html>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+<h2>XmlFile Loader</h2>
+<p>The XmlFileLoader loads xml into the XmlDoc model. The XmlDoc model 
+performs getHtmlOutput() on the document. This model can be used to perform 
+Xml2Html type transformations.</p>
+<h3>Xml2Html Transformation</h3>
+<table border="1">
+	<tr>
+		<th>Loader</th>
+		<td>workzen.xgen.loader.XmlDocLoader</td>
+	</tr>
+	<tr>
+		<th>Model</th>
+		<td>workzen.xgen.model.xml.XmlDoc</td>
+	</tr>
+	<tr>
+		<th>Template</th>
+		<td>templates/text/htmlOutput.vm</td>
+	</tr>
+	<tr>
+		<th>Function</th>
+		<td>use JDom to transform the file</td>
+	</tr>
+</table>
+<h4>Configuration</h4>
+<pre>
+&lt;xgen
+   loader=&quot;workzen.xgen.loader.XmlDocLoader&quot;
+   inputFile=&quot;${basedir}/etc/input/blog.xml&quot;
+   resourceTemplate=&quot;templates/xml/htmlOutput.vm&quot;
+   templatePath=&quot;${basedir}&quot;
+   outputDirectory=&quot;${basedir}/work/xml2html/&quot;
+   outputFile=&quot;blog_schema_2.html&quot;
+   &gt;
+&lt;/xgen&gt; &nbsp;
+</pre>
+
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

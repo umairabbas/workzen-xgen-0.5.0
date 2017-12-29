@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+ 
+<script language="javascript" type="text/javascript" src="../java/header.js"></script>
+
+<body>
+
+<h2>JDBC Manager Class</h2>
+<p>The generated JDBC classes can persist any Java class with standard accessors, 
+and &quot;id&quot; fields. 
+It can also persist contained classes and references. See the
+<a href="../../code/index.html">examples</a>.</p>
+<h3>Goal</h3>
+<p>The goal of this persistence framework is to produce human readable JDBC code 
+that can be managed at a developer level.&nbsp; Many frameworks exist to persist 
+Java classes via xml schema definitions. For example:</p>
+<ul>
+	<li><a href="http://db.apache.org/torque/">
+	Apache Torque </a></li>
+	<li><a href="http://db.apache.org/ojb/">
+	Apache OJB </a></li>
+</ul>
+
+<p>Because persistence behavior is complex, I have found it easier to control 
+the behavior of contained relationships via code rather than complex xml schema 
+manipulation. This project can generate 95% of your JDBC code.</p>
+<h3>Table Level Persistence</h3>
+<p>All persistable classes have a corresponding SQL table. Table columns relate 
+directly to Java class &quot;fields&quot;.</p>
+<h3>Manager Classes</h3>
+<p>Each persistable class also has a &quot;manager&quot; class that manages the contained 
+relationships. You can control, through code comments, which contained 
+relationships get persisted, or deleted.</p>
+<h3>ID Fields</h3>
+<p>Each class needing persistence must include a numeric &quot;id&quot; field. This id 
+field corresponds to the primary key field of the table row. In addition, each 
+reference needing persistence, must also have an &quot;id&quot; field. This will be 
+populated by the foreign-key. This is similar to how OJB and Torque persist 
+their classes.</p>
+<p>&nbsp;</p>
+
+<script language="javascript" type="text/javascript" src="../java/footer.js"></script>

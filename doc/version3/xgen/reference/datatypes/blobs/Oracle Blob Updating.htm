@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://home.jeo.ru/slog/ZIP/OracleBlobUpdating.html -->
+<!-- saved from url=(0040)http://www.code316.com/articles/blob.htm --><HTML><HEAD><TITLE>Oracle Blob Updating</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<STYLE type=text/css>.syntax0 {
+	
+}
+.syntax1 {
+	COLOR: #009900; FONT-STYLE: italic
+}
+.syntax2 {
+	COLOR: #990033; FONT-STYLE: italic
+}
+.syntax3 {
+	COLOR: #404040
+}
+.syntax4 {
+	COLOR: #404040
+}
+.syntax5 {
+	FONT-WEIGHT: bold; COLOR: #990033; FONT-STYLE: italic
+}
+.syntax6 {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.syntax7 {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.syntax8 {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.syntax9 {
+	COLOR: #000099
+}
+.syntax10 {
+	FONT-WEIGHT: bold; COLOR: #5e5e5e
+}
+.syntax11 {
+	FONT-WEIGHT: bold; COLOR: #000000
+}
+.syntax12 {
+	COLOR: #009191
+}
+.syntax13 {
+	FONT-WEIGHT: bold; COLOR: #ff0000
+}
+.gutter {
+	BACKGROUND: #ffffff; COLOR: #000000
+}
+.gutterH {
+	BACKGROUND: #ffffff; COLOR: #8080ff
+}
+</STYLE>
+<LINK href="Oracle Blob Updating-Dateien/normal.css" type=text/css 
+rel=stylesheet>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY class=normal bgColor=#ffffff>
+<P><CODE>The Oracle Blob Updater class</CODE> </P>
+<P><PRE><SPAN class=gutter>  1:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.SQLException;
+<SPAN class=gutter>  2:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.Connection;
+<SPAN class=gutter>  3:</SPAN><SPAN class=syntax7>import</SPAN> oracle.jdbc.driver.OracleResultSet;
+<SPAN class=gutter>  4:</SPAN><SPAN class=syntax7>import</SPAN> oracle.sql.BLOB;
+<SPAN class=gutterH>  5:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.Blob;
+<SPAN class=gutter>  6:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.Statement;
+<SPAN class=gutter>  7:</SPAN><SPAN class=syntax7>import</SPAN> java.io.IOException;
+<SPAN class=gutter>  8:</SPAN><SPAN class=syntax7>import</SPAN> java.io.File;
+<SPAN class=gutter>  9:</SPAN><SPAN class=syntax7>import</SPAN> java.io.OutputStream;
+<SPAN class=gutterH> 10:</SPAN><SPAN class=syntax7>import</SPAN> java.io.InputStream;
+<SPAN class=gutter> 11:</SPAN><SPAN class=syntax7>import</SPAN> java.io.FileInputStream;
+<SPAN class=gutter> 12:</SPAN>
+<SPAN class=gutter> 13:</SPAN>
+<SPAN class=gutter> 14:</SPAN><SPAN class=syntax2>/**</SPAN>
+<SPAN class=gutterH> 15:</SPAN><SPAN class=syntax2> * This is a convenience class meant to generalize the action</SPAN>
+<SPAN class=gutter> 16:</SPAN><SPAN class=syntax2> * of updating an BLOB column in an Oracle database.</SPAN>
+<SPAN class=gutter> 17:</SPAN><SPAN class=syntax2> *</SPAN>
+<SPAN class=gutter> 18:</SPAN><SPAN class=syntax2> */</SPAN>
+<SPAN class=gutter> 19:</SPAN><SPAN class=syntax6>public</SPAN> <SPAN class=syntax8>class</SPAN> OracleBlobUpdater <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutterH> 20:</SPAN>    <SPAN class=syntax2>/**</SPAN>
+<SPAN class=gutter> 21:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax10>&lt;p&gt;</SPAN><SPAN class=syntax2>Updates the BLOB record selected by the supplied keyValue.</SPAN><SPAN class=syntax10>&lt;/p&gt;</SPAN>
+<SPAN class=gutter> 22:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax5>@param</SPAN><SPAN class=syntax2> instream The InputStream that represents the BLOB bytes.</SPAN>
+<SPAN class=gutter> 23:</SPAN><SPAN class=syntax2>     *        the stream is closed if the update is successful.</SPAN>
+<SPAN class=gutter> 24:</SPAN><SPAN class=syntax2>     *</SPAN>
+<SPAN class=gutterH> 25:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax5>@param</SPAN><SPAN class=syntax2> conn The Connection object to use for database access.</SPAN>
+<SPAN class=gutter> 26:</SPAN><SPAN class=syntax2>     *</SPAN>
+<SPAN class=gutter> 27:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax5>@param</SPAN><SPAN class=syntax2> table The database table to update.     </SPAN>
+<SPAN class=gutter> 28:</SPAN><SPAN class=syntax2>     *</SPAN>
+<SPAN class=gutter> 29:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax5>@param</SPAN><SPAN class=syntax2> blobColumn The column to update.</SPAN>
+<SPAN class=gutterH> 30:</SPAN><SPAN class=syntax2>     *</SPAN>
+<SPAN class=gutter> 31:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax5>@param</SPAN><SPAN class=syntax2> keyColumn Tthe column to match when selecting</SPAN>
+<SPAN class=gutter> 32:</SPAN><SPAN class=syntax2>     *        the row for update.</SPAN>
+<SPAN class=gutter> 33:</SPAN><SPAN class=syntax2>     *</SPAN>
+<SPAN class=gutter> 34:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax5>@param</SPAN><SPAN class=syntax2> keyValue The value used to select the record to update. The</SPAN>
+<SPAN class=gutterH> 35:</SPAN><SPAN class=syntax2>     *        keyValue should be quoted by the caller if quotes are neccesary.</SPAN>
+<SPAN class=gutter> 36:</SPAN><SPAN class=syntax2>     *     </SPAN>
+<SPAN class=gutter> 37:</SPAN><SPAN class=syntax2>     * </SPAN><SPAN class=syntax5>@exception</SPAN><SPAN class=syntax2> IllegalArgumentExeption If there is no record</SPAN>
+<SPAN class=gutter> 38:</SPAN><SPAN class=syntax2>     *            for the supplied keyValue.</SPAN>
+<SPAN class=gutter> 39:</SPAN><SPAN class=syntax2>     */</SPAN>
+<SPAN class=gutterH> 40:</SPAN>    <SPAN class=syntax6>public</SPAN> <SPAN class=syntax8>void</SPAN> <SPAN class=syntax9>updateBlob</SPAN>(
+<SPAN class=gutter> 41:</SPAN>        InputStream instream,
+<SPAN class=gutter> 42:</SPAN>        Connection conn,
+<SPAN class=gutter> 43:</SPAN>        String table,
+<SPAN class=gutter> 44:</SPAN>        String blobColumn,
+<SPAN class=gutterH> 45:</SPAN>        String keyColumn,
+<SPAN class=gutter> 46:</SPAN>        String keyValue)
+<SPAN class=gutter> 47:</SPAN>    <SPAN class=syntax6>throws</SPAN> SQLException, IOException <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter> 48:</SPAN>        Statement stmt <SPAN class=syntax11>=</SPAN> <SPAN class=syntax4>null</SPAN>;
+<SPAN class=gutter> 49:</SPAN>        OracleResultSet rs <SPAN class=syntax11>=</SPAN> <SPAN class=syntax4>null</SPAN>;
+<SPAN class=gutterH> 50:</SPAN>        BLOB blob <SPAN class=syntax11>=</SPAN> <SPAN class=syntax4>null</SPAN>;
+<SPAN class=gutter> 51:</SPAN>
+<SPAN class=gutter> 52:</SPAN>        <SPAN class=syntax8>boolean</SPAN> oldAutoCommit <SPAN class=syntax11>=</SPAN> conn.<SPAN class=syntax9>getAutoCommit</SPAN>();
+<SPAN class=gutter> 53:</SPAN>        StringBuffer sqlBuffer <SPAN class=syntax11>=</SPAN> <SPAN class=syntax6>new</SPAN> <SPAN class=syntax9>StringBuffer</SPAN>();
+<SPAN class=gutter> 54:</SPAN>
+<SPAN class=gutterH> 55:</SPAN>        <SPAN class=syntax6>try</SPAN> <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter> 56:</SPAN>            conn.<SPAN class=syntax9>setAutoCommit</SPAN>(<SPAN class=syntax4>false</SPAN>);
+<SPAN class=gutter> 57:</SPAN>
+<SPAN class=gutter> 58:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(<SPAN class=syntax3>"select "</SPAN>);
+<SPAN class=gutter> 59:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(blobColumn);
+<SPAN class=gutterH> 60:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(<SPAN class=syntax3>" from "</SPAN>);
+<SPAN class=gutter> 61:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(table);
+<SPAN class=gutter> 62:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(<SPAN class=syntax3>" where "</SPAN>);
+<SPAN class=gutter> 63:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(keyColumn);
+<SPAN class=gutter> 64:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(<SPAN class=syntax3>"="</SPAN>);
+<SPAN class=gutterH> 65:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(keyValue);
+<SPAN class=gutter> 66:</SPAN>            sqlBuffer.<SPAN class=syntax9>append</SPAN>(<SPAN class=syntax3>" for update "</SPAN>);
+<SPAN class=gutter> 67:</SPAN>
+<SPAN class=gutter> 68:</SPAN>            stmt <SPAN class=syntax11>=</SPAN> conn.<SPAN class=syntax9>createStatement</SPAN>();
+<SPAN class=gutter> 69:</SPAN>            rs <SPAN class=syntax11>=</SPAN> (OracleResultSet) stmt.<SPAN class=syntax9>executeQuery</SPAN>(sqlBuffer.<SPAN class=syntax9>toString</SPAN>());
+<SPAN class=gutterH> 70:</SPAN>
+<SPAN class=gutter> 71:</SPAN>            <SPAN class=syntax6>if</SPAN> (<SPAN class=syntax11>!</SPAN>rs.<SPAN class=syntax9>next</SPAN>()) <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter> 72:</SPAN>                rs.<SPAN class=syntax9>close</SPAN>();
+<SPAN class=gutter> 73:</SPAN>                stmt.<SPAN class=syntax9>close</SPAN>();
+<SPAN class=gutter> 74:</SPAN>                <SPAN class=syntax6>throw</SPAN> <SPAN class=syntax6>new</SPAN> <SPAN class=syntax9>IllegalArgumentException</SPAN>(
+<SPAN class=gutterH> 75:</SPAN>                    <SPAN class=syntax3>"no record found for keyValue: '"</SPAN> <SPAN class=syntax11>+</SPAN> keyValue <SPAN class=syntax11>+</SPAN> <SPAN class=syntax3>"'"</SPAN>);
+<SPAN class=gutter> 76:</SPAN>            <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutter> 77:</SPAN>
+<SPAN class=gutter> 78:</SPAN>            blob <SPAN class=syntax11>=</SPAN> rs.<SPAN class=syntax9>getBLOB</SPAN>(<SPAN class=syntax12>1</SPAN>);
+<SPAN class=gutter> 79:</SPAN>
+<SPAN class=gutterH> 80:</SPAN>            OutputStream outstream <SPAN class=syntax11>=</SPAN> blob.<SPAN class=syntax9>getBinaryOutputStream</SPAN>();
+<SPAN class=gutter> 81:</SPAN>
+<SPAN class=gutter> 82:</SPAN>            <SPAN class=syntax8>int</SPAN> bufferSize <SPAN class=syntax11>=</SPAN> blob.<SPAN class=syntax9>getChunkSize</SPAN>();
+<SPAN class=gutter> 83:</SPAN>            <SPAN class=syntax8>byte</SPAN>[] buffer <SPAN class=syntax11>=</SPAN> <SPAN class=syntax6>new</SPAN> <SPAN class=syntax8>byte</SPAN>[bufferSize];
+<SPAN class=gutter> 84:</SPAN>            <SPAN class=syntax8>int</SPAN> bytesRead <SPAN class=syntax11>=</SPAN> <SPAN class=syntax11>-</SPAN><SPAN class=syntax12>1</SPAN>;
+<SPAN class=gutterH> 85:</SPAN>
+<SPAN class=gutter> 86:</SPAN>            <SPAN class=syntax6>while</SPAN> ((bytesRead <SPAN class=syntax11>=</SPAN> instream.<SPAN class=syntax9>read</SPAN>(buffer)) <SPAN class=syntax11>!=</SPAN> <SPAN class=syntax11>-</SPAN><SPAN class=syntax12>1</SPAN>) <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter> 87:</SPAN>                outstream.<SPAN class=syntax9>write</SPAN>(buffer, <SPAN class=syntax12>0</SPAN>, bytesRead);
+<SPAN class=gutter> 88:</SPAN>            <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutter> 89:</SPAN>
+<SPAN class=gutterH> 90:</SPAN>            instream.<SPAN class=syntax9>close</SPAN>();
+<SPAN class=gutter> 91:</SPAN>            outstream.<SPAN class=syntax9>close</SPAN>();
+<SPAN class=gutter> 92:</SPAN>
+<SPAN class=gutter> 93:</SPAN>            rs.<SPAN class=syntax9>close</SPAN>();
+<SPAN class=gutter> 94:</SPAN>            stmt.<SPAN class=syntax9>close</SPAN>();
+<SPAN class=gutterH> 95:</SPAN>        <SPAN class=syntax11>}</SPAN> <SPAN class=syntax6>catch</SPAN> (SQLException e) <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter> 96:</SPAN>            <SPAN class=syntax6>throw</SPAN> e;
+<SPAN class=gutter> 97:</SPAN>        <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutter> 98:</SPAN>        <SPAN class=syntax6>catch</SPAN> (IOException e) <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter> 99:</SPAN>            <SPAN class=syntax6>throw</SPAN> e;
+<SPAN class=gutterH>100:</SPAN>        <SPAN class=syntax11>}</SPAN> <SPAN class=syntax6>finally</SPAN> <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter>101:</SPAN>            conn.<SPAN class=syntax9>setAutoCommit</SPAN>(oldAutoCommit);
+<SPAN class=gutter>102:</SPAN>        <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutter>103:</SPAN>    <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutter>104:</SPAN><SPAN class=syntax11>}</SPAN>
+</PRE>
+<P><CODE>An Example of Using the updater.</CODE> </P><PRE><SPAN class=gutter> 1:</SPAN><SPAN class=syntax7>import</SPAN> java.awt.Frame;
+<SPAN class=gutter> 2:</SPAN><SPAN class=syntax7>import</SPAN> java.awt.Button;
+<SPAN class=gutter> 3:</SPAN><SPAN class=syntax7>import</SPAN> java.awt.TextField;
+<SPAN class=gutter> 4:</SPAN><SPAN class=syntax7>import</SPAN> java.awt.TextArea;
+<SPAN class=gutterH> 5:</SPAN><SPAN class=syntax7>import</SPAN> java.awt.event.ActionListener;
+<SPAN class=gutter> 6:</SPAN><SPAN class=syntax7>import</SPAN> java.awt.event.ActionEvent;
+<SPAN class=gutter> 7:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.SQLException;
+<SPAN class=gutter> 8:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.Connection;
+<SPAN class=gutter> 9:</SPAN><SPAN class=syntax7>import</SPAN> java.util.Properties;
+<SPAN class=gutterH>10:</SPAN><SPAN class=syntax7>import</SPAN> java.io.FileInputStream;
+<SPAN class=gutter>11:</SPAN><SPAN class=syntax7>import</SPAN> java.io.IOException;
+<SPAN class=gutter>12:</SPAN><SPAN class=syntax7>import</SPAN> java.io.OutputStream;
+<SPAN class=gutter>13:</SPAN><SPAN class=syntax7>import</SPAN> java.io.File;
+<SPAN class=gutter>14:</SPAN><SPAN class=syntax7>import</SPAN> oracle.jdbc.driver.OracleDriver;
+<SPAN class=gutterH>15:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.DriverManager;
+<SPAN class=gutter>16:</SPAN><SPAN class=syntax7>import</SPAN> java.sql.Connection;
+<SPAN class=gutter>17:</SPAN>
+<SPAN class=gutter>18:</SPAN>
+<SPAN class=gutter>19:</SPAN><SPAN class=syntax2>/**</SPAN>
+<SPAN class=gutterH>20:</SPAN><SPAN class=syntax2> * </SPAN><SPAN class=syntax10>&lt;p&gt;</SPAN><SPAN class=syntax2>Updates a  BLOB column in an Oracle database.</SPAN><SPAN class=syntax10>&lt;/p&gt;</SPAN><SPAN class=syntax2> </SPAN>
+<SPAN class=gutter>21:</SPAN><SPAN class=syntax2> * </SPAN><SPAN class=syntax10>&lt;p&gt;</SPAN><SPAN class=syntax2>Information used for updating is passed via a config</SPAN>
+<SPAN class=gutter>22:</SPAN><SPAN class=syntax2> * file and  command line arguments</SPAN><SPAN class=syntax10>&lt;/p&gt;</SPAN>
+<SPAN class=gutter>23:</SPAN><SPAN class=syntax2> * </SPAN><SPAN class=syntax10>&lt;p&gt;</SPAN><SPAN class=syntax2>usage: ImageUpdater &amp;lt;configFile&amp;gt; &amp;lt;id&amp;gt; &amp;lt;newImageFile&amp;gt;</SPAN>
+<SPAN class=gutter>24:</SPAN><SPAN class=syntax2> * </SPAN><SPAN class=syntax10>&lt;br /&gt;</SPAN><SPAN class=syntax2>e.g.: java  ImageUpdater updater.cfg 13158 fire.gif</SPAN><SPAN class=syntax10>&lt;/p&gt;</SPAN><SPAN class=syntax2> </SPAN>
+<SPAN class=gutterH>25:</SPAN><SPAN class=syntax2> * </SPAN><SPAN class=syntax10>&lt;p&gt;</SPAN><SPAN class=syntax2>Database settings are found in the config file, and record values</SPAN>
+<SPAN class=gutter>26:</SPAN><SPAN class=syntax2> * are passed via commandline arguments</SPAN><SPAN class=syntax10>&lt;/p&gt;</SPAN><SPAN class=syntax2> </SPAN>
+<SPAN class=gutter>27:</SPAN><SPAN class=syntax2> */</SPAN>
+<SPAN class=gutter>28:</SPAN><SPAN class=syntax6>public</SPAN> <SPAN class=syntax8>class</SPAN> ImageUpdater <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter>29:</SPAN>    <SPAN class=syntax6>public</SPAN> <SPAN class=syntax6>static</SPAN> <SPAN class=syntax8>void</SPAN> <SPAN class=syntax9>main</SPAN>(String []args) <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutterH>30:</SPAN>        <SPAN class=syntax6>if</SPAN> ( args.length <SPAN class=syntax11>!=</SPAN> <SPAN class=syntax12>3</SPAN> ) <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter>31:</SPAN>            System.out.<SPAN class=syntax9>println</SPAN>(<SPAN class=syntax3>"usage: ImageUpdater &lt;configFile&gt; &lt;Id&gt; &lt;newImageFile&gt;"</SPAN>);
+<SPAN class=gutter>32:</SPAN>            System.<SPAN class=syntax9>exit</SPAN>(<SPAN class=syntax12>1</SPAN>);
+<SPAN class=gutter>33:</SPAN>        <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutter>34:</SPAN>
+<SPAN class=gutterH>35:</SPAN>        String configFile <SPAN class=syntax11>=</SPAN> args[<SPAN class=syntax12>0</SPAN>];
+<SPAN class=gutter>36:</SPAN>        String artId <SPAN class=syntax11>=</SPAN> args[<SPAN class=syntax12>1</SPAN>];
+<SPAN class=gutter>37:</SPAN>        String imageFile <SPAN class=syntax11>=</SPAN> args[<SPAN class=syntax12>2</SPAN>];
+<SPAN class=gutter>38:</SPAN>
+<SPAN class=gutter>39:</SPAN>        Properties props <SPAN class=syntax11>=</SPAN> <SPAN class=syntax6>new</SPAN> <SPAN class=syntax9>Properties</SPAN>();
+<SPAN class=gutterH>40:</SPAN>
+<SPAN class=gutter>41:</SPAN>        <SPAN class=syntax6>try</SPAN> <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter>42:</SPAN>            props.<SPAN class=syntax9>load</SPAN>(<SPAN class=syntax6>new</SPAN> <SPAN class=syntax9>FileInputStream</SPAN>(configFile));
+<SPAN class=gutter>43:</SPAN>            String driver <SPAN class=syntax11>=</SPAN> props.<SPAN class=syntax9>getProperty</SPAN>(<SPAN class=syntax3>"driver"</SPAN>);
+<SPAN class=gutter>44:</SPAN>            String url <SPAN class=syntax11>=</SPAN> props.<SPAN class=syntax9>getProperty</SPAN>(<SPAN class=syntax3>"url"</SPAN>);
+<SPAN class=gutterH>45:</SPAN>            String user <SPAN class=syntax11>=</SPAN> props.<SPAN class=syntax9>getProperty</SPAN>(<SPAN class=syntax3>"user"</SPAN>);
+<SPAN class=gutter>46:</SPAN>            String pass <SPAN class=syntax11>=</SPAN> props.<SPAN class=syntax9>getProperty</SPAN>(<SPAN class=syntax3>"pass"</SPAN>);
+<SPAN class=gutter>47:</SPAN>            String tableName <SPAN class=syntax11>=</SPAN> props.<SPAN class=syntax9>getProperty</SPAN>(<SPAN class=syntax3>"table.name"</SPAN>);
+<SPAN class=gutter>48:</SPAN>            String blobColumn <SPAN class=syntax11>=</SPAN> props.<SPAN class=syntax9>getProperty</SPAN>(<SPAN class=syntax3>"blob.column"</SPAN>);
+<SPAN class=gutter>49:</SPAN>            String keyColumn <SPAN class=syntax11>=</SPAN> props.<SPAN class=syntax9>getProperty</SPAN>(<SPAN class=syntax3>"key.column"</SPAN>);
+<SPAN class=gutterH>50:</SPAN>
+<SPAN class=gutter>51:</SPAN>            Class.<SPAN class=syntax9>forName</SPAN>(driver).<SPAN class=syntax9>newInstance</SPAN>();
+<SPAN class=gutter>52:</SPAN>
+<SPAN class=gutter>53:</SPAN>            Connection conn <SPAN class=syntax11>=</SPAN>
+<SPAN class=gutter>54:</SPAN>                DriverManager.<SPAN class=syntax9>getConnection</SPAN>(url, user, pass);
+<SPAN class=gutterH>55:</SPAN>
+<SPAN class=gutter>56:</SPAN>            OracleBlobUpdater updater <SPAN class=syntax11>=</SPAN> <SPAN class=syntax6>new</SPAN> <SPAN class=syntax9>OracleBlobUpdater</SPAN>();
+<SPAN class=gutter>57:</SPAN>
+<SPAN class=gutter>58:</SPAN>            updater.<SPAN class=syntax9>updateBlob</SPAN>(<SPAN class=syntax6>new</SPAN> <SPAN class=syntax9>FileInputStream</SPAN>(imageFile), conn, tableName, blobColumn, keyColumn, artId);
+<SPAN class=gutter>59:</SPAN>
+<SPAN class=gutterH>60:</SPAN>            conn.<SPAN class=syntax9>close</SPAN>();
+<SPAN class=gutter>61:</SPAN>        <SPAN class=syntax11>}</SPAN> <SPAN class=syntax6>catch</SPAN> (Exception e) <SPAN class=syntax11>{</SPAN>
+<SPAN class=gutter>62:</SPAN>            e.<SPAN class=syntax9>printStackTrace</SPAN>();
+<SPAN class=gutter>63:</SPAN>        <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutter>64:</SPAN>    <SPAN class=syntax11>}</SPAN>
+<SPAN class=gutterH>65:</SPAN><SPAN class=syntax11>}</SPAN></PRE><PRE>&nbsp;</PRE></BODY></HTML>

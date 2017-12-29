@@ -1,0 +1,58 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="file:///D:\Project\workzen.xgen/doc/html/navtop/css/website.css">
+<title>XGen</title>
+</head>
+<body>
+<h1 class="title">XGen</h1>
+  <div class="menu">
+          <span class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navtop/index.html">home</a></span>
+              <span class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navtop/technical/index.html">technical</a></span>
+              <span class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navtop/models/index.html">models</a></span>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <span class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navtop/technical/ant.html">ant</a></span>
+              <span class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navtop/technical/loaders.html">loaders</a></span>
+              <span class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navtop/technical/processors.html">processors</a></span>
+        </div> 
+  <div class="space"> </div>
+<div class="body">
+<h2>Loaders</h2>
+
+<p>All loaders implement the ILoader interface. Loaders are self 
+configuring. If a required property is not defined, and exception is thrown.</p>
+
+<p><font face="Courier New">public</font></b></font><font face="Courier New"><font SIZE="2">
+</font><font SIZE="2" COLOR="#7f0055"><b>interface</b></font></font><font SIZE="2"><font face="Courier New"> 
+ILoader {</font></p>
+<p></p>
+<p></font><font face="Courier New"><font SIZE="2" COLOR="#7f0055"><b>&nbsp;&nbsp;&nbsp; 
+public</b></font><font SIZE="2"> </font><font SIZE="2" COLOR="#7f0055"><b>void</b></font><font SIZE="2"> 
+configure(Map map) </font><font SIZE="2" COLOR="#7f0055"><b>throws</b></font></font><font SIZE="2"><font face="Courier New"> 
+XGenException;</font></p>
+<p></p>
+<p></font><font face="Courier New"><font SIZE="2" COLOR="#7f0055"><b>&nbsp;&nbsp;&nbsp; 
+public</b></font><font SIZE="2"> <font color="#7F0055"><b>Object</b></font> 
+loadModel() </font><font SIZE="2" COLOR="#7f0055"><b>throws</b></font></font><font SIZE="2"><font face="Courier New"> 
+XGenException;</font></p>
+<p><font face="Courier New">}</font></p>
+</font>
+<h3>Configuration</h3>
+<p>Loaders uses properties defined by the Ant task to configure 
+itself.</p>
+<font SIZE="2">
+<font SIZE="2" COLOR="#007f00">
+<p><font face="Courier New">loader</font></font><font SIZE="2" face="Courier New">=</font><font SIZE="2" COLOR="#0000ff"><font face="Courier New">&quot;workzen.xgen.loader.JavaModelLoader&quot;</font></font><font face="Courier New"><font SIZE="2" COLOR="#007f00"><br>
+xmlFilePath</font>=<font SIZE="2" COLOR="#0000ff">&quot;${input.file}&quot;</font> </font>
+</p>
+</font>
+<p>The loader classname must be defined in order for XGen to instantiate the 
+class. All properties defined in the task are passed to the loader as a Map. The 
+JavaModelLoader uses an xml file for input.</p>
+</div>
+</body>
+</html>
+

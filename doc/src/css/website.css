@@ -1,0 +1,93 @@
+/* 
+font-size is specified in all elements to compensate
+for brain-dead browsers like ie-6 
+*/
+BODY {
+  background : white;	
+  font-family : courier;
+  font-family: verdana, arial, Times New Roman;
+  font-size : x-small;
+  xmargin: 2em;
+  xpadding: 2em;
+}
+A { 
+  font-family: verdana, arial, Times New Roman;
+  xfont-size : smaller;
+  text-decoration: none;
+  color : navy;
+}
+CODE{
+  font-size : x-small;
+}
+TABLE.htmlTable {
+  border : 4px solid #03487F;
+}
+TH{
+  font-size : x-small;
+}
+TD{
+  font-size : x-small;
+}
+TH.htmlTable {
+  font-size : x-small;
+  font-weight : bold;
+  vertical-align : bottom;
+  background-color : #3B6588; /*original color 03487F*/
+  color : White;
+}
+TD.htmlTable {
+  font-size : x-small;
+  xfont-weight : normal;
+}
+.menu {
+  font-size: x-small;
+}
+.menuitem {
+  xborder: 1px solid #000000;
+  border-top: 1px;
+  border-left: 1px;
+  border-bottom: 0px;
+  border-right: 1px;
+  border-style: solid;
+  padding: 1px 5px 0px 5px;
+  background-color: #e0e0e0;
+  font-size : x-small;
+}
+
+.selecteditem {
+  xborder: 1px solid #000000;
+  border-top: 1px;
+  border-left: 1px;
+  border-bottom: 0px;
+  border-right: 1px;
+  border-style: solid;
+  padding: 1px 5px 1px 5px;
+  background-color: #FFFFFF;
+  font-size : x-small;
+}
+/* border */
+.space {
+  border-top: 1px;
+  border-left: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+  border-style: solid;
+  padding: 5px 5px 5px 5px;
+  xbackground-color: #c0c0c0;
+}
+.title{
+ background : #EEEEEE;
+ padding: 5px;
+}
+.content{
+  padding-left: 1em;
+  font-size : x-small;
+}
+.odd {
+	background : #EEEEEE;
+}
+
+.even {
+        background : #CCCCCC;
+	background : #C5D4E4;
+}

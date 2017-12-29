@@ -1,0 +1,58 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="file:///D:\Project\workzen.xgen/doc/html/navleft/css/website.css">
+<title>XGen</title>
+</head>
+<body>
+<h1 class="title">XGen</h1>
+<table class="menu">
+<tr class="menu">
+<td class="menu" valign="top">
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/index.html">home</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/index.html">technical</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/index.html">models</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/ant.html">ant</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/loaders.html">loaders</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/processors.html">processors</a></div>
+        </div> 
+  <div class="space"> </div>
+</td>
+<td class="body" valign="top">
+<div class="content">
+<html>
+<h2>Technical Information</h2>
+<p>XGen is a framework for managing transformations. Input data is loaded into 
+an object model, and processed using a template engine. There are three components 
+used in the transformation: loaders, processors and models.</p>
+<h3>Loaders</h3>
+<p>The loader is responsible for loading the object model. Source data used by 
+the loader could be anything, a text file, and xml file, a database, a web 
+service, etc. </p>
+<h3>Processors</h3>
+<p>A processor transforms the input data, and persists the data in some way.&nbsp; 
+A processor is typically a template engine. XGen provides a VelocityProcessor 
+and templates to transform models. For more information on Velocity visit the Apache
+<a href="http://jakarta.apache.org/velocity/">website</a>.</p>
+
+<h3>Models</h3>
+<p>Object models are the key to the transformation. By building a model of the 
+input data, it can be easily transformed. Anything can be modeled. XGen provides 
+a number of models around which transformations can be performed.</p>
+<p>And finally we need a way to execute the transformation. XGen provides an Ant 
+task that invokes the loader, and causes the engine to process the data.</p>
+
+
+</html>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

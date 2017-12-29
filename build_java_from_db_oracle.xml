@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<project name="xgen" default="build" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- XGen Types build from database schema                                                         -->
+  <!-- ====================================================================== -->
+  
+  <property file="build.properties"/>
+  <property name="input.file" value="${basedir}/etc/input/types.xml"/>
+  <property name="output.dir" value="${basedir}/work/"/>
+  
+  <path id="classpath">     
+    <pathelement path="."/>
+    <fileset dir="${basedir}">
+      <include name="**/*.jar"/>
+    </fileset>  
+  </path>
+  
+  <target name="build">
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating project source!                          |"/>
+    <echo message="+-----------------------------------------------------+"/>
+     
+    <taskdef name="xgen" classname="workzen.xgen.ant.XGenTask">
+      <classpath refid="classpath"/>
+    </taskdef>
+     
+	
+      <!-- table manager -->
+  	 <xgen
+  	      logLevel="debug"
+  	      loader="workzen.xgen.loader.JavaModelDbLoader"
+  	      dbDriver="oracle.jdbc.driver.OracleDriver"
+  	      dbUrl="jdbc:oracle:thin:@uogda302.oob.disa.mil:1521:og"
+  	      dbUsername="dev2"
+  	      dbPassword="pw4dev2$$$"
+  	      dbSchema="dev2"
+  	      xxxdbTables="APPLICATION,ORGANIZATION"
+  	      javaPackage="my.test.oracle"
+  	      processor="workzen.xgen.engine.VelocityProcessor" 
+  	      templateBasePath="${basedir}/src/workzen/xgen"
+  	      templatePath="templates/persistence/manager"
+  	      template="control_table.vm"
+  	      outputPath="${output.dir}"
+  	      outputFile="table.out"
+  	      >
+  	 </xgen>   
+	
+
+    <!-- pojo  -->
+    <xgen
+  	  loader="workzen.xgen.loader.JavaModelDbLoader"
+  	  dbDriver="oracle.jdbc.driver.OracleDriver"
+  	  dbUrl="jdbc:oracle:thin:@uogda302.oob.disa.mil:1521:og"
+  	  dbUsername="dev2"
+  	  dbPassword="pw4dev2$$"
+  	  dbSchema="dev2"
+  	  javaPackage="my.test.package.pojo"
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/pojo"
+      template="control.vm"
+      outputPath="${output.dir}"
+      outputFile="pojo.out"
+      >
+    </xgen>   
+    
+  </target>
+  
+</project>

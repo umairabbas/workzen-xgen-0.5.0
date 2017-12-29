@@ -1,0 +1,23 @@
+<html>
+	<h1>Sitemap</h1>
+	<!-- all menu items are relative to a webroot -->
+	<website href="index.html">
+		<menu href="index.html">home</menu>
+		<menu href="products/product_list.html">products
+			<a href="products/product1.html">product1</a>
+			<a href="products/product2.html">product2</a>
+			<menu href="products/widget/index.html">widgets
+				<a href="products/widget/widget1.html">widget1</a>
+				<a href="products/widget/widget2.html">widget2</a>
+			</menu>
+		</menu>
+		<menu href="support/index.html">support
+			<a href="support/account.html">account</a>
+			<a href="support/contact.html">contact</a>
+			<a href="support/license.html">license</a>
+			<a>search</a>
+			<a>faq</a>
+		</menu>
+	</website>
+</html>
+ 

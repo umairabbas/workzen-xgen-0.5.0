@@ -1,0 +1,46 @@
+#############################################################
+## control.vm
+## Brad Matlack 1-2006
+#############################################################
+## log 
+$model
+
+#set( $site = $model )
+#set( $pages = $site.getPages() )
+#set( $webroot = $site.getWebRoot() )
+$webroot
+$pages 
+##set( $web_title = "test" )
+  
+##$site.setDestBasePath(${outputPath})
+##$site.setSourceBasePath(${inputDirectory})
+  
+## loop through each page in the site
+#foreach( $page in $pages )
+  ##========================================================##
+  $page
+  
+  #set( $destFile = $site.getDestFile($page))
+  ##if( $destFile.exists() )
+  ##   destfile exists: $destFile.getPath()
+  ##end
+ 
+  #set( $destpath = $destFile.getParent() )
+  making directories: $destpath
+  $files.mkdir($destpath)
+    
+  #set ($output = "${outputPath}/${page.getRelativePath()}")
+  ## log
+  output: $output
+  #set( $template = "${templatePath}/${childTemplate}" )
+  template: $template
+    
+  #if( $site.isValidPage($page) ) 
+    $generator.parse($template, $output, "", "")
+    GENERATING $page
+  #else
+    WARNING generation aborted: no source file for $page
+  #end
+  
+#end
+  

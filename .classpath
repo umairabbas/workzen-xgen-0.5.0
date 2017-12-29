@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="work"/>
+	<classpathentry kind="lib" path="lib/jdom.jar" sourcepath="D:/Software2/jdom-b9/src"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.7.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/mm.mysql-2.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/workzen-common"/>
+	<classpathentry kind="lib" path="lib/ant-1.6.5.jar" sourcepath="D:/Software/apache-ant-1.6.5/src"/>
+	<classpathentry kind="lib" path="lib/velocity-1.4.jar" sourcepath="D:/Software2/velocity-1.4/src"/>
+	<classpathentry kind="lib" path="lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/ojdbc14.jar"/>
+	<classpathentry kind="output" path="build"/>
+</classpath>

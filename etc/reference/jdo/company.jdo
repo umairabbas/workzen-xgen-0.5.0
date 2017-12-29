@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE jdo SYSTEM "jdo.dtd">
+<jdo>
+    <package name="com.sun.jdotck.models.company">
+
+        <class name="Address"/>
+
+        <class name="Company">
+            <field name="departments" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Department"/>
+            </field>
+            <field name="address" embedded="true"/>                
+        </class>
+
+        <class name="Department">
+            <field name="employees" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Employee"/>
+            </field>
+        </class>
+
+        <class name="Employee"
+          persistence-capable-superclass="com.sun.jdotck.models.company.Person">
+            <field name="reviewedProjects" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Project"/>
+            </field>
+            <field name="projects" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Project"/>
+            </field>
+            <field name="team" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Employee"/>
+            </field>
+            <field name="hradvisees" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Employee"/>
+            </field>
+        </class>
+
+        <class name="FullTimeEmployee"
+          persistence-capable-superclass="com.sun.jdotck.models.company.Employee"/>
+
+        <class name="Insurance"/>
+
+        <class name="PartTimeEmployee"
+          persistence-capable-superclass="com.sun.jdotck.models.company.Employee"/>
+
+        <class name="Person">
+            <field name="address" embedded="true"/>
+        </class>
+
+        <class name="Project">
+            <field name="reviewers" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Employee"/>
+            </field>
+            <field name="members" persistence-modifier="persistent">
+                <collection element-type="com.sun.jdotck.models.company.Employee"/>
+            </field>
+        </class>
+    </package>
+</jdo>

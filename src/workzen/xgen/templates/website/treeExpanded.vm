@@ -1,0 +1,48 @@
+## treeExpanded.vm
+## Brad Matlack 1-2006
+## XGen website navigation template
+###################################################
+#set( $body = $page.getBody() )
+
+## UNIQUE MACRO NAME!
+#macro( displayExpanded $parent) 
+  #set($level = $parent.getLevel())
+  #if( $parent.isRoot() == false)
+    #if($page.isSelected($parent))
+      <div class="selecteditem" id="level${level}">$site.getHref(${parent})</div>
+    #else
+      <div class="menuitem" id="level${level}">$site.getHref(${parent})</div>
+    #end
+  #end
+  #set($children = $parent.getChildren())
+  #foreach( $child in $children )
+    #displayExpanded($child)
+  #end	
+#end
+	
+###################################################
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="${webroot}/css/website-tree.css">
+<title>${webTitle}</title>
+</head>
+<body>
+<h1 class="title">&lt;${webTitle}&gt;</h1>
+<table class="">
+<tr class="">
+<td class="nav" valign="top">
+#displayExpanded($site.getRootMenu())
+<div class="space"/>
+</td>
+<td class="body" valign="top">
+<div class="content">
+##$body
+$generator.evaluate($body)
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

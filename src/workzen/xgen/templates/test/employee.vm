@@ -1,0 +1,2 @@
+Test of Employee model.
+The employee's name id $model.getEmployeeName()

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<project name="xgen" default="build" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- Xml2Html build -->
+  <!-- ====================================================================== -->
+   
+  <property file="build.properties"/>
+  
+  <path id="classpath">     
+    <pathelement path="."/>
+    <fileset dir="${basedir}">
+      <include name="**/*.jar"/>
+    </fileset>  
+  </path>
+  
+  <target name="build">
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating project source!                          |"/>
+    <echo message="+-----------------------------------------------------+"/>
+     
+    <taskdef name="xgen" classname="workzen.xgen.ant.XGenTask">
+      <classpath refid="classpath"/>
+    </taskdef>
+     
+    <!-- generate blog html schema with custom TextFileLoader -->
+    <xgen
+      loader="workzen.xgen.loader.TextFileLoader"
+      txtFilepath="${basedir}/etc/input/blog.xml"
+      
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/text"
+      template="htmlEscape.vm"
+      outputPath="${basedir}/work/xml2html"
+      outputFile="blog_schema_1.html"
+      >
+    </xgen>    
+    
+    <!-- generate blog html schema with custom XmlDocLoader -->
+    <xgen
+      loader="workzen.xgen.loader.XmlLoader"
+      xmlFilePath="${basedir}/etc/input/blog.xml"
+            
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/xml"
+      template="htmlOutput.vm"
+      outputPath="${basedir}/work/xml2html"
+      outputFile="blog_schema_2.html"
+      >
+    </xgen>    
+
+    <!-- generate student html schema with custom XmlDocLoader -->
+    <xgen
+      loader="workzen.xgen.loader.XmlLoader"
+      xmlFilePath="${basedir}/etc/input/student.xml"
+            
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/xml"
+      template="htmlOutput.vm"
+      outputPath="${basedir}/work/xml2html"
+      outputFile="student_schema_2.html"
+      >
+    </xgen>    
+      
+  </target>
+  
+</project>

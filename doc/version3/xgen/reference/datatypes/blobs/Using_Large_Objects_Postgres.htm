@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://www.postgresql.org/idocs/index.php?jdbc-lo.html -->
+<HTML><HEAD><TITLE>Using Large Objects</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY class=SECT1 text=#000000 vLink=#840084 aLink=#0000ff link=#0000ff 
+bgColor=#ffffff>
+<TABLE width=550 bgColor=#cdddeb border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=bottom align=right height=30><FONT size=+2><B>PostgreSQL 
+      Interactive Documentation</B></FONT> </TD>
+  <TR></TR></TBODY></TABLE>
+<CENTER>Search the documentation and DocNotes<BR>
+<FORM action=search.php method=post><INPUT maxLength=15 size=15 name=searchtext> 
+<INPUT type=submit value="Begin Search"> <A 
+href="http://www.postgresql.org/idocs/search.php?help">Search 
+Help</A></FORM><BR><A 
+href="http://www.postgresql.org/idocs/comments.php?610">Add a 
+DocNote</A></CENTER><BR>
+<HR noShade>
+<BR>
+<META content="Modular DocBook HTML Stylesheet Version 1.61&#10;" 
+name=GENERATOR><LINK rev=MADE 
+href="index.php?mailto:pgsql-docs@postgresql.org"><LINK 
+title="PostgreSQL 7.1 Documentation" href="index.php?postgres.html" 
+rel=HOME><LINK title="JDBC Interface" href="index.php?jdbc.html" rel=UP><LINK 
+title="Performing Updates" href="index.php?jdbc-update.html" rel=PREVIOUS><LINK 
+title="PostgreSQL Extensions to the&#10;    JDBC API" 
+href="index.php?jdbc-ext.html" rel=NEXT>
+<META content=2001-04-13T15:25:19 name=creation>
+<DIV class=NAVHEADER>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TH align=middle colSpan=3>PostgreSQL 7.1 Documentation</TH></TR>
+  <TR>
+    <TD vAlign=bottom align=left width="10%"><A 
+      href="http://www.postgresql.org/idocs/index.php?jdbc-update.html">Prev</A></TD>
+    <TD vAlign=bottom align=middle width="80%">Chapter 8. <SPAN 
+      class=ACRONYM>JDBC</SPAN> Interface</TD>
+    <TD vAlign=bottom align=right width="10%"><A 
+      href="http://www.postgresql.org/idocs/index.php?jdbc-ext.html">Next</A></TD></TR></TBODY></TABLE>
+<HR align=left width="100%">
+</DIV>
+<DIV class=SECT1>
+<H1 class=SECT1><A name=JDBC-LO>8.5. Using Large Objects</A></H1>
+<P>In <SPAN class=APPLICATION>Postgres</SPAN>, <I class=FIRSTTERM>Large 
+Objects</I> (also known as <SPAN class=ACRONYM>BLOB</SPAN>s) are used to hold 
+data in the database that cannot be stored in a normal SQL table. They are 
+stored in a separate table in a special format, and are referred to from your 
+own tables by an OID value. </P>
+<DIV class=IMPORTANT>
+<BLOCKQUOTE class=IMPORTANT>
+  <P><B>Important: </B>For <SPAN class=PRODUCTNAME>Postgres</SPAN>, you must 
+  access Large Objects within an <SPAN class=ACRONYM>SQL</SPAN> transaction. You 
+  would open a transaction by using the <TT class=FUNCTION>setAutoCommit()</TT> 
+  method with an input parameter of <TT class=LITERAL>false</TT>: <PRE class=PROGRAMLISTING>Connection mycon;
+...
+mycon.setAutoCommit(false);
+... // now use Large Objects</PRE>
+  <P></P></BLOCKQUOTE></DIV>
+<P>There are two methods of using Large Objects. The first is the standard <SPAN 
+class=ACRONYM>JDBC</SPAN> way, and is documented here. The other, uses <SPAN 
+class=PRODUCTNAME>PostgreSQL</SPAN> extensions to the <SPAN 
+class=ACRONYM>API</SPAN>, which presents the libpq large object <SPAN 
+class=ACRONYM>API</SPAN> to Java, providing even better access to large objects 
+than the standard. Internally, the driver uses the extension to provide large 
+object support. </P>
+<P>In <SPAN class=ACRONYM>JDBC</SPAN>, the standard way to access Large Objects 
+is using the <TT class=FUNCTION>getBinaryStream()</TT> method in <TT 
+class=CLASSNAME>ResultSet</TT>, and <TT class=FUNCTION>setBinaryStream()</TT> 
+method in <TT class=CLASSNAME>PreparedStatement</TT>. These methods make the 
+large object appear as a Java stream, allowing you to use the <TT 
+class=LITERAL>java.io</TT> package, and others, to manipulate the object. <A 
+href="http://www.postgresql.org/idocs/index.php?jdbc-lo.html#JDBC-LO-EXAMPLE">Example 
+8-2</A> illustrates the usage of this approach. </P>
+<DIV class=EXAMPLE><A name=JDBC-LO-EXAMPLE></A>
+<P><B>Example 8-2. Using the <SPAN class=ACRONYM>JDBC</SPAN> Large Object 
+Interface</B></P>
+<P>For example, suppose you have a table containing the file name of an image 
+and you have a large object containing that image: <PRE class=PROGRAMLISTING>CREATE TABLE images (imgname text, imgoid oid);</PRE>
+<P></P>
+<P>To insert an image, you would use: <PRE class=PROGRAMLISTING>File file = new File("myimage.gif");
+FileInputStream fis = new FileInputStream(file);
+PreparedStatement ps = conn.prepareStatement("INSERT INTO images VALUES (?, ?)"); <A name=CO.JDBC-QMARK><B>(1)</B></A>
+ps.setString(1, file.getName());
+ps.setBinaryStream(2, fis, file.length());
+ps.executeUpdate();
+ps.close();
+fis.close();</PRE>
+<DIV class=CALLOUTLIST>
+<DL compact>
+  <DT><A 
+  href="http://www.postgresql.org/idocs/index.php?jdbc-lo.html#CO.JDBC-QMARK"><B>(1)</B></A>
+  <DD>The question marks must appear literally. The actual data is substituted 
+  by the next lines. </DD></DL></DIV>Here, <TT class=FUNCTION>setBinaryStream</TT> 
+transfers a set number of bytes from a stream into a Large Object, and stores 
+the OID into the field holding a reference to it. Notice that the creation of 
+the Large Object itself in the database happens transparently. 
+<P></P>
+<P>Retrieving an image is even easier. (We use <TT 
+class=CLASSNAME>PreparedStatement</TT> here, but the <TT 
+class=CLASSNAME>Statement</TT> class can equally be used.) <PRE class=PROGRAMLISTING>PreparedStatement ps = con.prepareStatement("SELECT oid FROM images WHERE name=?");
+ps.setString(1, "myimage.gif");
+ResultSet rs = ps.executeQuery();
+if (rs != null) {
+    while(rs.next()) {
+        InputStream is = rs.getBinaryInputStream(1);
+        // use the stream in some way here
+        is.close();
+    }
+    rs.close();
+}
+ps.close();</PRE>
+<P></P>
+<P>Here you can see how the Large Object is retrieved as an <TT 
+class=CLASSNAME>InputStream</TT>. You will also notice that we close the stream 
+before processing the next row in the result. This is part of the <SPAN 
+class=ACRONYM>JDBC</SPAN> specification, which states that any <TT 
+class=CLASSNAME>InputStream</TT> returned is closed when <TT 
+class=FUNCTION>ResultSet.next()</TT> or <TT 
+class=FUNCTION>ResultSet.close()</TT> is called. </P></DIV></DIV>
+<DIV class=NAVFOOTER>
+<HR align=left width="100%">
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left width="33%"><A 
+      href="http://www.postgresql.org/idocs/index.php?jdbc-update.html">Prev</A></TD>
+    <TD vAlign=top align=middle width="34%"><A 
+      href="http://www.postgresql.org/idocs/index.php?postgres.html">Home</A></TD>
+    <TD vAlign=top align=right width="33%"><A 
+      href="http://www.postgresql.org/idocs/index.php?jdbc-ext.html">Next</A></TD></TR>
+  <TR>
+    <TD vAlign=top align=left width="33%">Performing Updates</TD>
+    <TD vAlign=top align=middle width="34%"><A 
+      href="http://www.postgresql.org/idocs/index.php?jdbc.html">Up</A></TD>
+    <TD vAlign=top align=right width="33%"><SPAN 
+      class=APPLICATION>PostgreSQL</SPAN> Extensions to the <SPAN 
+      class=ACRONYM>JDBC</SPAN> <SPAN 
+class=ACRONYM>API</SPAN></TD></TR></TBODY></TABLE></DIV><BR><BR>
+<CENTER>
+<TABLE width=640 bgColor=lightblue border=1>
+  <TBODY>
+  <TR>
+    <TD align=middle>
+      <TABLE width=625 bgColor=white border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle bgColor=lightblue><A 
+            href="http://www.postgresql.org/idocs/comments.php?610">Add a 
+            DocNote</A></TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>Luke Georgalas 
+            &lt;lukegeor@yahoo.com&gt;<BR>2001-05-10 01:30:07-05</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>Shouldn't the SELECT query 
+            read: <BR>"SELECT imgoid FROM images WHERE 
+        imgname=?"</TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>Karl Randow 
+            &lt;avon@orac.net.nz&gt;<BR>2001-08-01 00:01:06-05</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>The line: 
+            <BR><BR>InputStream is = rs.getBinaryInputStream(1); <BR><BR>Should 
+            definitely read: <BR><BR>InputStream is = 
+            rs.getBinaryStream(1);</TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>Noodle 
+            &lt;weigao@hotmail.com&gt;<BR>2001-08-08 01:44:32-05</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>When I run test code to 
+            read from a file and write to database, I got error. <BR>InputStream 
+            as parameter not supported <BR>at 
+            org.postgresql.jdbc2.PreparedStatement.setBinaryStream(PreparedStatement.java:474) 
+            <BR>... <BR><BR>I'm using postgresql 7.1.2, jdbc driver is generated 
+            by ./configure --with-java. JDK 1.3 SE <BR><BR>Any body know why I 
+            got this error!?</TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>Uwe 
+            &lt;uwe.steinmann@fernuni-hagen.de&gt;<BR>2001-08-16 
+            04:51:12-05</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>I have a similar piece of 
+            code as the example above <BR>which insert a blob 
+            iByteArrayInputStream into a database. <BR><BR>query = "INSERT INTO 
+            atom (id, type, data) VALUES (?, ?, ?)"; <BR>ps = 
+            db.prepareStatement(query); <BR>ps.setInt(1, objid); 
+            <BR>ps.setString(2, doctype); <BR>ByteArrayInputStream bi = new 
+            ByteArrayInputStream(hwdoc.getContent()); <BR>ps.setBinaryStream(3, 
+            bi, size); <BR>ps.executeUpdate(query); <BR>java.sql.SQLException: 
+            ERROR: parser: parse error at or near "," <BR><BR>at 
+            org.postgresql.Connection.ExecSQL(Connection.java:533) <BR>at 
+            org.postgresql.jdbc2.Statement.execute(Statement.java:294) <BR>at 
+            org.postgresql.jdbc2.Statement.executeUpdate(Statement.java:78) 
+            <BR><BR>Can anybody explain this or see the error in my code? 
+            <BR><BR>Uwe <BR>It always result into an error 
+            <BR><BR><BR></TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>Colin Bennett 
+            &lt;cbennett@radsoft.com&gt;<BR>2001-08-30 20:26:02-05</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>I am using 
+            ResultSet.setByteArray(int, byte[]) seemingly successfully to put 
+            binary data into a table's "text" type field. Is this proper? I was 
+            hoping for a standard SQL type I could use so my code stays 
+            portable, not depending on Postgres types like OID (oid is 
+            postgresql-specific, right?). <BR><BR>Some more detail on using 
+            setByteArray() and setObject() would be helpful as well as 
+            information on what types of fields they can operate on. 
+            <BR><BR>Also, what are the performance implications of storing BLOBs 
+            in postgresql? If any statistics or even just tips are available, 
+            that would be very useful. I know a lot of people are comparing 
+            PostgreSQL to Oracle and Sybase and so on, and JDBC is how many of 
+            them are accessing it so more/better documentation would be great. 
+            <BR></TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>Matt Fair 
+            &lt;matt@netasol.com&gt;<BR>2001-09-27 12:04:58-05</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>I am storing images in the 
+            database, to put the image in the database I use: 
+            <BR>FileInputStream fis = new FileInputStream(file); 
+            <BR>PreparedStatement ps = con.prepareStatement("update 
+            userpreferences set image=?, time=? where username=?"); 
+            <BR>Logger.log("Setting Binary Stream"); <BR>ps.setBinaryStream(1, 
+            fis, length); <BR>ps.setInt(2, (int)new java.util.Date().getTime()); 
+            <BR>ps.setString(3, user); <BR>ps.executeUpdate(); <BR>ps.close(); 
+            <BR>fis.close(); <BR>con.commit(); <BR>con.close(); <BR><BR>and to 
+            get it out I use and return the byte array: 
+            <BR><BR>con.setAutoCommit(false); <BR>PreparedStatement ps = 
+            con.prepareStatement("select image from userpreferences where 
+            username=?"); <BR>ps.setString(1, user); <BR>ResultSet rs = 
+            ps.executeQuery(); <BR>con.commit(); <BR>if(rs != null) 
+            <BR>if(rs.next()){ <BR>InputStream is = rs.getBinaryStream(1); 
+            <BR>ByteArrayOutputStream byteStream = new ByteArrayOutputStream(); 
+            <BR><BR>int data; <BR>while ((data = is.read()) != -1){ 
+            <BR>byteStream.write((byte)data); <BR>System.out.print(" "+data+" 
+            "); <BR>} <BR><BR>byte[] buf = byteStream.toByteArray(); 
+            <BR><BR>System.out.println("Byte Stream: "+byteStream); 
+            <BR>byteStream.close(); <BR>is.close(); <BR>rs.close(); 
+            <BR>con.close(); <BR><BR>The problem I have is that it seems to be 
+            corrupted some how. I am using the debian distributed version 7.1.2. 
+            I have the encoding of the database set at UNICODE. Would I need to 
+            recompile the database from source with the options 
+            --enable-unicode-conversion <BR>--enable-multibyte <BR>to allow the 
+            encoding to be unicode? <BR><BR>Any sugestions? <BR>Thanks, 
+            <BR>Matt</TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>bonnet 
+            &lt;guillaume.bonnet1@libertysurf.fr&gt;<BR>2001-10-30 
+            06:54:57-06</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>if you have the error 
+            message : <BR>InputStream as parameter not supported <BR><BR>use the 
+            setAutocommit(false) before to execute the query... 
+          <BR></TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR>
+        <TR>
+          <TD bgColor=#cdddeb><FONT color=red>Ramsés Morales 
+            &lt;ramses_morales@yahoo.com&gt;<BR>2001-10-30 
+        17:44:09-06</FONT></TD></TR>
+        <TR>
+          <TD bgColor=#ffffff><FONT color=black><TT>Even with 
+            setAutoCommit(false) I get this error: <BR><BR>InputStream as 
+            parameter not supported <BR></TT></FONT></TD></TR>
+        <TR>
+          <TD>
+            <HR noShade>
+          </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></CENTER><BR><BR>page #610 
+</BODY></HTML>

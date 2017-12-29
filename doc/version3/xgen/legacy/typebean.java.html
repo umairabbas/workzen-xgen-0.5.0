@@ -1,0 +1,522 @@
+<HTML>
+<HEAD>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="xxxstylesheet.css" TITLE="Style">
+<META NAME="GENERATOR" CONTENT="Java2HTML Version 1.0.8">
+<TITLE>com.workzen.xgen.test.TypeBean (Java2HTML)</TITLE>
+</HEAD>
+
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<TABLE id="Header" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" width="33%" ><p align="left">&nbsp;</p>
+</td>
+<td align="center" colspan="2" width="33%" </td>
+<p align="center"><font size="4">TypeBean</font></p>
+</td>
+<td align="right" colspan="2" width="33%">
+<p align="right"><font size="3">&nbsp;</font></p>
+</td>
+</tr>
+</TABLE>
+<pre ID="Classes">
+<A NAME="1"><A><FONT ID="MultiLineComment">/*
+<A NAME="2"><A> * TypeBean.java 
+<A NAME="3"><A> * Generated using xgen and texen from template.vm
+<A NAME="4"><A> * Thu Mar 14 11:56:00 MST 2002
+<A NAME="5"><A> */</FONT>
+<A NAME="6"><A>
+<A NAME="7"><A><FONT ID="Package">package</FONT> <A HREF="../../../../com.workzen.xgen.test.index.html" target="packageFrame">com.workzen.xgen.test</A>;
+<A NAME="8"><A>
+<A NAME="9"><A><FONT ID="Import">import</FONT> java.sql.Connection;
+<A NAME="10"><A><FONT ID="Import">import</FONT> java.sql.Statement;
+<A NAME="11"><A><FONT ID="Import">import</FONT> java.sql.PreparedStatement;
+<A NAME="12"><A><FONT ID="Import">import</FONT> java.sql.ResultSet;
+<A NAME="13"><A><FONT ID="Import">import</FONT> java.sql.SQLException;
+<A NAME="14"><A><FONT ID="Import">import</FONT> java.sql.DatabaseMetaData;
+<A NAME="15"><A><FONT ID="Import">import</FONT> java.sql.BatchUpdateException;
+<A NAME="16"><A><FONT ID="Import">import</FONT> java.math.BigDecimal;
+<A NAME="17"><A><FONT ID="Import">import</FONT> java.util.Vector;
+<A NAME="18"><A><FONT ID="Import">import</FONT> java.io.*;
+<A NAME="19"><A>
+<A NAME="20"><A><FONT ID="Import">import</FONT> com.workzen.util.DateWrapper;
+<A NAME="21"><A>
+<A NAME="22"><A><FONT ID="FormalComment">/**
+<A NAME="23"><A> * Demonstration class of all types except blob and clob
+<A NAME="24"><A> * @author bmatlack@workzen.userworld.com
+<A NAME="25"><A> */</FONT>
+<A NAME="26"><A><FONT ID="Public">public</FONT> <FONT ID="Class">class</FONT> TypeBean {
+<A NAME="27"><A>
+<A NAME="28"><A>  <FONT ID="FormalComment">/** class attributes */</FONT>
+<A NAME="29"><A>  <FONT ID="Transient">transient</FONT> <FONT ID="Protected">protected</FONT> <FONT ID="Boolean">boolean</FONT> recordExists = <FONT ID="False">false</FONT>;
+<A NAME="30"><A>  <FONT ID="Transient">transient</FONT> <FONT ID="Protected">protected</FONT> <FONT ID="Boolean">boolean</FONT> handleConcurrency = <FONT ID="True">true</FONT>;
+<A NAME="31"><A>  <FONT ID="Transient">transient</FONT> <FONT ID="Protected">protected</FONT> <FONT ID="Boolean">boolean</FONT> handleAutoIncrement = <FONT ID="True">true</FONT>;
+<A NAME="32"><A>
+<A NAME="33"><A>  <FONT ID="FormalComment">/** bean attributes */</FONT>
+<A NAME="34"><A>  <FONT ID="Protected">protected</FONT> Long pKey = <FONT ID="New">new</FONT> Long (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="35"><A>  <FONT ID="Protected">protected</FONT> Boolean booleanType = <FONT ID="New">new</FONT> Boolean (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="36"><A>  <FONT ID="Protected">protected</FONT> Byte byteType = <FONT ID="New">new</FONT> Byte (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="37"><A>  <FONT ID="Protected">protected</FONT> String charType = <FONT ID="New">new</FONT> String (<FONT ID="StringLiteral">"Y"</FONT>);
+<A NAME="38"><A>  <FONT ID="Protected">protected</FONT> Short shortType = <FONT ID="New">new</FONT> Short (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="39"><A>  <FONT ID="Protected">protected</FONT> Integer intType = <FONT ID="New">new</FONT> Integer (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="40"><A>  <FONT ID="Protected">protected</FONT> Long longType = <FONT ID="New">new</FONT> Long (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="41"><A>  <FONT ID="Protected">protected</FONT> Float floatType = <FONT ID="New">new</FONT> Float (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="42"><A>  <FONT ID="Protected">protected</FONT> Double doubleType = <FONT ID="New">new</FONT> Double (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="43"><A>  <FONT ID="Protected">protected</FONT> BigDecimal decimalType = <FONT ID="New">new</FONT> BigDecimal (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="44"><A>  <FONT ID="Protected">protected</FONT> String stringType = <FONT ID="New">new</FONT> String (<FONT ID="StringLiteral">"xxx"</FONT>);
+<A NAME="45"><A>  <FONT ID="Protected">protected</FONT> String textType = <FONT ID="New">new</FONT> String (<FONT ID="StringLiteral">"longer text"</FONT>);
+<A NAME="46"><A>  <FONT ID="Protected">protected</FONT> java.util.Date dateType = DateWrapper.getDate(<FONT ID="StringLiteral">"2000-12-31"</FONT>);
+<A NAME="47"><A>  <FONT ID="Protected">protected</FONT> java.util.Date timeType = DateWrapper.getDate(<FONT ID="StringLiteral">"01:01:01"</FONT>);
+<A NAME="48"><A>  <FONT ID="Protected">protected</FONT> java.util.Date timestampType = DateWrapper.getDate(<FONT ID="StringLiteral">"2001-01-01 00:00:01"</FONT>);
+<A NAME="49"><A>  <FONT ID="Protected">protected</FONT> Integer tcn = <FONT ID="New">new</FONT> Integer (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="50"><A>
+<A NAME="51"><A>  <FONT ID="FormalComment">/** setters and getters for pKey */</FONT>
+<A NAME="52"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setPKey ( String value ) { <FONT ID="This">this</FONT>.pKey = <FONT ID="New">new</FONT> Long (value); }
+<A NAME="53"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setPKey ( Long value ) { <FONT ID="This">this</FONT>.pKey = value; }
+<A NAME="54"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setPKey ( <FONT ID="Long">long</FONT> value ){ <FONT ID="This">this</FONT>.pKey = <FONT ID="New">new</FONT> Long (value); }
+<A NAME="55"><A>  <FONT ID="Public">public</FONT> Long getPKey ( ){ <FONT ID="Return">return</FONT> pKey; }
+<A NAME="56"><A>  
+<A NAME="57"><A>  <FONT ID="FormalComment">/** setters and getters for booleanType */</FONT>
+<A NAME="58"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setBooleanType ( String value ) { <FONT ID="This">this</FONT>.booleanType = <FONT ID="New">new</FONT> Boolean (value); }
+<A NAME="59"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setBooleanType ( Boolean value ) { <FONT ID="This">this</FONT>.booleanType = value; }
+<A NAME="60"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setBooleanType ( <FONT ID="Boolean">boolean</FONT> value ){ <FONT ID="This">this</FONT>.booleanType = <FONT ID="New">new</FONT> Boolean (value); }
+<A NAME="61"><A>  <FONT ID="Public">public</FONT> Boolean getBooleanType ( ){ <FONT ID="Return">return</FONT> booleanType; }
+<A NAME="62"><A>  
+<A NAME="63"><A>  <FONT ID="FormalComment">/** setters and getters for byteType */</FONT>
+<A NAME="64"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setByteType ( String value ) { <FONT ID="This">this</FONT>.byteType = <FONT ID="New">new</FONT> Byte (value); }
+<A NAME="65"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setByteType ( Byte value ) { <FONT ID="This">this</FONT>.byteType = value; }
+<A NAME="66"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setByteType ( <FONT ID="Byte">byte</FONT> value ){ <FONT ID="This">this</FONT>.byteType = <FONT ID="New">new</FONT> Byte (value); }
+<A NAME="67"><A>  <FONT ID="Public">public</FONT> Byte getByteType ( ){ <FONT ID="Return">return</FONT> byteType; }
+<A NAME="68"><A>  
+<A NAME="69"><A>  <FONT ID="FormalComment">/** setters and getters for charType */</FONT>
+<A NAME="70"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setCharType ( String value ) { <FONT ID="This">this</FONT>.charType = <FONT ID="New">new</FONT> String (value); }
+<A NAME="71"><A>  <FONT ID="Public">public</FONT> String getCharType ( ){ <FONT ID="Return">return</FONT> charType; } 
+<A NAME="72"><A>  
+<A NAME="73"><A>  <FONT ID="FormalComment">/** setters and getters for shortType */</FONT>
+<A NAME="74"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setShortType ( String value ) { <FONT ID="This">this</FONT>.shortType = <FONT ID="New">new</FONT> Short (value); }
+<A NAME="75"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setShortType ( Short value ) { <FONT ID="This">this</FONT>.shortType = value; }
+<A NAME="76"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setShortType ( <FONT ID="Short">short</FONT> value ){ <FONT ID="This">this</FONT>.shortType = <FONT ID="New">new</FONT> Short (value); }
+<A NAME="77"><A>  <FONT ID="Public">public</FONT> Short getShortType ( ){ <FONT ID="Return">return</FONT> shortType; }
+<A NAME="78"><A>  
+<A NAME="79"><A>  <FONT ID="FormalComment">/** setters and getters for intType */</FONT>
+<A NAME="80"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setIntType ( String value ) { <FONT ID="This">this</FONT>.intType = <FONT ID="New">new</FONT> Integer (value); }
+<A NAME="81"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setIntType ( Integer value ) { <FONT ID="This">this</FONT>.intType = value; }
+<A NAME="82"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setIntType ( <FONT ID="Int">int</FONT> value ){ <FONT ID="This">this</FONT>.intType = <FONT ID="New">new</FONT> Integer (value); }
+<A NAME="83"><A>  <FONT ID="Public">public</FONT> Integer getIntType ( ){ <FONT ID="Return">return</FONT> intType; }
+<A NAME="84"><A>  
+<A NAME="85"><A>  <FONT ID="FormalComment">/** setters and getters for longType */</FONT>
+<A NAME="86"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setLongType ( String value ) { <FONT ID="This">this</FONT>.longType = <FONT ID="New">new</FONT> Long (value); }
+<A NAME="87"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setLongType ( Long value ) { <FONT ID="This">this</FONT>.longType = value; }
+<A NAME="88"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setLongType ( <FONT ID="Long">long</FONT> value ){ <FONT ID="This">this</FONT>.longType = <FONT ID="New">new</FONT> Long (value); }
+<A NAME="89"><A>  <FONT ID="Public">public</FONT> Long getLongType ( ){ <FONT ID="Return">return</FONT> longType; }
+<A NAME="90"><A>  
+<A NAME="91"><A>  <FONT ID="FormalComment">/** setters and getters for floatType */</FONT>
+<A NAME="92"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setFloatType ( String value ) { <FONT ID="This">this</FONT>.floatType = <FONT ID="New">new</FONT> Float (value); }
+<A NAME="93"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setFloatType ( Float value ) { <FONT ID="This">this</FONT>.floatType = value; }
+<A NAME="94"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setFloatType ( <FONT ID="Float">float</FONT> value ){ <FONT ID="This">this</FONT>.floatType = <FONT ID="New">new</FONT> Float (value); }
+<A NAME="95"><A>  <FONT ID="Public">public</FONT> Float getFloatType ( ){ <FONT ID="Return">return</FONT> floatType; }
+<A NAME="96"><A>  
+<A NAME="97"><A>  <FONT ID="FormalComment">/** setters and getters for doubleType */</FONT>
+<A NAME="98"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDoubleType ( String value ) { <FONT ID="This">this</FONT>.doubleType = <FONT ID="New">new</FONT> Double (value); }
+<A NAME="99"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDoubleType ( Double value ) { <FONT ID="This">this</FONT>.doubleType = value; }
+<A NAME="100"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDoubleType ( <FONT ID="Double">double</FONT> value ){ <FONT ID="This">this</FONT>.doubleType = <FONT ID="New">new</FONT> Double (value); }
+<A NAME="101"><A>  <FONT ID="Public">public</FONT> Double getDoubleType ( ){ <FONT ID="Return">return</FONT> doubleType; }
+<A NAME="102"><A>  
+<A NAME="103"><A>  <FONT ID="FormalComment">/** setters and getters for decimalType */</FONT>
+<A NAME="104"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDecimalType ( String value ) { <FONT ID="This">this</FONT>.decimalType = <FONT ID="New">new</FONT> BigDecimal (value); }
+<A NAME="105"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDecimalType ( BigDecimal value ) { <FONT ID="This">this</FONT>.decimalType = value; }
+<A NAME="106"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDecimalType ( <FONT ID="Double">double</FONT> value ){ <FONT ID="This">this</FONT>.decimalType = <FONT ID="New">new</FONT> BigDecimal (value); }
+<A NAME="107"><A>  <FONT ID="Public">public</FONT> BigDecimal getDecimalType ( ){ <FONT ID="Return">return</FONT> decimalType; }
+<A NAME="108"><A>  
+<A NAME="109"><A>  <FONT ID="FormalComment">/** setters and getters for stringType */</FONT>
+<A NAME="110"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setStringType ( String value ) { <FONT ID="This">this</FONT>.stringType = <FONT ID="New">new</FONT> String (value); }
+<A NAME="111"><A>  <FONT ID="Public">public</FONT> String getStringType ( ){ <FONT ID="Return">return</FONT> stringType; } 
+<A NAME="112"><A>  
+<A NAME="113"><A>  <FONT ID="FormalComment">/** setters and getters for textType */</FONT>
+<A NAME="114"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTextType ( String value ) { <FONT ID="This">this</FONT>.textType = <FONT ID="New">new</FONT> String (value); }
+<A NAME="115"><A>  <FONT ID="Public">public</FONT> String getTextType ( ){ <FONT ID="Return">return</FONT> textType; } 
+<A NAME="116"><A>  
+<A NAME="117"><A>  <FONT ID="FormalComment">/** setters and getters for dateType */</FONT>
+<A NAME="118"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDateType ( String value ){ <FONT ID="This">this</FONT>.dateType = DateWrapper.getDate(value); }
+<A NAME="119"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDateType ( <FONT ID="Long">long</FONT> value ){ <FONT ID="This">this</FONT>.dateType = <FONT ID="New">new</FONT> java.util.Date(value); }
+<A NAME="120"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setDateType ( java.util.Date value ){ <FONT ID="This">this</FONT>.dateType = value; }
+<A NAME="121"><A>  <FONT ID="Public">public</FONT> java.util.Date getDateType ( ){ <FONT ID="Return">return</FONT> dateType; }
+<A NAME="122"><A>  
+<A NAME="123"><A>  <FONT ID="FormalComment">/** setters and getters for timeType */</FONT>
+<A NAME="124"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTimeType ( String value ){ <FONT ID="This">this</FONT>.timeType = DateWrapper.getDate(value); }
+<A NAME="125"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTimeType ( <FONT ID="Long">long</FONT> value ){ <FONT ID="This">this</FONT>.timeType = <FONT ID="New">new</FONT> java.util.Date(value); }
+<A NAME="126"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTimeType ( java.util.Date value ){ <FONT ID="This">this</FONT>.timeType = value; }
+<A NAME="127"><A>  <FONT ID="Public">public</FONT> java.util.Date getTimeType ( ){ <FONT ID="Return">return</FONT> timeType; }
+<A NAME="128"><A>  
+<A NAME="129"><A>  <FONT ID="FormalComment">/** setters and getters for timestampType */</FONT>
+<A NAME="130"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTimestampType ( String value ){ <FONT ID="This">this</FONT>.timestampType = DateWrapper.getDate(value); }
+<A NAME="131"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTimestampType ( <FONT ID="Long">long</FONT> value ){ <FONT ID="This">this</FONT>.timestampType = <FONT ID="New">new</FONT> java.util.Date(value); }
+<A NAME="132"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTimestampType ( java.util.Date value ){ <FONT ID="This">this</FONT>.timestampType = value; }
+<A NAME="133"><A>  <FONT ID="Public">public</FONT> java.util.Date getTimestampType ( ){ <FONT ID="Return">return</FONT> timestampType; }
+<A NAME="134"><A>  
+<A NAME="135"><A>  <FONT ID="FormalComment">/** setters and getters for tcn */</FONT>
+<A NAME="136"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTcn ( String value ) { <FONT ID="This">this</FONT>.tcn = <FONT ID="New">new</FONT> Integer (value); }
+<A NAME="137"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTcn ( Integer value ) { <FONT ID="This">this</FONT>.tcn = value; }
+<A NAME="138"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTcn ( <FONT ID="Int">int</FONT> value ){ <FONT ID="This">this</FONT>.tcn = <FONT ID="New">new</FONT> Integer (value); }
+<A NAME="139"><A>  <FONT ID="Public">public</FONT> Integer getTcn ( ){ <FONT ID="Return">return</FONT> tcn; }
+<A NAME="140"><A>  
+<A NAME="141"><A>  <FONT ID="FormalComment">/** 
+<A NAME="142"><A>   * Load this object from a result set 
+<A NAME="143"><A>   * If null fields are present in the table, catch the NullPointerException
+<A NAME="144"><A>   */</FONT>
+<A NAME="145"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> load(ResultSet rs) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="146"><A>    <FONT ID="Try">try</FONT>{ setPKey ( rs.getLong(<FONT ID="StringLiteral">"pkey"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="147"><A>    <FONT ID="Try">try</FONT>{ setBooleanType ( rs.getBoolean(<FONT ID="StringLiteral">"boolean_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="148"><A>    <FONT ID="Try">try</FONT>{ setByteType ( rs.getByte(<FONT ID="StringLiteral">"byte_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="149"><A>    <FONT ID="Try">try</FONT>{ setCharType ( rs.getString(<FONT ID="StringLiteral">"char_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="150"><A>    <FONT ID="Try">try</FONT>{ setShortType ( rs.getShort(<FONT ID="StringLiteral">"short_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="151"><A>    <FONT ID="Try">try</FONT>{ setIntType ( rs.getInt(<FONT ID="StringLiteral">"int_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="152"><A>    <FONT ID="Try">try</FONT>{ setLongType ( rs.getLong(<FONT ID="StringLiteral">"long_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="153"><A>    <FONT ID="Try">try</FONT>{ setFloatType ( rs.getFloat(<FONT ID="StringLiteral">"float_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="154"><A>    <FONT ID="Try">try</FONT>{ setDoubleType ( rs.getDouble(<FONT ID="StringLiteral">"double_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="155"><A>    <FONT ID="Try">try</FONT>{ setDecimalType ( rs.getBigDecimal(<FONT ID="StringLiteral">"decimal_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="156"><A>    <FONT ID="Try">try</FONT>{ setStringType ( rs.getString(<FONT ID="StringLiteral">"string_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="157"><A>    <FONT ID="Try">try</FONT>{ setTextType ( rs.getString(<FONT ID="StringLiteral">"text_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="158"><A>    <FONT ID="Try">try</FONT>{ setDateType ( rs.getDate(<FONT ID="StringLiteral">"date_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="159"><A>    <FONT ID="Try">try</FONT>{ setTimeType ( rs.getTime(<FONT ID="StringLiteral">"time_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="160"><A>    <FONT ID="Try">try</FONT>{ setTimestampType ( rs.getTimestamp(<FONT ID="StringLiteral">"timestamp_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="161"><A>    <FONT ID="Try">try</FONT>{ setTcn ( rs.getInt(<FONT ID="StringLiteral">"tcn"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="162"><A>    recordExists = <FONT ID="True">true</FONT>;
+<A NAME="163"><A>  }
+<A NAME="164"><A>  
+<A NAME="165"><A>  <FONT ID="FormalComment">/** 
+<A NAME="166"><A>   * Load this object from a Map hash. 
+<A NAME="167"><A>   */</FONT>
+<A NAME="168"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> load(java.util.Map map){
+<A NAME="169"><A>    java.util.Iterator it = map.keySet().iterator();
+<A NAME="170"><A>      
+<A NAME="171"><A>    <FONT ID="While">while</FONT>( it.hasNext() ){
+<A NAME="172"><A>      String key = (String)it.next();
+<A NAME="173"><A>      String value = (String)map.get(key);
+<A NAME="174"><A>      <FONT ID="If">if</FONT>(<FONT ID="False">false</FONT>){
+<A NAME="175"><A>        <FONT ID="SingleLineComment">// just a placeholder for template construction
+<A NAME="176"><A></FONT>      }
+<A NAME="177"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"pKey"</FONT>) ) {
+<A NAME="178"><A>        setPKey( (String)map.get(key) ); 
+<A NAME="179"><A>      }
+<A NAME="180"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"booleanType"</FONT>) ) {
+<A NAME="181"><A>        setBooleanType( (String)map.get(key) ); 
+<A NAME="182"><A>      }
+<A NAME="183"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"byteType"</FONT>) ) {
+<A NAME="184"><A>        setByteType( (String)map.get(key) ); 
+<A NAME="185"><A>      }
+<A NAME="186"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"charType"</FONT>) ) {
+<A NAME="187"><A>        setCharType( (String)map.get(key) ); 
+<A NAME="188"><A>      }
+<A NAME="189"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"shortType"</FONT>) ) {
+<A NAME="190"><A>        setShortType( (String)map.get(key) ); 
+<A NAME="191"><A>      }
+<A NAME="192"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"intType"</FONT>) ) {
+<A NAME="193"><A>        setIntType( (String)map.get(key) ); 
+<A NAME="194"><A>      }
+<A NAME="195"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"longType"</FONT>) ) {
+<A NAME="196"><A>        setLongType( (String)map.get(key) ); 
+<A NAME="197"><A>      }
+<A NAME="198"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"floatType"</FONT>) ) {
+<A NAME="199"><A>        setFloatType( (String)map.get(key) ); 
+<A NAME="200"><A>      }
+<A NAME="201"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"doubleType"</FONT>) ) {
+<A NAME="202"><A>        setDoubleType( (String)map.get(key) ); 
+<A NAME="203"><A>      }
+<A NAME="204"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"decimalType"</FONT>) ) {
+<A NAME="205"><A>        setDecimalType( (String)map.get(key) ); 
+<A NAME="206"><A>      }
+<A NAME="207"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"stringType"</FONT>) ) {
+<A NAME="208"><A>        setStringType( (String)map.get(key) ); 
+<A NAME="209"><A>      }
+<A NAME="210"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"textType"</FONT>) ) {
+<A NAME="211"><A>        setTextType( (String)map.get(key) ); 
+<A NAME="212"><A>      }
+<A NAME="213"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"dateType"</FONT>) ) {
+<A NAME="214"><A>        setDateType( (String)map.get(key) ); 
+<A NAME="215"><A>      }
+<A NAME="216"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"timeType"</FONT>) ) {
+<A NAME="217"><A>        setTimeType( (String)map.get(key) ); 
+<A NAME="218"><A>      }
+<A NAME="219"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"timestampType"</FONT>) ) {
+<A NAME="220"><A>        setTimestampType( (String)map.get(key) ); 
+<A NAME="221"><A>      }
+<A NAME="222"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"tcn"</FONT>) ) {
+<A NAME="223"><A>        setTcn( (String)map.get(key) ); 
+<A NAME="224"><A>      }
+<A NAME="225"><A>    }
+<A NAME="226"><A>  }
+<A NAME="227"><A>
+<A NAME="228"><A>  <FONT ID="FormalComment">/** 
+<A NAME="229"><A>   * Load a range of records from a connection, according to the where clause 
+<A NAME="230"><A>   */</FONT>
+<A NAME="231"><A>  <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> Vector load(Connection conn, String where) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="232"><A>    Vector beans = <FONT ID="New">new</FONT> Vector();
+<A NAME="233"><A>    Statement s = conn.createStatement();
+<A NAME="234"><A>    String sql = <FONT ID="StringLiteral">"SELECT pkey,boolean_type,byte_type,char_type,short_type,int_type,long_type,float_type,double_type,decimal_type,string_type,text_type,date_type,time_type,timestamp_type,tcn FROM xgen_types "</FONT> + where;
+<A NAME="235"><A>    ResultSet rs = s.executeQuery( sql );
+<A NAME="236"><A>    <FONT ID="While">while</FONT>(rs.next()){
+<A NAME="237"><A>      <A HREF="../../../../com/workzen/xgen/test/TypeBean.java.html">TypeBean</A> bean = <FONT ID="New">new</FONT> <A HREF="../../../../com/workzen/xgen/test/TypeBean.java.html">TypeBean</A> ();
+<A NAME="238"><A>      bean.load(rs);
+<A NAME="239"><A>      beans.addElement(bean);
+<A NAME="240"><A>    }
+<A NAME="241"><A>    rs.close();
+<A NAME="242"><A>    s.close();
+<A NAME="243"><A>    <FONT ID="Return">return</FONT> beans;
+<A NAME="244"><A>  }
+<A NAME="245"><A>
+<A NAME="246"><A>  <FONT ID="FormalComment">/**
+<A NAME="247"><A>   * Load a range of records using a scrollable resultset and absolute cursor
+<A NAME="248"><A>   */</FONT>
+<A NAME="249"><A>  <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> Vector load(Connection conn, String where, <FONT ID="Int">int</FONT> startRow, <FONT ID="Int">int</FONT> rowCount)
+<A NAME="250"><A>  <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="251"><A>    Vector beans = <FONT ID="New">new</FONT> Vector();
+<A NAME="252"><A>   
+<A NAME="253"><A>    Statement s = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+<A NAME="254"><A>                                       ResultSet.CONCUR_UPDATABLE);
+<A NAME="255"><A>    
+<A NAME="256"><A>    String sql = <FONT ID="StringLiteral">"SELECT pkey,boolean_type,byte_type,char_type,short_type,int_type,long_type,float_type,double_type,decimal_type,string_type,text_type,date_type,time_type,timestamp_type,tcn FROM xgen_types "</FONT>;
+<A NAME="257"><A>    <FONT ID="If">if</FONT>(where.length() &gt; <FONT ID="IntegerLiteral">0</FONT>)
+<A NAME="258"><A>      sql = sql + where;
+<A NAME="259"><A>    ResultSet rs = s.executeQuery( sql );
+<A NAME="260"><A>    
+<A NAME="261"><A>    rs.absolute(startRow);
+<A NAME="262"><A>    
+<A NAME="263"><A>    <FONT ID="Int">int</FONT> count = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="264"><A>    <FONT ID="While">while</FONT>( rs.next() &amp;&amp; (count &lt; rowCount) ){
+<A NAME="265"><A>      count++;
+<A NAME="266"><A>      <A HREF="../../../../com/workzen/xgen/test/TypeBean.java.html">TypeBean</A> bean = <FONT ID="New">new</FONT> <A HREF="../../../../com/workzen/xgen/test/TypeBean.java.html">TypeBean</A> ();
+<A NAME="267"><A>      bean.load(rs);
+<A NAME="268"><A>      beans.addElement(bean);
+<A NAME="269"><A>    }
+<A NAME="270"><A>    rs.close();
+<A NAME="271"><A>    s.close();
+<A NAME="272"><A>    <FONT ID="Return">return</FONT> beans;
+<A NAME="273"><A>  }
+<A NAME="274"><A>
+<A NAME="275"><A>  <FONT ID="FormalComment">/** 
+<A NAME="276"><A>   * Persist the record. Performs a sql update or insert.
+<A NAME="277"><A>   * The primary key will be "set" upon insert.
+<A NAME="278"><A>   * If autocommit is on, turn it off to make a transactional
+<A NAME="279"><A>   * check of the tcn field.
+<A NAME="280"><A>   */</FONT>
+<A NAME="281"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> persist(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="282"><A>    <FONT ID="If">if</FONT>(recordExists){
+<A NAME="283"><A>      <FONT ID="If">if</FONT>(handleConcurrency){
+<A NAME="284"><A>        <FONT ID="Boolean">boolean</FONT> autoCommit = conn.getAutoCommit();
+<A NAME="285"><A>        <FONT ID="If">if</FONT>( autoCommit )
+<A NAME="286"><A>          conn.setAutoCommit(<FONT ID="False">false</FONT>);
+<A NAME="287"><A>        checkConcurrency(conn);
+<A NAME="288"><A>      
+<A NAME="289"><A>        <FONT ID="SingleLineComment">//tcn = new Integer(tcn.intValue() + new Integer(1).intValue());
+<A NAME="290"><A></FONT>        tcn = <FONT ID="New">new</FONT> Integer (tcn.intValue() + <FONT ID="New">new</FONT> Integer (<FONT ID="IntegerLiteral">1</FONT>).intValue() );
+<A NAME="291"><A>      
+<A NAME="292"><A>        update(conn);
+<A NAME="293"><A>        <FONT ID="If">if</FONT>( autoCommit ){
+<A NAME="294"><A>          conn.commit();
+<A NAME="295"><A>          conn.setAutoCommit(<FONT ID="True">true</FONT>);
+<A NAME="296"><A>        }
+<A NAME="297"><A>      }<FONT ID="Else">else</FONT>{
+<A NAME="298"><A>        update(conn);
+<A NAME="299"><A>      }
+<A NAME="300"><A>    }<FONT ID="Else">else</FONT>{
+<A NAME="301"><A>      setPrimaryKey(conn);
+<A NAME="302"><A>      insert(conn);
+<A NAME="303"><A>    }
+<A NAME="304"><A>  }
+<A NAME="305"><A>  
+<A NAME="306"><A>  <FONT ID="FormalComment">/**
+<A NAME="307"><A>   * Query the database to make sure transaction control numbers match
+<A NAME="308"><A>   */</FONT>
+<A NAME="309"><A>  <FONT ID="Private">private</FONT> <FONT ID="Void">void</FONT> checkConcurrency(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="310"><A>    String sql = <FONT ID="StringLiteral">"SELECT tcn FROM xgen_types WHERE pkey = ?"</FONT>;
+<A NAME="311"><A>    PreparedStatement pstmt = conn.prepareStatement(sql);
+<A NAME="312"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">1</FONT>, getPKey ().intValue() );
+<A NAME="313"><A>  
+<A NAME="314"><A>    ResultSet rs = pstmt.executeQuery();
+<A NAME="315"><A>    rs.next();
+<A NAME="316"><A>    Integer tcnum = <FONT ID="New">new</FONT> Integer(rs.getInt(<FONT ID="IntegerLiteral">1</FONT>));
+<A NAME="317"><A>    rs.close();
+<A NAME="318"><A>    pstmt.close();
+<A NAME="319"><A>    
+<A NAME="320"><A>    <FONT ID="If">if</FONT>( tcnum.intValue() !=  tcn.intValue() )
+<A NAME="321"><A>      <FONT ID="Throw">throw</FONT> <FONT ID="New">new</FONT> SQLException(<FONT ID="StringLiteral">"Transaction control numbers do not match:"</FONT> + tcnum + <FONT ID="StringLiteral">":"</FONT> + tcn );
+<A NAME="322"><A>  }
+<A NAME="323"><A>
+<A NAME="324"><A>  <FONT ID="FormalComment">/** 
+<A NAME="325"><A>    * Set the primary key field using the MAX value of the column 
+<A NAME="326"><A>    * If the primary key is a string, check for existence and return
+<A NAME="327"><A>    * If the primary key is already set (in a new bean its 0) return
+<A NAME="328"><A>    */</FONT>
+<A NAME="329"><A>  <FONT ID="Private">private</FONT> <FONT ID="Void">void</FONT> setPrimaryKey(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="330"><A>    <FONT ID="If">if</FONT>( getPKey().longValue() != <FONT ID="IntegerLiteral">0</FONT> ) <FONT ID="Return">return</FONT>;
+<A NAME="331"><A>    String sql = <FONT ID="StringLiteral">"SELECT MAX( pKey )+1 FROM xgen_types"</FONT>;
+<A NAME="332"><A>    Statement s = conn.createStatement();
+<A NAME="333"><A>    ResultSet rs = s.executeQuery( sql );
+<A NAME="334"><A>    rs.next();
+<A NAME="335"><A>    setPKey( rs.getLong(<FONT ID="IntegerLiteral">1</FONT>) );
+<A NAME="336"><A>    rs.close();
+<A NAME="337"><A>    s.close();
+<A NAME="338"><A>   }
+<A NAME="339"><A>
+<A NAME="340"><A>  <FONT ID="FormalComment">/** 
+<A NAME="341"><A>    * Insert a new record 
+<A NAME="342"><A>    */</FONT>
+<A NAME="343"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> insert(Connection conn) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="344"><A>    PreparedStatement pstmt = <FONT ID="Null">null</FONT>;
+<A NAME="345"><A>    pstmt = conn.prepareStatement(<FONT ID="StringLiteral">"INSERT INTO xgen_types ( pkey,boolean_type,byte_type,char_type,short_type,int_type,long_type,float_type,double_type,decimal_type,string_type,text_type,date_type,time_type,timestamp_type,tcn ) VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? )"</FONT>);
+<A NAME="346"><A>    pstmt.setLong ( <FONT ID="IntegerLiteral">1</FONT>, getPKey().longValue() );
+<A NAME="347"><A>    pstmt.setBoolean ( <FONT ID="IntegerLiteral">2</FONT>, getBooleanType().booleanValue() );
+<A NAME="348"><A>    pstmt.setByte ( <FONT ID="IntegerLiteral">3</FONT>, getByteType().byteValue() );
+<A NAME="349"><A>    pstmt.setString ( <FONT ID="IntegerLiteral">4</FONT>, getCharType() );
+<A NAME="350"><A>    pstmt.setShort ( <FONT ID="IntegerLiteral">5</FONT>, getShortType().shortValue() );
+<A NAME="351"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">6</FONT>, getIntType().intValue() );
+<A NAME="352"><A>    pstmt.setLong ( <FONT ID="IntegerLiteral">7</FONT>, getLongType().longValue() );
+<A NAME="353"><A>    pstmt.setFloat ( <FONT ID="IntegerLiteral">8</FONT>, getFloatType().floatValue() );
+<A NAME="354"><A>    pstmt.setDouble ( <FONT ID="IntegerLiteral">9</FONT>, getDoubleType().doubleValue() );
+<A NAME="355"><A>    pstmt.setBigDecimal ( <FONT ID="IntegerLiteral">10</FONT>, getDecimalType() );
+<A NAME="356"><A>    pstmt.setString ( <FONT ID="IntegerLiteral">11</FONT>, getStringType() );
+<A NAME="357"><A>    pstmt.setString ( <FONT ID="IntegerLiteral">12</FONT>, getTextType() );
+<A NAME="358"><A>    pstmt.setDate ( <FONT ID="IntegerLiteral">13</FONT>, <FONT ID="New">new</FONT> java.sql.Date ( getDateType ().getTime() ) );
+<A NAME="359"><A>    pstmt.setTime ( <FONT ID="IntegerLiteral">14</FONT>, <FONT ID="New">new</FONT> java.sql.Time ( getTimeType ().getTime() ) );
+<A NAME="360"><A>    pstmt.setTimestamp ( <FONT ID="IntegerLiteral">15</FONT>, <FONT ID="New">new</FONT> java.sql.Timestamp ( getTimestampType ().getTime() ) );
+<A NAME="361"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">16</FONT>, getTcn().intValue() );
+<A NAME="362"><A>    pstmt.executeUpdate();
+<A NAME="363"><A>    pstmt.close();
+<A NAME="364"><A>    recordExists = <FONT ID="True">true</FONT>;
+<A NAME="365"><A>  }
+<A NAME="366"><A>
+<A NAME="367"><A>  <FONT ID="FormalComment">/** 
+<A NAME="368"><A>    * Update an existing record 
+<A NAME="369"><A>    * (including the primary key)
+<A NAME="370"><A>    */</FONT>
+<A NAME="371"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> update(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="372"><A>    PreparedStatement pstmt = <FONT ID="Null">null</FONT>;
+<A NAME="373"><A>    pstmt = conn.prepareStatement(<FONT ID="StringLiteral">"UPDATE xgen_types SET "</FONT> +
+<A NAME="374"><A>             <FONT ID="StringLiteral">"pkey = ?,"</FONT> +
+<A NAME="375"><A>             <FONT ID="StringLiteral">"boolean_type = ?,"</FONT> +
+<A NAME="376"><A>             <FONT ID="StringLiteral">"byte_type = ?,"</FONT> +
+<A NAME="377"><A>             <FONT ID="StringLiteral">"char_type = ?,"</FONT> +
+<A NAME="378"><A>             <FONT ID="StringLiteral">"short_type = ?,"</FONT> +
+<A NAME="379"><A>             <FONT ID="StringLiteral">"int_type = ?,"</FONT> +
+<A NAME="380"><A>             <FONT ID="StringLiteral">"long_type = ?,"</FONT> +
+<A NAME="381"><A>             <FONT ID="StringLiteral">"float_type = ?,"</FONT> +
+<A NAME="382"><A>             <FONT ID="StringLiteral">"double_type = ?,"</FONT> +
+<A NAME="383"><A>             <FONT ID="StringLiteral">"decimal_type = ?,"</FONT> +
+<A NAME="384"><A>             <FONT ID="StringLiteral">"string_type = ?,"</FONT> +
+<A NAME="385"><A>             <FONT ID="StringLiteral">"text_type = ?,"</FONT> +
+<A NAME="386"><A>             <FONT ID="StringLiteral">"date_type = ?,"</FONT> +
+<A NAME="387"><A>             <FONT ID="StringLiteral">"time_type = ?,"</FONT> +
+<A NAME="388"><A>             <FONT ID="StringLiteral">"timestamp_type = ?,"</FONT> +
+<A NAME="389"><A>             <FONT ID="StringLiteral">"tcn = ? "</FONT> +   
+<A NAME="390"><A>             <FONT ID="StringLiteral">"WHERE pKey = ?"</FONT> );
+<A NAME="391"><A>    pstmt.setLong ( <FONT ID="IntegerLiteral">1</FONT>, getPKey ().longValue() );
+<A NAME="392"><A>    pstmt.setBoolean ( <FONT ID="IntegerLiteral">2</FONT>, getBooleanType ().booleanValue() );
+<A NAME="393"><A>    pstmt.setByte ( <FONT ID="IntegerLiteral">3</FONT>, getByteType ().byteValue() );
+<A NAME="394"><A>    pstmt.setString ( <FONT ID="IntegerLiteral">4</FONT>, getCharType () );
+<A NAME="395"><A>    pstmt.setShort ( <FONT ID="IntegerLiteral">5</FONT>, getShortType ().shortValue() );
+<A NAME="396"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">6</FONT>, getIntType ().intValue() );
+<A NAME="397"><A>    pstmt.setLong ( <FONT ID="IntegerLiteral">7</FONT>, getLongType ().longValue() );
+<A NAME="398"><A>    pstmt.setFloat ( <FONT ID="IntegerLiteral">8</FONT>, getFloatType ().floatValue() );
+<A NAME="399"><A>    pstmt.setDouble ( <FONT ID="IntegerLiteral">9</FONT>, getDoubleType ().doubleValue() );
+<A NAME="400"><A>    pstmt.setBigDecimal ( <FONT ID="IntegerLiteral">10</FONT>, getDecimalType() );
+<A NAME="401"><A>    pstmt.setString ( <FONT ID="IntegerLiteral">11</FONT>, getStringType () );
+<A NAME="402"><A>    pstmt.setString ( <FONT ID="IntegerLiteral">12</FONT>, getTextType () );
+<A NAME="403"><A>    pstmt.setDate ( <FONT ID="IntegerLiteral">13</FONT>, <FONT ID="New">new</FONT> java.sql.Date ( getDateType ().getTime() ) );
+<A NAME="404"><A>    pstmt.setTime ( <FONT ID="IntegerLiteral">14</FONT>, <FONT ID="New">new</FONT> java.sql.Time ( getTimeType ().getTime() ) );
+<A NAME="405"><A>    pstmt.setTimestamp ( <FONT ID="IntegerLiteral">15</FONT>, <FONT ID="New">new</FONT> java.sql.Timestamp ( getTimestampType ().getTime() ) );
+<A NAME="406"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">16</FONT>, getTcn ().intValue() );
+<A NAME="407"><A>    pstmt.setLong( <FONT ID="IntegerLiteral">17</FONT>, getPKey ().longValue() );
+<A NAME="408"><A>    pstmt.executeUpdate();
+<A NAME="409"><A>    pstmt.close();
+<A NAME="410"><A>  }
+<A NAME="411"><A>
+<A NAME="412"><A>  <FONT ID="FormalComment">/** 
+<A NAME="413"><A>    * Delete an existing record 
+<A NAME="414"><A>    */</FONT>
+<A NAME="415"><A>  <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Void">void</FONT> delete(Connection conn, String where) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="416"><A>    Statement stmt = conn.createStatement();
+<A NAME="417"><A>    String sql = <FONT ID="StringLiteral">"DELETE FROM xgen_types "</FONT> + where;
+<A NAME="418"><A>    stmt.execute(sql);
+<A NAME="419"><A>    stmt.close();
+<A NAME="420"><A>  }
+<A NAME="421"><A>
+<A NAME="422"><A>  <FONT ID="FormalComment">/** 
+<A NAME="423"><A>    * Delete an existing record using a prepared statement
+<A NAME="424"><A>    */</FONT>
+<A NAME="425"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> delete(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="426"><A>    PreparedStatement pstmt = <FONT ID="Null">null</FONT>;
+<A NAME="427"><A>    pstmt = conn.prepareStatement(<FONT ID="StringLiteral">"DELETE FROM xgen_types WHERE pKey = ?"</FONT>);
+<A NAME="428"><A>    pstmt.setLong( <FONT ID="IntegerLiteral">1</FONT>, getPKey ().longValue() );
+<A NAME="429"><A>    pstmt.executeUpdate();
+<A NAME="430"><A>    pstmt.close();
+<A NAME="431"><A>  }
+<A NAME="432"><A> 
+<A NAME="433"><A>  <FONT ID="FormalComment">/** 
+<A NAME="434"><A>    * to String 
+<A NAME="435"><A>    */</FONT>
+<A NAME="436"><A>  <FONT ID="Public">public</FONT> String toString(){
+<A NAME="437"><A>    <FONT ID="Return">return</FONT> toString(<FONT ID="StringLiteral">","</FONT>);
+<A NAME="438"><A>  }
+<A NAME="439"><A>
+<A NAME="440"><A>  <FONT ID="FormalComment">/** 
+<A NAME="441"><A>    * to String with specified line terminator
+<A NAME="442"><A>    */</FONT>
+<A NAME="443"><A>  <FONT ID="Public">public</FONT> String toString(String nl){
+<A NAME="444"><A>    StringBuffer buf = <FONT ID="New">new</FONT> StringBuffer();
+<A NAME="445"><A>    buf.append( getPKey () );
+<A NAME="446"><A>    buf.append(nl);
+<A NAME="447"><A>    buf.append( getBooleanType () );
+<A NAME="448"><A>    buf.append(nl);
+<A NAME="449"><A>    buf.append( getByteType () );
+<A NAME="450"><A>    buf.append(nl);
+<A NAME="451"><A>    buf.append( getCharType () );
+<A NAME="452"><A>    buf.append(nl);
+<A NAME="453"><A>    buf.append( getShortType () );
+<A NAME="454"><A>    buf.append(nl);
+<A NAME="455"><A>    buf.append( getIntType () );
+<A NAME="456"><A>    buf.append(nl);
+<A NAME="457"><A>    buf.append( getLongType () );
+<A NAME="458"><A>    buf.append(nl);
+<A NAME="459"><A>    buf.append( getFloatType () );
+<A NAME="460"><A>    buf.append(nl);
+<A NAME="461"><A>    buf.append( getDoubleType () );
+<A NAME="462"><A>    buf.append(nl);
+<A NAME="463"><A>    buf.append( getDecimalType () );
+<A NAME="464"><A>    buf.append(nl);
+<A NAME="465"><A>    buf.append( getStringType () );
+<A NAME="466"><A>    buf.append(nl);
+<A NAME="467"><A>    buf.append( getTextType () );
+<A NAME="468"><A>    buf.append(nl);
+<A NAME="469"><A>    buf.append( getDateType () );
+<A NAME="470"><A>    buf.append(nl);
+<A NAME="471"><A>    buf.append( getTimeType () );
+<A NAME="472"><A>    buf.append(nl);
+<A NAME="473"><A>    buf.append( getTimestampType () );
+<A NAME="474"><A>    buf.append(nl);
+<A NAME="475"><A>    buf.append( getTcn () );
+<A NAME="476"><A>    buf.append(nl);
+<A NAME="477"><A>    <FONT ID="Return">return</FONT> buf.toString();
+<A NAME="478"><A>  }
+<A NAME="479"><A> 
+<A NAME="480"><A>}
+<A NAME="481"><A>
+<A NAME="482"><A>
+<A NAME="483"><A>
+<A NAME="484"><A>
+<A NAME="485"><A></pre><TABLE id="Header" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" width="33%" ><p align="left">&nbsp;</p>
+</td>
+<td align="center" colspan="2" width="33%" </td>
+<p align="center"><font size="4">TypeBean</font></p>
+</td>
+<td align="right" colspan="2" width="33%">
+<p align="right"><font size="3">&nbsp;</font></p>
+</td>
+</tr>
+</TABLE>
+
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+
+</HTML>

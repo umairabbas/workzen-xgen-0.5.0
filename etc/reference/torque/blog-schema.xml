@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE database SYSTEM
+ "http://db.apache.org/torque/dtd/database_3_1.dtd">
+
+<database name="test" defaultIdMethod="">
+
+ <table name="e_blog">
+    <column name="blog_id"        	 required="true" type="INTEGER" primaryKey="true"/>
+    <column name="blog_parent_id"    required="true" type="INTEGER"/>
+    <column name="blog_category_id"  required="true" type="INTEGER"/>
+    <column name="blog_author"    	 required="true" type="VARCHAR" size="30"/>
+    <column name="blog_publish_date" required="true" type="TIMESTAMP" size="30"/>
+    <column name="blog_title"        required="true" type="VARCHAR" size="100"/>        
+    <column name="blog_text"         required="true" type="CLOB"/>            
+    <foreign-key foreignTable="e_blog">
+      <reference local="blog_parent_id" foreign="blog_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="e_blog_category">
+      <reference local="blog_category_id" foreign="blog_category_id"/>
+    </foreign-key>                        
+ </table>
+ 
+ <table name="e_blog_category">
+    <column name="blog_category_id"   required="true" type="INTEGER" primaryKey="true"/>
+    <column name="blog_category_name" required="true" type="VARCHAR" size="30"/>                        
+ </table>
+
+</database>

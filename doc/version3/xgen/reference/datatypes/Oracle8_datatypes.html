@@ -1,0 +1,2741 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Datatypes</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=DefaultSingle name=NewFiles>
+<META content=Datatypes name=Title><LINK title=Library href="../../index.htm" 
+rel=home <LINK><LINK title=Index href="index.htm" rel=index><LINK 
+title=Copyright href="../../dcommon/html/cpyr.htm" rel=copyright><LINK title=Up 
+href="datatype.htm" rel=up><LINK title=Next href="sql_proc.htm" rel=next><LINK 
+title=Previous href="basics.htm" rel=previous></HEAD>
+<BODY bgColor=#ffffff><A name=top></A>
+<TABLE cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=left><FONT face="Helvetica, Arial, sans-serif" 
+      color=#330099><B>Oracle Call Interface Programmer's Guide, Volumes 1 &amp; 
+      2<BR>Release 8.0</B><BR>A58234-01</FONT></B></TD>
+    <TD vAlign=bottom align=right>
+      <TABLE cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/index.htm"><IMG height=30 alt="" 
+            src="datatype_files/prodicon.gif" width=30 border=0><BR><FONT 
+            size=-2>Library</FONT></A></TD>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/appdev.804/index.htm"><IMG height=30 
+            alt="" src="datatype_files/bookicon.gif" width=30 border=0><BR><FONT 
+            size=-2>Product</FONT></A></TD>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/appdev.804/a58234/toc.htm"><IMG height=30 
+            alt="" src="datatype_files/conticon.gif" width=30 border=0><BR><FONT 
+            size=-2>Contents</FONT></A></TD>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/appdev.804/a58234/index.htm"><IMG 
+            height=30 alt="" src="datatype_files/indxicon.gif" width=30 
+            border=0><BR><FONT 
+  size=-2>Index</FONT></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<HR>
+
+<P><A href="file:///C:/orant/doc/appdev.804/a58234/basics.htm"><IMG height=30 
+alt=Prev src="datatype_files/larrow.gif" width=30 border=0></A> <A 
+href="file:///C:/orant/doc/appdev.804/a58234/sql_proc.htm"><IMG height=30 
+alt=Next src="datatype_files/rarrow.gif" width=30 border=0></A> 
+<DIV class=IND><!-- End Header --><A name=421685></A><!--TOC=Title-"421685"-->
+<H1 class=Title><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>3<BR>Datatypes</FONT></H1><!--/TOC=Title--><A name=422311></A>
+<P class=BP>This chapter provides a reference to Oracle external datatypes used 
+by OCI applications. It also provides a general discussion of Oracle datatypes, 
+including special datatypes new to Release 8.0. The information in this chapter 
+is useful for understanding the conversions between internal and external 
+representations that occur when you transfer data between your program and 
+Oracle. </P><A name=423722></A>
+<P class=BP>For detailed information about Oracle internal datatypes, see the <A 
+href="file:///C:/orant/doc/database.804/a58225/toc.htm">Oracle8 SQL Reference<EM 
+class=Italic></A></EM>. </P><A name=421749></A>
+<P class=BP>This chapter contains the following sections: </P>
+<UL class=LB1>
+  <LI class=LB1 type=DISC><A name=423679></A><A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421756">Oracle 
+  Datatypes</A> 
+  <LI class=LB1 type=DISC><A name=423707></A><A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421773">Internal 
+  Datatypes</A> 
+  <LI class=LB1 type=DISC><A name=423680></A><A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421821">External 
+  Datatypes</A> 
+  <LI class=LB1 type=DISC><A name=423681></A><A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#428503">New OCI 8.0 
+  External Datatypes</A> 
+  <LI class=LB1 type=DISC><A name=423682></A><A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#426449">Data 
+  Conversions</A> 
+  <LI class=LB1 type=DISC><A name=429898></A><A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#432033">Typecodes</A> 
+
+  <LI class=LB1 type=DISC><A name=427608></A><A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#429536">Definitions 
+  in oratypes.h</A> </LI></UL><A name=421756></A><!--TOC=h1-"421756"-->
+<H2 class=H1><FONT face="Helvetica, Arial, sans-serif" color=#330099>Oracle 
+Datatypes</FONT></H2><!--/TOC=h1--><A name=422269></A>
+<P class=BP>One of the main functions of an OCI program is to communicate with a 
+database through an Oracle server. The OCI application may retrieve data from 
+database tables through SQL SELECT queries, or it may modify existing data in 
+tables through INSERTs, UPDATEs, or DELETEs. </P><A name=422281></A>
+<P class=BP>Inside a database, values are stored in columns in tables. 
+Internally, Oracle represents data in particular formats known as <EM 
+class=Italic>internal datatypes</EM>. Examples of internal datatypes include 
+NUMBER, CHAR, and DATE. </P><A name=422282></A>
+<P class=BP>In general, OCI applications do not work with internal datatype 
+representations of data. OCI applications work with host language datatypes 
+which are predefined by the language in which they are written. When data is 
+transferred between an OCI client application and a database table, the OCI 
+libraries convert the data between internal datatypes and <EM 
+class=Italic>external datatypes</EM>. </P><A name=422296></A>
+<P class=BP>External datatypes are host language types that have been defined in 
+the OCI header files. When an OCI application binds input variables, one of the 
+bind parameters is an indication of the external datatype code (or <EM 
+class=Italic>SQLT code</EM>) of the variable. Similarly, when output variables 
+are specified in a define call, the external representation of the retrieved 
+data must be specified. </P><A name=422310></A>
+<P class=BP>In some cases, external datatypes are similar to internal types. 
+External types provide a convenience for the programmer by making it possible to 
+work with host language types instead of proprietary data formats. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=422297></A>
+  <P class=BP1><STRONG class=Bold>Note: </STRONG>Even though some external types 
+  are similar to internal types, an OCI application never binds to internal 
+  datatypes. They are discussed here because it can be useful to understand how 
+  internal types can map to external types. </P></DD></DL><A name=422287></A>
+<P class=BP>The OCI is capable of performing a wide range of datatype 
+conversions when transferring data between Oracle and an OCI application. There 
+are more OCI external datatypes than Oracle internal datatypes. In some cases a 
+single external type maps to an internal type; in other cases multiple external 
+types map to an single internal type. </P><A name=423733></A>
+<P class=BP>The many-to-one mappings for some datatypes provide flexibility for 
+the OCI programmer.For example, if you are processing the SQL statement </P><PRE class=CE><A name=421761></A>SELECT sal FROM emp WHERE empno = :employee_number
+<A name=431451></A>
+</PRE><A name=421762></A>
+<P class=BP>and you want the salary to come back as character data, rather than 
+in a binary floating-point format, specify an Oracle external string datatype, 
+such as VARCHAR2 (code = 1) or CHAR (code = 96) for the <EM 
+class=Italic>dty</EM> parameter in the <EM class=Italic>OCIDefineByPos()</EM> 
+call for the <CODE>sal</CODE> column. You also need to declare a string variable 
+in your program and specify its address in the <EM class=Italic>valuep</EM> 
+parameter. </P><A name=421763></A>
+<P class=BP>If you want the salary information to be returned as a binary 
+floating-point value, however, specify the FLOAT (code = 4) external datatype. 
+You also need to define a variable of the appropriate type for the <EM 
+class=Italic>valuep</EM> parameter. </P><A name=421764></A>
+<P class=BP>Oracle performs most data conversions transparently. The ability to 
+specify almost any external datatype provides a lot of power for performing 
+specialized tasks. For example, you can input and output DATE values in pure 
+binary format, with no character conversion involved, by using the DATE external 
+datatype (code = 12). See the description of the DATE external datatype on page 
+<A href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421890">3 - 14</A> 
+for more information. </P><A name=421765></A>
+<P class=BP>To control data conversion, you must use the appropriate external 
+datatype codes in the bind and define routines. You must tell Oracle where the 
+input or output variables are in your OCI program and their datatypes and 
+lengths. </P><A name=429970></A>
+<P class=BP>The Oracle8 OCI also supports an additional set of OCI typecodes 
+which are used by Oracle8's type management system to represent datatypes of 
+object type attributes. There is a set of predefined constants which can be used 
+to represent these typecodes. The constants each contain the prefix 
+"OCI_TYPECODE". </P><A name=429991></A>
+<P class=BP>In summary, the OCI programmer must be aware of the following 
+different datatypes or data representations: </P>
+<UL class=LB1>
+  <LI class=LB1 type=DISC><A name=429992></A>Internal Oracle datatypes, which 
+  are used by table columns in an Oracle database. These also include datatypes 
+  used by PL/SQL which are not used by Oracle columns (e.g., indexed table, 
+  boolean, record). For more information, see <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421773">"Internal 
+  Datatypes" on page 3-5</A> and <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421766">"Internal 
+  Datatype Codes" on page 3-4</A>. 
+  <LI class=LB1 type=DISC><A name=429996></A>External OCI datatypes, which are 
+  used to specify host language representations of Oracle data. For more 
+  information, see <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421821">"External 
+  Datatypes" on page 3-7</A>, and <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421768">"External 
+  Datatype Codes" on page 3-4</A>. 
+  <LI class=LB1 type=DISC><A name=429997></A>OCI_TYPECODE values, which are used 
+  to Oracle to represent type information for object type attributes. For more 
+  information, see <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#432033">"Typecodes" 
+  on page 3-24</A>, and <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#429694">"Relationship 
+  Between SQLT and OCI_TYPECODE Values" on page 3-25</A>. </LI></UL><A 
+name=421766></A><!--TOC=h2-"421766"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>Internal 
+Datatype Codes</FONT></H3><!--/TOC=h2--><A name=422531></A>
+<P class=BP>In some circumstances, an OCI application needs to know the internal 
+representation of Oracle data. For example, you many need to know the datatype 
+of a column in a dynamic SQL query so that you can define output variables to 
+received the fetched data. After executing the query, you can use a combination 
+of the <EM class=Italic>OCIParamGet()</EM> and <EM 
+class=Italic>OCIAttrGet()</EM> functions to obtain describe information about 
+select-list items from the statement handle. You can get the same information 
+from a describe handle without executing the statement by calling <EM 
+class=Italic>OCIDescribeAny()</EM>, and then the combination of <EM 
+class=Italic>OCIParamGet()</EM> and <EM class=Italic>OCIAttrGet()</EM>. </P><A 
+name=422532></A>
+<P class=BP>Information about a column's internal datatype is conveyed to your 
+application in the form of an internal datatype code. Once your application 
+knows what type of data will be returned, it can make appropriate decisions 
+about how to convert and format the output data. The Oracle internal datatype 
+codes are listed in the section <A 
+href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421773">"Internal 
+Datatypes" on page 3-5</A>. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=423760></A>
+  <P class=BP1><STRONG class=Bold>See Also:</STRONG> For detailed information 
+  about Oracle internal datatypes, see the <A 
+  href="file:///C:/orant/doc/database.804/a58225/toc.htm">Oracle8 SQL 
+  Reference<EM class=Italic></A></EM>. For information about describing 
+  select-list items in a query, see the section <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/sql_proc.htm#441219">"Describing 
+  Select-List Items" on page 4-8</A>. </P></DD></DL><A name=421768></A><!--TOC=h2-"421768"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>External 
+Datatype Codes</FONT></H3><!--/TOC=h2--><A name=421769></A>
+<P class=BP>An external datatype code indicates to Oracle how a host variable 
+represents data in your program. This determines how the data is converted when 
+returned to output variables in your program, or how it is converted from input 
+(bind) variables to Oracle column values. For example, if you want to convert a 
+NUMBER in an Oracle column to a variable-length character array, you specify the 
+VARCHAR2 external datatype code in the <EM class=Italic>OCIDefineByPos() 
+</EM>call that defines the output variable. </P><A name=421770></A>
+<P class=BP>To convert a bind variable to a value in an Oracle column, specify 
+the external datatype code that corresponds to the type of the bind variable. 
+For example, if you want to input a character string such as `02-FEB-65' to a 
+DATE column, specify the datatype as a character string and set the length 
+parameter to nine. </P><A name=421771></A>
+<P class=BP>It is always the programmer's responsibility to make sure that 
+values are convertible. If you try to INSERT the string `MY BIRTHDAY' into a 
+DATE column, you will get an error when you execute the statement. </P><A 
+name=421772></A>
+<P class=BP>For a complete list of the external datatypes and datatype codes, 
+see <A href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#423119">Table 
+3-2 on page 3-7</A>. </P><A name=421773></A><!--TOC=h1-"421773"-->
+<H2 class=H1><FONT face="Helvetica, Arial, sans-serif" color=#330099>Internal 
+Datatypes</FONT></H2><!--/TOC=h1--><A name=422324></A>
+<P class=BP>The following table lists the Oracle internal datatypes, along with 
+each type's maximum internal length and datatype code. 
+<H5 class=Formal><FONT face=Helvetica,Arial,sans-serif><EM><A 
+name=422443></A><STRONG><FONT face=Arial,Helvetica,sans-serif><EM>Table 3-1 
+<STRONG class=Bold><EM class=Italic>Internal Oracle Datatypes 
+</EM></STRONG></EM></FONT></STRONG></EM></FONT></H5>
+<TABLE class=Formal cellSpacing=0 cellPadding=3 width="100%" border=1>
+  <TBODY>
+  <TR class=Formal>
+    <TH class=Formal vAlign=bottom align=left><A name=422383></A><FONT 
+      face="Helvetica, Arial, sans-serif">Internal Oracle Datatype</FONT> 
+    &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422385></A><FONT 
+      face="Helvetica, Arial, sans-serif">Maximum Internal Length</FONT> 
+    &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422387></A><FONT 
+      face="Helvetica, Arial, sans-serif">Datatype Code</FONT> &nbsp;</TH></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422389></A>
+      <P class=TB>VARCHAR2 &nbsp;</P></TD>
+    <TD class=Formal><A name=422391></A>
+      <P class=TB>4000 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422393></A>
+      <P class=TB>1 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422395></A>
+      <P class=TB>NUMBER &nbsp;</P></TD>
+    <TD class=Formal><A name=422397></A>
+      <P class=TB>21 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422399></A>
+      <P class=TB>2 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422401></A>
+      <P class=TB>LONG &nbsp;</P></TD>
+    <TD class=Formal><A name=422403></A>
+      <P class=TB>2^31-1 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422405></A>
+      <P class=TB>8 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422407></A>
+      <P class=TB>ROWID &nbsp;</P></TD>
+    <TD class=Formal><A name=422409></A>
+      <P class=TB>10 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422411></A>
+      <P class=TB>11 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422413></A>
+      <P class=TB>DATE &nbsp;</P></TD>
+    <TD class=Formal><A name=422415></A>
+      <P class=TB>7 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422417></A>
+      <P class=TB>12 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422419></A>
+      <P class=TB>RAW &nbsp;</P></TD>
+    <TD class=Formal><A name=422421></A>
+      <P class=TB>2000 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422423></A>
+      <P class=TB>23 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422425></A>
+      <P class=TB>LONG RAW &nbsp;</P></TD>
+    <TD class=Formal><A name=422427></A>
+      <P class=TB>2^31-1 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422429></A>
+      <P class=TB>24 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422431></A>
+      <P class=TB>CHAR &nbsp;</P></TD>
+    <TD class=Formal><A name=422433></A>
+      <P class=TB>2000 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422435></A>
+      <P class=TB>96 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422437></A>
+      <P class=TB>MLSLABEL &nbsp;</P></TD>
+    <TD class=Formal><A name=422439></A>
+      <P class=TB>255 bytes &nbsp;</P></TD>
+    <TD class=Formal><A name=422441></A>
+      <P class=TB>105 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=425973></A>
+      <P class=TB>User-defined type (object type, VARRAY, Nested Table) 
+      &nbsp;</P></TD>
+    <TD class=Formal><A name=425975></A>
+      <P class=TB>&lt;N/A&gt; &nbsp;</P></TD>
+    <TD class=Formal><A name=425977></A>
+      <P class=TB>108 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423776></A>
+      <P class=TB>REF &nbsp;</P></TD>
+    <TD class=Formal><A name=423778></A>
+      <P class=TB>&lt;N/A&gt; &nbsp;</P></TD>
+    <TD class=Formal><A name=423780></A>
+      <P class=TB>111 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423782></A>
+      <P class=TB>CLOB &nbsp;</P></TD>
+    <TD class=Formal><A name=423784></A>
+      <P class=TB>&lt;N/A&gt; &nbsp;</P></TD>
+    <TD class=Formal><A name=423786></A>
+      <P class=TB>112 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423788></A>
+      <P class=TB>BLOB &nbsp;</P></TD>
+    <TD class=Formal><A name=423790></A>
+      <P class=TB>&lt;N/A&gt; &nbsp;</P></TD>
+    <TD class=Formal><A name=423792></A>
+      <P class=TB>113 &nbsp;</P></TD></TR></TBODY></TABLE>
+<TABLE class=TableNote cellSpacing=0 cellPadding=3 width="100%">
+  <TBODY>
+  <TR class=TableNote vAlign=top align=left>
+    <TD class=TableNote></TD></TR></TBODY></TABLE>
+<P></P><A name=431465></A>
+<P class=BP>For more information about any of these internal datatypes, see 
+the<A href="file:///C:/orant/doc/database.804/a58225/toc.htm"> Oracle8 SQL 
+Reference</A>. The following sections provide OCI-specific information about 
+these datatypes. </P><A name=424804></A><!--TOC=h2-"424804"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>LONG, RAW, 
+LONG RAW, VARCHAR2</FONT></H3><!--/TOC=h2--><A name=421787></A>
+<P class=BP>You can use the piecewise capabilities provided by <EM 
+class=Italic>OCIBindByName()</EM>, <EM class=Italic>OCIBindByPos(), 
+OCIDefineByPos(), OCIStmtGetPieceInfo()</EM> and <EM 
+class=Italic>OCIStmtSetPieceInfo()</EM> to perform inserts, updates or fetches 
+involving column data of these types. </P><A name=421810></A><!--TOC=h2-"421810"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>Character 
+Strings and Byte Arrays</FONT></H3><!--/TOC=h2--><A name=421811></A>
+<P class=BP>You can use five Oracle internal datatypes to specify columns that 
+contain characters or arrays of bytes: CHAR, VARCHAR2, RAW, LONG, and LONG RAW. 
+</P>
+<DL class=BP1>
+  <DD class=BP1><A name=424829></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> LOBs and FILEs may also contain 
+  characters or binary data. They are handled differently than other types, so 
+  they are not included in this discussion. See the section <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/new_adva.htm#420699">"LOB and 
+  FILE Operations" on page 7-24</A> for more information about these data types. 
+  </P></DD></DL><A name=421812></A>
+<P class=BP>CHAR, VARCHAR2, and LONG columns normally hold character data. RAW 
+and LONG RAW hold bytes that are not interpreted as characters, for example, 
+pixel values in a bit-mapped graphics image. Character data can be transformed 
+when passed through a gateway between networks. For example, character data 
+passed between machines using different languages (where single characters may 
+be represented by differing numbers of bytes) can be significantly changed in 
+length. Raw data is never converted in this way. </P><A name=421813></A>
+<P class=BP>It is the responsibility of the database designer to choose the 
+appropriate Oracle internal datatype for each column in the table. The OCI 
+programmer must be aware of the many possible ways that character and byte-array 
+data can be represented and converted between variables in the OCI program and 
+Oracle tables. </P><A name=421814></A>
+<P class=BP>When an array holds characters, the length parameter for the array 
+in an OCI call is always passed in and returned in bytes, not characters. </P><A 
+name=421821></A><!--TOC=h1-"421821"-->
+<H2 class=H1><FONT face="Helvetica, Arial, sans-serif" color=#330099>External 
+Datatypes</FONT></H2><!--/TOC=h1--><A name=421822></A>
+<P class=BP><A 
+href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#423119">Table 3-2</A> 
+lists datatype codes for external datatypes. For each datatype, the table lists 
+the program variable types for C from or to which Oracle internal data is 
+normally converted. 
+<H5 class=FormalW><FONT face=Helvetica,Arial,sans-serif><EM><A 
+name=423119></A><STRONG><FONT face=Arial,Helvetica,sans-serif><EM>Table 3-2 
+External Datatypes and Codes </EM></FONT></STRONG></EM></FONT></H5>
+<TABLE class=FormalW cellSpacing=0 cellPadding=3 width="100%" border=1>
+  <TBODY>
+  <TR class=FormalW>
+    <TH class=FormalW vAlign=bottom colSpan=2><A name=422927></A><FONT 
+      face="Helvetica, Arial, sans-serif">EXTERNAL DATATYPE</FONT> &nbsp;</TH>
+    <TH class=FormalW vAlign=bottom rowSpan=2><A name=422931></A><FONT 
+      face="Helvetica, Arial, sans-serif">TYPE OF PROGRAM VARIABLE</FONT> 
+    &nbsp;</TH>
+    <TH class=FormalW vAlign=bottom rowSpan=2><A name=426865></A><FONT 
+      face="Helvetica, Arial, sans-serif">OCI DEFINED CONSTANT</FONT> 
+  &nbsp;</TH></TR>
+  <TR class=FormalW>
+    <TH class=FormalW vAlign=bottom align=left><A name=422933></A><FONT 
+      face="Helvetica, Arial, sans-serif">NAME</FONT> &nbsp;</TH>
+    <TH class=FormalW vAlign=bottom align=left><A name=422935></A><FONT 
+      face="Helvetica, Arial, sans-serif">CODE</FONT> &nbsp;</TH></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422939></A>
+      <P class=TB>VARCHAR2 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422941></A>
+      <P class=TB>1 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422943></A>
+      <P class=TB>char[n] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426869></A>
+      <P class=TB>SQLT_CHR &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422945></A>
+      <P class=TB>NUMBER &nbsp;</P></TD>
+    <TD class=FormalW><A name=422947></A>
+      <P class=TB>2 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422949></A>
+      <P class=TB>unsigned char[21] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426871></A>
+      <P class=TB>SQLT_NUM &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422951></A>
+      <P class=TB>8-bit signed INTEGER &nbsp;</P></TD>
+    <TD class=FormalW><A name=422953></A>
+      <P class=TB>3 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422955></A>
+      <P class=TB>signed char &nbsp;</P></TD>
+    <TD class=FormalW><A name=426873></A>
+      <P class=TB>SQLT_INT &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422957></A>
+      <P class=TB>16-bit signed INTEGER &nbsp;</P></TD>
+    <TD class=FormalW><A name=422959></A>
+      <P class=TB>3 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422961></A>
+      <P class=TB>signed short, signed int &nbsp;</P></TD>
+    <TD class=FormalW><A name=426875></A>
+      <P class=TB>SQLT_INT &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422963></A>
+      <P class=TB>32-bit signed INTEGER &nbsp;</P></TD>
+    <TD class=FormalW><A name=422965></A>
+      <P class=TB>3 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422967></A>
+      <P class=TB>signed int, signed long &nbsp;</P></TD>
+    <TD class=FormalW><A name=426877></A>
+      <P class=TB>SQLT_INT &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422969></A>
+      <P class=TB>FLOAT &nbsp;</P></TD>
+    <TD class=FormalW><A name=422971></A>
+      <P class=TB>4 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422973></A>
+      <P class=TB>float, double &nbsp;</P></TD>
+    <TD class=FormalW><A name=426879></A>
+      <P class=TB>SQLT_FLT &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422975></A>
+      <P class=TB>Null-terminated STRING &nbsp;</P></TD>
+    <TD class=FormalW><A name=422977></A>
+      <P class=TB>5 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422979></A>
+      <P class=TB>char[n+1] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426881></A>
+      <P class=TB>SQLT_STR &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422981></A>
+      <P class=TB>VARNUM &nbsp;</P></TD>
+    <TD class=FormalW><A name=422983></A>
+      <P class=TB>6 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422985></A>
+      <P class=TB>char[22] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426883></A>
+      <P class=TB>SQLT_VNU &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422987></A>
+      <P class=TB>LONG &nbsp;</P></TD>
+    <TD class=FormalW><A name=422989></A>
+      <P class=TB>8 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422991></A>
+      <P class=TB>char[n] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426885></A>
+      <P class=TB>SQLT_LNG &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422993></A>
+      <P class=TB>VARCHAR &nbsp;</P></TD>
+    <TD class=FormalW><A name=422995></A>
+      <P class=TB>9 &nbsp;</P></TD>
+    <TD class=FormalW><A name=422997></A>
+      <P class=TB>char[n+sizeof(short integer)] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426887></A>
+      <P class=TB>SQLT_VCS &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=422999></A>
+      <P class=TB>ROWID &nbsp;</P></TD>
+    <TD class=FormalW><A name=423001></A>
+      <P class=TB>11 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423003></A>
+      <P class=TB>char[n] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426889></A>
+      <P class=TB>SQLT_RID (see note 1) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423005></A>
+      <P class=TB>DATE &nbsp;</P></TD>
+    <TD class=FormalW><A name=423007></A>
+      <P class=TB>12 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423009></A>
+      <P class=TB>char[7] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426891></A>
+      <P class=TB>SQLT_DAT &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423011></A>
+      <P class=TB>VARRAW &nbsp;</P></TD>
+    <TD class=FormalW><A name=423013></A>
+      <P class=TB>15 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423015></A>
+      <P class=TB>unsigned char[n+sizeof(short integer)] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426893></A>
+      <P class=TB>SQLT_VBI &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423017></A>
+      <P class=TB>RAW &nbsp;</P></TD>
+    <TD class=FormalW><A name=423019></A>
+      <P class=TB>23 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423021></A>
+      <P class=TB>unsigned char[n] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426895></A>
+      <P class=TB>SQLT_BIN &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423023></A>
+      <P class=TB>LONG RAW &nbsp;</P></TD>
+    <TD class=FormalW><A name=423025></A>
+      <P class=TB>24 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423027></A>
+      <P class=TB>unsigned char[n] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426897></A>
+      <P class=TB>SQLT_LBI &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423029></A>
+      <P class=TB>UNSIGNED INT &nbsp;</P></TD>
+    <TD class=FormalW><A name=423031></A>
+      <P class=TB>68 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423033></A>
+      <P class=TB>unsigned &nbsp;</P></TD>
+    <TD class=FormalW><A name=426899></A>
+      <P class=TB>SQLT_UIN &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423041></A>
+      <P class=TB>LONG VARCHAR &nbsp;</P></TD>
+    <TD class=FormalW><A name=423043></A>
+      <P class=TB>94 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423045></A>
+      <P class=TB>char[n+sizeof(integer)] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426901></A>
+      <P class=TB>SQLT_LVC &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423047></A>
+      <P class=TB>LONG VARRAW &nbsp;</P></TD>
+    <TD class=FormalW><A name=423049></A>
+      <P class=TB>95 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423051></A>
+      <P class=TB>unsigned char[n+sizeof(integer)] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426903></A>
+      <P class=TB>SQLT_LVB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423053></A>
+      <P class=TB>CHAR &nbsp;</P></TD>
+    <TD class=FormalW><A name=423055></A>
+      <P class=TB>96 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423057></A>
+      <P class=TB>char[n] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426905></A>
+      <P class=TB>SQLT_AFC &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423059></A>
+      <P class=TB>CHARZ &nbsp;</P></TD>
+    <TD class=FormalW><A name=423061></A>
+      <P class=TB>97 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423063></A>
+      <P class=TB>char[n+1] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426907></A>
+      <P class=TB>SQLT_AVC &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=426836></A>
+      <P class=TB>ROWID descriptor &nbsp;</P></TD>
+    <TD class=FormalW><A name=426838></A>
+      <P class=TB>104 &nbsp;</P></TD>
+    <TD class=FormalW><A name=426840></A>
+      <P class=TB>OCIRowid &nbsp;</P></TD>
+    <TD class=FormalW><A name=426909></A>
+      <P class=TB>SQLT_RDD &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423071></A>
+      <P class=TB>MLSLABEL &nbsp;</P></TD>
+    <TD class=FormalW><A name=423073></A>
+      <P class=TB>106 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423075></A>
+      <P class=TB>char[n] &nbsp;</P></TD>
+    <TD class=FormalW><A name=426911></A>
+      <P class=TB>SQLT_LAB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423077></A>
+      <P class=TB>NAMED DATA TYPE &nbsp;</P></TD>
+    <TD class=FormalW><A name=423079></A>
+      <P class=TB>108 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423081></A>
+      <P class=TB>struct &nbsp;</P></TD>
+    <TD class=FormalW><A name=426913></A>
+      <P class=TB>SQLT_NTY &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423089></A>
+      <P class=TB>REF &nbsp;</P></TD>
+    <TD class=FormalW><A name=423091></A>
+      <P class=TB>110 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423093></A>
+      <P class=TB>OCIRef &nbsp;</P></TD>
+    <TD class=FormalW><A name=426917></A>
+      <P class=TB>SQLT_REF &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423101></A>
+      <P class=TB>Character LOB &nbsp;</P></TD>
+    <TD class=FormalW><A name=423103></A>
+      <P class=TB>112 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423105></A>
+      <P class=TB>OCILobLocator (see note 3) &nbsp;</P></TD>
+    <TD class=FormalW><A name=426921></A>
+      <P class=TB>SQLT_CLOB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423107></A>
+      <P class=TB>Binary LOB &nbsp;</P></TD>
+    <TD class=FormalW><A name=423109></A>
+      <P class=TB>113 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423111></A>
+      <P class=TB>OCILobLocator (see note 3) &nbsp;</P></TD>
+    <TD class=FormalW><A name=426923></A>
+      <P class=TB>SQLT_BLOB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=423113></A>
+      <P class=TB>Binary FILE &nbsp;</P></TD>
+    <TD class=FormalW><A name=423115></A>
+      <P class=TB>114 &nbsp;</P></TD>
+    <TD class=FormalW><A name=423117></A>
+      <P class=TB>OCILobLocator &nbsp;</P></TD>
+    <TD class=FormalW><A name=426925></A>
+      <P class=TB>SQLT_FILE &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=427020></A>
+      <P class=TB>OCI string type &nbsp;</P></TD>
+    <TD class=FormalW><A name=427022></A>
+      <P class=TB>155 &nbsp;</P></TD>
+    <TD class=FormalW><A name=427024></A>
+      <P class=TB>OCIString &nbsp;</P></TD>
+    <TD class=FormalW><A name=427026></A>
+      <P class=TB>SQLT_VST (see note 2) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=427028></A>
+      <P class=TB>OCI date type &nbsp;</P></TD>
+    <TD class=FormalW><A name=427030></A>
+      <P class=TB>156 &nbsp;</P></TD>
+    <TD class=FormalW><A name=427032></A>
+      <P class=TB>OCIDate &nbsp;</P></TD>
+    <TD class=FormalW><A name=427034></A>
+      <P class=TB>SQLT_ODT (see note 2) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW colSpan=4><A name=427057></A>
+      <P class=TB>Notes: <A name=427064></A>
+      <P class=TB>(1) This type is valid only for version 7.x OCI calls. Oracle8 
+      OCI applications should use the ROWID descriptor (type 104). <A 
+      name=427065></A>
+      <P class=TB>(2) For more information on the use of these datatypes, refer 
+      to <A 
+      href="file:///C:/orant/doc/appdev.804/a58234/obj_data.htm#420046">Chapter 
+      9, "Object-Relational Datatypes"</A>. <A name=427071></A>
+      <P class=TB>(3) In applications using datatype mappings generated by OTT, 
+      CLOBs may be mapped as OCIClobLocator, and BLOBs may be mapped as 
+      OCIBlobLocator. For more information, refer to <A 
+      href="file:///C:/orant/doc/appdev.804/a58234/ott.htm#428940">Chapter 12, 
+      "Using the Object Type Translator"</A>. &nbsp;</P></TD></TR></TBODY></TABLE>
+<TABLE class=TableNote cellSpacing=0 cellPadding=3 width="100%">
+  <TBODY>
+  <TR class=TableNote vAlign=top align=left>
+    <TD class=TableNote></TD></TR></TBODY></TABLE>
+<P></P>
+<DL class=BP1>
+  <DD class=BP1><A name=424979></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> Where the length is shown as 
+  <EM class=Italic>n</EM>, it is a variable, and depends on the requirements of 
+  the program (or of the operating system in the case of ROWID). </P></DD></DL><A 
+name=421826></A>
+<P class=BP>Each of the external datatypes is described below. Datatypes that 
+are new as of release 8.0 are described in the section <A 
+href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#428503">"New OCI 8.0 
+External Datatypes" on page 3-18</A>. </P><A name=430078></A>
+<P class=BP>The following three types are internal to PL/SQL and cannot be 
+returned as values by OCI: </P>
+<UL class=LB1>
+  <LI class=LB1 type=DISC><A name=430079></A>Boolean, SQLT_BOL 
+  <LI class=LB1 type=DISC><A name=430080></A>Indexed Table, SQLT_TAB 
+  <LI class=LB1 type=DISC><A name=430081></A>Record, SQLT_REC </LI></UL><A 
+name=421827></A><!--TOC=h2-"421827"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>VARCHAR2</FONT></H3><!--/TOC=h2--><A name=421828></A>
+<P class=BP>The VARCHAR2 datatype is a variable-length string of characters with 
+a maximum length of 4000 bytes. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=426557></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> If you are using Oracle8 
+  objects, you can work with a special <STRONG class=Bold>OCIString</STRONG> 
+  external datatype using a set of predefined OCI functions. Refer to <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/obj_data.htm#420046">Chapter 9, 
+  "Object-Relational Datatypes"</A> for more information about this datatype. 
+  </P></DD></DL><A name=421829></A><!--TOC=h3-"421829"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Input</FONT></H4><!--/TOC=h3--><A name=421830></A>
+<P class=BP>The <EM class=Italic>value_sz </EM>parameter determines the length 
+in the <EM class=Italic>OCIBindByName()</EM> or <EM 
+class=Italic>OCIBindByPos()</EM> call. </P><A name=421831></A>
+<P class=BP>If the <EM class=Italic>value_sz </EM>parameter is greater than 
+zero, Oracle obtains the bind variable value by reading exactly that many bytes, 
+starting at the buffer address in your program. Trailing blanks are stripped, 
+and the resulting value is used in the SQL statement or PL/SQL block. If, in the 
+case of an INSERT statement, the resulting value is longer than the defined 
+length of the database column, the INSERT fails, and an error is returned. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=421832></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> A trailing null is not 
+  stripped. Variables should be blank-padded but not null-terminated. 
+</P></DD></DL><A name=425488></A>
+<P class=BP>If the <EM class=Italic>value_sz</EM> parameter is zero, Oracle 
+treats the bind variable as a null, regardless of its actual content. Of course, 
+a null must be allowed for the bind variable value in the SQL statement. If you 
+try to insert a null into a column that has a NOT NULL integrity constraint, 
+Oracle issues an error, and the row is not inserted. </P><A name=421835></A>
+<P class=BP>When the Oracle internal (column) datatype is NUMBER, input from a 
+character string that contains the character representation of a number is 
+legal. Input character strings are converted to internal numeric format. If the 
+VARCHAR2 string contains an illegal conversion character, Oracle returns an 
+error and the value is not inserted into the database. </P><A name=421836></A><!--TOC=h3-"421836"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Output</FONT></H4><!--/TOC=h3--><A name=423856></A>
+<P class=BP>Specify the desired length for the return value in the <EM 
+class=Italic>value_sz </EM>parameter of the <EM class=Italic>OCIDefineByPos() 
+</EM>call, or the <EM class=Italic>value_sz </EM>parameter of <EM 
+class=Italic>OCIBindByName()</EM> or <EM class=Italic>OCIBindByPos()</EM> for 
+PL/SQL blocks. If zero is specified for the length, no data is returned. </P><A 
+name=425412></A>
+<P class=BP>If you omit the <EM class=Italic>rlenp </EM>parameter of <EM 
+class=Italic>OCIDefineByPos()</EM>, returned values are blank-padded to the 
+buffer length, and nulls are returned as a string of blank characters. If <EM 
+class=Italic>rlenp </EM>is included, returned values are not blank-padded. 
+Instead, their actual lengths are returned in the <EM class=Italic>rlenp</EM> 
+parameter. </P><A name=421839></A>
+<P class=BP>To check if a null is returned or if character truncation has 
+occurred, include an indicator parameter in the <EM 
+class=Italic>OCIDefineByPos() </EM>call. Oracle sets the indicator parameter to 
+-1 when a null is fetched and to the original column length when the returned 
+value is truncated. Otherwise, it is set to zero. If you do not specify an 
+indicator parameter and a null is selected, the fetch call returns the error 
+code OCI_SUCCESS_WITH_INFO. Retrieving diagnostic information on the error will 
+return ORA-1405. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=423863></A>
+  <P class=BP1><STRONG class=Bold>See Also:</STRONG> For more information about 
+  indicator variables, see the section <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/basics.htm#422173">"Indicator 
+  Variables" on page 2-29</A>. </P></DD></DL><A name=421841></A>
+<P class=BP><STRONG class=Bold></STRONG>You can also request output to a 
+character string from an internal NUMBER datatype. Number conversion follows the 
+conventions established by National Language Support for your system. For 
+example, your system might be configured to recognize a comma rather than period 
+as the decimal point. </P><A name=421847></A><!--TOC=h2-"421847"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>NUMBER</FONT></H3><!--/TOC=h2--><A name=421848></A>
+<P class=BP>You should not need to use NUMBER as an external datatype. If you do 
+use it, Oracle returns numeric values in its internal 21-byte binary format and 
+will expect this format on input. The following discussion is included for 
+completeness only. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=428454></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> If you are using objects in 
+  Oracle8, you can work with a special <STRONG class=Bold>OCINumber 
+  </STRONG>datatype using a set of predefined OCI functions. Refer to <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/obj_data.htm#420046">Chapter 9, 
+  "Object-Relational Datatypes"</A> for more information about this datatype. 
+  </P></DD></DL><A name=421849></A>
+<P class=BP>Oracle stores values of the NUMBER datatype in a variable-length 
+format. The first byte is the exponent and is followed by 1 to 20 mantissa 
+bytes. The high-order bit of the exponent byte is the sign bit; it is set for 
+positive numbers. The lower 7 bits represent the exponent, which is a base-100 
+digit with an offset of 65. </P><A name=421850></A>
+<P class=BP>Each mantissa byte is a base-100 digit, in the range 1..100. For 
+positive numbers, the digit has 1 added to it. So, the mantissa digit for the 
+value 5 is 6. For negative numbers, instead of adding 1, the digit is subtracted 
+from 101. So, the mantissa digit for the number -5 is 96 (101-5). Negative 
+numbers have a byte containing 102 appended to the data bytes. However, negative 
+numbers that have 20 mantissa bytes do not have the trailing 102 byte. Because 
+the mantissa digits are stored in base 100, each byte can represent 2 decimal 
+digits. The mantissa is normalized; leading zeroes are not stored. </P><A 
+name=421851></A>
+<P class=BP>Up to 20 data bytes can represent the mantissa. However, only 19 are 
+guaranteed to be accurate. The 19 data bytes, each representing a base-100 
+digit, yield a maximum precision of 38 digits for an Oracle NUMBER. </P><A 
+name=421852></A>
+<P class=BP>If you specify the datatype code 2 in the <EM class=Italic>dty 
+</EM>parameter of an <EM class=Italic>OCIDefineByPos() </EM>call, your program 
+receives numeric data in this Oracle internal format. The output variable should 
+be a 21-byte array to accommodate the largest possible number. Note that only 
+the bytes that represent the number are returned. There is no blank padding or 
+null termination. If you need to know the number of bytes returned, use the 
+VARNUM external datatype instead of NUMBER. See the description of VARNUM on <A 
+href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#421869"></A>for 
+examples of the Oracle internal number format. </P><A name=421853></A><!--TOC=h2-"421853"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>INTEGER</FONT></H3><!--/TOC=h2--><A name=421854></A>
+<P class=BP>The INTEGER datatype converts numbers. An external integer is a 
+signed binary number; the size in bytes is system dependent. The host system 
+architecture determines the order of the bytes in the variable. A length 
+specification is required for input and output. If the number being returned 
+from Oracle is not an integer, the fractional part is discarded, and no error or 
+other indication is returned. If the number to be returned exceeds the capacity 
+of a signed integer for the system, Oracle returns an "overflow on conversion" 
+error. </P><A name=421855></A><!--TOC=h2-"421855"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>FLOAT</FONT></H3><!--/TOC=h2--><A name=421856></A>
+<P class=BP>The FLOAT datatype processes numbers that have fractional parts or 
+that exceed the capacity of an integer. The number is represented in the host 
+system's floating-point format. Normally the length is either four or eight 
+bytes. The length specification is required for both input and output. </P><A 
+name=421857></A>
+<P class=BP>The internal format of an Oracle number is decimal, and most 
+floating-point implementations are binary; therefore Oracle can represent 
+numbers with greater precision than floating-point representations. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=421858></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> You may receive a round-off 
+  error when converting between FLOAT and NUMBER. Thus, using a FLOAT as a bind 
+  variable in a query may return an ORA-1403 error. You can avoid this situation 
+  by converting the FLOAT into a STRING and then using datatype code 1 or 5 for 
+  the operation. </P></DD></DL><A name=421859></A><!--TOC=h2-"421859"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>STRING</FONT></H3><!--/TOC=h2--><A name=421860></A>
+<P class=BP>The null-terminated STRING format behaves like the VARCHAR2 format 
+(datatype code 1), except that the string must contain a null terminator 
+character. This datatype is most useful for C programs. </P><A name=421861></A><!--TOC=h3-"421861"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Input</FONT></H4><!--/TOC=h3--><A name=421862></A>
+<P class=BP>The string length supplied in the <EM 
+class=Italic>OCIBindByName()</EM> or <EM class=Italic>OCIBindByPos()</EM> call 
+limits the scan for the null terminator. If the null terminator is not found 
+within the length specified, Oracle issues the error </P>
+<DL class=BP1>
+  <DD class=BP1><A name=421863></A>
+  <P class=BP1>ORA-01480: trailing null missing from STR bind value 
+</P></DD></DL><A name=421864></A>
+<P class=BP>If the length is not specified in the bind call, the OCI uses an 
+implied maximum string length of 4000. </P><A name=421865></A>
+<P class=BP>The minimum string length is two bytes. If the first character is a 
+null terminator and the length is specified as two, a null is inserted in the 
+column, if permitted. Unlike types 1 and 96, a string containing all blanks is 
+not treated as a null on input; it is inserted as is. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=432393></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> Unlike earlier versions of the 
+  OCI, in release 8.0 you cannot pass -1 for the string length parameter of a 
+  null-terminated string. </P></DD></DL><A name=421866></A><!--TOC=h3-"421866"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Output</FONT></H4><!--/TOC=h3--><A name=421867></A>
+<P class=BP>A null terminator is placed after the last character returned. If 
+the string exceeds the field length specified, it is truncated and the last 
+character position of the output variable contains the null terminator. </P><A 
+name=421868></A>
+<P class=BP>A null select-list item returns a null terminator character in the 
+first character position. An ORA-01405 error is possible, as well. </P><A 
+name=421869></A><!--TOC=h2-"421869"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>VARNUM</FONT></H3><!--/TOC=h2--><A name=421870></A>
+<P class=BP>The VARNUM datatype is like the external NUMBER datatype, except 
+that the first byte contains the length of the number representation. This 
+length does not include the length byte itself. Reserve 22 bytes to receive the 
+longest possible VARNUM. Set the length byte when you send a VARNUM value to 
+Oracle. </P><A name=421871></A>
+<P class=BP>Table 3 - 3 shows several examples of the VARNUM values returned for 
+numbers in an Oracle table. 
+<H5 class=Formal><FONT face=Helvetica,Arial,sans-serif><EM><A 
+name=423548></A><STRONG><FONT face=Arial,Helvetica,sans-serif><EM>Table 3-3 
+VARNUM Examples</EM></FONT></STRONG> </EM></FONT></H5>
+<TABLE class=Formal cellSpacing=0 cellPadding=3 width="100%" border=1>
+  <TBODY>
+  <TR class=Formal>
+    <TH class=Formal vAlign=bottom align=left><A name=423468></A><FONT 
+      face="Helvetica, Arial, sans-serif">Decimal Value</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=423470></A><FONT 
+      face="Helvetica, Arial, sans-serif">Length Byte</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=423472></A><FONT 
+      face="Helvetica, Arial, sans-serif">Exponent Byte</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=423474></A><FONT 
+      face="Helvetica, Arial, sans-serif">Mantissa Bytes</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=423476></A><FONT 
+      face="Helvetica, Arial, sans-serif">Terminator Byte</FONT> &nbsp;</TH></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423478></A>
+      <P class=TB>0 &nbsp;</P></TD>
+    <TD class=Formal><A name=423480></A>
+      <P class=TB>1 &nbsp;</P></TD>
+    <TD class=Formal><A name=423482></A>
+      <P class=TB>128 &nbsp;</P></TD>
+    <TD class=Formal><A name=423484></A>
+      <P class=TB>n/a &nbsp;</P></TD>
+    <TD class=Formal><A name=423486></A>
+      <P class=TB>n/a &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423488></A>
+      <P class=TB>5 &nbsp;</P></TD>
+    <TD class=Formal><A name=423490></A>
+      <P class=TB>2 &nbsp;</P></TD>
+    <TD class=Formal><A name=423492></A>
+      <P class=TB>193 &nbsp;</P></TD>
+    <TD class=Formal><A name=423494></A>
+      <P class=TB>6 &nbsp;</P></TD>
+    <TD class=Formal><A name=423496></A>
+      <P class=TB>n/a &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423498></A>
+      <P class=TB>-5 &nbsp;</P></TD>
+    <TD class=Formal><A name=423500></A>
+      <P class=TB>3 &nbsp;</P></TD>
+    <TD class=Formal><A name=423502></A>
+      <P class=TB>62 &nbsp;</P></TD>
+    <TD class=Formal><A name=423504></A>
+      <P class=TB>96 &nbsp;</P></TD>
+    <TD class=Formal><A name=423506></A>
+      <P class=TB>102 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423508></A>
+      <P class=TB>2767 &nbsp;</P></TD>
+    <TD class=Formal><A name=423510></A>
+      <P class=TB>3 &nbsp;</P></TD>
+    <TD class=Formal><A name=423512></A>
+      <P class=TB>194 &nbsp;</P></TD>
+    <TD class=Formal><A name=423514></A>
+      <P class=TB>28, 68 &nbsp;</P></TD>
+    <TD class=Formal><A name=423516></A>
+      <P class=TB>n/a &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423518></A>
+      <P class=TB>-2767 &nbsp;</P></TD>
+    <TD class=Formal><A name=423520></A>
+      <P class=TB>4 &nbsp;</P></TD>
+    <TD class=Formal><A name=423522></A>
+      <P class=TB>61 &nbsp;</P></TD>
+    <TD class=Formal><A name=423524></A>
+      <P class=TB>74, 34 &nbsp;</P></TD>
+    <TD class=Formal><A name=423526></A>
+      <P class=TB>102 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423528></A>
+      <P class=TB>100000 &nbsp;</P></TD>
+    <TD class=Formal><A name=423530></A>
+      <P class=TB>2 &nbsp;</P></TD>
+    <TD class=Formal><A name=423532></A>
+      <P class=TB>195 &nbsp;</P></TD>
+    <TD class=Formal><A name=423534></A>
+      <P class=TB>11 &nbsp;</P></TD>
+    <TD class=Formal><A name=423536></A>
+      <P class=TB>n/a &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=423538></A>
+      <P class=TB>1234567 &nbsp;</P></TD>
+    <TD class=Formal><A name=423540></A>
+      <P class=TB>5 &nbsp;</P></TD>
+    <TD class=Formal><A name=423542></A>
+      <P class=TB>196 &nbsp;</P></TD>
+    <TD class=Formal><A name=423544></A>
+      <P class=TB>2, 24, 46, 68 &nbsp;</P></TD>
+    <TD class=Formal><A name=423546></A>
+      <P class=TB>n/a &nbsp;</P></TD></TR></TBODY></TABLE>
+<TABLE class=TableNote cellSpacing=0 cellPadding=3 width="100%">
+  <TBODY>
+  <TR class=TableNote vAlign=top align=left>
+    <TD class=TableNote></TD></TR></TBODY></TABLE>
+<P></P><A name=421877></A><!--TOC=h2-"421877"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>LONG</FONT></H3><!--/TOC=h2--><A name=421878></A>
+<P class=BP>The LONG datatype stores character strings longer than 4000 bytes. 
+You can store up to two gigabytes (2^31-1 bytes) in a LONG column. Columns of 
+this type are used only for storage and retrieval of long strings. They cannot 
+be used in functions, expressions, or WHERE clauses. LONG column values are 
+generally converted to and from character strings. </P><A name=421879></A><!--TOC=h2-"421879"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>VARCHAR</FONT></H3><!--/TOC=h2--><A name=421880></A>
+<P class=BP>The VARCHAR datatype stores character strings of varying length. The 
+first two bytes contain the length of the character string, and the remaining 
+bytes contain the string. The specified length of the string in a bind or a 
+define call must include the two length bytes, so the largest VARCHAR string 
+that can be received or sent is 65533 bytes long, not 65535. For converting 
+longer strings, use the LONG VARCHAR external datatype. </P><A name=421881></A><!--TOC=h2-"421881"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>ROWID</FONT></H3><!--/TOC=h2--><A name=421882></A>
+<P class=BP>The ROWID datatype identifies a particular row in a database table. 
+ROWID can be a select-list item in a query; for example: </P><PRE class=CE><A name=421883></A>SELECT rowid, ename, sal FROM emp FOR UPDATE OF sal
+</PRE><A name=421884></A>
+<P class=BP>In this case, you use the returned ROWID in further INSERT, UPDATE, 
+or DELETE statements. This can be the fastest way to access a particular row. 
+</P><A name=426472></A>
+<P class=BP><STRONG class=Bold></STRONG>In the Oracle8 OCI, you access ROWIDs 
+through the use of a ROWID descriptor, which you can use as a bind or define 
+variable. See the sections <A 
+href="file:///C:/orant/doc/appdev.804/a58234/basics.htm#441055">"Descriptors and 
+Locators" on page 2-12</A> and <A 
+href="file:///C:/orant/doc/appdev.804/a58234/basics.htm#423772">"Positioned 
+Updates and Deletes" on page 2-31</A> for more information about the use of the 
+ROWID descriptor. </P><A name=421890></A><!--TOC=h2-"421890"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>DATE</FONT></H3><!--/TOC=h2--><A name=421891></A>
+<P class=BP>The DATE datatype can update, insert, or retrieve a date value using 
+the Oracle internal date binary format. A date in binary format contains seven 
+bytes, as shown in <A 
+href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#422876">Table 3-4</A>. 
+
+<H5 class=Formal><FONT face=Helvetica,Arial,sans-serif><EM><A 
+name=422876></A><STRONG><FONT face=Arial,Helvetica,sans-serif><EM>Table 3-4 
+Format of the DATE Datatype</EM></FONT></STRONG> </EM></FONT></H5>
+<TABLE class=Formal cellSpacing=0 cellPadding=3 width="100%" border=1>
+  <TBODY>
+  <TR class=Formal>
+    <TH class=Formal vAlign=bottom align=left><A name=422828></A><FONT 
+      face="Helvetica, Arial, sans-serif">Byte</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422830></A><FONT 
+      face="Helvetica, Arial, sans-serif">1</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422832></A><FONT 
+      face="Helvetica, Arial, sans-serif">2</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422834></A><FONT 
+      face="Helvetica, Arial, sans-serif">3</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422836></A><FONT 
+      face="Helvetica, Arial, sans-serif">4</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422838></A><FONT 
+      face="Helvetica, Arial, sans-serif">5</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422840></A><FONT 
+      face="Helvetica, Arial, sans-serif">6</FONT> &nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=422842></A><FONT 
+      face="Helvetica, Arial, sans-serif">7</FONT> &nbsp;</TH></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422844></A>
+      <P class=TB>Meaning &nbsp;</P></TD>
+    <TD class=Formal><A name=422846></A>
+      <P class=TB>Century &nbsp;</P></TD>
+    <TD class=Formal><A name=422848></A>
+      <P class=TB>Year &nbsp;</P></TD>
+    <TD class=Formal><A name=422850></A>
+      <P class=TB>Month &nbsp;</P></TD>
+    <TD class=Formal><A name=422852></A>
+      <P class=TB>Day &nbsp;</P></TD>
+    <TD class=Formal><A name=422854></A>
+      <P class=TB>Hour &nbsp;</P></TD>
+    <TD class=Formal><A name=422856></A>
+      <P class=TB>Minute &nbsp;</P></TD>
+    <TD class=Formal><A name=422858></A>
+      <P class=TB>Second &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=422860></A>
+      <P class=TB>Example<BR>(for 30-NOV-1992, 3:17 PM) &nbsp;</P></TD>
+    <TD class=Formal><A name=422862></A>
+      <P class=TB>119 &nbsp;</P></TD>
+    <TD class=Formal><A name=422864></A>
+      <P class=TB>192 &nbsp;</P></TD>
+    <TD class=Formal><A name=422866></A>
+      <P class=TB>11 &nbsp;</P></TD>
+    <TD class=Formal><A name=422868></A>
+      <P class=TB>30 &nbsp;</P></TD>
+    <TD class=Formal><A name=422870></A>
+      <P class=TB>16 &nbsp;</P></TD>
+    <TD class=Formal><A name=422872></A>
+      <P class=TB>18 &nbsp;</P></TD>
+    <TD class=Formal><A name=422874></A>
+      <P class=TB>1 &nbsp;</P></TD></TR></TBODY></TABLE>
+<TABLE class=TableNote cellSpacing=0 cellPadding=3 width="100%">
+  <TBODY>
+  <TR class=TableNote vAlign=top align=left>
+    <TD class=TableNote></TD></TR></TBODY></TABLE>
+<P></P><A name=421895></A>
+<P class=BP>The century and year bytes are in an excess-100 notation. Dates 
+Before Common Era (BCE) are less than 100. The era begins on 01-JAN-4712 BCE, 
+which is Julian day 1. For this date, the century byte is 53, and the year byte 
+is 88. The hour, minute, and second bytes are in excess-1 notation. The hour 
+byte ranges from 1 to 24, the minute and second bytes from 1 to 60. If no time 
+was specified when the date was created, the time defaults to midnight (1, 1, 
+1). </P><A name=421896></A>
+<P class=BP>When you enter a date in binary format using the DATE external 
+datatype, the database does not do consistency or range checking. All data in 
+this format must be carefully validated before input. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=421897></A>
+  <P class=BP1><STRONG class=Bold>Note: </STRONG>There is little need to use the 
+  Oracle external DATE datatype in ordinary database operations. It is much more 
+  convenient to convert DATEs into character format, because the program usually 
+  deals with data in a character format, such as `DD-MON-YY'. </P></DD></DL><A 
+name=424875></A>
+<P class=BP><STRONG class=Bold></STRONG>When a DATE column is converted to a 
+character string in your program, it is returned using the default format mask 
+for your session, or as specified in the INIT.ORA file. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=426518></A>
+  <P class=BP1><STRONG class=Bold>Note: </STRONG>If you are using objects in 
+  Oracle8, you can work with a special <STRONG class=Bold>OCIDate</STRONG> 
+  datatype using a set of predefined OCI functions. Refer to <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/obj_data.htm#420046">Chapter 9, 
+  "Object-Relational Datatypes"</A> for more information about this datatype. 
+  </P></DD></DL><A name=426270></A><!--TOC=h2-"426270"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>RAW</FONT></H3><!--/TOC=h2--><A name=426271></A>
+<P class=BP>The RAW datatype is used for binary data or byte strings that are 
+not to be interpreted by Oracle, for example, to store graphics character 
+sequences. The maximum length of a RAW column is 2000 bytes. For more 
+information, see the<EM class=Italic> <A 
+href="file:///C:/orant/doc/database.804/a58225/toc.htm">Oracle8 SQL 
+Reference</A></EM>. </P><A name=426275></A>
+<P class=BP><STRONG class=Bold></STRONG>When RAW data in an Oracle table is 
+converted to a character string in a program, the data is represented in 
+hexadecimal character code. Each byte of the RAW data is returned as two 
+characters that indicate the value of the byte, from '00' to 'FF'. If you want 
+to input a character string in your program to a RAW column in an Oracle table, 
+you must code the data in the character string using this hexadecimal code. 
+</P><A name=426276></A>
+<P class=BP>You can use the piecewise capabilities provided by <EM 
+class=Italic>OCIDefineByPos()</EM>, <EM class=Italic>OCIBindByName(), 
+OCIBindByPos(), OCIStmtGetPieceInfo()</EM>, and <EM 
+class=Italic>OCIStmtSetPieceInfo() </EM>to perform inserts, updates, or fetches 
+involving RAW (or LONG RAW) columns. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=426531></A>
+  <P class=BP1><STRONG class=Bold>Note: </STRONG>If you are using objects in 
+  Oracle8, you can work with a special <STRONG class=Bold>OCIRaw</STRONG> 
+  datatype using a set of predefined OCI functions. Refer to <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/obj_data.htm#420046">Chapter 9, 
+  "Object-Relational Datatypes"</A> for more information about this datatype. 
+  </P></DD></DL><A name=421898></A><!--TOC=h2-"421898"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>VARRAW</FONT></H3><!--/TOC=h2--><A name=421899></A>
+<P class=BP>The VARRAW datatype is similar to the RAW datatype. However, the 
+first two bytes contain the length of the data. The specified length of the 
+string in a bind or a define call must include the two length bytes. So the 
+largest VARRAW string that can be received or sent is 65533 bytes long, not 
+65535. For converting longer strings, use the LONG VARRAW external datatype. 
+</P><A name=421902></A><!--TOC=h2-"421902"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>LONG 
+RAW</FONT></H3><!--/TOC=h2--><A name=421903></A>
+<P class=BP>The LONG RAW datatype is similar to the RAW datatype, except that it 
+stores raw data with a length up to two gigabytes (2^31-1 bytes). </P><A 
+name=421904></A><!--TOC=h2-"421904"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>UNSIGNED</FONT></H3><!--/TOC=h2--><A name=421905></A>
+<P class=BP>The UNSIGNED datatype is used for unsigned binary integers. The size 
+in bytes is system dependent. The host system architecture determines the order 
+of the bytes in a word. A length specification is required for input and output. 
+If the number being output from Oracle is not an integer, the fractional part is 
+discarded, and no error or other indication is returned. If the number to be 
+returned exceeds the capacity of an unsigned integer for the system, Oracle 
+returns an "overflow on conversion" error. </P><A name=421908></A><!--TOC=h2-"421908"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>LONG 
+VARCHAR</FONT></H3><!--/TOC=h2--><A name=421909></A>
+<P class=BP>The LONG VARCHAR datatype stores data from and into an Oracle LONG 
+column. The first four bytes of a LONG VARCHAR contain the length of the item. 
+So, the maximum length of a stored item is 2^31-5 bytes. </P><A name=421910></A><!--TOC=h2-"421910"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>LONG 
+VARRAW</FONT></H3><!--/TOC=h2--><A name=421911></A>
+<P class=BP>The LONG VARRAW datatype is used to store data from and into an 
+Oracle LONG RAW column. The length is contained in the first four bytes. The 
+maximum length is 2^31-5 bytes. </P><A name=421912></A><!--TOC=h2-"421912"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>CHAR</FONT></H3><!--/TOC=h2--><A name=421913></A>
+<P class=BP>The CHAR datatype is a string of characters, with a maximum length 
+of 2000. CHAR strings are compared using blank-padded comparison semantics (see 
+the <A href="file:///C:/orant/doc/database.804/a58225/toc.htm">Oracle8 SQL 
+Reference<EM class=Italic></A></EM>). </P><A name=421914></A><!--TOC=h3-"421914"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Input</FONT></H4><!--/TOC=h3--><A name=421915></A>
+<P class=BP>The length is determined by the <EM class=Italic>value_sz 
+</EM>parameter in the <EM class=Italic>OCIBindByName()</EM> or <EM 
+class=Italic>OCIBindByPos() </EM>call. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=421916></A>
+  <P class=BP1><STRONG class=Bold>Note: </STRONG>The entire contents of the 
+  buffer (<EM class=Italic>value_sz </EM>chars) is passed to the database, 
+  including any trailing blanks or nulls. </P></DD></DL><A name=421917></A>
+<P class=BP>If the <EM class=Italic>value_sz </EM>parameter is zero, Oracle 
+treats the bind variable as a null, regardless of its actual content. Of course, 
+a null must be allowed for the bind variable value in the SQL statement. If you 
+try to insert a null into a column that has a NOT NULL integrity constraint, 
+Oracle issues an error and does not insert the row. </P><A name=421918></A>
+<P class=BP>Negative values for the <EM class=Italic>value_sz </EM>parameter are 
+not allowed for CHARs. </P><A name=421919></A>
+<P class=BP>When the Oracle internal (column) datatype is NUMBER, input from a 
+character string that contains the character representation of a number is 
+legal. Input character strings are converted to internal numeric format. If the 
+CHAR string contains an illegal conversion character, Oracle returns an error 
+and does not insert the value. Number conversion follows the conventions 
+established by National Language Support settings for your system. For example, 
+your system might be configured to recognize a comma (,) rather than a period 
+(.) as the decimal point. </P><A name=421920></A><!--TOC=h3-"421920"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Output</FONT></H4><!--/TOC=h3--><A name=421921></A>
+<P class=BP>Specify the desired length for the return value in the <EM 
+class=Italic>value_sz </EM>parameter of the <EM 
+class=Italic>OCIDefineByPos()</EM> call. If zero is specified for the length, no 
+data is returned. </P><A name=425228></A>
+<P class=BP>If you omit the <EM class=Italic>rlenp</EM> parameter of <EM 
+class=Italic>OCIDefineByPos()</EM>, returned values are blank padded to the 
+buffer length, and nulls are returned as a string of blank characters. If <EM 
+class=Italic>rlenp</EM> is included, returned values are not blank padded. 
+Instead, their actual lengths are returned in the <EM class=Italic>rlenp 
+</EM>parameter. </P><A name=421923></A>
+<P class=BP>To check whether a null is returned or if character truncation has 
+occurred, include an indicator parameter or array of indicator parameters in the 
+<EM class=Italic>OCIDefineByPos() </EM>call. An indicator parameter is set to -1 
+when a null is fetched and to the original column length when the returned value 
+is truncated. Otherwise, it is set to zero. If you do not specify an indicator 
+parameter and a null is selected, the fetch call returns an ORA-01405 error. 
+</P>
+<DL class=BP1>
+  <DD class=BP1><A name=423933></A>
+  <P class=BP1><STRONG class=Bold>See Also:</STRONG> For more information about 
+  indicator variables, see <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/basics.htm#422173">"Indicator 
+  Variables" on page 2-29</A> </P></DD></DL><A name=421926></A>
+<P class=BP>You can also request output to a character string from an internal 
+NUMBER datatype. Number conversion follows the conventions established by the 
+National Language Support settings for your system. For example, your system 
+might use a comma (,) rather than a period (.) as the decimal point. </P><A 
+name=421927></A><!--TOC=h2-"421927"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>CHARZ</FONT></H3><!--/TOC=h2--><A name=421928></A>
+<P class=BP>The CHARZ external datatype is similar to the CHAR datatype, except 
+that the string must be null terminated on input, and Oracle places a 
+null-terminator character at the end of the string on output. The null 
+terminator serves only to delimit the string on input or output; it is not part 
+of the data in the table. </P><A name=421929></A>
+<P class=BP>On input, the length parameter must indicate the exact length, 
+including the null terminator. For example, if an array in C is declared as </P><PRE class=CE><A name=421930></A>char my_num[] = "123.45";
+<A name=431478></A>
+</PRE><A name=421931></A>
+<P class=BP>then the length parameter when you bind <CODE>my_num</CODE> must be 
+seven. Any other value would return an error for this example. </P><A 
+name=421936></A><!--TOC=h2-"421936"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>MLSLABEL</FONT></H3><!--/TOC=h2--><A name=421942></A>
+<P class=BP>Trusted Oracle provides the MLSLABEL datatype, which stores Trusted 
+Oracle's internal representation of labels generated by multilevel secure 
+operating systems. Trusted Oracle uses labels to control database access. </P><A 
+name=427379></A>
+<P class=BP>You can define a column using the MLSLABEL datatype in Oracle8 for 
+compatibility with Trusted Oracle applications, but the only valid value for the 
+column in Oracle8 is NULL. </P><A name=427384></A>
+<P class=BP>See the <EM class=Italic>Trusted Oracle Server Administrator's 
+Guide</EM> for more information about the MLSLABEL datatype and Trusted Oracle. 
+</P><A name=428503></A><!--TOC=h1-"428503"-->
+<H2 class=H1><FONT face="Helvetica, Arial, sans-serif" color=#330099>New OCI 8.0 
+External Datatypes</FONT></H2><!--/TOC=h1--><A name=428504></A>
+<P class=BP>The following new external datatypes are being introduced with 
+release 8.0. These datatypes are not supported when connect to an Oracle7 
+server. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=426101></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> Both internal and external 
+  datatypes have Oracle-defined constant values (e.g., SQLT_NTY, SQLT_REF) 
+  corresponding to their datatype codes. Although the constants are not listed 
+  for all of the types in this chapter, they are used in this section when 
+  discussing new Oracle8 datatypes. The datatype constants are also used in 
+  other chapters of this guide when referring to these new types. </P><A 
+  name=432396></A>
+  <P class=BP1><STRONG class=Bold>Note:</STRONG> Named data types and REFs are 
+  only available if you have purchased the Oracle8 Enterprise Edition. 
+</P></DD></DL><A name=422594></A><!--TOC=h2-"422594"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>NAMED DATA 
+TYPE</FONT></H3><!--/TOC=h2--><A name=422617></A>
+<P class=BP>Named data types are user-defined types which are specified with the 
+CREATE TYPE command in SQL. Examples include object types, varrays, and nested 
+tables. In the OCI, "named data type" refers to a host language representation 
+of the type. The SQLT_NTY datatype code is used when binding or defining named 
+data types. </P><A name=426645></A>
+<P class=BP>In a C application, named data types are represented as C structs. 
+These structs can be generated from types stored in the database by using the 
+Object Type Translator. These types correspond to OCI_TYPECODE_OBJECT. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=426648></A>
+  <P class=BP1><STRONG class=Bold>See Also:</STRONG> For more information about 
+  working with named data types in the OCI, refer to Part 2 of this guide. 
+  </P><A name=428507></A>
+  <P class=BP1>For information about how named data types are represented as C 
+  structs, refer to <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/ott.htm#428940">Chapter 12, 
+  "Using the Object Type Translator"</A>. </P></DD></DL><A name=426650></A><!--TOC=h2-"426650"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>REF</FONT></H3><!--/TOC=h2--><A name=422596></A>
+<P class=BP>This is a reference to a named data type. The C language 
+representation of a REF is a variable declared to be of type <STRONG 
+class=Bold>OCIRef *</STRONG><STRONG class=Bold><EM class=Italic>.</EM></STRONG> 
+The SQLT_REF datatype code is used when binding or defining REFs.<STRONG 
+class=Bold><EM class=Italic></EM></STRONG> </P><A name=425567></A>
+<P class=BP>Access to REFs is only possible when an OCI application has been 
+initialized in object mode. When REFs are retrieved from the server, they are 
+stored in the client-side object cache. </P><A name=428449></A>
+<P class=BP>To allocate a REF for use in your application, you should declare a 
+variable to be a pointer to a REF, and then call <EM 
+class=Italic>OCIObjectNew()</EM>, passing OCI_TYPECODE_REF as the <EM 
+class=Italic>typecode</EM> parameter. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=426657></A>
+  <P class=BP1><STRONG class=Bold>See Also:</STRONG> For more information about 
+  working with REFs in the OCI, refer to Part 2 of this guide. </P></DD></DL><A 
+name=422647></A><!--TOC=h2-"422647"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>LOB</FONT></H3><!--/TOC=h2--><A name=428511></A>
+<P class=BP>A LOB (Large OBject) stores binary or character data up to 4 
+gigabytes in length. Binary data is stored in a BLOB (Binary LOB), and character 
+data is stored in a CLOB (Character LOB) or NCLOB (National Character LOB). 
+</P><A name=428512></A>
+<P class=BP>LOB values may or may not be stored inline with other row data in 
+the database. In either case, LOBs have the full transactional support of the 
+database server. A database table stores a <EM class=Italic>LOB locator</EM> 
+which points to the LOB value which may be in a different storage space. </P><A 
+name=425588></A>
+<P class=BP>When an OCI application issues a SQL query which includes a LOB 
+column or attribute in its select-list, fetching the result(s) of the query 
+returns the locator, rather than the actual LOB value. In the OCI, the LOB 
+locator maps to a variable of type <STRONG class=Bold>OCILobLocator</STRONG>. 
+</P>
+<DL class=BP1>
+  <DD class=BP1><A name=425589></A>
+  <P class=BP1><STRONG class=Bold>See Also:</STRONG> For more information about 
+  descriptors, including the LOB locator, see the section <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/basics.htm#441055">"Descriptors 
+  and Locators" on page 2-12</A>. </P><A name=427155></A>
+  <P class=BP1>For more information about LOBs refer to the <A 
+  href="file:///C:/orant/doc/database.804/a58225/toc.htm">Oracle8 SQL 
+  Reference<EM class=Italic> </A></EM>and the <A 
+  href="file:///C:/orant/doc/appdev.804/a58241/toc.htm">Oracle8 Application 
+  Developer's Guide</A>. </P></DD></DL><A name=425593></A>
+<P class=BP>The OCI functions for LOBs take a LOB locator as one of their 
+arguments. The OCI functions assume that the locator has already been created, 
+whether or not the LOB to which it points contains data. </P><A name=427102></A>
+<P class=BP>Bind and define operations are performed on the LOB locator, which 
+is allocated with the <EM class=Italic>OCIDescriptorAlloc() </EM>function<EM 
+class=Italic>.</EM> </P><A name=425594></A>
+<P class=BP>The locator is always fetched first using SQL or <EM 
+class=Italic>OCIObjectPin()</EM>, and then operations are performed using the 
+locator. The OCI functions never take the actual LOB value as a parameter. </P>
+<DL class=BP1>
+  <DD class=BP1><A name=425581></A>
+  <P class=BP1><STRONG class=Bold>See Also: </STRONG>For more information about 
+  OCI LOB functions, see the section <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/new_adva.htm#420699">"LOB and 
+  FILE Operations" on page 7-24</A>. </P></DD></DL><A name=425606></A>
+<P class=BP>The datatype codes available for binding or defining LOBs are: </P>
+<UL class=LB1>
+  <LI class=LB1 type=DISC><A name=426790></A>SQLT_BLOB - a binary LOB data type. 
+
+  <LI class=LB1 type=DISC><A name=422599></A>SQLT_CLOB - a character LOB data 
+  type. </LI></UL><A name=427115></A>
+<P class=BP>The NCLOB is a special type of CLOB with the following requirements: 
+</P>
+<UL class=LB1>
+  <LI class=LB1 type=DISC><A name=432794></A>To write into or read from an 
+  NCLOB, the user must set the character set form (<EM class=Italic>csfrm</EM>) 
+  parameter to be SQLCS_NCHAR. 
+  <LI class=LB1 type=DISC><A name=432795></A>The "amount" (<EM 
+  class=Italic>amtp</EM>) parameter in calls involving CLOBS and NCLOBS is 
+  always interpreted in terms of characters, rather than bytes. </LI></UL><A 
+name=426726></A><!--TOC=h3-"426726"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>FILE</FONT></H4><!--/TOC=h3--><A name=426728></A>
+<P class=BP>The FILE datatype provides access to file LOBs that are stored in 
+file systems outside the Oracle8 database. Oracle8 currently supports access to 
+binary files, or BFILEs. </P><A name=428496></A>
+<P class=BP>A BFILE column or attribute stores a file LOB locator, which serves 
+as a pointer to a binary file on the server's file system. The locator maintains 
+the directory alias and the filename. </P><A name=426729></A>
+<P class=BP>Binary file LOBs do not participate in transactions. Rather, the 
+underlying operating system provides file integrity and durability. The maximum 
+file size supported is 4 gigabytes. </P><A name=426730></A>
+<P class=BP>The database administrator must ensure that the file exists and that 
+Oracle8 processes have operating system read permissions on the file. </P><A 
+name=426731></A>
+<P class=BP>The BFILE datatype allows read-only support of large binary files; 
+you cannot modify a file through Oracle. Oracle8 provides APIs to access file 
+data. The primary interfaces that you use to access file data are the PL/SQL 
+DBMS_LOB package, and the OCI. </P><A name=429927></A>
+<P class=BP>The datatype code available for binding or defining FILEs is: </P>
+<UL class=LB1>
+  <LI class=LB1 type=DISC><A name=429928></A>SQLT_BFILE - a binary FILE LOB data 
+  type (see the next section) </LI></UL><A name=427172></A>
+<P class=BP>For more information about directory aliases, refer to the<A 
+href="file:///C:/orant/doc/appdev.804/a58241/toc.htm"> Oracle8 Application 
+Developer's Guide<EM class=Italic></A></EM>. </P><A name=426732></A><!--TOC=h3-"426732"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>BLOB</FONT></H4><!--/TOC=h3--><A name=426734></A>
+<P class=BP>The BLOB datatype stores unstructured binary large objects. BLOBs 
+can be thought of as bitstreams with no character set semantics. BLOBs can store 
+up to four gigabytes of binary data. </P><A name=426735></A>
+<P class=BP>BLOBs have full transactional support; changes made through the 
+PL/SQL DBMS_LOB package, or the OCI participate fully in the transaction. The 
+BLOB value manipulations can be committed or rolled back. You cannot save a BLOB 
+locator in a PL/SQL or OCI variable in one transaction and then use it in 
+another transaction or session. </P><A name=426736></A><!--TOC=h3-"426736"-->
+<H4 class=H3><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>CLOB</FONT></H4><!--/TOC=h3--><A name=426738></A>
+<P class=BP>The CLOB datatype stores single-byte character data. Varying-width 
+character sets are not supported. CLOBs can store up to 4 gigabytes of character 
+data. </P><A name=426739></A>
+<P class=BP>CLOBs have full transactional support; changes made through the 
+PL/SQL DBMS_LOB package or the OCI participate fully in the transaction. The 
+CLOB value manipulations can be committed or rolled back. You cannot save a CLOB 
+locator in a PL/SQL or OCI variable in one transaction and then use it in 
+another transaction or session. </P><A name=426740></A><!--TOC=h4-"426740"-->
+<H5 class=H4><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>NCLOB</FONT></H5><!--/TOC=h4--><A name=426742></A>
+<P class=BP>An NCLOB is a national character version of a CLOB. It stores 
+fixed-width, single- or multi-byte national character set character (NCHAR) 
+data. Varying-width character sets are not supported. NCLOBs can store up to 4 
+gigabytes of character text data. </P><A name=426743></A>
+<P class=BP>NCLOBs have full transactional support; changes made through the 
+PL/SQL DBMS_LOB package, or the OCI participate fully in the transaction. NCLOB 
+value manipulations can be committed or rolled back. You cannot save a NCLOB 
+locator in a PL/SQL or OCI variable in one transaction and then use it in 
+another transaction or session. </P><A name=426750></A>
+<P class=BP>You cannot create an object with NCLOB attributes, but you can 
+specify NCLOB parameters in methods. </P><A name=426026></A><!--TOC=h2-"426026"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" color=#330099>New C 
+Datatype Mappings</FONT></H3><!--/TOC=h2--><A name=426446></A>
+<P class=BP>The OCI now includes support for Oracle-defined C datatypes used to 
+map user-defined datatypes and ADT attributes to C representations (e.g. <STRONG 
+class=Bold>OCINumber</STRONG>, <STRONG class=Bold>OCIArray</STRONG>). The OCI 
+provides a set of calls to operate on these datatypes, and to use these 
+datatypes in bind and define operations, in conjunction with OCI external 
+datatype codes. For information on using these Oracle-defined C datatypes, refer 
+to <A href="file:///C:/orant/doc/appdev.804/a58234/obj_data.htm#420046">Chapter 
+9, "Object-Relational Datatypes"</A>. </P><A name=426449></A><!--TOC=h1-"426449"-->
+<H2 class=H1><FONT face="Helvetica, Arial, sans-serif" color=#330099>Data 
+Conversions</FONT></H2><!--/TOC=h1--><A name=426453></A>
+<P class=BP><A 
+href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#431514">Table 3-5</A> 
+shows the supported conversions from internal Oracle datatypes to external 
+datatypes, and from external datatypes into internal column representations, for 
+all datatypes available through release 7.3. Information about data conversions 
+for data types new to release 8.0 is listed here: </P>
+<UL class=LB1>
+  <LI class=LB1 type=DISC><A name=425906></A>REFs stored in the database are 
+  converted to SQLT_REF on output. 
+  <LI class=LB1 type=DISC><A name=425907></A>SQLT_REF is converted to the 
+  internal representation of REFs on input. 
+  <LI class=LB1 type=DISC><A name=425908></A>Named Data Types stored in the 
+  database can be converted to SQLT_NTY (and represented by a C struct in the 
+  application) on output. 
+  <LI class=LB1 type=DISC><A name=425909></A>SQLT_NTY (represented by a C struct 
+  in an application) is converted to the internal representation of the 
+  corresponding type on input. 
+  <LI class=LB1 type=DISC><A name=429011></A>LOBs and BFILEs are represented by 
+  descriptors in OCI applications, so there are no input or output conversions. 
+  <LI class=LB1 type=DISC><A name=431504></A>For information about <STRONG 
+  class=Bold>OCIString</STRONG>, <STRONG class=Bold>OCINumber</STRONG>, and 
+  other new Oracle8 datatypes, refer to Chapter 9, "Object-Relational 
+  Datatypes", and <A 
+  href="file:///C:/orant/doc/appdev.804/a58234/obj_bind.htm#420516">Chapter 10, 
+  "Binding and Defining in Object Applications"</A>. <A name=432381>
+  <H5 class=FormalW><FONT face=Helvetica,Arial,sans-serif><EM><A 
+  name=431514></A><STRONG><FONT face=Arial,Helvetica,sans-serif><EM>Table 3-5 
+  Data Conversions </EM></FONT></STRONG></EM></FONT></H5>
+  <TABLE class=FormalW cellSpacing=0 cellPadding=3 width="100%" border=1>
+    <TBODY>
+    <TR class=FormalW>
+      <TH class=FormalW vAlign=bottom rowSpan=2><A name=431534></A><FONT 
+        face="Helvetica, Arial, sans-serif">EXTERNAL</FONT> <A 
+        name=431535></A><FONT 
+        face="Helvetica, Arial, sans-serif">DATATYPES</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom colSpan=9><A name=431537></A><FONT 
+        face="Helvetica, Arial, sans-serif">INTERNAL DATATYPES</FONT> 
+    &nbsp;</TH></TR>
+    <TR class=FormalW>
+      <TH class=FormalW vAlign=bottom align=left><A name=431557></A><FONT 
+        face="Helvetica, Arial, sans-serif">1<BR>VARCHAR2</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431559></A><FONT 
+        face="Helvetica, Arial, sans-serif">2<BR>NUMBER</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431561></A><FONT 
+        face="Helvetica, Arial, sans-serif">8<BR>LONG</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431563></A><FONT 
+        face="Helvetica, Arial, sans-serif">11<BR>ROWID</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431565></A><FONT 
+        face="Helvetica, Arial, sans-serif">12<BR>DATE</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431567></A><FONT 
+        face="Helvetica, Arial, sans-serif">23<BR>RAW</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431569></A><FONT 
+        face="Helvetica, Arial, sans-serif">24<BR>LONG RAW</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431571></A><FONT 
+        face="Helvetica, Arial, sans-serif">96<BR>CHAR</FONT> &nbsp;</TH>
+      <TH class=FormalW vAlign=bottom align=left><A name=431573></A><FONT 
+        face="Helvetica, Arial, sans-serif">105<BR>MLSLABEL</FONT> &nbsp;</TH></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431575></A>
+        <P class=TB>1 VARCHAR &nbsp;</P></TD>
+      <TD class=FormalW><A name=431577></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431579></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431581></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431583></A>
+        <P class=TB>I/O(1) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431585></A>
+        <P class=TB>I/O(2) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431587></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431589></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431591></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431593></A>
+        <P class=TB>I/O(7) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431595></A>
+        <P class=TB>2 NUMBER &nbsp;</P></TD>
+      <TD class=FormalW><A name=431597></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431599></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431601></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431603></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431605></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431607></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431609></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431611></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431613></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431615></A>
+        <P class=TB>3 INTEGER &nbsp;</P></TD>
+      <TD class=FormalW><A name=431617></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431619></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431621></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431623></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431625></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431627></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431629></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431631></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431633></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431635></A>
+        <P class=TB>4 FLOAT &nbsp;</P></TD>
+      <TD class=FormalW><A name=431637></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431639></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431641></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431643></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431645></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431647></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431649></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431651></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431653></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431655></A>
+        <P class=TB>5 STRING &nbsp;</P></TD>
+      <TD class=FormalW><A name=431657></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431659></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431661></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431663></A>
+        <P class=TB>I/O(1) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431665></A>
+        <P class=TB>I/O(2) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431667></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431669></A>
+        <P class=TB>I/O(3, 5) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431671></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431673></A>
+        <P class=TB>I/O(7) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431675></A>
+        <P class=TB>6 VARNUM &nbsp;</P></TD>
+      <TD class=FormalW><A name=431677></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431679></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431681></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431683></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431685></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431687></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431689></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431691></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431693></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431695></A>
+        <P class=TB>7 DECIMAL &nbsp;</P></TD>
+      <TD class=FormalW><A name=431697></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431699></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431701></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431703></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431705></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431707></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431709></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431711></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431713></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431715></A>
+        <P class=TB>8 LONG &nbsp;</P></TD>
+      <TD class=FormalW><A name=431717></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431719></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431721></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431723></A>
+        <P class=TB>I/O(1) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431725></A>
+        <P class=TB>I/O(2) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431727></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431729></A>
+        <P class=TB>I/O(3, 5) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431731></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431733></A>
+        <P class=TB>I/O(7) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431735></A>
+        <P class=TB>9 VARCHAR &nbsp;</P></TD>
+      <TD class=FormalW><A name=431737></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431739></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431741></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431743></A>
+        <P class=TB>I/O(1) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431745></A>
+        <P class=TB>I/O(2) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431747></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431749></A>
+        <P class=TB>I/O(3, 5) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431751></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431753></A>
+        <P class=TB>I/O(7) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431755></A>
+        <P class=TB>11 ROWID &nbsp;</P></TD>
+      <TD class=FormalW><A name=431757></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431759></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431761></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431763></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431765></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431767></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431769></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431771></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431773></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431775></A>
+        <P class=TB>12 DATE &nbsp;</P></TD>
+      <TD class=FormalW><A name=431777></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431779></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431781></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431783></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431785></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431787></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431789></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431791></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431793></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431795></A>
+        <P class=TB>15 VARRAW &nbsp;</P></TD>
+      <TD class=FormalW><A name=431797></A>
+        <P class=TB>I/O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431799></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431801></A>
+        <P class=TB>I(5, 6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431803></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431805></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431807></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431809></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431811></A>
+        <P class=TB>I/O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431813></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431815></A>
+        <P class=TB>23 RAW &nbsp;</P></TD>
+      <TD class=FormalW><A name=431817></A>
+        <P class=TB>I/O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431819></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431821></A>
+        <P class=TB>I(5, 6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431823></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431825></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431827></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431829></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431831></A>
+        <P class=TB>I/O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431833></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431835></A>
+        <P class=TB>24 LONG RAW &nbsp;</P></TD>
+      <TD class=FormalW><A name=431837></A>
+        <P class=TB>O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431839></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431841></A>
+        <P class=TB>I(5, 6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431843></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431845></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431847></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431849></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431851></A>
+        <P class=TB>O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431853></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431855></A>
+        <P class=TB>68 UNSIGNED &nbsp;</P></TD>
+      <TD class=FormalW><A name=431857></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431859></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431861></A>
+        <P class=TB>I &nbsp;</P></TD>
+      <TD class=FormalW><A name=431863></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431865></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431867></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431869></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431871></A>
+        <P class=TB>I/O(4) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431873></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431875></A>
+        <P class=TB>94 LONG VARCHAR &nbsp;</P></TD>
+      <TD class=FormalW><A name=431877></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431879></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431881></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431883></A>
+        <P class=TB>I/O(1) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431885></A>
+        <P class=TB>I/O(2) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431887></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431889></A>
+        <P class=TB>I/O(3, 5) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431891></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431893></A>
+        <P class=TB>I/O(7) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431895></A>
+        <P class=TB>95 LONG VARRAW &nbsp;</P></TD>
+      <TD class=FormalW><A name=431897></A>
+        <P class=TB>I/O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431899></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431901></A>
+        <P class=TB>I(5, 6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431903></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431905></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431907></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431909></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431911></A>
+        <P class=TB>I/O(6) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431913></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431915></A>
+        <P class=TB>96 CHAR &nbsp;</P></TD>
+      <TD class=FormalW><A name=431917></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431919></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431921></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431923></A>
+        <P class=TB>I/O(1) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431925></A>
+        <P class=TB>I/O(2) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431927></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431929></A>
+        <P class=TB>I(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431931></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431933></A>
+        <P class=TB>I/O(7) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431935></A>
+        <P class=TB>97 CHARZ &nbsp;</P></TD>
+      <TD class=FormalW><A name=431937></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431939></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431941></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431943></A>
+        <P class=TB>I/O(1) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431945></A>
+        <P class=TB>I/O(2) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431947></A>
+        <P class=TB>I/O(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431949></A>
+        <P class=TB>I(3) &nbsp;</P></TD>
+      <TD class=FormalW><A name=431951></A>
+        <P class=TB>I/O &nbsp;</P></TD>
+      <TD class=FormalW><A name=431953></A>
+        <P class=TB>I/O(7) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431955></A>
+        <P class=TB>104 ROWID DESC. &nbsp;</P></TD>
+      <TD class=FormalW><A name=431957></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431959></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431961></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431963></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431965></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431967></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431969></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431971></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431973></A>
+        <P class=TB>&nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW><A name=431975></A>
+        <P class=TB>106 MLSLABEL &nbsp;</P></TD>
+      <TD class=FormalW><A name=431977></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431979></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431981></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431983></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431985></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431987></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431989></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431991></A>
+        <P class=TB>&nbsp;</P></TD>
+      <TD class=FormalW><A name=431993></A>
+        <P class=TB>I/O(8) &nbsp;</P></TD></TR>
+    <TR class=FormalW vAlign=top align=left>
+      <TD class=FormalW colSpan=6><A name=431995></A>
+        <P class=TB>Notes: <A name=431996></A>
+        <P class=TB>(1) For input, host string must be in Oracle ROWID 
+        format.<BR>On output, column value is returned in Oracle ROWID format. 
+        <A name=431997></A>
+        <P class=TB>(2) For input, host string must be in the Oracle DATE 
+        character format.<BR>On output, column value is returned in Oracle DATE 
+        format. <A name=431999></A>
+        <P class=TB>(3) For input, host string must be in hex format.<BR>On 
+        output, column value is returned in hex format. <A name=432001></A>
+        <P class=TB>(4) For output, column value must represent a valid number. 
+        <A name=432002></A>
+        <P class=TB>(5) Length must be less than or equal to 2000. <A 
+        name=432003></A>
+        <P class=TB>(6) On input, column value is stored in hex format.<BR>On 
+        output, column value must be in hex format. <A name=432005></A>
+        <P class=TB>(7) For input, host string must be a valid OS label in text 
+        format.<BR>On output, column value is returned in OS label text format. 
+        <A name=432007></A>
+        <P class=TB>(8) For character representation of MLSLABEL, use the 
+        TO_CHAR(mlscolumn) function. &nbsp;</P></TD>
+      <TD class=FormalW colSpan=4><A name=432019></A>
+        <P class=TB>Legend: <A name=432020></A>
+        <P class=TB>I = Conversion valid for input only <A name=432021></A>
+        <P class=TB>O = Conversion valid for output only <A name=432022></A>
+        <P class=TB>I/O = Conversion valid for input or output 
+    &nbsp;</P></TD></TR></TBODY></TABLE>
+  <TABLE class=TableNote cellSpacing=0 cellPadding=3 width="100%">
+    <TBODY>
+    <TR class=TableNote vAlign=top align=left>
+      <TD class=TableNote></TD></TR></TBODY></TABLE></A></LI></UL><A name=432033></A><!--TOC=h1-"432033"-->
+<H2 class=H1><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Typecodes</FONT></H2><!--/TOC=h1--><A name=432034></A>
+<P class=BP>There is a unique typecode associated with each Oracle8 type, 
+whether scalar, collection, reference, or object type. This typecode identifies 
+the type, and is used by Oracle to manage information about object type 
+attributes. This typecode system is designed to be generic and extensible, and 
+is not tied to a direct one-to-one mapping to Oracle datatypes. Consider the 
+following SQL statements: </P><PRE class=CE><A name=430029></A>CREATE TYPE my_type AS OBJECT
+<A name=432414></A>( attr1        NUMBER,
+<A name=432416></A>    attr2        INTEGER,
+<A name=432418></A>    attr3        SMALLINT)
+<A name=430033></A>CREATE TABLE my_table AS TABLE OF my_type;
+<A name=432043></A>
+</PRE><A name=430045></A>
+<P class=BP>These statements create an object type and an object table. When it 
+is created, <CODE>my_table</CODE> will have three columns, all of which are of 
+Oracle NUMBER type, because SMALLINT and INTEGER map internally to NUMBER. The 
+internal representation of the attributes of <CODE>my_type</CODE>, however, 
+maintains the distinction between the datatypes of the three attributes: 
+<CODE>attr1</CODE> is OCI_TYPECODE_NUMBER, <CODE>attr2</CODE> is 
+OCI_TYPECODE_INTEGER, and <CODE>attr3</CODE> is OCI_TYPECODE_SMALLINT. If an 
+application describes <CODE>my_type</CODE>, these typecodes are returned. </P><A 
+name=430046></A>
+<P class=BP><STRONG class=Bold>OCITypeCode</STRONG> is the C datatype of the 
+typecode. The typecode is used by some OCI functions, like <EM 
+class=Italic>OCIObjectNew() </EM>(where it helps determine what type of object 
+is created). It is also returned as the value of some attributes when an object 
+is described; e.g., querying the OCI_ATTR_TYPECODE attribute of a type returns 
+an <STRONG class=Bold>OCITypeCode</STRONG> value. </P><A name=429555></A>
+<P class=BP><A 
+href="file:///C:/orant/doc/appdev.804/a58234/datatype.htm#429562">Table 3-6</A> 
+lists the possible values for an <STRONG class=Bold>OCITypeCode</STRONG>. There 
+is a value corresponding to each Oracle8 datatype. 
+<H5 class=Formal><FONT face=Helvetica,Arial,sans-serif><EM><A 
+name=429562></A><STRONG><FONT face=Arial,Helvetica,sans-serif><EM>Table 3-6 
+OCITypeCode Values </EM></FONT></STRONG></EM></FONT></H5>
+<TABLE class=Formal cellSpacing=0 cellPadding=3 width="100%" border=1>
+  <TBODY>
+  <TR class=Formal>
+    <TH class=Formal vAlign=bottom align=left><A name=429566></A><FONT 
+      face="Helvetica, Arial, sans-serif">Value </FONT>&nbsp;</TH>
+    <TH class=Formal vAlign=bottom align=left><A name=429568></A><FONT 
+      face="Helvetica, Arial, sans-serif">Datatype</FONT> &nbsp;</TH></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429570></A>
+      <P class=TB>OCI_TYPECODE_REF &nbsp;</P></TD>
+    <TD class=Formal><A name=429572></A>
+      <P class=TB>REF &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429574></A>
+      <P class=TB>OCI_TYPECODE_DATE &nbsp;</P></TD>
+    <TD class=Formal><A name=429576></A>
+      <P class=TB>date &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429590></A>
+      <P class=TB>OCI_TYPECODE_REAL &nbsp;</P></TD>
+    <TD class=Formal><A name=429592></A>
+      <P class=TB>single-precision real &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429594></A>
+      <P class=TB>OCI_TYPECODE_DOUBLE &nbsp;</P></TD>
+    <TD class=Formal><A name=429596></A>
+      <P class=TB>double-precision real &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429598></A>
+      <P class=TB>OCI_TYPECODE_FLOAT &nbsp;</P></TD>
+    <TD class=Formal><A name=429600></A>
+      <P class=TB>floating-point &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429602></A>
+      <P class=TB>OCI_TYPECODE_NUMBER &nbsp;</P></TD>
+    <TD class=Formal><A name=429604></A>
+      <P class=TB>Oracle number &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429606></A>
+      <P class=TB>OCI_TYPECODE_DECIMAL &nbsp;</P></TD>
+    <TD class=Formal><A name=429608></A>
+      <P class=TB>decimal &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429622></A>
+      <P class=TB>OCI_TYPECODE_OCTET &nbsp;</P></TD>
+    <TD class=Formal><A name=429624></A>
+      <P class=TB>octet &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429626></A>
+      <P class=TB>OCI_TYPECODE_INTEGER &nbsp;</P></TD>
+    <TD class=Formal><A name=429628></A>
+      <P class=TB>integer &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429630></A>
+      <P class=TB>OCI_TYPECODE_SMALLINT &nbsp;</P></TD>
+    <TD class=Formal><A name=429632></A>
+      <P class=TB>smallint &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429638></A>
+      <P class=TB>OCI_TYPECODE_RAW &nbsp;</P></TD>
+    <TD class=Formal><A name=429640></A>
+      <P class=TB>RAW &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429646></A>
+      <P class=TB>OCI_TYPECODE_VARCHAR2 &nbsp;</P></TD>
+    <TD class=Formal><A name=429648></A>
+      <P class=TB>variable string ANSI SQL, i.e., VARCHAR2 &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429650></A>
+      <P class=TB>OCI_TYPECODE_VARCHAR &nbsp;</P></TD>
+    <TD class=Formal><A name=429652></A>
+      <P class=TB>variable string Oracle SQL, i.e., VARCHAR &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429654></A>
+      <P class=TB>OCI_TYPECODE_CHAR &nbsp;</P></TD>
+    <TD class=Formal><A name=429656></A>
+      <P class=TB>fixed-length string inside SQL, i.e. SQL CHAR &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429658></A>
+      <P class=TB>OCI_TYPECODE_VARRAY &nbsp;</P></TD>
+    <TD class=Formal><A name=429660></A>
+      <P class=TB>variable-length array (varray) &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429666></A>
+      <P class=TB>OCI_TYPECODE_TABLE &nbsp;</P></TD>
+    <TD class=Formal><A name=429668></A>
+      <P class=TB>multiset &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429670></A>
+      <P class=TB>OCI_TYPECODE_CLOB &nbsp;</P></TD>
+    <TD class=Formal><A name=429672></A>
+      <P class=TB>character large object (CLOB) &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429674></A>
+      <P class=TB>OCI_TYPECODE_BLOB &nbsp;</P></TD>
+    <TD class=Formal><A name=429676></A>
+      <P class=TB>binary large object (BLOB) &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429682></A>
+      <P class=TB>OCI_TYPECODE_BFILE &nbsp;</P></TD>
+    <TD class=Formal><A name=429684></A>
+      <P class=TB>binary large object file (BFILE) &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429686></A>
+      <P class=TB>OCI_TYPECODE_OBJECT &nbsp;</P></TD>
+    <TD class=Formal><A name=429688></A>
+      <P class=TB>named object type &nbsp;</P></TD></TR>
+  <TR class=Formal vAlign=top align=left>
+    <TD class=Formal><A name=429690></A>
+      <P class=TB>OCI_TYPECODE_NAMEDCOLLECTION &nbsp;</P></TD>
+    <TD class=Formal><A name=429692></A>
+      <P class=TB>Domain (named primitive type) &nbsp;</P></TD></TR></TBODY></TABLE>
+<TABLE class=TableNote cellSpacing=0 cellPadding=3 width="100%">
+  <TBODY>
+  <TR class=TableNote vAlign=top align=left>
+    <TD class=TableNote></TD></TR></TBODY></TABLE>
+<P></P><A name=429694></A><!--TOC=h2-"429694"-->
+<H3 class=H2><FONT face="Helvetica, Arial, sans-serif" 
+color=#330099>Relationship Between SQLT and OCI_TYPECODE Values</FONT></H3><!--/TOC=h2--><A name=429695></A>
+<P class=BP>Oracle recognizes two different sets of datatype code values. One 
+set is distinguished by the "SQLT_" prefix, the other by the "OCI_TYPECODE_" 
+prefix. </P><A name=429696></A>
+<P class=BP>The SQLT typecodes are used by OCI to specify a datatype in a bind 
+or define operation. In this way, the SQL typecodes help to control data 
+conversions between Oracle and OCI client applications. The OCI_TYPECODE types 
+are used by Oracle8's type system to reference or describe predefined types when 
+manipulating or creating user-defined types. </P><A name=429697></A>
+<P class=BP>In many cases there are direct mappings between SQLT and 
+OCI_TYPECODE values. In other cases, however, there is not a direct one-to-one 
+mapping. For example OCI_TYPECODE_SIGNED16, OCI_TYPECODE_SIGNED32, 
+OCI_TYPECODE_INTEGER, OCI_TYPECODE_OCTET, and OCI_TYPECODE_SMALLINT are all 
+mapped to the SQLT_INT type. </P><A name=429698></A>
+<P class=BP>The following table illustrates the mappings between SQLT and 
+OCI_TYPECODE types. 
+<H5 class=FormalW><FONT face=Helvetica,Arial,sans-serif><EM><A 
+name=429701></A><STRONG><FONT face=Arial,Helvetica,sans-serif><EM>Table 3-7 
+OCI_TYPECODE to SQLT Mappings </EM></FONT></STRONG></EM></FONT></H5>
+<TABLE class=FormalW cellSpacing=0 cellPadding=3 width="100%" border=1>
+  <TBODY>
+  <TR class=FormalW>
+    <TH class=FormalW vAlign=bottom align=left><A name=429707></A><FONT 
+      face="Helvetica, Arial, sans-serif">Oracle Type System Typename</FONT> 
+    &nbsp;</TH>
+    <TH class=FormalW vAlign=bottom align=left><A name=429709></A><FONT 
+      face="Helvetica, Arial, sans-serif">Oracle Type System Type</FONT> 
+    &nbsp;</TH>
+    <TH class=FormalW vAlign=bottom align=left><A name=429711></A><FONT 
+      face="Helvetica, Arial, sans-serif">Equivalent SQLT Type</FONT> 
+  &nbsp;</TH></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429713></A>
+      <P class=TB>BFILE &nbsp;</P></TD>
+    <TD class=FormalW><A name=429715></A>
+      <P class=TB>OCI_TYPECODE_BFILE &nbsp;</P></TD>
+    <TD class=FormalW><A name=429717></A>
+      <P class=TB>SQLT_BFILE &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429719></A>
+      <P class=TB>BLOB &nbsp;</P></TD>
+    <TD class=FormalW><A name=429721></A>
+      <P class=TB>OCI_TYPECODE_BLOB &nbsp;</P></TD>
+    <TD class=FormalW><A name=429723></A>
+      <P class=TB>SQLT_BLOB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429725></A>
+      <P class=TB>CHAR &nbsp;</P></TD>
+    <TD class=FormalW><A name=429727></A>
+      <P class=TB>OCI_TYPECODE_CHAR (n) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429729></A>
+      <P class=TB>SQLT_AFC(n) [note 1] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429731></A>
+      <P class=TB>CLOB &nbsp;</P></TD>
+    <TD class=FormalW><A name=429733></A>
+      <P class=TB>OCI_TYPECODE_CLOB &nbsp;</P></TD>
+    <TD class=FormalW><A name=429735></A>
+      <P class=TB>SQLT_CLOB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429737></A>
+      <P class=TB>COLLECTION &nbsp;</P></TD>
+    <TD class=FormalW><A name=429739></A>
+      <P class=TB>OCI_TYPECODE_NAMEDCOLLECTION &nbsp;</P></TD>
+    <TD class=FormalW><A name=429741></A>
+      <P class=TB>SQLT_NCO &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429743></A>
+      <P class=TB>DATE &nbsp;</P></TD>
+    <TD class=FormalW><A name=429745></A>
+      <P class=TB>OCI_TYPECODE_DATE &nbsp;</P></TD>
+    <TD class=FormalW><A name=429747></A>
+      <P class=TB>SQLT_DAT &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429749></A>
+      <P class=TB>FLOAT &nbsp;</P></TD>
+    <TD class=FormalW><A name=429751></A>
+      <P class=TB>OCI_TYPECODE_FLOAT (b) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429753></A>
+      <P class=TB>SQLT_FLT (8) [note 2] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429755></A>
+      <P class=TB>DECIMAL &nbsp;</P></TD>
+    <TD class=FormalW><A name=429757></A>
+      <P class=TB>OCI_TYPECODE_DECIMAL (p) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429759></A>
+      <P class=TB>SQLT_NUM (p, 0) [note 3] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429761></A>
+      <P class=TB>DOUBLE &nbsp;</P></TD>
+    <TD class=FormalW><A name=429763></A>
+      <P class=TB>OCI_TYPECODE_DOUBLE &nbsp;</P></TD>
+    <TD class=FormalW><A name=429765></A>
+      <P class=TB>SQLT_FLT (8) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429767></A>
+      <P class=TB>INTEGER &nbsp;</P></TD>
+    <TD class=FormalW><A name=429769></A>
+      <P class=TB>OCI_TYPECODE_INTEGER &nbsp;</P></TD>
+    <TD class=FormalW><A name=429771></A>
+      <P class=TB>SQLT_INT (i) [note 4] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429773></A>
+      <P class=TB>NUMBER &nbsp;</P></TD>
+    <TD class=FormalW><A name=429775></A>
+      <P class=TB>OCI_TYPECODE_NUMBER (p, s) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429777></A>
+      <P class=TB>SQLT_NUM (p, s) [note 5] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429779></A>
+      <P class=TB>OCTECT &nbsp;</P></TD>
+    <TD class=FormalW><A name=429781></A>
+      <P class=TB>OCI_TYPECODE_OCTECT &nbsp;</P></TD>
+    <TD class=FormalW><A name=429783></A>
+      <P class=TB>SQLT_INT (1) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429785></A>
+      <P class=TB>POINTER &nbsp;</P></TD>
+    <TD class=FormalW><A name=429787></A>
+      <P class=TB>OCI_TYPECODE_PTR &nbsp;</P></TD>
+    <TD class=FormalW><A name=429789></A>
+      <P class=TB>&lt;NONE&gt; &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429791></A>
+      <P class=TB>RAW &nbsp;</P></TD>
+    <TD class=FormalW><A name=429793></A>
+      <P class=TB>OCI_TYPECODE_RAW &nbsp;</P></TD>
+    <TD class=FormalW><A name=429795></A>
+      <P class=TB>SQLT_LVB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429797></A>
+      <P class=TB>REAL &nbsp;</P></TD>
+    <TD class=FormalW><A name=429799></A>
+      <P class=TB>OCI_TYPECODE_REAL &nbsp;</P></TD>
+    <TD class=FormalW><A name=429801></A>
+      <P class=TB>SQLT_FLT (4) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429803></A>
+      <P class=TB>REF &nbsp;</P></TD>
+    <TD class=FormalW><A name=429805></A>
+      <P class=TB>OCI_TYPECODE_REF &nbsp;</P></TD>
+    <TD class=FormalW><A name=429807></A>
+      <P class=TB>SQLT_REF &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429809></A>
+      <P class=TB>OBJECT &nbsp;</P></TD>
+    <TD class=FormalW><A name=429811></A>
+      <P class=TB>OCI_TYPECODE_OBJECT &nbsp;</P></TD>
+    <TD class=FormalW><A name=429813></A>
+      <P class=TB>SQLT_NTY &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429815></A>
+      <P class=TB>SIGNED(8) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429817></A>
+      <P class=TB>OCI_TYPECODE_SIGNED8 &nbsp;</P></TD>
+    <TD class=FormalW><A name=429819></A>
+      <P class=TB>SQLT_INT (1) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429821></A>
+      <P class=TB>SIGNED(16) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429823></A>
+      <P class=TB>OCI_TYPECODE_SIGNED16 &nbsp;</P></TD>
+    <TD class=FormalW><A name=429825></A>
+      <P class=TB>SQLT_INT (2) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429827></A>
+      <P class=TB>SIGNED(32) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429829></A>
+      <P class=TB>OCI_TYPECODE_SIGNED32 &nbsp;</P></TD>
+    <TD class=FormalW><A name=429831></A>
+      <P class=TB>SQLT_INT (4) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429833></A>
+      <P class=TB>SMALLINT &nbsp;</P></TD>
+    <TD class=FormalW><A name=429835></A>
+      <P class=TB>OCI_TYPECODE_SMALLINT &nbsp;</P></TD>
+    <TD class=FormalW><A name=429837></A>
+      <P class=TB>SQLT_INT (i) [note 4] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429839></A>
+      <P class=TB>TABLE [note 6] &nbsp;</P></TD>
+    <TD class=FormalW><A name=429841></A>
+      <P class=TB>OCI_TYPECODE_TABLE &nbsp;</P></TD>
+    <TD class=FormalW><A name=429843></A>
+      <P class=TB>SQLT_TAB &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429845></A>
+      <P class=TB>UNSIGNED(8) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429847></A>
+      <P class=TB>OCI_TYPECODE_UNSIGNED8 &nbsp;</P></TD>
+    <TD class=FormalW><A name=429849></A>
+      <P class=TB>SQLT_UIN (1) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429851></A>
+      <P class=TB>UNSIGNED(16) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429853></A>
+      <P class=TB>OCI_TYPECODE_UNSIGNED16 &nbsp;</P></TD>
+    <TD class=FormalW><A name=429855></A>
+      <P class=TB>SQLT_UIN (2) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429857></A>
+      <P class=TB>UNSIGNED(32) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429859></A>
+      <P class=TB>OCI_TYPECODE_UNSIGNED32 &nbsp;</P></TD>
+    <TD class=FormalW><A name=429861></A>
+      <P class=TB>SQLT_UIN (4) &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429863></A>
+      <P class=TB>VARRAY [note 6] &nbsp;</P></TD>
+    <TD class=FormalW><A name=429865></A>
+      <P class=TB>OCI_TYPECODE_VARRAY &nbsp;</P></TD>
+    <TD class=FormalW><A name=429867></A>
+      <P class=TB>SQLT_NAR &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429869></A>
+      <P class=TB>VARCHAR &nbsp;</P></TD>
+    <TD class=FormalW><A name=429871></A>
+      <P class=TB>OCI_TYPECODE_VARCHAR (n) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429873></A>
+      <P class=TB>SQLT_CHR (n) [note 1] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW><A name=429875></A>
+      <P class=TB>VARCHAR2 &nbsp;</P></TD>
+    <TD class=FormalW><A name=429877></A>
+      <P class=TB>OCI_TYPECODE_VARCHAR2 (n) &nbsp;</P></TD>
+    <TD class=FormalW><A name=429879></A>
+      <P class=TB>SQLT_VCS (n) [note 1] &nbsp;</P></TD></TR>
+  <TR class=FormalW vAlign=top align=left>
+    <TD class=FormalW colSpan=3><A name=429881></A>
+      <P class=TB>Notes: <A name=429882></A>
+      <P class=TB>1. n is the size of the string in bytes <A name=429883></A>
+      <P class=TB>2. These are floating point numbers, the precision is given in 
+      terms of binary digits. b is the precision of the number in binary digits. 
+      <A name=429884></A>
+      <P class=TB>3. This is equivalent to a NUMBER with no decimal places. <A 
+      name=429885></A>
+      <P class=TB>4. i is the size of the number in bytes, set as part of an OCI 
+      call. <A name=429886></A>
+      <P class=TB>5. p is the precision of the number in decimal digits; s is 
+      the scale of the number in decimal digits. <A name=429887></A>
+      <P class=TB>6. Can only be part of a named collection type. 
+  &nbsp;</P></TD></TR></TBODY></TABLE>
+<TABLE class=TableNote cellSpacing=0 cellPadding=3 width="100%">
+  <TBODY>
+  <TR class=TableNote vAlign=top align=left>
+    <TD class=TableNote></TD></TR></TBODY></TABLE>
+<P></P><A name=429536></A><!--TOC=h1-"429536"-->
+<H2 class=H1><FONT face="Helvetica, Arial, sans-serif" color=#330099>Definitions 
+in <EM class=Italic>oratypes.h</EM></FONT></H2><!--/TOC=h1--><A name=429537></A>
+<P class=BP>Throughout this guide you will see references to datatypes like 
+<STRONG class=Bold>ub2</STRONG> or <STRONG class=Bold>sb4</STRONG>, or to 
+constants like <STRONG class=Bold>UB4MAXVAL</STRONG>. These types are defined in 
+the <EM class=Italic>oratypes.h</EM> header file, an example of which is 
+included here. The exact contents may vary according to the platform you are 
+using. </P><PRE class=CE><A name=432313></A>#ifndef ORASTDDEF
+<A name=432420></A># include &lt;stddef.h&gt;
+<A name=432422></A># define ORASTDDEF
+<A name=432424></A>#endif
+<A name=432426></A>
+<A name=432428></A>#ifndef ORALIMITS
+<A name=432430></A># include &lt;limits.h&gt;
+<A name=432432></A># define ORALIMITS
+<A name=432436></A>#endif
+<A name=432437></A>
+<A name=432438></A>#ifndef  SX_ORACLE
+<A name=432439></A>#define  SX_ORACLE
+<A name=432440></A>#define  SX
+<A name=432441></A>#define  ORATYPES
+<A name=432442></A>
+<A name=432443></A>
+<A name=432444></A>#ifndef TRUE
+<A name=432445></A># define TRUE  1
+<A name=432446></A># define FALSE 0
+<A name=432447></A>#endif
+<A name=432448></A>
+<A name=432449></A>
+<A name=432450></A>#ifdef lint
+<A name=432451></A># ifndef mips
+<A name=432452></A>#  define signed
+<A name=432453></A># endif 
+<A name=432454></A>#endif 
+<A name=432455></A>
+<A name=432456></A>#ifdef ENCORE_88K
+<A name=432457></A># ifndef signed
+<A name=432458></A>#  define signed
+<A name=432459></A># endif 
+<A name=432460></A>#endif 
+<A name=432461></A>
+<A name=432462></A>#if defined(SYSV_386) || defined(SUN_OS)
+<A name=432463></A># ifdef signed
+<A name=432464></A>#  undef signed
+<A name=432465></A># endif 
+<A name=432466></A># define signed
+<A name=432467></A>#endif 
+<A name=432468></A>
+<A name=432469></A>
+<A name=432470></A>#ifndef lint
+<A name=432471></A>typedef          int eword;
+<A name=432472></A>typedef unsigned int uword;
+<A name=432473></A>typedef   signed int sword;
+<A name=432474></A>#else
+<A name=432475></A>#define eword int
+<A name=432476></A>#define uword unsigned int
+<A name=432477></A>#define sword signed int
+<A name=432478></A>#endif 
+<A name=432479></A>
+<A name=432480></A>#define  EWORDMAXVAL  ((eword) INT_MAX)
+<A name=432481></A>#define  EWORDMINVAL  ((eword)       0)
+<A name=432482></A>#define  UWORDMAXVAL  ((uword)UINT_MAX)
+<A name=432483></A>#define  UWORDMINVAL  ((uword)       0)
+<A name=432484></A>#define  SWORDMAXVAL  ((sword) INT_MAX)
+<A name=432485></A>#define  SWORDMINVAL  ((sword) INT_MIN)
+<A name=432486></A>#define  MINEWORDMAXVAL  ((eword)  32767)
+<A name=432487></A>#define  MAXEWORDMINVAL  ((eword)      0)
+<A name=432488></A>#define  MINUWORDMAXVAL  ((uword)  65535)
+<A name=432489></A>#define  MAXUWORDMINVAL  ((uword)      0)
+<A name=432490></A>#define  MINSWORDMAXVAL  ((sword)  32767)
+<A name=432491></A>#define  MAXSWORDMINVAL  ((sword) -32767)
+<A name=432492></A>
+<A name=432493></A> 
+<A name=432494></A>#ifndef lint
+<A name=432495></A># ifdef mips
+<A name=432496></A>typedef   signed char  eb1;
+<A name=432497></A># else
+<A name=432498></A>typedef          char  eb1;
+<A name=432499></A># endif 
+<A name=432500></A>typedef unsigned char  ub1;
+<A name=432501></A>typedef   signed char  sb1;
+<A name=432502></A>#else
+<A name=432503></A>#define eb1 char
+<A name=432504></A>#define ub1 unsigned char
+<A name=432505></A>#define sb1 signed char
+<A name=432506></A>#endif 
+<A name=432507></A>
+<A name=432508></A>#define EB1MAXVAL ((eb1)SCHAR_MAX)
+<A name=432509></A>#define EB1MINVAL ((eb1)        0)
+<A name=432510></A>#if defined(mips)
+<A name=432511></A># ifndef lint
+<A name=432512></A>#  define UB1MAXVAL (UCHAR_MAX)
+<A name=432513></A># endif
+<A name=432514></A>#endif
+<A name=432515></A>#ifndef UB1MAXVAL
+<A name=432516></A># ifdef SCO_UNIX
+<A name=432517></A># define UB1MAXVAL (UCHAR_MAX)
+<A name=432518></A># else
+<A name=432519></A># define UB1MAXVAL ((ub1)UCHAR_MAX)
+<A name=432520></A># endif 
+<A name=432521></A>#endif
+<A name=432522></A>#define UB1MINVAL ((ub1)        0)
+<A name=432523></A>#define SB1MAXVAL ((sb1)SCHAR_MAX)
+<A name=432524></A>#define SB1MINVAL ((sb1)SCHAR_MIN)
+<A name=432525></A>#define MINEB1MAXVAL ((eb1)  127)
+<A name=432526></A>#define MAXEB1MINVAL ((eb1)    0)
+<A name=432527></A>#define MINUB1MAXVAL ((ub1)  255)
+<A name=432528></A>#define MAXUB1MINVAL ((ub1)    0)
+<A name=432529></A>#define MINSB1MAXVAL ((sb1)  127)
+<A name=432530></A>#define MAXSB1MINVAL ((sb1) -127)
+<A name=432531></A>
+<A name=432532></A>#define UB1BITS          CHAR_BIT
+<A name=432533></A>#define UB1MASK          ((1 &lt;&lt; ((uword)CHAR_BIT)) - 1)
+<A name=432534></A>
+<A name=432535></A>
+<A name=432536></A>typedef  unsigned char OraText;
+<A name=432537></A>
+<A name=432538></A>#ifndef LUSEMFC
+<A name=432539></A># define text OraText
+<A name=432540></A>#endif
+<A name=432541></A>
+<A name=432542></A>
+<A name=432543></A>#ifndef lint
+<A name=432544></A>typedef          short    eb2;
+<A name=432545></A>typedef unsigned short    ub2;
+<A name=432546></A>typedef   signed short    sb2;
+<A name=432547></A>#else
+<A name=432548></A>#define eb2  short
+<A name=432549></A>#define ub2  unsigned short
+<A name=432550></A>#define sb2  signed short
+<A name=432551></A>#endif 
+<A name=432552></A>
+<A name=432553></A>#define EB2MAXVAL ((eb2) SHRT_MAX)
+<A name=432554></A>#define EB2MINVAL ((eb2)        0)
+<A name=432555></A>#define UB2MAXVAL ((ub2)USHRT_MAX)
+<A name=432556></A>#define UB2MINVAL ((ub2)        0)
+<A name=432557></A>#define SB2MAXVAL ((sb2) SHRT_MAX)
+<A name=432558></A>#define SB2MINVAL ((sb2) SHRT_MIN)
+<A name=432559></A>#define MINEB2MAXVAL ((eb2) 32767)
+<A name=432560></A>#define MAXEB2MINVAL ((eb2)     0)
+<A name=432561></A>#define MINUB2MAXVAL ((ub2) 65535)
+<A name=432562></A>#define MAXUB2MINVAL ((ub2)     0)
+<A name=432563></A>#define MINSB2MAXVAL ((sb2) 32767)
+<A name=432564></A>#define MAXSB2MINVAL ((sb2)-32767)
+<A name=432565></A>
+<A name=432566></A>#if defined(A_OSF)
+<A name=432567></A>
+<A name=432568></A>#ifndef lint
+<A name=432569></A>typedef          int  eb4;
+<A name=432570></A>typedef unsigned int  ub4;
+<A name=432571></A>typedef   signed int  sb4;
+<A name=432572></A>#else
+<A name=432573></A>#define eb4 int
+<A name=432574></A>#define ub4 unsigned int
+<A name=432575></A>#define sb4 signed int
+<A name=432576></A>#endif 
+<A name=432577></A>
+<A name=432578></A>#define EB4MAXVAL ((eb4)  INT_MAX)
+<A name=432579></A>#define EB4MINVAL ((eb4)        0)
+<A name=432580></A>#define UB4MAXVAL ((ub4) UINT_MAX)
+<A name=432581></A>#define UB4MINVAL ((ub4)        0)
+<A name=432582></A>#define SB4MAXVAL ((sb4)  INT_MAX)
+<A name=432583></A>#define SB4MINVAL ((sb4)  INT_MIN)
+<A name=432584></A>#define MINEB4MAXVAL ((eb4) 2147483647)
+<A name=432585></A>#define MAXEB4MINVAL ((eb4)          0)
+<A name=432586></A>#define MINUB4MAXVAL ((ub4) 4294967295)
+<A name=432587></A>#define MAXUB4MINVAL ((ub4)          0)
+<A name=432588></A>#define MINSB4MAXVAL ((sb4) 2147483647)
+<A name=432589></A>#define MAXSB4MINVAL ((sb4)-2147483647)
+<A name=432590></A>
+<A name=432591></A>#else  
+<A name=432592></A>
+<A name=432593></A> 
+<A name=432594></A>#ifndef lint
+<A name=432595></A>typedef          long  eb4;
+<A name=432596></A>typedef unsigned long  ub4;
+<A name=432597></A>typedef   signed long  sb4;
+<A name=432598></A>#else
+<A name=432599></A>#define eb4 long
+<A name=432600></A>#define ub4 unsigned long
+<A name=432601></A>#define sb4 signed long
+<A name=432602></A>#endif 
+<A name=432603></A>
+<A name=432604></A>#define EB4MAXVAL ((eb4) LONG_MAX)
+<A name=432605></A>#define EB4MINVAL ((eb4)        0)
+<A name=432606></A>#define UB4MAXVAL ((ub4)ULONG_MAX)
+<A name=432607></A>#define UB4MINVAL ((ub4)        0)
+<A name=432608></A>#define SB4MAXVAL ((sb4) LONG_MAX)
+<A name=432609></A>#define SB4MINVAL ((sb4) LONG_MIN)
+<A name=432610></A>#define MINEB4MAXVAL ((eb4) 2147483647)
+<A name=432611></A>#define MAXEB4MINVAL ((eb4)          0)
+<A name=432612></A>#define MINUB4MAXVAL ((ub4) 4294967295)
+<A name=432613></A>#define MAXUB4MINVAL ((ub4)          0)
+<A name=432614></A>#define MINSB4MAXVAL ((sb4) 2147483647)
+<A name=432615></A>#define MAXSB4MINVAL ((sb4)-2147483647)
+<A name=432616></A>#endif 
+<A name=432617></A>
+<A name=432618></A>
+<A name=432619></A>#ifndef lint
+<A name=432620></A>typedef unsigned long  ubig_ora;
+<A name=432621></A>typedef   signed long  sbig_ora;
+<A name=432622></A>#else
+<A name=432623></A>#define ubig_ora unsigned long
+<A name=432624></A>#define sbig_ora signed long
+<A name=432625></A>#endif 
+<A name=432626></A>
+<A name=432627></A>#define UBIG_ORAMAXVAL ((ubig_ora)ULONG_MAX)
+<A name=432628></A>#define UBIG_ORAMINVAL ((ubig_ora)        0)
+<A name=432629></A>#define SBIG_ORAMAXVAL ((sbig_ora) LONG_MAX)
+<A name=432630></A>#define SBIG_ORAMINVAL ((sbig_ora) LONG_MIN)
+<A name=432631></A>#define MINUBIG_ORAMAXVAL ((ubig_ora) 4294967295)
+<A name=432632></A>#define MAXUBIG_ORAMINVAL ((ubig_ora)          0)
+<A name=432633></A>#define MINSBIG_ORAMAXVAL ((sbig_ora) 2147483647)
+<A name=432634></A>#define MAXSBIG_ORAMINVAL ((sbig_ora)-2147483647)
+<A name=432635></A>
+<A name=432636></A>#define UBIGORABITS      (UB1BITS * sizeof(ubig_ora))
+<A name=432637></A>
+<A name=432666></A>#define SLU8NATIVE
+<A name=432748></A>#define SLS8NATIVE
+<A name=432749></A> 
+<A name=432750></A> 
+<A name=432751></A>#ifdef SLU8NATIVE
+<A name=432752></A> 
+<A name=432753></A>
+<A name=432756></A>#ifndef lint
+<A name=432757></A>typedef unsigned long long ub8;
+<A name=432758></A>#else
+<A name=432759></A>#define ub8 unsigned long long
+<A name=432760></A>#endif 
+<A name=432761></A> 
+<A name=432762></A>#define UB8ZERO      ((ub8)0)
+<A name=432763></A> 
+<A name=432764></A>#define UB8MINVAL    ((ub8)0)
+<A name=432765></A>#define UB8MAXVAL    ((ub8)18446744073709551615)
+<A name=432766></A> 
+<A name=432767></A>#define MAXUB8MINVAL ((ub8)0)
+<A name=432768></A>#define MINUB8MAXVAL ((ub8)18446744073709551615)
+<A name=432769></A> 
+<A name=432770></A>#endif 
+<A name=432771></A> 
+<A name=432772></A> 
+<A name=432773></A>#ifdef SLS8NATIVE
+<A name=432774></A> 
+<A name=432775></A>
+<A name=432746></A>
+<A name=432667></A>#ifndef lint
+<A name=432668></A>typedef signed long long sb8;
+<A name=432669></A>#else
+<A name=432670></A>#define sb8 signed long long
+<A name=432671></A>#endif 
+<A name=432672></A>
+<A name=432673></A>#define SB8ZERO      ((sb8)0)
+<A name=432674></A>
+<A name=432675></A>#define SB8MINVAL    ((sb8)-9223372036854775808)
+<A name=432676></A>#define SB8MAXVAL    ((sb8) 9223372036854775807)
+<A name=432677></A>
+<A name=432678></A>#define MAXSB8MINVAL ((sb8)-9223372036854775807)
+<A name=432679></A>#define MINSB8MAXVAL ((sb8) 9223372036854775807)
+<A name=432680></A>
+<A name=432681></A>#endif 
+<A name=432682></A>
+<A name=432685></A>
+<A name=432686></A>#undef CONST
+<A name=432687></A>
+<A name=432688></A>#ifdef _olint
+<A name=432689></A># define CONST const
+<A name=432690></A>#else
+<A name=432691></A>#if defined(PMAX) &amp;&amp; defined(__STDC__)
+<A name=432692></A>#   define CONST const
+<A name=432693></A>#else
+<A name=432694></A># ifdef M88OPEN
+<A name=432695></A>#  define CONST const
+<A name=432696></A># else 
+<A name=432697></A>#  if defined(SEQ_PSX) &amp;&amp; defined(__STDC__)
+<A name=432698></A>#    define CONST const
+<A name=432699></A>#  else 
+<A name=432700></A>#    ifdef A_OSF
+<A name=432701></A>#      if defined(__STDC__)
+<A name=432702></A>#        define CONST const
+<A name=432703></A>#      else
+<A name=432704></A>#        define CONST
+<A name=432705></A>#      endif
+<A name=432706></A>#    else
+<A name=432707></A>#      define CONST
+<A name=432708></A>#    endif 
+<A name=432709></A>#  endif 
+<A name=432710></A># endif 
+<A name=432711></A>#endif 
+<A name=432712></A>#endif 
+<A name=432713></A>
+<A name=432714></A>
+<A name=432715></A>#ifdef lint
+<A name=432716></A># define dvoid void
+<A name=432717></A>#else
+<A name=432718></A>
+<A name=432719></A># ifdef UTS2
+<A name=432720></A>#  define dvoid char
+<A name=432721></A># else
+<A name=432722></A># define dvoid void
+<A name=432723></A># endif 
+<A name=432724></A>
+<A name=432725></A>#endif 
+<A name=432726></A>
+<A name=432727></A>typedef void (*lgenfp_t)( void );
+<A name=432728></A>
+<A name=432729></A>
+<A name=432730></A>#ifndef ORASYSTYPES
+<A name=432731></A># include &lt;sys/types.h&gt;
+<A name=432732></A># define ORASYSTYPES
+<A name=432733></A>#endif 
+<A name=432734></A>#define boolean int
+<A name=432735></A>
+<A name=432736></A>
+<A name=432737></A>#ifdef sparc
+<A name=432738></A># define SIZE_TMAXVAL SB4MAXVAL
+<A name=432739></A>#else
+<A name=432740></A># define SIZE_TMAXVAL UB4MAXVAL
+<A name=432741></A>#endif 
+<A name=432742></A>
+<A name=432743></A>#define MINSIZE_TMAXVAL (size_t)65535
+<A name=432744></A>
+<A name=432745></A>#endif 
+</PRE><A name=428560></A>
+<P class=BP></P>
+<HR noShade SIZE=1>
+
+<P class=BP><!-- Start Footer --></P></DIV>
+<DIV class=OUTD>
+<HR>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD vAlign=bottom width="33%">
+      <TABLE cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD align=middle><A 
+            href="file:///C:/orant/doc/appdev.804/a58234/basics.htm"><IMG 
+            height=30 alt="" src="datatype_files/larrow.gif" width=30 
+            border=0><BR><FONT size=-2>Prev</FONT></A></TD>
+          <TD align=middle><A 
+            href="file:///C:/orant/doc/appdev.804/a58234/sql_proc.htm"><IMG 
+            height=30 alt="" src="datatype_files/rarrow.gif" width=30 
+            border=0><BR><FONT size=-2>Next</FONT></A></TD></TR></TBODY></TABLE></TD>
+    <TD align=middle width="34%"><A 
+      href="file:///C:/orant/doc/dcommon/html/cpyr.htm"><IMG height=15 
+      alt=Oracle src="datatype_files/oracle.gif" width=75 border=0><BR><FONT 
+      size=-2>Copyright © 1997 Oracle Corporation.</FONT></A> <BR><FONT 
+      size=-2>All Rights Reserved.</FONT> </TD>
+    <TD vAlign=bottom align=right width="33%">
+      <TABLE cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/index.htm"><IMG height=30 alt="" 
+            src="datatype_files/prodicon.gif" width=30 border=0><BR><FONT 
+            size=-2>Library</FONT></A></TD>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/appdev.804/index.htm"><IMG height=30 
+            alt="" src="datatype_files/bookicon.gif" width=30 border=0><BR><FONT 
+            size=-2>Product</FONT></A></TD>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/appdev.804/a58234/toc.htm"><IMG height=30 
+            alt="" src="datatype_files/conticon.gif" width=30 border=0><BR><FONT 
+            size=-2>Contents</FONT></A></TD>
+          <TD vAlign=top align=middle width="25%"><A 
+            href="file:///C:/orant/doc/appdev.804/a58234/index.htm"><IMG 
+            height=30 alt="" src="datatype_files/indxicon.gif" width=30 
+            border=0><BR><FONT 
+  size=-2>Index</FONT></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></BODY></HTML>

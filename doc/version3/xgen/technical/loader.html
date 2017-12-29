@@ -1,0 +1,47 @@
+<html>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+<h2>Model Loaders</h2>
+Loaders load models for use with velocity templates. Templates use the top level 
+model object to perform the transformation. See ILoader.java.<p>TextFileLoader</p>
+<p>&nbsp;loader=&quot;workzen.xgen.loader.XGenLoader&quot;<br>
+&nbsp; inputFile=&quot;${basedir}/etc/input/student.xml&quot;<br>
+&nbsp; resourceTemplate=&quot;templates/pojo/control.vm&quot;<br>
+&nbsp; templatePath=&quot;${basedir}&quot;<br>
+&nbsp; outputDirectory=&quot;${basedir}/work/&quot;<br>
+&nbsp; outputFile=&quot;&quot;<br>
+&nbsp;</p>
+<table border="1" width="0%">
+	<tr>
+		<th>Property</th>
+		<th>Value</th>
+	</tr>
+	<tr>
+		<td>loader</td>
+		<td>IFileLoader package</td>
+	</tr>
+	<tr>
+		<td>inputFile</td>
+		<td>absolute path to xml input file</td>
+	</tr>
+	<tr>
+		<td>resourceTemplate</td>
+		<td>relative path to velocity template</td>
+	</tr>
+	<tr>
+		<td>templatePath</td>
+		<td>non null value searches &quot;file&quot; before &quot;classpath&quot;</td>
+	</tr>
+	<tr>
+		<td>outputDirectory</td>
+		<td>directory for all output files</td>
+	</tr>
+	<tr>
+		<td>outputFile</td>
+		<td>optional output file if not using a &quot;control&quot; template</td>
+	</tr>
+</table>
+
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+<p>templates/xml/htmlOutput.vm</p>
+
+</html>

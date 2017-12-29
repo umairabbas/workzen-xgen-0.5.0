@@ -1,0 +1,324 @@
+<project name="workzen-ui" default="help" basedir=".">
+
+  <property file="build.properties"/>
+  
+  <!-- ================================================================ -->
+  <!-- build.xml bmatlack@workzen.userworld.com                         -->
+  <!-- ================================================================ -->
+
+  <!-- ================================================================ -->
+  <!-- all local properties can be overridden by the property file      -->
+  <!-- ================================================================ -->
+  
+  <!-- default property values -->
+  <property name="debug" value="on" />
+  <property name="optimize" value="off" />
+  <property name="deprecation" value="on" />
+  
+  <property name="src.dir"   value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir"  value="dist"/>
+  <property name="lib.dir"   value="lib"/>
+  <property name="doc.dir"   value="doc"/>
+  <property name="etc.dir"   value="etc"/>
+  <property name="tmp.dir"   value="tmp"/>
+  <property name="web.dir"   value="webapp"/>
+  <property name="work.dir"  value="work"/>
+  
+  <property name="template.dir" value="src/workzen/xgen/templates"/>
+
+  <property name="zip.file" value="${project.name}-dist-${project.version}.zip" />
+  <property name="jar.file" value="${project.name}-${project.version}.jar" />
+  <property name="war.file" value="${project.name}-${project.version}.war" />
+  <property name="ear.file" value="${project.name}-${project.version}.ear" />
+
+  <property name="xgen.task" value="workzen.xgen.ant.XGenTask"/>
+    
+  <!-- ================================================================ -->
+  <!-- U S A G E                                                        -->
+  <!-- ================================================================ -->
+  
+  <target name="help">
+    <echo message="+------------------------------------------+"/>
+    <echo message="| common tasks ${project.name}-${project.version} "/>
+    <echo message="+------------------------------------------+"/>
+    <echo message="ant build-project"/>
+    <echo message="ant build-dist"/>
+    <echo message="ant -buildfile build_project.xml"/>
+  </target>
+  
+  <!-- ================================================================ -->
+  <!-- T A S K   D E F I N I T I O N S                                  -->
+  <!-- ================================================================ -->
+  
+  <!-- build project -->
+  <target name="build-project" if="src.dir">
+    <ant target="clean"/>
+    <ant target="compile"/>
+    <ant target="jar"/>
+  </target>
+  
+  <!-- build dist -->
+  <target name="build-dist" if="src.dir">
+    <ant target="build-project"/>
+    <ant target="javadoc"/>
+    <ant target="zip"/>
+  </target>
+ 
+  <!-- backup dist -->
+  <target name="backup-dist">
+     <copy file="${dist.dir}/${zip.file}" todir="${backup.dir}" />
+  </target>
+  
+  <!-- ================================================================ -->
+  <!-- C L A S S P A T H                                                -->
+  <!-- ================================================================ -->
+  
+  <path id="classpath">  
+    <pathelement location="${jar.1}"/> 
+    <pathelement location="${jar.2}"/> 
+    <pathelement location="${jar.3}"/>
+    <pathelement location="${jar.4}"/>
+    <pathelement location="${jar.5}"/>
+    <pathelement location="${jar.6}"/>
+    <pathelement location="${jar.7}"/>
+    <pathelement location="${jar.8}"/>
+    <pathelement location="${jar.9}"/>
+    <pathelement location="${jar.10}"/>
+    
+    <!-- local directory -->
+    <pathelement path="."/>
+    
+    <!-- lib dir (includes subdirectories) -->
+    <fileset dir="${lib.dir}/..">
+      <include name="**/*.jar"/>
+    </fileset>   
+    
+  </path>
+
+  <!-- ================================================================ -->
+  <!-- LEGACY X G E N  G E N E R A T E  S O U R C E                     -->
+  <!-- ================================================================ -->
+  <!--
+  <target name="xgen" depends="" if="">
+   
+    <taskdef name="xgen" classname="${xgen.task}">
+        <classpath refid="classpath"/>
+    </taskdef>
+    
+    <xgen
+      loader="${xgen.loader.classname}"
+      inputFile="${xgen.input.file}"
+      resourceTemplate="${xgen.resource.template}"
+      templatePath="${basedir}"
+      outputDirectory="${xgen.output.dir}"
+      outputFile="${xgen.output.file}"
+      >
+    </xgen>
+    
+  </target>
+  -->
+
+
+  <!-- =================================================================== -->
+  <!-- C O M P I L E                                                       -->
+  <!-- =================================================================== -->  
+  
+  <target name="compile" depends="" if="src.dir">   
+    <echo message="+------------------------------------------+"/>
+    <echo message="| Compiling!                               |"/>
+    <echo message="+------------------------------------------+"/>
+
+    <delete dir="${build.dir}" quiet="true"/>
+    <mkdir  dir="${build.dir}"/>  
+  
+    <javac srcdir="${src.dir}"
+           destdir="${build.dir}"
+           debug="${debug}"
+           deprecation="${deprecation}"
+           optimize="${optimize}">   
+      <classpath refid="classpath"/>
+    </javac>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- J A V A D O C                                                       -->
+  <!-- =================================================================== -->
+  <target name="javadoc" if="src.dir" >
+    <echo message="+------------------------------------------+"/>
+    <echo message="| Javadocing !                             |"/>
+    <echo message="+------------------------------------------+"/>
+
+    <tstamp>
+      <format property="today" pattern="d MMMM yyyy"/>
+    </tstamp>
+    
+    <delete dir="${doc.dir}/javadoc" quiet="true"/>
+    <mkdir dir="${doc.dir}/javadoc"/>
+    
+    <javadoc
+      sourcepath="${src.dir}"
+      packagenames="**.*" 
+      destdir="${doc.dir}/javadoc"
+      author="true"
+      private="true"
+      version="true"
+      use="true"
+      windowtitle="${project.name} API"
+      doctitle="${project.name} API"
+      bottom="Copyright &#169; ${today} All Rights Reserved.">
+      <classpath refid="classpath"/>  
+    </javadoc>
+    
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- J A R                                                               -->
+  <!-- =================================================================== -->  
+  
+  <target name="jar" if="jar.file">
+    <echo message="+------------------------------------------+"/>
+    <echo message="| Jarring ${jar.file}!                      "/>
+    <echo message="+------------------------------------------+"/>
+    
+    <copy todir="${build.dir}/templates">
+    	<fileset dir="${template.dir}"/>
+  	</copy>
+
+    <jar jarfile="${jar.file}">
+      <fileset dir="${build.dir}" includes="**/*"/>
+    </jar>
+    
+    <!-- remove templates to prevent path confusion -->
+    <delete dir="${build.dir}/templates"/>
+    
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- B U I L D  W A R                                                    -->
+  <!-- =================================================================== -->  
+  
+  <target name="build-war" depends="" if="web.dir">
+    <echo message="+------------------------------------------+"/>
+    <echo message="| Build war!                               |"/>
+    <echo message="+------------------------------------------+"/>
+  
+    <!-- delete any old project jar file -->
+    <delete>
+      <fileset dir="${web.dir}/WEB-INF/lib" includes="${project.name}*.jar" />
+    </delete>
+    
+    <!-- copy current jar file to web dir -->
+    <copy file="${jar.file}" todir="${web.dir}/WEB-INF/lib" />
+
+    <war warfile="${war.file}" webxml="${web.dir}/WEB-INF/web.xml" excludes="">
+      <fileset dir="${web.dir}">
+		<include name="**/*"/>
+		<exclude name="WEB-INF/classes/**/*"/>
+		<exclude name="${work.dir}/**/*"/>
+	  </fileset>
+    </war>
+    
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- B U I L D  E A R  (FIXME: add ejb.jar)                              -->
+  <!-- =================================================================== -->  
+  
+  <target name="build-ear" depends="" if="tmp.dir">
+    <echo message="+------------------------------------------+"/>
+    <echo message="| Build ear!                               |"/>
+    <echo message="+------------------------------------------+"/>
+    
+    <delete dir="${tmp.dir}" quiet="true"/>
+    <mkdir  dir="${tmp.dir}"/>
+        
+    <copy file="${war.file}" todir="${tmp.dir}" />
+    
+    <!--
+    <copy file="${ejb.file}" todir="${tmp.dir}" />
+    -->
+    
+    <ear earfile="${ear.file}" appxml="${web.dir}/META-INF/application.xml">
+      <fileset dir="${tmp.dir}">
+		<include name="*.jar,*.war"/>
+	  </fileset>
+    </ear>
+    
+    <delete dir="${tmp.dir}"/>
+    
+  </target>
+
+  
+  <!-- =================================================================== -->
+  <!-- Z I P                                                               -->
+  <!-- =================================================================== -->  
+  
+  <target name="zip" if="zip.file">
+    <echo message="+------------------------------------------+"/>
+    <echo message="| Zipping ${zip.file}!                      "/>
+    <echo message="+------------------------------------------+"/>
+
+    <delete file="${zip.file}" quiet="true"/>
+    
+    <!-- DO NOT delete the dist directory: KEEP old distributions -->
+    
+    <mkdir dir="${dist.dir}" />
+   
+	<zip zipfile="${dist.dir}/${zip.file}">
+      <zipfileset dir="${basedir}" prefix="${project.name}-${project.version}">
+		<include name="**/*"/>
+		<exclude name="${dist.dir}/**/*"/>
+		<exclude name="${build.dir}/**/*"/>
+		<exclude name="${src.dir}/resources/**/*"/>
+		<exclude name="${web.dir}/WEB-INF/classes/**/*"/>
+		<exclude name="${work.dir}/**/*"/>
+		<exclude name="${tmp.dir}/**/*"/>
+		<exclude name="${war.file}"/>
+	  </zipfileset> 
+    </zip>
+    
+  </target>
+
+  <!-- ================================================================ -->
+  <!-- C L E A N                                                        -->
+  <!-- ================================================================ -->
+  
+  <target name="clean" if="src.dir"> 
+    <echo message="+------------------------------------------------+"/>
+    <echo message="| Cleaning                                        "/>
+    <echo message="+------------------------------------------------+"/> 
+    <!-- remove old jars,wars,ears -->
+    <delete>
+      <fileset dir="${basedir}" includes="*.jar"/>
+      <fileset dir="${basedir}" includes="*.war"/>
+      <fileset dir="${basedir}" includes="*.ear"/>
+    </delete>	
+    <!-- clean src dir -->	
+    <delete>
+      <fileset dir="${src.dir}" includes="**/*.class"/>
+      <fileset dir="${src.dir}" includes="**/*.o"/>
+      <fileset dir="${src.dir}" includes="**/*.*~"/>
+    </delete>
+    
+   
+  </target>
+  
+  <!-- ================================================================ -->
+  <!-- R U N                                                            -->
+  <!-- ================================================================ -->
+
+  <target name="run" if="run.program">
+
+    <echo message="+------------------------------------------+"/>
+    <echo message="| Running ${run.program}                    "/>
+    <echo message="+------------------------------------------+"/>
+      
+    <!-- execute the test program -->
+    <java classname="${run.program}">
+      <classpath refid="classpath"/>
+    </java>
+  </target>
+  
+</project>
+

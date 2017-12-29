@@ -1,0 +1,224 @@
+ <HTML> <HEAD> <TITLE>Mapping Data Types</TITLE> 
+
+
+
+   <SCRIPT LANGUAGE="JavaScript"><!--
+   function BrowserData()
+{
+		this.userAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)";
+
+		this.browser = "MSIE";
+
+		this.majorVer = 6;
+
+		this.minorVer = "0";
+
+		this.betaVer = "0";
+
+		this.platform = "NT";
+
+		this.platVer = "5.0";
+
+		this.getsNavBar = true;
+
+		this.doesActiveX = true;
+
+		this.doesPersistence = true;
+
+		this.fullVer = 6;
+
+   }
+
+   var oBD = new BrowserData();
+
+   //--></SCRIPT><BASE TARGET="_top" />
+
+
+
+
+ <TABLE class='clsContainer' CELLPADDING='15' CELLSPACING='0' float='left' WIDTH='100%' BORDER='0'> <TR> <TD VALIGN='top' ALIGN='left'>
+<!--TOOLBAR_START-->
+<!--TOOLBAR_EXEMPT-->
+<!--TOOLBAR_END-->
+<!----------------->
+<!--BEGIN_CONTENT-->
+<!----------------->
+<SPAN CLASS="StartOfFile" ID="StartOfFile">ADO and SQL Server</SPAN>
+<DIV id="nstext" valign="top">
+<LINK REL="stylesheet" TYPE="text/css" MEDIA="PRINT" HREF="/library/en-us/adminsql/basics/coUA_Print.css" />
+<H1><A NAME="_mapping_data_types"></A>Mapping Data Types</H1>
+
+<P>In rowsets and as parameter values, ADO represents data in Microsoft&reg; SQL Server&trade; 2000 by using the following data types. The ADO enumerated constant, DataTypeEnum, specifies the data type of the <B>Field</B> and <B>Parameter</B> objects.</P>
+
+<TABLE border=1 cellpadding=2 cols=2 frame=box rules=all width=595>
+
+<TR VALIGN="top">
+<TH class=label width=46%>SQL Server Data Type</TH>
+<TH class=label width=54%>ADO Data Type </TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>bigint</B></TD>
+<TD width=54%>adBigInt</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>binary</B></TD>
+<TD width=54%>adBinary</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>bit</B></TD>
+<TD width=54%>adBoolean</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>char</B></TD>
+<TD width=54%>adChar</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>datetime</B></TD>
+<TD width=54%>adDBTimeStamp</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>decimal</B></TD>
+<TD width=54%>adNumeric</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>float</B></TD>
+<TD width=54%>adDouble</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>image</B></TD>
+<TD width=54%>adVarbinary</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>int</B></TD>
+<TD width=54%>adInteger</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>money</B></TD>
+<TD width=54%>adCurrency</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>nchar</B></TD>
+<TD width=54%>adWChar</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>ntext</B></TD>
+<TD width=54%>adWChar</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>numeric</B></TD>
+<TD width=54%>adNumeric</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>nvarchar</B></TD>
+<TD width=54%>adWChar</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>real</B></TD>
+<TD width=54%>adSingle</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>smalldatetime</B></TD>
+<TD width=54%>adTimeStamp</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>smallint</B></TD>
+<TD width=54%>adSmallInt</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>smallmoney</B></TD>
+<TD width=54%>adCurrency</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>sql_variant</B></TD>
+<TD width=54%>adVariant</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>sysname</B></TD>
+<TD width=54%>adWChar</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>text</B></TD>
+<TD width=54%>adChar</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>timestamp</B></TD>
+<TD width=54%>adBinary</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>tinyint</B></TD>
+<TD width=54%>adVarbinary</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>uniqueidentifier</B></TD>
+<TD width=54%>adGUID</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>varbinary</B></TD>
+<TD width=54%>adVarbinary</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%><B>varchar</B></TD>
+<TD width=54%>adChar</TD>
+</TR>
+</TABLE><BR>
+
+<P>ADO supports consumer-requested data conversions as shown in this illustration.</P>
+
+<P><IMG SRC="adotype.gif" ALT="" BORDER=0></P>
+<!--END--><SPAN ID="EndOfFile"></SPAN>
+
+
+<!----------------->
+<!--END_CONTENT-->
+<!----------------->
+ </TD> </TR> </TABLE>
+<TABLE ID='idFooter' STYLE='background-color:white;width:100%' cellSpacing='0' cellPadding='0' border='0'>
+	<TR VALIGN='MIDDLE'>
+		<TD ID='idFooterRow1' STYLE='background-color:#003399;height:20;width:100%' NOWRAP>
+
+		&nbsp;<A TARGET='_top' STYLE='text-decoration:none;cursor:hand;font:bold xx-small Verdana;color:#FFFFFF;' HREF='/resources/siteguide/write-us.asp' onmouseout="this.style.color = '#FFFFFF'" onmouseover="this.style.color = '#FF3300'">Contact Us</A>
+
+					&nbsp;<SPAN STYLE='font:bold xx-small Verdana;color:#FFFFFF'>&nbsp;|</SPAN>
+				
+		&nbsp;<A TARGET='_top' STYLE='text-decoration:none;cursor:hand;font:bold xx-small Verdana;color:#FFFFFF;' HREF='mailto:?subject=An article from MSDN&body=Here is an interesting article from MSDN:  http://msdn.microsoft.com/library/en-us/adosql/adoprg02_294j.asp' onmouseout="this.style.color = '#FFFFFF'" onmouseover="this.style.color = '#FF3300'">E-mail this Page</A>
+
+					&nbsp;<SPAN STYLE='font:bold xx-small Verdana;color:#FFFFFF'>&nbsp;|</SPAN>
+				
+		&nbsp;<A TARGET='_top' STYLE='text-decoration:none;cursor:hand;font:bold xx-small Verdana;color:#FFFFFF;' HREF='/flash/' onmouseout="this.style.color = '#FFFFFF'" onmouseover="this.style.color = '#FF3300'">MSDN Flash Newsletter</A>
+
+		</TD>
+	</TR>
+	<TR VALIGN='MIDDLE'>
+		<TD ID='idFooterRow2' STYLE='background-color:#003399;height:30;width:100%' NOWRAP>
+			<SPAN STYLE='font:xx-small Verdana;color:#FFFFFF'>&nbsp;© 2001 Microsoft Corporation. All rights reserved.&nbsp;</SPAN>
+&nbsp;<A TARGET='_top' STYLE='text-decoration:none;cursor:hand;font:normal xx-small Verdana;color:#FFFFFF;' HREF=' /isapi/gomscom.asp?target=/info/cpyright.htm' onmouseout="this.style.color = '#FFFFFF'" onmouseover="this.style.color = '#FF3300'">Terms of Use</A>&nbsp;&nbsp;<A TARGET='_top' STYLE='text-decoration:none;cursor:hand;font:normal xx-small Verdana;color:#FFFFFF;' HREF='/isapi/gomscom.asp?target=/info/privacy.htm' onmouseout="this.style.color = '#FFFFFF'" onmouseover="this.style.color = '#FF3300'">Privacy Statement </A>&nbsp;&nbsp;<A TARGET='_top' STYLE='text-decoration:none;cursor:hand;font:normal xx-small Verdana;color:#FFFFFF;' HREF='/isapi/gomscom.asp?target=/enable/' onmouseout="this.style.color = '#FFFFFF'" onmouseover="this.style.color = '#FF3300'">Accessibility </A>
+		</TD>
+	</TR>
+</TABLE>
+ </BODY> </HTML>

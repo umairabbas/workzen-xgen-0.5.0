@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project name="xgen" default="build" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- Transitive Example - build xgen schema from java model                                                         -->
+  <!-- ====================================================================== -->
+  
+  <property file="build.properties"/>
+  
+  <path id="classpath">
+    <pathelement path="."/>
+    <fileset dir="${basedir}">
+      <include name="**/*.jar"/>
+    </fileset>  
+  </path>
+  
+  <target name="build">
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating project source!                          |"/>
+    <echo message="+-----------------------------------------------------+"/>
+     
+    <taskdef name="xgen" classname="workzen.xgen.ant.XGenTask">
+      <classpath refid="classpath"/>
+    </taskdef>
+     
+    <!-- generate transitive jdbc xml schema -->
+    <xgen
+      loader="workzen.xgen.loader.JavaModelXmlLoader"
+      xmlFilePath="${basedir}/etc/input/blog.xml"
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/worzen/xgen"
+      templatePath="templates/schema"
+      template="package2xgen.vm"
+      outputPath="${basedir}/work/schema/blog"
+      outputFile="blog.xml"
+      >
+    </xgen>    
+
+   <!-- generate transitive jdbc xml schema -->
+    <xgen
+      loader="workzen.xgen.loader.JavaModelXmlLoader"
+      xmlFilePath="${basedir}/etc/input/types.xml"
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/worzen/xgen"
+      templatePath="templates/schema"
+      template="package2xgen.vm"
+      outputPath="${basedir}/work/schema/types"
+      outputFile="types.xml"
+      >
+    </xgen>    
+      
+  </target>
+  
+</project>

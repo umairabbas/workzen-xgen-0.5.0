@@ -1,0 +1,266 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="file:///D:\Project\workzen.xgen/doc/html/navleft/css/website.css">
+<title>XGen</title>
+</head>
+<body>
+<h1 class="title">XGen</h1>
+<table class="menu">
+<tr class="menu">
+<td class="menu" valign="top">
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/index.html">home</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/technical/index.html">technical</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/index.html">models</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/database/index.html">database</a></div>
+              <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/index.html">java</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/textfile/index.html">textfile</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/website/index.html">website</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/xml/index.html">xml</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/index.html">input</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/output/index.html">output</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="selecteditem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/xml_schema.html">xml schema</a></div>
+              <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/examples/index.html">schema examples</a></div>
+        </div> 
+  <div class="space"> </div>
+  <div class="menu">
+          <div class="menuitem"><a href="file:///D:\Project\workzen.xgen/doc/html/navleft/models/java/input/xml_schema_types.html">schema field types</a></div>
+        </div> 
+  <div class="space"> </div>
+</td>
+<td class="body" valign="top">
+<div class="content">
+<html>
+<script language="javascript" type="text/javascript" src="../java/header.js"></script>
+<h2>JavaModel XML Schema</h2>
+<h3>
+Package</h3>
+<p>
+The package tag defines the Java Package.</p>
+<pre> &lt;package name=&quot;workzen.student.model&quot;&gt;</pre>
+<table border="1">
+	<tr>
+		<th>attribute</th>
+		<th>value</th>
+		<th>description</th>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>String</td>
+		<td>fully qualified package name</td>
+	</tr>
+</table>
+<h3>
+Class</h3>
+<p>
+The class tag defines the Java Class and the RDBMS table.</p>
+<pre> &lt;class name=&quot;Student&quot; 
+   tablename=&quot;a_student&quot; 
+   handle-concurrency=&quot;false&quot; 
+   handle-autoincrement=&quot;true&quot; 
+   author=&quot;java developer&quot; 
+   description=&quot;Student model&quot;
+   superclass=&quot;Person&quot;
+  &gt;
+</pre>
+<table border="1">
+	<tr>
+		<th>attribute</th>
+		<th>value</th>
+		<th>description</th>
+	</tr>
+	<tr>
+		<td>tablename</td>
+		<td>String</td>
+		<td>RDBMS tablename</td>
+	</tr>
+	<tr>
+		<td>handle-concurrency</td>
+		<td>boolean</td>
+		<td>Use XGen to handle concurrency via &quot;tcn&quot; field in table</td>
+	</tr>
+	<tr>
+		<td>handle-autoincrement</td>
+		<td>boolean</td>
+		<td>Use XGen to handle autoincrement via &quot;select sum&quot; on primary key 
+		column</td>
+	</tr>
+	<tr>
+		<td>author</td>
+		<td>String</td>
+		<td>Used in class comments</td>
+	</tr>
+	<tr>
+		<td>description</td>
+		<td>String</td>
+		<td>Used in class comments</td>
+	</tr>
+	<tr>
+		<td>superclass</td>
+		<td>boolean</td>
+		<td>The superclass name for the &quot;extends&quot; parameter</td>
+	</tr>
+	<tr>
+		<td>imports</td>
+		<td>CSV</td>
+		<td>Comma seperated string of package imports</td>
+	</tr>
+</table>
+<h3>Field</h3>
+<p>The field tag defines the Java class attribute. </p>
+<p><i>Note:</i> All of the column attributes can be defined within the field 
+tag. This is part of the &quot;legacy&quot; schema, but should be considered deprecated.</p>
+<pre>&lt;field name=&quot;id&quot; type=&quot;long&quot; primitive=&quot;true&quot;&gt;</pre>
+<table border="1">
+	<tr>
+		<th>attribute</th>
+		<th>value</th>
+		<th>description</th>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>String</td>
+		<td>Java class attribute</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>String</td>
+		<td>XGen type (see types)</td>
+	</tr>
+	<tr>
+		<td>primitive</td>
+		<td>boolean</td>
+		<td>Is the type a primitive</td>
+	</tr>
+</table>
+<h3>Column</h3>
+<p>The column tag is defines the RDBMS table column.</p>
+<pre>&lt;column name=&quot;class_id&quot; null=&quot;false&quot; primary-key=&quot;true&quot; autoincrement=&quot;false&quot; /&gt;</pre>
+<table border="1">
+	<tr>
+		<th>attribute</th>
+		<th>value</th>
+		<th>description</th>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>String</td>
+		<td>table column name</td>
+	</tr>
+	<tr>
+		<td>null</td>
+		<td>boolean </td>
+		<td>is the column nullable</td>
+	</tr>
+	<tr>
+		<td>primary-key</td>
+		<td>boolean </td>
+		<td>is the column a primary key</td>
+	</tr>
+	<tr>
+		<td>foreign-key</td>
+		<td>boolean </td>
+		<td>is the column a foreign key</td>
+	</tr>
+	<tr>
+		<td>transaction-key</td>
+		<td>boolean</td>
+		<td>is the column a transaction key</td>
+	</tr>
+	<tr>
+		<td>autoincrement</td>
+		<td>boolean</td>
+		<td>is the column an autoincrement key (required?)</td>
+	</tr>
+	<tr>
+		<td>size</td>
+		<td>int</td>
+		<td>number of characters for a String/Varchar field</td>
+	</tr>
+	<tr>
+		<td>precision</td>
+		<td>int</td>
+		<td>numeric precision for float field</td>
+	</tr>
+	<tr>
+		<td>scale</td>
+		<td>int</td>
+		<td>numeric scale for a float field</td>
+	</tr>
+</table>
+<h3>Reference</h3>
+<p>The reference tag defines the Java reference.</p>
+<pre>&lt;reference name=&quot;schedule&quot; class=&quot;Schedule&quot; key=&quot;scheduleId&quot; /&gt;</pre>
+<table border="1">
+	<tr>
+		<th>attribute</th>
+		<th>value</th>
+		<th>description</th>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>String</td>
+		<td>Java reference attribute name</td>
+	</tr>
+	<tr>
+		<td>class</td>
+		<td>String</td>
+		<td>The classname of the reference</td>
+	</tr>
+	<tr>
+		<td>key</td>
+		<td>String</td>
+		<td>The local &quot;id&quot; field name that is used as a foreign-key</td>
+	</tr>
+</table>
+<h3>Collection</h3>
+<p>The reference tag defines the Java reference.</p>
+<pre>&lt;collection name=&quot;scheduleItems&quot; class=&quot;ScheduleItem&quot; type=&quot;Vector&quot; reverse-key=&quot;id&quot; /&gt;</pre>
+<table border="1">
+	<tr>
+		<th>attribute</th>
+		<th>value</th>
+		<th>description</th>
+	</tr>
+	<tr>
+		<td>name</td>
+		<td>String</td>
+		<td>Java attribute name for the collection</td>
+	</tr>
+	<tr>
+		<td>class</td>
+		<td>String</td>
+		<td>The classname of the classes in the collection</td>
+	</tr>
+	<tr>
+		<td>type</td>
+		<td>String</td>
+		<td>The Java type of the collection</td>
+	</tr>
+	<tr>
+		<td>reverse-key</td>
+		<td>String</td>
+		<td>The &quot;id&quot; field name of the contained class</td>
+	</tr>
+</table>
+<p>&nbsp;</p>
+<script language="javascript" type="text/javascript" src="../java/footer.js"></script>
+</html>
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<html>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+<h2>Components</h2>
+<h3>Loaders</h3>
+<p>Loaders load input data. This information can come from a flat file, remote 
+file or object, relational database, etc. The input file could be a property 
+file that defines other parameters for the load. </p>
+<h4>Responsibility</h4>
+<p>The responsibility of the loader is to load data into a model for use by the 
+Velocity template.</p>
+
+<pre>
+
+public interface ILoader {
+
+   /**
+    * Load metadata and return an object model for use by Velocity.
+    * 
+    * @param url
+    * @param validate
+    * @return
+    * @throws XGenException
+    */
+    public Object load(URL url, boolean validate) throws XGenException;
+}
+
+</pre>
+
+<h3>Templates</h3>
+<p>Templates are standard velocity templates. The templates used must be 
+compatible with the loader, so that it knows how to access the model.</p>
+<p>Templates are provided within the distribution jar file. XGen will 
+search both the filesystem, and the jar file for the resource. A simple way to 
+modify a &quot;canned&quot; template is to copy it into the filesystem, and make any 
+required changes.</p>
+
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</html>

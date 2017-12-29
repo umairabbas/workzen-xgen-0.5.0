@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE jdo SYSTEM "file:/javax/jdo/jdo.dtd">
+
+<jdo>
+    <package name="com.triactive.jdo.test">
+		<class name="Person">
+            <field name="firstName">
+                <extension vendor-name="triactive" key="length" value="max 32"/>
+            </field>
+            <field name="lastName">
+                <extension vendor-name="triactive" key="length" value="max 32"/>
+            </field>
+            <field name="emailAddress">
+                <extension vendor-name="triactive" key="length" value="max 64"/>
+            </field>
+        </class>
+        <class name="Manager" persistence-capable-superclass="com.triactive.jdo.test.Employee">
+			<field name="personsByNumber">
+                <map key-type="java.lang.Long" value-type="Person"/>
+            </field>
+			<field name="persons">
+		        <collection element-type="Person"/>
+					<extension vendor-name="triactive" key="" value=""/>
+                </collection>
+	        </field>
+        </class>
+    </package>
+</jdo>

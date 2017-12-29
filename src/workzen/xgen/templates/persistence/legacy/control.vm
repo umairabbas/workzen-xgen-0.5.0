@@ -1,0 +1,31 @@
+#############################################################
+## control.vm
+## Brad Matlack 12-5-2001
+#############################################################
+## log the model parameters to the report file
+$model
+
+## set global variables from the model
+#set( $beans = $model.getBeans() )
+#set( $path = $strings.getPackageAsPath($model.getName()))
+
+## log
+output directory: $outputPath/$path
+generator: $generator
+
+$files.mkdir("$outputPath/$path")
+$generator.getProperties().toString();
+
+## loop through each bean in the package
+#foreach( $bean in $beans )
+  ##================= required ==============================##
+  #set( $template = "${templatePath}/bean.vm" )
+  #set( $classname = $bean.getName() ) 
+  ##set( $output = $strings.concat([$classname, "Bean.java"]) )
+  #set ($output = "${outputPath}/${path}${classname}Bean.java")
+  ##=========================================================##
+  #set( $fields = $bean.getFields() )
+
+  $generator.parse($template, $output)
+#end
+  

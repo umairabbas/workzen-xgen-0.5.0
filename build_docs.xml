@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<project name="xgen" default="build" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- XGen documentation build                                               -->
+  <!-- ====================================================================== -->
+
+  <property file="build.properties"/>
+  <!-- website properties -->
+  <property name="input.file" value="${basedir}/doc/htmldocs.xml"/>
+  <property name="source.dir" value="${basedir}/doc/src"/>
+  <property name="output.dir" value="${basedir}/doc/html"/>
+  <!-- copy properties (optional) -->
+  <property name="css.src"  value="${source.dir}/css"/>
+  <property name="image.src"  value="${source.dir}/images"/>
+   
+  <path id="classpath">                           
+    <!-- local directory -->
+    <pathelement path="."/>
+    
+    <!-- lib dir (includes subdirectories) -->
+    <fileset dir="${basedir}">
+      <include name="**/*.jar"/>
+    </fileset>   
+    
+  </path>
+  
+  <target name="build">
+     
+    <taskdef name="xgen" classname="workzen.xgen.ant.XGenTask">
+      <classpath refid="classpath"/>
+    </taskdef> 
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Generating documentation from xml mapfile           |"/>
+    <echo message="+-----------------------------------------------------+"/>
+
+    <xgen
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _webRoot="/xgen"
+      webRoot="file:///${output.dir}/navtop"
+       
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="control.vm"
+      childTemplate="tabsOnTop.vm"      
+      outputPath="${output.dir}/navtop"
+      outputFile="loader.out"
+      
+      webTitle="XGen"
+      navLeft="file:///${output.dir}/navleft"
+      navTop="file:///${output.dir}/navtop"
+      >
+    </xgen> 
+    
+    <xgen
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _webRoot="/xgen"
+      webRoot="file:///${output.dir}/navleft"
+       
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="control.vm"
+      childTemplate="navLeft.vm"      
+      outputPath="${output.dir}/navleft"
+      outputFile="loader.out"
+      
+      webTitle="XGen"
+      navLeft="file:///${output.dir}/navleft"
+      navTop="file:///${output.dir}/navtop"
+      >
+    </xgen> 
+    
+    <echo message="+-----------------------------------------------------+"/>
+    <echo message="| Merging documentation into a single page            |"/>
+    <echo message="+-----------------------------------------------------+"/>
+   
+    <xgen
+      _loader="workzen.xgen.loader.WebsiteFilesystemLoader"
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _csvIncludeList="*.html,*.htm"
+      _csvExcludeList="*css"
+      _webRoot="/xgen"
+      webRoot="file:///${output.dir}/navleft"
+      
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="merge.vm"
+      _childTemplate="treeExpanded.vm"
+      outputPath="${output.dir}/navleft"
+      outputFile="merged.html"
+      
+      webTitle="XGen"
+      navLeft="file:///${output.dir}/navleft"
+      navTop="file:///${output.dir}/navtop"
+      >
+    </xgen>     
+    
+     <xgen
+      _loader="workzen.xgen.loader.WebsiteFilesystemLoader"
+      loader="workzen.xgen.loader.WebsiteXmlLoader"
+      xmlFilePath="${input.file}"
+      srcBasePath="${source.dir}"
+      _csvIncludeList="*.html,*.htm"
+      _csvExcludeList="*css"
+      _webRoot="/xgen"
+      webRoot="file:///${output.dir}/navtop"
+      
+      processor="workzen.xgen.engine.VelocityProcessor" 
+      templateBasePath="${basedir}/src/workzen/xgen"
+      templatePath="templates/website"
+      template="merge.vm"
+      _childTemplate="treeExpanded.vm"
+      outputPath="${output.dir}/navtop"
+      outputFile="merged.html"
+      
+      webTitle="XGen"
+      navLeft="file:///${output.dir}/navleft"
+      navTop="file:///${output.dir}/navtop"
+      >
+    </xgen>     
+ 
+    <!-- copy css -->
+    <copy todir="${output.dir}/navTop/css" verbose="true">
+    	<fileset dir="${css.src}">
+	    	<exclude name="**/_*"/>
+    	</fileset>
+  	</copy>
+  	<copy todir="${output.dir}/navLeft/css" verbose="true">
+    	<fileset dir="${css.src}">
+    	    <exclude name="**/_*"/>
+    	</fileset>
+  	</copy>
+  	
+  	
+  	<!-- copy images 
+    <copy todir="${output.dir}/navTop/images" verbose="true">
+    	<fileset dir="${image.src}"/>
+  	</copy>
+    <copy todir="${output.dir}/navLeft/images" verbose="true">
+    	<fileset dir="${image.src}"/>
+  	</copy>
+  	-->
+  	<copy todir="${output.dir}/navTop">
+		<fileset dir="${source.dir}">
+		   	<include name="**/images/*"/>
+    		<exclude name="**/*.db"/>
+    		<exclude name="**/_*"/>
+		</fileset>
+	</copy>
+	<copy todir="${output.dir}/navLeft">
+		<fileset dir="${source.dir}">
+		   	<include name="**/images/*"/>
+    		<exclude name="**/*.db"/>
+    		<exclude name="**/_*"/>
+		</fileset>
+	</copy>
+  	
+  
+  </target>
+  
+  
+</project>

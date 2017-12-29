@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+ 
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<body>
+
+<h2>Xgen Java Source Code Generator</h2>
+
+<h3>Description</h3>
+
+<p>Xgen source code generator creates Java source code from a simple xml document. Its
+primary function is to generate JDBC compliant beans that allow object level persistence
+to relational databases. It has full support for all JDBC 2.0 datatypes, including BLOB
+and CLOB.</p>
+
+<p>The beans generated from Xgen provide a safe and consistent way to persist your data,
+and can be used in any type of application. There is no complex mapping technology
+required to achieve object model persistence&nbsp; (See <a href="http://www.exolab.org">Castor</a>,
+<a href="http://jakarta.apache.org/turbine">Torque</a> and <a
+href="http://forte.sun.com/services/quiz/jdo.html">JDO</a> mapping technologies).&nbsp; A
+simple <a href="typebean.xml.html">xml file</a> that describes the structure of each bean
+is all that is required. </p>
+
+<h3>Design</h3>
+
+<p>Xgen uses Velocity and texen to generates the source code. Each bean has a 1 to 1
+correspondence with a sql table, and supports standard CRUD (create, read, update, delete)
+functionality. In addition, xgen beans can use optimistic locking in conjunction with a
+&quot;transaction control number&quot; to ensure data integrity during concurrent updates.
+Source generation is controlled through an Ant project.</p>
+
+<p>The bean-per-table approach, while not &quot;transparent&quot; in the sense that JDO is
+transparent (hands off persistence), it is transparent in terms of usability. The developer
+knows exactly what is happening behind the scenes. Traditional object models can still be
+maintained by extending or aggregating the xbean. By placing all business logic in your
+extended classes, xbeans can be regenerated as the datastore changes, without affecting
+any of your business logic.&nbsp; </p>
+
+<p>Connection pooling and transaction control is handled by business logic, while
+concurrency control is transparent and handled by the bean. To use optimistic locking,
+each table must incorporate a field for a transaction control number.</p>
+
+<p>Texen offers an automated method for creating beans, thus freeing the programmer to
+concentrate on business logic. Here is an&nbsp; example <a href="typebean.java.html">standard
+bean.</a> and <a href="lob.java.html">lob bean</a>.</p>
+
+<h3>Portability</h3>
+
+<p>The code generated with Xgen should work with any JDBC <a
+href="http://java.sun.com/products/jdbc/datasheet.html">Type 3-4</a> driver. The following
+drivers have been tested:</p>
+
+<table border="1" cellspacing="1">
+  <tr>
+    <th bgcolor="#C0C0C0">Database</th>
+    <th bgcolor="#C0C0C0">Driver</th>
+    <th bgcolor="#C0C0C0">Jar</th>
+  </tr>
+  <tr>
+    <td>MySql</td>
+    <td>org.gjt.mm.mysql.Driver</td>
+    <td>mm.mysql-2.0.4-bin.jar</td>
+  </tr>
+  <tr>
+    <td>Oracle</td>
+    <td>oracle.jdbc.driver.OracleDriver</td>
+    <td>classes12.jar</td>
+  </tr>
+  <tr>
+    <td>Postgres</td>
+    <td>org.postgresql.Driver</td>
+    <td>jdbc7.1-1.2.jar</td>
+  </tr>
+  <tr>
+    <td>MS Sql Server</td>
+    <td>com.inet.tds.TdsDriver</td>
+    <td>sprinta2000.jar</td>
+  </tr>
+  <tr>
+    <td>Cloudscape</td>
+    <td>COM.cloudscape.core.JDBCDriver</td>
+    <td>cloudscape.jar</td>
+  </tr>
+  <tr>
+    <td>DB2</td>
+    <td>COM.ibm.db2.jdbc.app.DB2Driver</td>
+    <td>db2java.jar</td>
+  </tr>
+</table>
+
+<h3>Example usage</h3>
+
+<p>Insert a new record:</p>
+
+<blockquote>
+  <p><font size="2" face="Courier New">StudentBean student = new StudentBean();<br>
+  student.setName(&quot;Pat&quot;);<br>
+  student.setAge(20);<br>
+  student.persist(connection);</font></p>
+</blockquote>
+
+<p>Update a record:</p>
+
+<blockquote>
+  <p><font size="2" face="Courier New">Vector students = StudentBean.load(&quot;where
+  student_id = 111223333&quot;);<br>
+  StudentBean student = (StudentBean)students.firstElement();<br>
+  student.setName(&quot;Pat&quot;);<br>
+  student.setAge(21);<br>
+  student.persist(connection);</font></p>
+</blockquote>
+
+<p>Delete a record:</p>
+
+<blockquote>
+  <p><font size="2" face="Courier New">StudentBean.delete(connection, &quot;where student_id
+  = 111223333&quot;);</font></p>
+</blockquote>
+
+<p>Select all records:</p>
+
+<blockquote>
+  <p><font size="2" face="Courier New">Vector students = StudentBean.load(connection,
+  &quot;&quot;);</font></p>
+</blockquote>
+
+<p>Servlet html form support:</p>
+
+<blockquote>
+  <p><font size="2" face="Courier New">StudentBean student = new StudentBean();<br>
+  student.load(response.getMap());<br>
+  student.persist(connection);</font></p>
+</blockquote>
+
+<p>Managing many to many persistence:</p>
+
+<blockquote>
+  <p>Many students have may classes: <ul>
+    <li>student table</li>
+    <li>course table</li>
+    <li>student_course table</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p><font size="2" face="Courier New">student.dropCourse(&quot;CS101&quot;);</font></p>
+  <p><font size="2" face="Courier New">or</font></p>
+  <p><font size="2" face="Courier New">course.dropStudent(&quot;111223333&quot;);</font></p>
+  <p><font size="2" face="Courier New">or<br>
+  <br>
+  String where = &quot;where course_id = '&quot; + courseId + &quot;'&quot; AND student_id =
+  &quot; + studentId<br>
+  StudentCourseBean.delete(connection,where);<br>
+  </font></p>
+</blockquote>
+
+<h3>Requirements</h3>
+
+<p>Xgen requires the following software components: 
+
+<ul>
+  <li><a href="http://jakarta.apache.org/velocity">Velocity</a></li>
+  <li><a href="http://jakarta.apache.org/ant">Ant</a></li>
+  <li><a href="http://www.dom4j.org">dom4j</a></li>
+  <li><a href="http://www.junit.org">JUnit</a></li>
+  <li><a href="http://industry.java.sun.com/products/jdbc/drivers">JDBC driver</a></li>
+</ul>
+
+<h3>Installation</h3>
+
+<p>See <a href="quick_start.html">Quick Start</a></p>
+
+<h3>Limitations</h3>
+
+<ul>
+  <li>Xgen currently only supports single field primary keys.&nbsp; See the <a
+    href="technical.html">technical docs</a> for more information.</li>
+</ul>
+
+<h3>License</h3>
+
+<p>Xgen is open source and released under the <a
+href="http://www.gnu.org/copyleft/gpl.html">GNU GPL</a> This software does not come with a
+warranty of any kind. Use at your own risk. You may modify and distribute the code as you
+wish, as long as you provide the source code and this copyright with it. The source code
+that is generated using this tool is your own and not subject to GPL.</p>
+
+<h3>Tools</h3>
+
+<p>This software was build using the following GUI tools: 
+
+<ul>
+  <li><a href="http://www.modelworks.com">JPad Pro</a> </li>
+  <li><a href="http://www.vaegar.f9.co.uk/java2html.html">Java2Html</a></li>
+  <li><a href="http://www.object-insight.com">JVision</a></li>
+</ul>
+
+<h3>Author</h3>
+
+<p>Xgen was designed and written by <a href="mailto:bmatlack@workzen.userworld.com">Brad
+Matlack</a>.&nbsp; </p>
+</body>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+

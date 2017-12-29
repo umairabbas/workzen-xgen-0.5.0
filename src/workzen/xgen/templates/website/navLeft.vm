@@ -1,0 +1,53 @@
+## navleft.vm
+## Brad Matlack 1-2006
+## XGen website navigation template
+###################################################
+#set( $body = $page.getBody() )
+
+## UNIQUE MACRO NAME!
+#macro( displayLeftMenu $menu ) 
+#set($menuitems = $menu.getMenuItems())
+#if( $menuitems.size() > 0 )
+  <div class="menu">
+  #foreach( $menuitem in $menuitems ) 
+    #if($site.isSelected($page,$menuitem))
+    <div class="selecteditem">$site.getHref(${menuitem})</div>
+    #else
+    <div class="menuitem">$site.getHref(${menuitem})</div>
+    #end
+  #end
+  </div> 
+  <div class="space"> </div>
+#end
+#end
+###################################################
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="${webroot}/css/website.css">
+<title>${webTitle}</title>
+</head>
+<body>
+<h1 class="title">${webTitle}</h1>
+<table class="menu">
+<tr class="menu">
+<td class="menu" valign="top">
+## display each parent menus
+#set( $parentMenus = $page.getParentMenus() )
+#foreach( $parentMenu in $parentMenus )
+#displayLeftMenu($parentMenu)
+#end
+## display the page menu
+#displayLeftMenu($page.getMenuItem())
+</td>
+<td class="body" valign="top">
+<div class="content">
+##$body
+$generator.evaluate($body)
+</div>
+</td>
+</tr>
+</table>
+</body>
+</html>
+

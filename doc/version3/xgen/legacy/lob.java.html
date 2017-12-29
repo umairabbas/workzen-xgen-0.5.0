@@ -1,0 +1,398 @@
+<HTML>
+<HEAD>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="xxxxstylesheet.css" TITLE="Style">
+<META NAME="GENERATOR" CONTENT="Java2HTML Version 1.0.8">
+<TITLE>com.workzen.xgen.test.LobTypeBean (Java2HTML)</TITLE>
+</HEAD>
+
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+<BODY><TABLE id="Header" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" width="33%" ><p align="left">&nbsp;</p>
+</td>
+<td align="center" colspan="2" width="33%" </td>
+<p align="center"><font size="4">LobTypeBean</font></p>
+</td>
+<td align="right" colspan="2" width="33%">
+<p align="right"><font size="3">&nbsp;</font></p>
+</td>
+</tr>
+</TABLE>
+<pre ID="Classes">
+<A NAME="1"><A><FONT ID="MultiLineComment">/*
+<A NAME="2"><A> * LobTypeBean.java 
+<A NAME="3"><A> * Generated using xgen and texen from template.vm
+<A NAME="4"><A> * Thu Mar 14 11:56:00 MST 2002
+<A NAME="5"><A> */</FONT>
+<A NAME="6"><A>
+<A NAME="7"><A><FONT ID="Package">package</FONT> <A HREF="../../../../com.workzen.xgen.test.index.html" target="packageFrame">com.workzen.xgen.test</A>;
+<A NAME="8"><A>
+<A NAME="9"><A><FONT ID="Import">import</FONT> java.sql.Connection;
+<A NAME="10"><A><FONT ID="Import">import</FONT> java.sql.Statement;
+<A NAME="11"><A><FONT ID="Import">import</FONT> java.sql.PreparedStatement;
+<A NAME="12"><A><FONT ID="Import">import</FONT> java.sql.ResultSet;
+<A NAME="13"><A><FONT ID="Import">import</FONT> java.sql.SQLException;
+<A NAME="14"><A><FONT ID="Import">import</FONT> java.sql.DatabaseMetaData;
+<A NAME="15"><A><FONT ID="Import">import</FONT> java.sql.BatchUpdateException;
+<A NAME="16"><A><FONT ID="Import">import</FONT> java.math.BigDecimal;
+<A NAME="17"><A><FONT ID="Import">import</FONT> java.util.Vector;
+<A NAME="18"><A><FONT ID="Import">import</FONT> java.io.*;
+<A NAME="19"><A>
+<A NAME="20"><A><FONT ID="Import">import</FONT> com.workzen.util.DateWrapper;
+<A NAME="21"><A>
+<A NAME="22"><A><FONT ID="FormalComment">/**
+<A NAME="23"><A> * Demonstration for blob and clob types.  Blobs and Clobs are not implemented by all vendors.
+<A NAME="24"><A> * @author bmatlack@workzen.userworld.com
+<A NAME="25"><A> */</FONT>
+<A NAME="26"><A><FONT ID="Public">public</FONT> <FONT ID="Class">class</FONT> LobTypeBean {
+<A NAME="27"><A>
+<A NAME="28"><A>  <FONT ID="FormalComment">/** class attributes */</FONT>
+<A NAME="29"><A>  <FONT ID="Transient">transient</FONT> <FONT ID="Protected">protected</FONT> <FONT ID="Boolean">boolean</FONT> recordExists = <FONT ID="False">false</FONT>;
+<A NAME="30"><A>  <FONT ID="Transient">transient</FONT> <FONT ID="Protected">protected</FONT> <FONT ID="Boolean">boolean</FONT> handleConcurrency = <FONT ID="True">true</FONT>;
+<A NAME="31"><A>  <FONT ID="Transient">transient</FONT> <FONT ID="Protected">protected</FONT> <FONT ID="Boolean">boolean</FONT> handleAutoIncrement = <FONT ID="True">true</FONT>;
+<A NAME="32"><A>
+<A NAME="33"><A>  <FONT ID="FormalComment">/** bean attributes */</FONT>
+<A NAME="34"><A>  <FONT ID="Protected">protected</FONT> Long pKey = <FONT ID="New">new</FONT> Long (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="35"><A>  <FONT ID="Protected">protected</FONT> <FONT ID="Byte">byte</FONT>[] blobType = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[<FONT ID="IntegerLiteral">1</FONT>];
+<A NAME="36"><A>  <FONT ID="Protected">protected</FONT> <FONT ID="Char">char</FONT>[] clobType = <FONT ID="New">new</FONT> <FONT ID="Char">char</FONT>[<FONT ID="IntegerLiteral">1</FONT>];
+<A NAME="37"><A>  <FONT ID="Protected">protected</FONT> Integer tcn = <FONT ID="New">new</FONT> Integer (<FONT ID="StringLiteral">"0"</FONT>);
+<A NAME="38"><A>
+<A NAME="39"><A>  <FONT ID="FormalComment">/** setters and getters for pKey */</FONT>
+<A NAME="40"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setPKey ( String value ) { <FONT ID="This">this</FONT>.pKey = <FONT ID="New">new</FONT> Long (value); }
+<A NAME="41"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setPKey ( Long value ) { <FONT ID="This">this</FONT>.pKey = value; }
+<A NAME="42"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setPKey ( <FONT ID="Long">long</FONT> value ){ <FONT ID="This">this</FONT>.pKey = <FONT ID="New">new</FONT> Long (value); }
+<A NAME="43"><A>  <FONT ID="Public">public</FONT> Long getPKey ( ){ <FONT ID="Return">return</FONT> pKey; }
+<A NAME="44"><A>  
+<A NAME="45"><A>  <FONT ID="FormalComment">/** setters and getters for blobType */</FONT>
+<A NAME="46"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setBlobType ( String value ) { <FONT ID="This">this</FONT>.blobType = value.getBytes(); }
+<A NAME="47"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setBlobType ( <FONT ID="Byte">byte</FONT>[] value ){ <FONT ID="This">this</FONT>.blobType = value; }
+<A NAME="48"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setBlobType ( java.sql.Blob blob ) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="49"><A>    <FONT ID="Try">try</FONT>{
+<A NAME="50"><A>      <FONT ID="SingleLineComment">//METHOD 1 - get bytes using offset
+<A NAME="51"><A></FONT>      <FONT ID="SingleLineComment">//this.blobType = blob.getBytes( (long)0, (int)blob.length() );
+<A NAME="52"><A></FONT>    
+<A NAME="53"><A>      <FONT ID="SingleLineComment">//METHOD 2 - read bytes using stream
+<A NAME="54"><A></FONT>      <FONT ID="This">this</FONT>.blobType = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[ (<FONT ID="Int">int</FONT>)blob.length() ];
+<A NAME="55"><A>      InputStream stream = blob.getBinaryStream(); 
+<A NAME="56"><A>      <FONT ID="Int">int</FONT> n = stream.read(blobType);
+<A NAME="57"><A>    }<FONT ID="Catch">catch</FONT>(IOException e){
+<A NAME="58"><A>      <FONT ID="Throw">throw</FONT> <FONT ID="New">new</FONT> SQLException( e.getMessage() );
+<A NAME="59"><A>    }
+<A NAME="60"><A>  }
+<A NAME="61"><A>  <FONT ID="FormalComment">/** set blob from file */</FONT>
+<A NAME="62"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setBlobType ( File file ) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="63"><A>    <FONT ID="Try">try</FONT>{
+<A NAME="64"><A>      FileInputStream fis = <FONT ID="New">new</FONT> FileInputStream(file);
+<A NAME="65"><A>      <FONT ID="Int">int</FONT> size = (<FONT ID="Int">int</FONT>)file.length();
+<A NAME="66"><A>      blobType = <FONT ID="New">new</FONT> <FONT ID="Byte">byte</FONT>[size];
+<A NAME="67"><A>      <FONT ID="Int">int</FONT> data, i = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="68"><A>      <FONT ID="SingleLineComment">// METHOD 1 - read all at once
+<A NAME="69"><A></FONT>      <FONT ID="SingleLineComment">// int n = fis.read( blobType );
+<A NAME="70"><A></FONT>      <FONT ID="SingleLineComment">// METHOD 2 - byte at a time
+<A NAME="71"><A></FONT>      <FONT ID="While">while</FONT>( (data = fis.read() ) != -<FONT ID="IntegerLiteral">1</FONT> ){
+<A NAME="72"><A>        blobType[i++] = (<FONT ID="Byte">byte</FONT>)data;
+<A NAME="73"><A>      }
+<A NAME="74"><A>      fis.close();
+<A NAME="75"><A>    }<FONT ID="Catch">catch</FONT>(IOException e){
+<A NAME="76"><A>      <FONT ID="Throw">throw</FONT> <FONT ID="New">new</FONT> SQLException( e.getMessage() );
+<A NAME="77"><A>    }   
+<A NAME="78"><A>  }
+<A NAME="79"><A>  <FONT ID="FormalComment">/** get blobType */</FONT>
+<A NAME="80"><A>  <FONT ID="Public">public</FONT> <FONT ID="Byte">byte</FONT>[] getBlobType (){ <FONT ID="Return">return</FONT> blobType; }
+<A NAME="81"><A>  
+<A NAME="82"><A>  <FONT ID="FormalComment">/** setters and getters for clobType */</FONT>
+<A NAME="83"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setClobType ( String value ) { <FONT ID="This">this</FONT>.clobType = value.toCharArray(); }
+<A NAME="84"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setClobType ( <FONT ID="Char">char</FONT>[] value ){ <FONT ID="This">this</FONT>.clobType = value; }
+<A NAME="85"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setClobType ( java.sql.Clob clob ) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="86"><A>    <FONT ID="Try">try</FONT>{
+<A NAME="87"><A>      <FONT ID="SingleLineComment">//METHOD 1 - get bytes using offset
+<A NAME="88"><A></FONT>      <FONT ID="SingleLineComment">//JDBC 2.0 does not implement this method
+<A NAME="89"><A></FONT>    
+<A NAME="90"><A>      <FONT ID="SingleLineComment">//METHOD 2 - read bytes using stream
+<A NAME="91"><A></FONT>      <FONT ID="This">this</FONT>.clobType = <FONT ID="New">new</FONT> <FONT ID="Char">char</FONT>[ (<FONT ID="Int">int</FONT>)clob.length() ];
+<A NAME="92"><A>      Reader reader = clob.getCharacterStream(); 
+<A NAME="93"><A>      <FONT ID="Int">int</FONT> n = reader.read(clobType);
+<A NAME="94"><A>    }<FONT ID="Catch">catch</FONT>(IOException e){
+<A NAME="95"><A>      <FONT ID="Throw">throw</FONT> <FONT ID="New">new</FONT> SQLException( e.getMessage() );
+<A NAME="96"><A>    }
+<A NAME="97"><A>  }
+<A NAME="98"><A>  <FONT ID="FormalComment">/** set clob from file */</FONT>
+<A NAME="99"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setClobType ( File file ) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="100"><A>    <FONT ID="Try">try</FONT>{
+<A NAME="101"><A>      FileReader reader = <FONT ID="New">new</FONT> FileReader(file);
+<A NAME="102"><A>      <FONT ID="Int">int</FONT> size = (<FONT ID="Int">int</FONT>)file.length();
+<A NAME="103"><A>      clobType = <FONT ID="New">new</FONT> <FONT ID="Char">char</FONT>[size];
+<A NAME="104"><A>      <FONT ID="Int">int</FONT> data, i = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="105"><A>      <FONT ID="SingleLineComment">// METHOD 1 - read all at once
+<A NAME="106"><A></FONT>      <FONT ID="SingleLineComment">// int n = reader.read( clobType );
+<A NAME="107"><A></FONT>      <FONT ID="SingleLineComment">// METHOD 2 - char at a time
+<A NAME="108"><A></FONT>      <FONT ID="While">while</FONT>( (data = reader.read() ) != -<FONT ID="IntegerLiteral">1</FONT> ){
+<A NAME="109"><A>        clobType[i++] = (<FONT ID="Char">char</FONT>)data;
+<A NAME="110"><A>      }
+<A NAME="111"><A>      reader.close();
+<A NAME="112"><A>    }<FONT ID="Catch">catch</FONT>(IOException e){
+<A NAME="113"><A>      <FONT ID="Throw">throw</FONT> <FONT ID="New">new</FONT> SQLException( e.getMessage() );
+<A NAME="114"><A>    }
+<A NAME="115"><A>  }
+<A NAME="116"><A>  <FONT ID="FormalComment">/** get clobType */</FONT>
+<A NAME="117"><A>  <FONT ID="Public">public</FONT> <FONT ID="Char">char</FONT>[] getClobType (){ <FONT ID="Return">return</FONT> clobType; }
+<A NAME="118"><A>  
+<A NAME="119"><A>  <FONT ID="FormalComment">/** setters and getters for tcn */</FONT>
+<A NAME="120"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTcn ( String value ) { <FONT ID="This">this</FONT>.tcn = <FONT ID="New">new</FONT> Integer (value); }
+<A NAME="121"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTcn ( Integer value ) { <FONT ID="This">this</FONT>.tcn = value; }
+<A NAME="122"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> setTcn ( <FONT ID="Int">int</FONT> value ){ <FONT ID="This">this</FONT>.tcn = <FONT ID="New">new</FONT> Integer (value); }
+<A NAME="123"><A>  <FONT ID="Public">public</FONT> Integer getTcn ( ){ <FONT ID="Return">return</FONT> tcn; }
+<A NAME="124"><A>  
+<A NAME="125"><A>  <FONT ID="FormalComment">/** 
+<A NAME="126"><A>   * Load this object from a result set 
+<A NAME="127"><A>   * If null fields are present in the table, catch the NullPointerException
+<A NAME="128"><A>   */</FONT>
+<A NAME="129"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> load(ResultSet rs) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="130"><A>    <FONT ID="Try">try</FONT>{ setPKey ( rs.getLong(<FONT ID="StringLiteral">"pkey"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="131"><A>    <FONT ID="Try">try</FONT>{ setBlobType ( rs.getBlob(<FONT ID="StringLiteral">"blob_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="132"><A>    <FONT ID="Try">try</FONT>{ setClobType ( rs.getClob(<FONT ID="StringLiteral">"clob_type"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="133"><A>    <FONT ID="Try">try</FONT>{ setTcn ( rs.getInt(<FONT ID="StringLiteral">"tcn"</FONT>) ); } <FONT ID="Catch">catch</FONT>(NullPointerException e){}
+<A NAME="134"><A>    recordExists = <FONT ID="True">true</FONT>;
+<A NAME="135"><A>  }
+<A NAME="136"><A>  
+<A NAME="137"><A>  <FONT ID="FormalComment">/** 
+<A NAME="138"><A>   * Load this object from a Map hash. 
+<A NAME="139"><A>   */</FONT>
+<A NAME="140"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> load(java.util.Map map){
+<A NAME="141"><A>    java.util.Iterator it = map.keySet().iterator();
+<A NAME="142"><A>      
+<A NAME="143"><A>    <FONT ID="While">while</FONT>( it.hasNext() ){
+<A NAME="144"><A>      String key = (String)it.next();
+<A NAME="145"><A>      String value = (String)map.get(key);
+<A NAME="146"><A>      <FONT ID="If">if</FONT>(<FONT ID="False">false</FONT>){
+<A NAME="147"><A>        <FONT ID="SingleLineComment">// just a placeholder for template construction
+<A NAME="148"><A></FONT>      }
+<A NAME="149"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"pKey"</FONT>) ) {
+<A NAME="150"><A>        setPKey( (String)map.get(key) ); 
+<A NAME="151"><A>      }
+<A NAME="152"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"blobType"</FONT>) ) {
+<A NAME="153"><A>        setBlobType( (String)map.get(key) ); 
+<A NAME="154"><A>      }
+<A NAME="155"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"clobType"</FONT>) ) {
+<A NAME="156"><A>        setClobType( (String)map.get(key) ); 
+<A NAME="157"><A>      }
+<A NAME="158"><A>      <FONT ID="Else">else</FONT> <FONT ID="If">if</FONT>( key.equals(<FONT ID="StringLiteral">"tcn"</FONT>) ) {
+<A NAME="159"><A>        setTcn( (String)map.get(key) ); 
+<A NAME="160"><A>      }
+<A NAME="161"><A>    }
+<A NAME="162"><A>  }
+<A NAME="163"><A>
+<A NAME="164"><A>  <FONT ID="FormalComment">/** 
+<A NAME="165"><A>   * Load a range of records from a connection, according to the where clause 
+<A NAME="166"><A>   */</FONT>
+<A NAME="167"><A>  <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> Vector load(Connection conn, String where) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="168"><A>    Vector beans = <FONT ID="New">new</FONT> Vector();
+<A NAME="169"><A>    Statement s = conn.createStatement();
+<A NAME="170"><A>    String sql = <FONT ID="StringLiteral">"SELECT pkey,blob_type,clob_type,tcn FROM xgen_lob_types "</FONT> + where;
+<A NAME="171"><A>    ResultSet rs = s.executeQuery( sql );
+<A NAME="172"><A>    <FONT ID="While">while</FONT>(rs.next()){
+<A NAME="173"><A>      <A HREF="../../../../com/workzen/xgen/test/LobTypeBean.java.html">LobTypeBean</A> bean = <FONT ID="New">new</FONT> <A HREF="../../../../com/workzen/xgen/test/LobTypeBean.java.html">LobTypeBean</A> ();
+<A NAME="174"><A>      bean.load(rs);
+<A NAME="175"><A>      beans.addElement(bean);
+<A NAME="176"><A>    }
+<A NAME="177"><A>    rs.close();
+<A NAME="178"><A>    s.close();
+<A NAME="179"><A>    <FONT ID="Return">return</FONT> beans;
+<A NAME="180"><A>  }
+<A NAME="181"><A>
+<A NAME="182"><A>  <FONT ID="FormalComment">/**
+<A NAME="183"><A>   * Load a range of records using a scrollable resultset and absolute cursor
+<A NAME="184"><A>   */</FONT>
+<A NAME="185"><A>  <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> Vector load(Connection conn, String where, <FONT ID="Int">int</FONT> startRow, <FONT ID="Int">int</FONT> rowCount)
+<A NAME="186"><A>  <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="187"><A>    Vector beans = <FONT ID="New">new</FONT> Vector();
+<A NAME="188"><A>   
+<A NAME="189"><A>    Statement s = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+<A NAME="190"><A>                                       ResultSet.CONCUR_UPDATABLE);
+<A NAME="191"><A>    
+<A NAME="192"><A>    String sql = <FONT ID="StringLiteral">"SELECT pkey,blob_type,clob_type,tcn FROM xgen_lob_types "</FONT>;
+<A NAME="193"><A>    <FONT ID="If">if</FONT>(where.length() &gt; <FONT ID="IntegerLiteral">0</FONT>)
+<A NAME="194"><A>      sql = sql + where;
+<A NAME="195"><A>    ResultSet rs = s.executeQuery( sql );
+<A NAME="196"><A>    
+<A NAME="197"><A>    rs.absolute(startRow);
+<A NAME="198"><A>    
+<A NAME="199"><A>    <FONT ID="Int">int</FONT> count = <FONT ID="IntegerLiteral">0</FONT>;
+<A NAME="200"><A>    <FONT ID="While">while</FONT>( rs.next() &amp;&amp; (count &lt; rowCount) ){
+<A NAME="201"><A>      count++;
+<A NAME="202"><A>      <A HREF="../../../../com/workzen/xgen/test/LobTypeBean.java.html">LobTypeBean</A> bean = <FONT ID="New">new</FONT> <A HREF="../../../../com/workzen/xgen/test/LobTypeBean.java.html">LobTypeBean</A> ();
+<A NAME="203"><A>      bean.load(rs);
+<A NAME="204"><A>      beans.addElement(bean);
+<A NAME="205"><A>    }
+<A NAME="206"><A>    rs.close();
+<A NAME="207"><A>    s.close();
+<A NAME="208"><A>    <FONT ID="Return">return</FONT> beans;
+<A NAME="209"><A>  }
+<A NAME="210"><A>
+<A NAME="211"><A>  <FONT ID="FormalComment">/** 
+<A NAME="212"><A>   * Persist the record. Performs a sql update or insert.
+<A NAME="213"><A>   * The primary key will be "set" upon insert.
+<A NAME="214"><A>   * If autocommit is on, turn it off to make a transactional
+<A NAME="215"><A>   * check of the tcn field.
+<A NAME="216"><A>   */</FONT>
+<A NAME="217"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> persist(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="218"><A>    <FONT ID="If">if</FONT>(recordExists){
+<A NAME="219"><A>      <FONT ID="If">if</FONT>(handleConcurrency){
+<A NAME="220"><A>        <FONT ID="Boolean">boolean</FONT> autoCommit = conn.getAutoCommit();
+<A NAME="221"><A>        <FONT ID="If">if</FONT>( autoCommit )
+<A NAME="222"><A>          conn.setAutoCommit(<FONT ID="False">false</FONT>);
+<A NAME="223"><A>        checkConcurrency(conn);
+<A NAME="224"><A>      
+<A NAME="225"><A>        <FONT ID="SingleLineComment">//tcn = new Integer(tcn.intValue() + new Integer(1).intValue());
+<A NAME="226"><A></FONT>        tcn = <FONT ID="New">new</FONT> Integer (tcn.intValue() + <FONT ID="New">new</FONT> Integer (<FONT ID="IntegerLiteral">1</FONT>).intValue() );
+<A NAME="227"><A>      
+<A NAME="228"><A>        update(conn);
+<A NAME="229"><A>        <FONT ID="If">if</FONT>( autoCommit ){
+<A NAME="230"><A>          conn.commit();
+<A NAME="231"><A>          conn.setAutoCommit(<FONT ID="True">true</FONT>);
+<A NAME="232"><A>        }
+<A NAME="233"><A>      }<FONT ID="Else">else</FONT>{
+<A NAME="234"><A>        update(conn);
+<A NAME="235"><A>      }
+<A NAME="236"><A>    }<FONT ID="Else">else</FONT>{
+<A NAME="237"><A>      setPrimaryKey(conn);
+<A NAME="238"><A>      insert(conn);
+<A NAME="239"><A>    }
+<A NAME="240"><A>  }
+<A NAME="241"><A>  
+<A NAME="242"><A>  <FONT ID="FormalComment">/**
+<A NAME="243"><A>   * Query the database to make sure transaction control numbers match
+<A NAME="244"><A>   */</FONT>
+<A NAME="245"><A>  <FONT ID="Private">private</FONT> <FONT ID="Void">void</FONT> checkConcurrency(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="246"><A>    String sql = <FONT ID="StringLiteral">"SELECT tcn FROM xgen_lob_types WHERE pkey = ?"</FONT>;
+<A NAME="247"><A>    PreparedStatement pstmt = conn.prepareStatement(sql);
+<A NAME="248"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">1</FONT>, getPKey ().intValue() );
+<A NAME="249"><A>  
+<A NAME="250"><A>    ResultSet rs = pstmt.executeQuery();
+<A NAME="251"><A>    rs.next();
+<A NAME="252"><A>    Integer tcnum = <FONT ID="New">new</FONT> Integer(rs.getInt(<FONT ID="IntegerLiteral">1</FONT>));
+<A NAME="253"><A>    rs.close();
+<A NAME="254"><A>    pstmt.close();
+<A NAME="255"><A>    
+<A NAME="256"><A>    <FONT ID="If">if</FONT>( tcnum.intValue() !=  tcn.intValue() )
+<A NAME="257"><A>      <FONT ID="Throw">throw</FONT> <FONT ID="New">new</FONT> SQLException(<FONT ID="StringLiteral">"Transaction control numbers do not match:"</FONT> + tcnum + <FONT ID="StringLiteral">":"</FONT> + tcn );
+<A NAME="258"><A>  }
+<A NAME="259"><A>
+<A NAME="260"><A>  <FONT ID="FormalComment">/** 
+<A NAME="261"><A>    * Set the primary key field using the MAX value of the column 
+<A NAME="262"><A>    * If the primary key is a string, check for existence and return
+<A NAME="263"><A>    * If the primary key is already set (in a new bean its 0) return
+<A NAME="264"><A>    */</FONT>
+<A NAME="265"><A>  <FONT ID="Private">private</FONT> <FONT ID="Void">void</FONT> setPrimaryKey(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="266"><A>    <FONT ID="If">if</FONT>( getPKey().longValue() != <FONT ID="IntegerLiteral">0</FONT> ) <FONT ID="Return">return</FONT>;
+<A NAME="267"><A>    String sql = <FONT ID="StringLiteral">"SELECT MAX( pKey )+1 FROM xgen_lob_types"</FONT>;
+<A NAME="268"><A>    Statement s = conn.createStatement();
+<A NAME="269"><A>    ResultSet rs = s.executeQuery( sql );
+<A NAME="270"><A>    rs.next();
+<A NAME="271"><A>    setPKey( rs.getLong(<FONT ID="IntegerLiteral">1</FONT>) );
+<A NAME="272"><A>    rs.close();
+<A NAME="273"><A>    s.close();
+<A NAME="274"><A>   }
+<A NAME="275"><A>
+<A NAME="276"><A>  <FONT ID="FormalComment">/** 
+<A NAME="277"><A>    * Insert a new record 
+<A NAME="278"><A>    */</FONT>
+<A NAME="279"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> insert(Connection conn) <FONT ID="Throws">throws</FONT> SQLException {
+<A NAME="280"><A>    PreparedStatement pstmt = <FONT ID="Null">null</FONT>;
+<A NAME="281"><A>    pstmt = conn.prepareStatement(<FONT ID="StringLiteral">"INSERT INTO xgen_lob_types ( pkey,blob_type,clob_type,tcn ) VALUES ( ?,?,?,? )"</FONT>);
+<A NAME="282"><A>    pstmt.setLong ( <FONT ID="IntegerLiteral">1</FONT>, getPKey().longValue() );
+<A NAME="283"><A>    pstmt.setBinaryStream( <FONT ID="IntegerLiteral">2</FONT>, <FONT ID="New">new</FONT> ByteArrayInputStream( blobType ), blobType.length );
+<A NAME="284"><A>    pstmt.setCharacterStream( <FONT ID="IntegerLiteral">3</FONT>, <FONT ID="New">new</FONT> CharArrayReader( clobType ), clobType.length );
+<A NAME="285"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">4</FONT>, getTcn().intValue() );
+<A NAME="286"><A>    pstmt.executeUpdate();
+<A NAME="287"><A>    pstmt.close();
+<A NAME="288"><A>    recordExists = <FONT ID="True">true</FONT>;
+<A NAME="289"><A>  }
+<A NAME="290"><A>
+<A NAME="291"><A>  <FONT ID="FormalComment">/** 
+<A NAME="292"><A>    * Update an existing record 
+<A NAME="293"><A>    * (including the primary key)
+<A NAME="294"><A>    */</FONT>
+<A NAME="295"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> update(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="296"><A>    PreparedStatement pstmt = <FONT ID="Null">null</FONT>;
+<A NAME="297"><A>    pstmt = conn.prepareStatement(<FONT ID="StringLiteral">"UPDATE xgen_lob_types SET "</FONT> +
+<A NAME="298"><A>             <FONT ID="StringLiteral">"pkey = ?,"</FONT> +
+<A NAME="299"><A>             <FONT ID="StringLiteral">"blob_type = ?,"</FONT> +
+<A NAME="300"><A>             <FONT ID="StringLiteral">"clob_type = ?,"</FONT> +
+<A NAME="301"><A>             <FONT ID="StringLiteral">"tcn = ? "</FONT> +   
+<A NAME="302"><A>             <FONT ID="StringLiteral">"WHERE pKey = ?"</FONT> );
+<A NAME="303"><A>    pstmt.setLong ( <FONT ID="IntegerLiteral">1</FONT>, getPKey ().longValue() );
+<A NAME="304"><A>    pstmt.setBinaryStream( <FONT ID="IntegerLiteral">2</FONT>, <FONT ID="New">new</FONT> ByteArrayInputStream( blobType ), blobType.length );
+<A NAME="305"><A>    pstmt.setCharacterStream( <FONT ID="IntegerLiteral">3</FONT>, <FONT ID="New">new</FONT> CharArrayReader( clobType ), clobType.length );
+<A NAME="306"><A>    pstmt.setInt ( <FONT ID="IntegerLiteral">4</FONT>, getTcn ().intValue() );
+<A NAME="307"><A>    pstmt.setLong( <FONT ID="IntegerLiteral">5</FONT>, getPKey ().longValue() );
+<A NAME="308"><A>    pstmt.executeUpdate();
+<A NAME="309"><A>    pstmt.close();
+<A NAME="310"><A>  }
+<A NAME="311"><A>
+<A NAME="312"><A>  <FONT ID="FormalComment">/** 
+<A NAME="313"><A>    * Delete an existing record 
+<A NAME="314"><A>    */</FONT>
+<A NAME="315"><A>  <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Void">void</FONT> delete(Connection conn, String where) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="316"><A>    Statement stmt = conn.createStatement();
+<A NAME="317"><A>    String sql = <FONT ID="StringLiteral">"DELETE FROM xgen_lob_types "</FONT> + where;
+<A NAME="318"><A>    stmt.execute(sql);
+<A NAME="319"><A>    stmt.close();
+<A NAME="320"><A>  }
+<A NAME="321"><A>
+<A NAME="322"><A>  <FONT ID="FormalComment">/** 
+<A NAME="323"><A>    * Delete an existing record using a prepared statement
+<A NAME="324"><A>    */</FONT>
+<A NAME="325"><A>  <FONT ID="Public">public</FONT> <FONT ID="Void">void</FONT> delete(Connection conn) <FONT ID="Throws">throws</FONT> SQLException{
+<A NAME="326"><A>    PreparedStatement pstmt = <FONT ID="Null">null</FONT>;
+<A NAME="327"><A>    pstmt = conn.prepareStatement(<FONT ID="StringLiteral">"DELETE FROM xgen_lob_types WHERE pKey = ?"</FONT>);
+<A NAME="328"><A>    pstmt.setLong( <FONT ID="IntegerLiteral">1</FONT>, getPKey ().longValue() );
+<A NAME="329"><A>    pstmt.executeUpdate();
+<A NAME="330"><A>    pstmt.close();
+<A NAME="331"><A>  }
+<A NAME="332"><A> 
+<A NAME="333"><A>  <FONT ID="FormalComment">/** 
+<A NAME="334"><A>    * to String 
+<A NAME="335"><A>    */</FONT>
+<A NAME="336"><A>  <FONT ID="Public">public</FONT> String toString(){
+<A NAME="337"><A>    <FONT ID="Return">return</FONT> toString(<FONT ID="StringLiteral">","</FONT>);
+<A NAME="338"><A>  }
+<A NAME="339"><A>
+<A NAME="340"><A>  <FONT ID="FormalComment">/** 
+<A NAME="341"><A>    * to String with specified line terminator
+<A NAME="342"><A>    */</FONT>
+<A NAME="343"><A>  <FONT ID="Public">public</FONT> String toString(String nl){
+<A NAME="344"><A>    StringBuffer buf = <FONT ID="New">new</FONT> StringBuffer();
+<A NAME="345"><A>    buf.append( getPKey () );
+<A NAME="346"><A>    buf.append(nl);
+<A NAME="347"><A>    buf.append( <FONT ID="New">new</FONT> String( getBlobType() ) );
+<A NAME="348"><A>    buf.append(nl);
+<A NAME="349"><A>    buf.append( <FONT ID="New">new</FONT> String( getClobType() ) );
+<A NAME="350"><A>    buf.append(nl);
+<A NAME="351"><A>    buf.append( getTcn () );
+<A NAME="352"><A>    buf.append(nl);
+<A NAME="353"><A>    <FONT ID="Return">return</FONT> buf.toString();
+<A NAME="354"><A>  }
+<A NAME="355"><A> 
+<A NAME="356"><A>}
+<A NAME="357"><A>
+<A NAME="358"><A>
+<A NAME="359"><A>
+<A NAME="360"><A>
+<A NAME="361"><A></pre><TABLE id="Header" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" width="33%" ><p align="left">&nbsp;</p>
+</td>
+<td align="center" colspan="2" width="33%" </td>
+<p align="center"><font size="4">LobTypeBean</font></p>
+</td>
+<td align="right" colspan="2" width="33%">
+<p align="right"><font size="3">&nbsp;</font></p>
+</td>
+</tr>
+</TABLE>
+
+</BODY>
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+</HTML>

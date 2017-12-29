@@ -1,0 +1,14 @@
+XGen QuickStart
+
+To build the examples run:
+
+ant -buildfile build_blog.xml
+ant -buildfile build_types.xml
+ant -buildfile build_schema.xml
+ant -buildfile build_website.xml
+
+To generate your own project code:
+
+- create a input file (see etc/input)
+- create a build file (see build_blog.xml)
+- run ant on your build file!

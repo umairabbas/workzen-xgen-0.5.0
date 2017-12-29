@@ -1,0 +1,82 @@
+<html><head>
+<title></title>
+<script language="javascript" type="text/javascript" src="header.js"></script>
+
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java to HTML Converter V3.2 2003 by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<center>
+ <table  align="center" border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap valign="top" align="left">
+    <code>
+<font color="#008000">/*</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;BlogCategory.java</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Generated&nbsp;by&nbsp;XGen&nbsp;using&nbsp;templates/pojo/pojo.vm</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Sat&nbsp;Apr&nbsp;17&nbsp;20:48:24&nbsp;MDT&nbsp;2004</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br>
+<font color="#0000ff"><b>package&nbsp;</b></font><font color="#000000">workzen.blog.model;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#0000ff"><b>import&nbsp;</b></font><font color="#000000">java.util.*;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#008000">/**</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Blog&nbsp;category&nbsp;class</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;</font><font color="#008000">java developer</font><br>
+<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br>
+<font color="#0000ff"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">BlogCategory&nbsp;</font><font color="#000000">{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>protected&nbsp;</b></font><font color="#0000ff"><b>long&nbsp;</b></font><font color="#000000">id;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>protected&nbsp;</b></font><font color="#000000">String&nbsp;name&nbsp;=&nbsp;</font><font color="#0000ff"><b>new&nbsp;</b></font><font color="#000000">String</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;*/</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>public&nbsp;</b></font><font color="#0000ff"><b>void&nbsp;</b></font><font color="#000000">setId</font><font color="#000000">(</font><font color="#0000ff"><b>long&nbsp;</b></font><font color="#000000">value</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff"><b>this</b></font><font color="#000000">.id&nbsp;=&nbsp;value;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>public&nbsp;</b></font><font color="#0000ff"><b>long&nbsp;</b></font><font color="#000000">getId</font><font color="#000000">()&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff"><b>return&nbsp;</b></font><font color="#000000">id;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;*/</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>public&nbsp;</b></font><font color="#0000ff"><b>void&nbsp;</b></font><font color="#000000">setName</font><font color="#000000">(</font><font color="#000000">String&nbsp;value</font><font color="#000000">)&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff"><b>this</b></font><font color="#000000">.name&nbsp;=&nbsp;</font><font color="#0000ff"><b>new&nbsp;</b></font><font color="#000000">String</font><font color="#000000">(</font><font color="#000000">value</font><font color="#000000">)</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;getName</font><font color="#000000">()&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff"><b>return&nbsp;</b></font><font color="#000000">name;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;to&nbsp;String&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;toString</font><font color="#000000">()&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff"><b>return&nbsp;</b></font><font color="#000000">getDataMap</font><font color="#000000">()</font><font color="#000000">.toString</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Get&nbsp;the&nbsp;object&nbsp;as&nbsp;a&nbsp;map&nbsp;of&nbsp;key-value&nbsp;pairs</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000ff"><b>public&nbsp;</b></font><font color="#000000">HashMap&nbsp;getDataMap</font><font color="#000000">()&nbsp;{</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HashMap&nbsp;map&nbsp;=&nbsp;</font><font color="#0000ff"><b>new&nbsp;</b></font><font color="#000000">HashMap</font><font color="#000000">()</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">map.put</font><font color="#000000">(</font><font color="#990000">&#34;id&#34;</font><font color="#000000">,&nbsp;</font><font color="#990000">&#34;&#34;&nbsp;</font><font color="#000000">+&nbsp;getId</font><font color="#000000">())</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">map.put</font><font color="#000000">(</font><font color="#990000">&#34;name&#34;</font><font color="#000000">,&nbsp;getName</font><font color="#000000">())</font><font color="#000000">;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000ff"><b>return&nbsp;</b></font><font color="#000000">map;</font><br>
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br>
+<font color="#ffffff"></font><br>
+<font color="#000000">}</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+ </table>
+</center>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+<script language="javascript" type="text/javascript" src="footer.js"></script>
+
+</body></html>
